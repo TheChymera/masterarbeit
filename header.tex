@@ -1,0 +1,104 @@
+\documentclass[a4paper,romanian,english]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{babel}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{color}
+\usepackage{float}
+\usepackage{wasysym}
+\usepackage{verbatim} 
+\usepackage[labelfont={bf}, margin=0.8cm]{caption}
+\usepackage{fancyhdr}
+\usepackage[iso, english]{isodate}
+\usepackage{dashrule}
+
+
+\setlength{\topmargin}{-0.5cm}
+\setlength{\textheight}{24cm}
+\setlength{\oddsidemargin}{0.2cm}
+\setlength{\evensidemargin}{-0.2cm}
+\setlength{\textwidth}{16cm}
+\renewcommand{\theequation}{\arabic{equation}}
+%\setcounter{topnumber}{5}
+
+
+\definecolor{lg}{gray}{0.60}
+\definecolor{mg}{gray}{0.40}
+
+
+\makeatletter
+\renewcommand\chapter{
+	\thispagestyle{headings}
+	\if@openright\cleardoublepage\else\clearpage\fi\global\@topnum\z@
+	\secdef\@chapter\@schapter
+	}
+\makeatother
+
+
+\makeatletter
+\newenvironment{tablehere}
+{\def\@captype{table}}
+{}
+\newenvironment{figurehere}
+{\def\@captype{figure}}
+{}
+\makeatother
+
+\makeatletter
+\def\maketitle{%
+    \setlength{\parindent}{0cm}
+    \null
+    \pagestyle{empty}%
+    \vfill
+    \begin{center}\leavevmode
+    \normalfont{}
+    \vskip 1.5cm
+    {\Large \textbf{\@title}\par}%
+    \vskip 3cm
+    {\Large Master Thesis\par}
+    \vskip 0.5cm
+    {\Large Presented to the Faculty of Biosciences\\at the Ruprecht-Karls-Universität Heidelberg\par}
+    \vskip 5cm
+    {\Large \@author\par}%
+    {\Large \the\year\par}%
+    \end{center}%
+    \vfill
+    \null
+    \cleardoublepage{}
+    \null
+    \vfill{}
+    \large
+    This thesis was written at the Central Institue of Mental Health\\
+    at the University of Heidelberg in the period of 2013-06-06 to \today \\
+    under supervision of Prof. Dr. Peter Kirsch
+    \vskip 3cm
+    1$^{st}$ \hspace{0.085cm}Appraiser: Prof. Dr. Rainer Spanagel \hspace{0.465cm}Institute: Central Institute of Mental Health
+    2$^{nd}$ Appraiser: Prof. Dr. Daniel Durstewitz \hspace{0.15cm}Institute: Central Institute of Mental Health
+    \vskip 3cm
+    I herewith declare that I wrote this Master thesis independently under supervision and used no other sources and aids than those indicated.
+    \vskip 3.5cm
+    \hdashrule{4cm}{1pt}{1pt 1pt}\hspace{5cm}\hdashrule{5cm}{1pt}{1pt 1pt}
+    \\
+    Date\hspace{8.2cm}Signature
+    \vskip 2cm
+    \hdashrule{\textwidth}{2pt}{1pt 1pt} 
+    \vskip 2.5cm
+    The thesis has to contain a summary in English.
+    \vfill
+    \null{}
+    \setlength{\parindent}{0.55cm}
+    \cleardoublepage
+}
+
+\makeatother
+\title{“Neuronal Correlates of Occulometric Parameters in Face Recognition”}
+\author{Horea-Ioan Ioanãş}
+
+\begin{document}
+\maketitle
+
+\pagestyle{headings}
+\tableofcontents{}
+\setcounter{page}{1}
+
