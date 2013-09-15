@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.8.31)  16 SEP 2013 00:09
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.8.31)  16 SEP 2013 00:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -558,7 +558,7 @@ File: uwasy.fd 2003/10/30 v2.0 Wasy-2 symbol font definitions
 
 ]
 Chapter 1.
-(./README.md) [3] [4
+(./README.rst) [3] [4
 
 ]
 Chapter 2.
@@ -568,7 +568,7 @@ Chapter 2.
 Chapter 3.
 
 LaTeX Warning: Reference `sec:MV-preliminary-experiments' on page 7 undefined o
-n input line 12.
+n input line 10.
 
 [7] [8
 
@@ -588,10 +588,10 @@ LaTeX Warning: There were undefined references.
 
  ) ) 
 Here is how much of TeX's memory you used:
- 4603 strings out of 493853
- 64340 string characters out of 6157277
+ 4604 strings out of 493853
+ 64349 string characters out of 6157277
  135484 words of memory out of 5000000
- 7763 multiletter control sequences out of 15000+600000
+ 7764 multiletter control sequences out of 15000+600000
  15462 words of font info for 37 fonts, out of 8000000 for 9000
  788 hyphenation exceptions out of 8191
  38i,5n,43p,823b,189s stack positions out of 5000i,500n,10000p,200000b,80000s
