@@ -1,6 +1,9 @@
-# “Neuronal Correlates of Occulometric Parameters in Face Recognition”
+========
+“Neuronal Correlates of Occulometric Parameters in Face Recognition”
+========
 
-## Master's Thesis, Horea-Ioan Ioanăş
+Master's Thesis, Horea-Ioan Ioanăş
+========
 
 .. letag 
 
