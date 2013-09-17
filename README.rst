@@ -1,4 +1,4 @@
-:author: Horea-Ioan Ioanăş
+:author: Horea Christian
 :Email: h.chr@mail.ru
 :Institution: Central Institute of Mental Health, Mannheim
 :Institution: Interdisciplinary Center for Neurosciences, Heidelberg University

@@ -1,2 +1,9 @@
 # image files
 img/*
+
+# LaTeX traces and binaries
+*.pdf
+*.log
+*.toc
+*.aux
+
