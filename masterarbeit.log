@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.8.31)  16 SEP 2013 00:43
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.8.31)  17 SEP 2013 06:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -462,34 +462,65 @@ Package etexcmds Info: Could not find \expanded.
 ))
 \CatchFBT@tok=\toks256
 )
-(./masterarbeit.aux)
+(/usr/share/texmf-dist/tex/latex/psnfss/courier.sty
+Package: courier 2005/04/12 PSNFSS-v9.2a (WaS) 
+)
+(/usr/share/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count113
+\lst@gtempboxa=\box54
+\lst@token=\toks21
+\lst@length=\count114
+\lst@currlwidth=\dimen121
+\lst@column=\count115
+\lst@pos=\count116
+\lst@lostspace=\dimen122
+\lst@width=\dimen123
+\lst@newlines=\count117
+\lst@lineno=\count118
+\lst@maxwidth=\dimen124
+
+(/usr/share/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
+\c@lstnumber=\count119
+\lst@skipnumbers=\count120
+\lst@framebox=\box55
+)
+(/etc/texmf/tex/latex/listings.d/listings.cfg
+File: listings.cfg 2007/02/22 1.4 listings configuration
+))
+Package: listings 2007/02/22 1.4 (Carsten Heinz)
+
+(/usr/share/texmf-dist/tex/latex/parskip/parskip.sty
+Package: parskip 2001/04/09 non-zero parskip adjustments
+) (./masterarbeit.aux)
 \openout1 = `masterarbeit.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 99.
-LaTeX Font Info:    ... okay on input line 99.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 99.
-LaTeX Font Info:    ... okay on input line 99.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 99.
-LaTeX Font Info:    ... okay on input line 99.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 99.
-LaTeX Font Info:    ... okay on input line 99.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 99.
-LaTeX Font Info:    ... okay on input line 99.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 99.
-LaTeX Font Info:    ... okay on input line 99.
- (/usr/share/texmf-dist/tex/context/base/supp-pdf.mkii
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 101.
+LaTeX Font Info:    ... okay on input line 101.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 101.
+LaTeX Font Info:    ... okay on input line 101.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 101.
+LaTeX Font Info:    ... okay on input line 101.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 101.
+LaTeX Font Info:    ... okay on input line 101.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 101.
+LaTeX Font Info:    ... okay on input line 101.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 101.
+LaTeX Font Info:    ... okay on input line 101.
+
+(/usr/share/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count113
-\scratchdimen=\dimen121
-\scratchbox=\box54
-\nofMPsegments=\count114
-\nofMParguments=\count115
-\everyMPshowfont=\toks21
-\MPscratchCnt=\count116
-\MPscratchDim=\dimen122
-\MPnumerator=\count117
-\makeMPintoPDFobject=\count118
-\everyMPtoPDFconversion=\toks22
+\scratchcounter=\count121
+\scratchdimen=\dimen125
+\scratchbox=\box56
+\nofMPsegments=\count122
+\nofMParguments=\count123
+\everyMPshowfont=\toks22
+\MPscratchCnt=\count124
+\MPscratchDim=\dimen126
+\MPnumerator=\count125
+\makeMPintoPDFobject=\count126
+\everyMPtoPDFconversion=\toks23
 ) (/usr/share/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -528,25 +559,32 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 
 isodate: babel.sty has been loaded
+\c@lstlisting=\count127
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2
 
 ]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 100.
+(Font)              <12> on input line 102.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 100.
+(Font)              <8> on input line 102.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 100.
-LaTeX Font Info:    Try loading font information for U+wasy on input line 100.
+(Font)              <6> on input line 102.
+LaTeX Font Info:    Try loading font information for U+wasy on input line 102.
 
 (/usr/share/texmf-dist/tex/latex/wasysym/uwasy.fd
 File: uwasy.fd 2003/10/30 v2.0 Wasy-2 symbol font definitions
-) [3] [4
+)
+Overfull \hbox (30.0pt too wide) in paragraph at lines 102--102
+[][] [] 
+ []
+
+[3] [4
 
 ] (./masterarbeit.toc)
 \tf@toc=\write3
@@ -566,15 +604,14 @@ Chapter 2.
 
 ]
 Chapter 3.
-
-LaTeX Warning: Reference `sec:MV-preliminary-experiments' on page 7 undefined o
-n input line 10.
-
-[7] [8
-
-]
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 21.
+(/usr/share/texmf-dist/tex/latex/psnfss/t1pcr.fd
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
+) [7] [8]
 Chapter 4.
-[9] [10
+[9
+
+] [10
 
 ]
 Chapter 5.
@@ -582,32 +619,34 @@ Chapter 5.
 
 ]
 Chapter 6.
-(./footer.tex [13] (./masterarbeit.aux)
-
-LaTeX Warning: There were undefined references.
-
- ) ) 
+(./footer.tex [13] (./masterarbeit.aux) ) ) 
 Here is how much of TeX's memory you used:
- 4604 strings out of 493853
- 64349 string characters out of 6157277
- 135484 words of memory out of 5000000
- 7764 multiletter control sequences out of 15000+600000
- 15462 words of font info for 37 fonts, out of 8000000 for 9000
+ 5979 strings out of 493853
+ 83929 string characters out of 6157277
+ 156131 words of memory out of 5000000
+ 9113 multiletter control sequences out of 15000+600000
+ 16859 words of font info for 40 fonts, out of 8000000 for 9000
  788 hyphenation exceptions out of 8191
- 38i,5n,43p,823b,189s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fon
-ts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf-dist/fonts/type1/public
-/cm-super/sfbx1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx2
-074.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/s
-hare/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf-dist
-/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf-dist/fonts/type1/pu
-blic/cm-super/sfrm1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/s
-fsl1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb>
-Output written on masterarbeit.pdf (17 pages, 160184 bytes).
+ 38i,5n,43p,890b,219s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf-dist/fonts/enc/dvi
+ps/cm-super/cm-super-t1.enc}{/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx100
+0.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/sha
+re/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf-dist/f
+onts/type1/public/cm-super/sfbx2074.pfb></usr/share/texmf-dist/fonts/type1/publ
+ic/cm-super/sfbx2488.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfr
+m1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr
+/share/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf-di
+st/fonts/type1/public/cm-super/sfsl1000.pfb></usr/share/texmf-dist/fonts/type1/
+public/cm-super/sfti1200.pfb></usr/share/texmf-dist/fonts/type1/urw/courier/ucr
+r8a.pfb>
+Output written on masterarbeit.pdf (17 pages, 212109 bytes).
 PDF statistics:
- 100 PDF objects out of 1000 (max. 8388607)
- 70 compressed objects within 1 object stream
+ 121 PDF objects out of 1000 (max. 8388607)
+ 86 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

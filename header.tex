@@ -12,8 +12,10 @@
 \usepackage{fancyhdr}
 \usepackage[iso, english]{isodate}
 \usepackage{dashrule}
-\usepackage{catchfilebetweentags}
-
+\usepackage{catchfilebetweentags} % used to import the REAMDE w/o the reST header
+\usepackage{courier} % For prettier monospace fonts (used for code)
+\usepackage{color,listings} % background color highlighting for code
+\usepackage[parfill]{parskip} % blank lines instead of indents to separate paragraphs
 
 \setlength{\topmargin}{-0.5cm}
 \setlength{\textheight}{24cm}
@@ -23,7 +25,7 @@
 \renewcommand{\theequation}{\arabic{equation}}
 %\setcounter{topnumber}{5}
 
-
+\definecolor{vlg}{gray}{0.90}
 \definecolor{lg}{gray}{0.60}
 \definecolor{mg}{gray}{0.40}
 
@@ -102,4 +104,6 @@
 \pagestyle{headings}
 \tableofcontents{}
 \setcounter{page}{1}
+\setlength{\parindent}{0pt}
+\setlength{\hangindent}{0pt}
 
