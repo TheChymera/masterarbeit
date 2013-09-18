@@ -20,23 +20,26 @@
 	    This scrambling functionality recognises the face region of interest (ROI) by scanning for pixel lines with few unique values, and then divides the face ROI in square clusters of predefined sizes.
 	    The clusters then get permuted and rewritten in-place on the image - this is done via the \colorbox{vlg}{\texttt{montage2d}} function of the \colorbox{vlg}{\texttt{scikits\_image}} python package, the function was written and contributed to the package for the benefit of the scientific community as part of this thesis.
 	    The image background is then filled with homogeneous values.
-	    \subsubsection{Kernel-Based Scrambling}
+	    \subsubsection{Kernel-Based Scrambling}\label{sec:m.vs.si.kbs}
 	    This is done by remapping single pixels via the \colorbox{vlg}{\texttt{geometric\_transform}} function of the \colorbox{vlg}{\texttt{scipy}} Python suite. 
-	    New positions are computed via a function which adds a random integer in the $[-K;K]$ ($K$ being the kernel integer) interval to both the X and Y coordinates of the said pixel.
-	    Effectively, this redistributes each pixel in an area of $[-K;K]$ around its original position with a standard deviation ($\sigma$) of $K$. 
+	    New positions are computed via a function which adds a random integer in the $[-K;K]$ ($K$ being the scrambling kernel integer) interval to both the X and Y coordinates of the said pixel.
+	    Effectively, this redistributes each pixel in an area of $[-K;K]$ around its original position with a standard deviation ($\sigma$) of $\approx 0.96K$ (as calculated in figure~\ref{eq:lrgn}). 
 	\subsection{Preliminary Experiments} 
 	Preliminary experiments have been conducted in order to establish a proper paradigm for the \textit{main} experiments of the project. 
-	The rationale of these preliminary experiments is further discussed under section~\ref{sec:m.vs.si}. 
-	Their main goal is comparing reaction times between scrambled image and emotional image trials.
+	Their main goal is determining which scrambling cluster sizes have reaction times comparable to the \SI{100}{\percent} and \SI{40}{\percent} emotional images (decided upon based on rationales delineated under section~\ref{sec:m.vs.ef}).
 	
-	For conducting these experiments we have used a home-brewed Python script written for the purpose of this thesis and openly published on GitHub.
+	For stimulus presentation and data acquisition in these experiments we used a home-brewed Python script written for the purpose of this thesis and openly published on GitHub.
+	Our Python script uses the PsychoPy suite\cite{Peirce2008} for specialized, high-precision stimulus rendering and timing.   
 	    \subsubsection{Simple Cluster-Based Scrambling}
-	    In a first set of trials 
+	    In a first set of trials we have 
 \chapter{Results}
 	\section{Preliminary Experiments}\label{sec:r.pe}
 	In order to establish an experimental paradigm which affords the comparison between emotion recognition and simple visual matching, we need to select stimuli whose matching is correspondingly difficult.
 	For the emotion recognition trials, we decided for faces with emotional "concentrations" ??? of 40\% and 100\% (as discussed in section~\ref{sec:m.vs.ef}).
 \chapter{Discussion}
 \chapter{Meta}
-
+\begin{figure}
+\[ \sigma_{x,y} = \sqrt{\sigma_{x}^{2}+\sigma_{y}^{2}} = \sqrt{2\sigma_{x}^{2}} \approx \sqrt{2 \cdot (0.68 K)^{2}} \approx 0.96K\]
+\caption{Here we calculate the standard deviation ($\sigma$) of the distance from the original pixel location to the new pixel location following kernel-based scrambling, as detailed in section~\ref{sec:m.vs.si.kbs}. The standard deviation along one axis is defined as $0.68K$ (\SI{68}{\percent} of the scrambling kernel, $K$) following the 68–95–99.7 rule, though experimentally we have found slightly lower values ($\approx 0.6K$).}\label{eq:lrgn}
+\end{figure}
 \input{footer.tex}

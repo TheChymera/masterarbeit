@@ -9,6 +9,6 @@ Neuronal Correlates of Occulometric Parameters in Face Recognition
 
 .. letag 
 
-Text here HERE
+All original content present in this work is available under a “Creative Commons Attribution-ShareAlike Unported License”.
 
 .. letag>
