@@ -6,4 +6,9 @@ img/*
 *.log
 *.toc
 *.aux
+*.out
 
+# Bibtex traces
+*.bak
+*.blg
+*.bbl
