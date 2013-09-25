@@ -4,6 +4,24 @@
 \readme
 \chapter{Background}
 \chapter{Methods}
+    \section{Questionnaires}
+    We have decided to complement our studies with a series of previously validated and widely used questionnaires.
+    These tests could provide insights into the interplay between psychotypes on one side and behavioural parameters or their neurological underpinnings on the other.
+    For test presentation we have chosen to use a web-based version of the free and open source (FOSS) software testMaker\cite{testmaker}.
+    
+    The choice of tests was based on both general relevance to the host group's research, and specific relevance to emotional perception.
+    According to these criteria, we have compiled a selection of 8 questionnaires:
+    \begin{itemize}
+        \item The Autism Spectrum Quotient questionnaire (AQ) \cite{Baron-Cohen2001}
+	\item The World Health Organization Adult ADHD Self-Report Scale (ASRS) \cite{Kessler2005}
+	\item The 1996 revised Beck Depression Inventory (BDI2) \cite{Beck1996}
+	\item The short version of the Borderline Symptoms List (BSL23) \cite{Bohus2009}
+	\item The Systemizing Quotient questionnaire (SQ) \cite{Baron-Cohen2003a}
+	\item The Empathizing Quotient questionnaire (EQ) \cite{Baron-Cohen2004}
+	\item The Schizotypal Personality Questionnaire (SPQ) \cite{Raine1991}
+	\item The Emotion Regulation Questionnaire (ERQ) \cite{Gross2003}
+    \end{itemize}
+    The questionnaires were administered in German language, and translated and validated versions were provided by the test databases of the Central Institute of Mental Health.   
     \section{Visual Stimuli}
 	\subsection{Emotional Faces}\label{sec:m.vs.ef}
 	\subsection{Scrambled Images}\label{sec:m.vs.si}
@@ -18,7 +36,8 @@
 	The script provides both cluster-based and kernel-based scrambling:
 	    \subsubsection{Cluster-Based Scrambling}
 	    This scrambling functionality recognises the face region of interest (ROI) by scanning for pixel lines with few unique values, and then divides the face ROI in square clusters of predefined sizes.
-	    The clusters then get permuted and rewritten in-place on the image - this is done via the \colorbox{vlg}{\texttt{montage2d}} function of the \colorbox{vlg}{\texttt{scikits\_image}} python package, the function was written and contributed to the package for the benefit of the scientific community as part of this thesis.
+	    The clusters then get permuted and rewritten in-place on the image - this is done via the \colorbox{vlg}{\texttt{montage2d}} function of the \colorbox{vlg}{\texttt{scikits\_image}} python package 
+	    (the function was written and contributed to the package for the benefit of the scientific community as part of this thesis).
 	    The image background is then filled with homogeneous values.
 	    \subsubsection{Kernel-Based Scrambling}\label{sec:m.vs.si.kbs}
 	    This is done by remapping single pixels via the \colorbox{vlg}{\texttt{geometric\_transform}} function of the \colorbox{vlg}{\texttt{scipy}} Python suite. 
@@ -26,7 +45,7 @@
 	    Effectively, this redistributes each pixel in an area of $[-K;K]$ around its original position with a standard deviation ($\sigma$) of $\approx 0.96K$ (as calculated in figure~\ref{eq:lrgn}). 
 	\subsection{Preliminary Experiments} 
 	Preliminary experiments have been conducted in order to establish a proper paradigm for the \textit{main} experiments of the project. 
-	Their main goal is determining which scrambling cluster sizes have reaction times comparable to the \SI{100}{\percent} and \SI{40}{\percent} emotional images (decided upon based on rationales delineated under section~\ref{sec:m.vs.ef}).
+	Their primary goal is determining which scrambling cluster sizes have reaction times comparable to the \SI{100}{\percent} and \SI{40}{\percent} emotional images (decided upon based on rationales delineated under section~\ref{sec:m.vs.ef}).
 	
 	For stimulus presentation and data acquisition in these experiments we used a home-brewed Python script written for the purpose of this thesis and openly published on GitHub.
 	Our Python script uses the PsychoPy suite\cite{Peirce2008} for specialized, high-precision stimulus rendering and timing.   
