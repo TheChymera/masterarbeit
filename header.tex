@@ -3,9 +3,11 @@
 \usepackage[T1]{fontenc}
 \usepackage{babel}
 \usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
 \usepackage{multicol}
 \usepackage{color}
-\usepackage{float}
+%~ \usepackage{float}
 \usepackage{wasysym}
 \usepackage{verbatim} 
 \usepackage[labelfont={bf}, margin=0.8cm]{caption}
@@ -18,7 +20,7 @@
 \usepackage{color,listings} % background color highlighting for code
 \usepackage[parfill]{parskip} % blank lines instead of indents to separate paragraphs
 \usepackage[hidelinks]{hyperref} % Makes URLs, DOIs, and page links work. w/o colored bracketing.
-\usepackage[margin=2.4cm, top=2.5cm]{geometry}% Makes margins narrower.
+\usepackage[outer=1.7cm, inner=2.5cm, top=2.5cm, bottom=2cm]{geometry}% Makes margins narrower.
 
 
 \renewcommand{\theequation}{\arabic{equation}}
@@ -28,6 +30,7 @@
 \definecolor{vlg}{gray}{0.90}
 \definecolor{lg}{gray}{0.60}
 \definecolor{mg}{gray}{0.40}
+\DeclareSIUnit\pixel{px}
 
 
 \makeatletter
@@ -39,14 +42,14 @@
 \makeatother
 
 
-\makeatletter
-\newenvironment{tablehere}
-{\def\@captype{table}}
-{}
-\newenvironment{figurehere}
-{\def\@captype{figure}}
-{}
-\makeatother
+%~ \makeatletter
+%~ \newenvironment{tablehere}
+%~ {\def\@captype{table}}
+%~ {}
+%~ \newenvironment{figurehere}
+%~ {\def\@captype{figure}}
+%~ {}
+%~ \makeatother
 
 \makeatletter
 \def\maketitle{%
