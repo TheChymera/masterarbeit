@@ -3,6 +3,7 @@
 \CatchFileBetweenDelims{\readme}{README.rst}{.. letag}{.. letag>} %adds file content between the specified tags 
 \readme
 \chapter{Background}
+    \section{}
 \chapter{Methods}
     \section{Questionnaires}
     We have decided to complement our studies with a series of previously validated and widely used questionnaires.
@@ -12,16 +13,27 @@
     The choice of tests was based on both general relevance to the host group's research, and specific relevance to emotional perception.
     According to these criteria, we have compiled a selection of 8 questionnaires:
     \begin{itemize}
-        \item The Autism Spectrum Quotient questionnaire (AQ) \cite{Baron-Cohen2001}
-	\item The World Health Organization Adult ADHD Self-Report Scale (ASRS) \cite{Kessler2005}
-	\item The 1996 revised Beck Depression Inventory (BDI2) \cite{Beck1996}
-	\item The short version of the Borderline Symptoms List (BSL23) \cite{Bohus2009}
-	\item The Systemizing Quotient questionnaire (SQ) \cite{Baron-Cohen2003a}
-	\item The Empathizing Quotient questionnaire (EQ) \cite{Baron-Cohen2004}
-	\item The Schizotypal Personality Questionnaire (SPQ) \cite{Raine1991}
-	\item The Emotion Regulation Questionnaire (ERQ) \cite{Gross2003}
+        \item The Autism Spectrum Quotient questionnaire (\textbf{AQ}) \cite{Baron-Cohen2001}
+	\item The World Health Organization Adult ADHD Self-Report Scale (\textbf{ASRS}) \cite{Kessler2005}
+	\item The 1996 revised Beck Depression Inventory (\textbf{BDI2}) \cite{Beck1996}
+	\item The short version of the Borderline Symptoms List (\textbf{BSL23}) \cite{Bohus2009}
+	\item The Empathizing Quotient questionnaire (\textbf{EQ}) \cite{Baron-Cohen2004}
+	\item The Systemizing Quotient questionnaire (\textbf{SQ}) \cite{Baron-Cohen2003a}
+	\item The Emotion Regulation Questionnaire (\textbf{ERQ}) \cite{Gross2003}
+	\item The Schizotypal Personality Questionnaire (\textbf{SPQ}) \cite{Raine1991}
     \end{itemize}
-    The questionnaires were administered in German language, and translated and validated versions were provided by the test databases of the Central Institute of Mental Health.   
+    The questionnaires were administered in German language, and translated and validated versions were provided by the test databases of the Central Institute of Mental Health.
+    Translation references are as follows:
+    \begin{itemize}
+        \item \textbf{AQ} - Translated by C.M. Freitag, Homburg
+	\item \textbf{ASRS} - Translated by Dr. P. Kirsch, JLU Gießen 2005
+	\item \textbf{BDI2} - Translated by Pearson Assessment \& Information GmbH (Frankfurt/M. 2010)
+	\item \textbf{BSL23} - Translated at the Department of Psychosomatic Medicine and Psychotherapy, Central Institute of Mental Health.
+	\item \textbf{EQ} - Translated by Dipl.-Psych. Jörn de Haen
+	\item \textbf{SQ} - Translated by Dipl.-Psych. Jörn de Haen
+	\item \textbf{ERQ} - Translated by Brigit Abler and Henrik Kessler \cite{Abler2009}
+	\item \textbf{SPQ} - Tranlsated by Klein, Andersen, and Jahn \cite{Klein1997}
+    \end{itemize}
     \section{Visual Stimuli}
 	\subsection{Emotional Faces}\label{sec:m.vs.ef}
 	\subsection{Scrambled Images}\label{sec:m.vs.si}
@@ -32,7 +44,7 @@
 	Available data ??? suggests that scrambling of smaller image sub-sections (further referred to as “clusters”) makes the images progressively difficult to identify and match to other copies.
 	This rationale determined the nature of our scrambling algorithms (detailed below) and was furthermore experimentally validated in preliminary trials (as described in section~\ref{sec:r.pe}).
 	
-	This was done via a home-brewed Python script written for the purpose of this thesis and openly published on GitHub.
+	This was done via Pyxrand\cite{pyxrand}, home-brewed Python script written for the purpose of this thesis and openly published on GitHub.
 	The script provides both cluster-based and kernel-based scrambling:
 	    \subsubsection{Cluster-Based Scrambling}
 	    This scrambling functionality recognises the face region of interest (ROI) by scanning for pixel lines with few unique values, and then divides the face ROI in square clusters of predefined sizes.
@@ -47,10 +59,71 @@
 	Preliminary experiments have been conducted in order to establish a proper paradigm for the \textit{main} experiments of the project. 
 	Their primary goal is determining which scrambling cluster sizes have reaction times comparable to the \SI{100}{\percent} and \SI{40}{\percent} emotional images (decided upon based on rationales delineated under section~\ref{sec:m.vs.ef}).
 	
-	For stimulus presentation and data acquisition in these experiments we used a home-brewed Python script written for the purpose of this thesis and openly published on GitHub.
+	For stimulus presentation and data acquisition in these experiments we used faceRT\cite{faceRT}, a home-brewed Python script written for the purpose of this thesis and openly published on GitHub.
 	Our Python script uses the PsychoPy suite\cite{Peirce2008} for specialized, high-precision stimulus rendering and timing.   
 	    \subsubsection{Simple Cluster-Based Scrambling}
-	    In a first set of trials we have 
+	    In a first set of trials we have scrambled images with cluster sizes starting at \SI{6}{\pixel} and progressing to \SI{26}{\pixel} in \SI{4}{\pixel} steps.
+	    The stimulus presentation protocol used for these trials is revision \textcolor{lg}{ce2b3a8f30024504d7f7b087211fdbb8b5e47c3e} of the faceRT\cite{faceRT} script suite.
+	    Stimuli were presented fully randomized per-participant, and sequences were compiled manually, following the listed requirements:
+	    \begin{itemize}
+		\item Each condition should have 10 corresponding trials (conditions are: emotion [2] $\times$ emotion intensity [2], and emotion [2] $\times$ scrambling [6]) - yielding a total of 160 trials.
+		\item The same person's face (even with a different emotion) should not appear more than once in one slide.
+		\item Each face picture should appear no more than 3 times in the entire experiment.
+	    \end{itemize}
+	    \subsubsection{Composite (Kernel-and-Cluster-Based) Scrambling}
+	    As the previous set-up of preliminary experiments proved unsatisfactory due to eye visibility (which is known to provoke fearful emotional reactions ??? that could well disrupt our brain imaging baseline), we decided to obfuscate facial features.
+	    This was done by kernel-scrambling the images (as detailed in section~\ref{sec:m.vs.si.kbs}) before applying the same cluster-based scrambling as in the experiments mentioned above.
+	    Such a preparation of the images would render all features with a spatial frequency above $\frac{1}{\sigma_{K}}$ (where $\sigma_{K}$ is the pixel redistribution standard deviation deonstratively calculated in figure~\ref{eq:lrgn}) unrecognisable.
+	    
+	    The transition from the black of the pupil to the white of the cornea in our stimulus images averages around \SI{7}{\pixel} (based on manual analysis).
+	    We therefore experimented with a series of kernel-based scrambling steps around that value.
+	    
+	    We found that for smaller scrambling kernels, the spatial frequency low-pass cut-off was too low (as seen in in figures \ref{fig:m.vs.pe.1.a} and \ref{fig:m.vs.pe.1.b} where the eyes are still visible).
+	    We also found that for the \SI{8}{\pixel} scrambling kernel, the subsequent cluster-based scrambling includes very many clusters with predominantly background patches (as seen in figure~\ref{fig:m.vs.pe.1.d})
+	    This happens because as the scrambling kernel becomes larger face-pixels diffuse further into the background forming a sparsely populated halo which still has to be included to preserve pixel consistency.
+	    
+	    For the \SI{6}{\pixel} kernel we found that the eyes were still recognisable in the picture which had not yet undergone cluster-based scrambling, but became unrecognisable after cluster-based scrambling.
+	    The recognition of the eyes in the first image of figure~\ref{fig:m.vs.pe.1.c} relies on contextual information from other low-frequency features.
+	    As soon as the image is scrambled on a cluster basis, a second high-pass cut-off takes place - 
+	    after which only features with a vertical or horizontal spatial frequency strictly above $\frac{1}{\SI{26}{\pixel}}$ (\SI{26}{\pixel} being the cluster height and width) can be distinguished.
+	    With the contextual information from other features such as brows and nose gone, the pupil, the iris, and adjacent portions of the eyelids only look like a dark blob.
+	    Based on these tests we have decided to use faces pre-scrambled with a kernel of \SI{6}{\pixel} for the second round of reaction time testing.
+	    
+	    \begin{figure}
+    		\begin{subfigure}[b]{0.495\textwidth}
+		    \centering\scalebox{0.3}{\includegraphics{./img/01F_FE_C100_px2rand.jpg} \includegraphics{./img/01F_FE_C100_px2rand_cell26rand.jpg}}
+		    \subcaption{\SI{2}{\pixel} scrambling kernel}
+		    \label{fig:m.vs.pe.1.a}
+		\end{subfigure}
+		~%add desired spacing between images, e. g. ~, \quad, \qquad etc. (or a blank line to force the subfigure onto a new line)
+		\begin{subfigure}[b]{0.495\textwidth}
+		    \centering\scalebox{0.3}{\includegraphics{./img/01F_FE_C100_px4rand.jpg} \includegraphics{./img/01F_FE_C100_px4rand_cell26rand.jpg}}
+		    \subcaption{\SI{4}{\pixel} scrambling kernel}
+		    \label{fig:m.vs.pe.1.b}
+		\end{subfigure}
+		
+		\vspace{0.5cm}%add desired spacing between images, e. g. ~, \quad, \qquad etc. (or a blank line to force the subfigure onto a new line)
+		\begin{subfigure}[b]{0.495\textwidth}
+		    \centering\scalebox{0.3}{\includegraphics{./img/01F_FE_C100_px6rand.jpg} \includegraphics{./img/01F_FE_C100_px6rand_cell26rand.jpg}}
+		    \subcaption{\SI{6}{\pixel} scrambling kernel}
+		    \label{fig:m.vs.pe.1.c}
+		\end{subfigure}
+		~%add desired spacing between images, e. g. ~, \quad, \qquad etc. (or a blank line to force the subfigure onto a new line)
+		\begin{subfigure}[b]{0.495\textwidth}
+		    \centering\scalebox{0.3}{\includegraphics{./img/01F_FE_C100_px8rand.jpg} \includegraphics{./img/01F_FE_C100_px8rand_cell26rand.jpg}}
+		    \subcaption{\SI{8}{\pixel} scrambling kernel}
+		    \label{fig:m.vs.pe.1.d}
+		\end{subfigure}
+		\caption{Kernel-based scrambling of faces followed by composite (kernel-based and then cluster-based) scrambling of the same faces. 
+		The kernels are ascending in size; images were prepared via Pyxrand\cite{pyxrand} (revision \textcolor{lg}{1eb1f7cd65e4fc43b3454728ffeac3dedbcc4312}).}
+		\label{fig:animals}
+	    \end{figure}
+
+	    We also decided to re-write the stimulus sequence in a more automated and reliable manner.
+	    The automation was done via the sequence-calculation software, Pystim\cite{pystim} - a home-brewed Python script written for the purpose of this thesis and openly published on GitHub.
+	     
+	    
+	    
 \chapter{Results}
 	\section{Preliminary Experiments}\label{sec:r.pe}
 	In order to establish an experimental paradigm which affords the comparison between emotion recognition and simple visual matching, we need to select stimuli whose matching is correspondingly difficult.
