@@ -7,7 +7,7 @@
 \chapter{Methods}
     \section{Questionnaires}
     We have decided to complement our studies with a series of previously validated and widely used questionnaires.
-    These tests could provide insights into the interplay between psychotypes on one side and behavioural parameters or their neurological underpinnings on the other.
+    These tests could provide insights into the interplay between psychotypes on one side and behavioural parameters or their neurophysiological underpinnings on the other.
     For test presentation we have chosen to use a web-based version of the free and open source (FOSS) software testMaker\cite{testmaker}.
     
     The choice of tests was based on both general relevance to the host group's research, and specific relevance to emotional perception.
@@ -34,30 +34,38 @@
 	\item \textbf{ERQ} - Translated by Brigit Abler and Henrik Kessler \cite{Abler2009}
 	\item \textbf{SPQ} - Tranlsated by Klein, Andersen, and Jahn \cite{Klein1997}
     \end{itemize}
+    \section{Behavioural Test}
+	
     \section{Visual Stimuli}
-	\subsection{Emotional Faces}\label{sec:m.vs.ef}
-	\subsection{Scrambled Images}\label{sec:m.vs.si}
-	In order to define a baseline for visual recognition we have decided to use trials in which visual input consists of the same pixels as in the emotional trials. 
-	To disentangle visual from semantic (emotion) identification we decided to use “scrambled” images - in which pixels from the emotional faces are permuted so as to obfuscate the emotional expressions.
+	\subsection{Emotional Faces}\label{sec:m_vs_ef}
+	As the main focus of our study is performance and neuronal function ??ref in emotional perception, our behavioural test requires stimuli which exhibit emotion.
+	In order to better describe the kinetics of underlying neuronal systems 
+	\subsection{Scrambled Images}\label{sec:m_vs_si}
+	In order to define a baseline of visual recognition we have decided to use trials in which visual input consists of the same pixels as in the emotional trials. 
+	To disentangle visual from semantic (emotion) identification we decided to use “scrambled” images - in which pixels from the emotional faces are permuted so as to obfuscate emotional expressions and facial features.
+	The recognition trials would thus entail matching identical permutations of the same picture.
+	For these trials the template and target will be the exact same image and the distractor will be a different permutation of the pixels which constitute the image the template and target were computed from. 
 	
-	As recognition difficulty of scrambled images should scale proportionally with that of the easy and difficult emotional recognition trials (detailed under section~\ref{sec:m.vs.ef}), scrambling has to be progressively complex.
-	Available data ??? suggests that scrambling of smaller image sub-sections (further referred to as “clusters”) makes the images progressively difficult to identify and match to other copies.
-	This rationale determined the nature of our scrambling algorithms (detailed below) and was furthermore experimentally validated in preliminary trials (as described in section~\ref{sec:r.pe}).
+	There will be two sets of scrambled image trials: \textit{easy} and \textit{difficult} - to act as baselines for easy and difficult emotion recognition trials respectively.
+	Recognition difficulty of the scrambled image trials should scale proportionally with that of the easy and difficult emotional recognition trials (detailed under section~\ref{sec:m_vs_ef}).
+	To achieve this, scrambling has to be progressively complex.
+	Available data ??? suggests that scrambling of images via smaller sub-sections (further referred to as “clusters”) makes the images progressively difficult to identify and match to other copies.
+	This rationale determined the nature of our scrambling algorithms (detailed below) and was also experimentally validated in preliminary trials (as described in section~\ref{sec:r_pe}).
 	
-	This was done via Pyxrand\cite{pyxrand}, home-brewed Python script written for the purpose of this thesis and openly published on GitHub.
+	Scrambling was done via Pyxrand\cite{pyxrand}, home-brewed Python script written for the purpose of this thesis and openly published on GitHub.
 	The script provides both cluster-based and kernel-based scrambling:
 	    \subsubsection{Cluster-Based Scrambling}
 	    This scrambling functionality recognises the face region of interest (ROI) by scanning for pixel lines with few unique values, and then divides the face ROI in square clusters of predefined sizes.
 	    The clusters then get permuted and rewritten in-place on the image - this is done via the \colorbox{vlg}{\texttt{montage2d}} function of the \colorbox{vlg}{\texttt{scikits\_image}} python package 
 	    (the function was written and contributed to the package for the benefit of the scientific community as part of this thesis).
 	    The image background is then filled with homogeneous values.
-	    \subsubsection{Kernel-Based Scrambling}\label{sec:m.vs.si.kbs}
+	    \subsubsection{Kernel-Based Scrambling}\label{sec:m_vs_si_kbs}
 	    This is done by remapping single pixels via the \colorbox{vlg}{\texttt{geometric\_transform}} function of the \colorbox{vlg}{\texttt{scipy}} Python suite. 
 	    New positions are computed via a function which adds a random integer in the $[-K;K]$ ($K$ being the scrambling kernel integer) interval to both the X and Y coordinates of the said pixel.
 	    Effectively, this redistributes each pixel in an area of $[-K;K]$ around its original position with a standard deviation ($\sigma$) of $\approx 0.96K$ (as calculated in figure~\ref{eq:lrgn}). 
 	\subsection{Preliminary Experiments} 
 	Preliminary experiments have been conducted in order to establish a proper paradigm for the \textit{main} experiments of the project. 
-	Their primary goal is determining which scrambling cluster sizes have reaction times comparable to the \SI{100}{\percent} and \SI{40}{\percent} emotional images (decided upon based on rationales delineated under section~\ref{sec:m.vs.ef}).
+	Their primary goal is determining which scrambling cluster sizes have reaction times comparable to the \SI{100}{\percent} and \SI{40}{\percent} emotional images (decided upon based on rationales delineated under section~\ref{sec:m_vs_ef}).
 	
 	For stimulus presentation and data acquisition in these experiments we used faceRT\cite{faceRT}, a home-brewed Python script written for the purpose of this thesis and openly published on GitHub.
 	Our Python script uses the PsychoPy suite\cite{Peirce2008} for specialized, high-precision stimulus rendering and timing.   
@@ -72,18 +80,18 @@
 	    \end{itemize}
 	    \subsubsection{Composite (Kernel-and-Cluster-Based) Scrambling}
 	    As the previous set-up of preliminary experiments proved unsatisfactory due to eye visibility (which is known to provoke fearful emotional reactions ??? that could well disrupt our brain imaging baseline), we decided to obfuscate facial features.
-	    This was done by kernel-scrambling the images (as detailed in section~\ref{sec:m.vs.si.kbs}) before applying the same cluster-based scrambling as in the experiments mentioned above.
+	    This was done by kernel-scrambling the images (as detailed in section~\ref{sec:m_vs_si_kbs}) before applying the same cluster-based scrambling as in the experiments mentioned above.
 	    Such a preparation of the images would render all features with a spatial frequency above $\frac{1}{\sigma_{K}}$ (where $\sigma_{K}$ is the pixel redistribution standard deviation deonstratively calculated in figure~\ref{eq:lrgn}) unrecognisable.
 	    
 	    The transition from the black of the pupil to the white of the cornea in our stimulus images averages around \SI{7}{\pixel} (based on manual analysis).
 	    We therefore experimented with a series of kernel-based scrambling steps around that value.
 	    
-	    We found that for smaller scrambling kernels, the spatial frequency low-pass cut-off was too low (as seen in in figures \ref{fig:m.vs.pe.1.a} and \ref{fig:m.vs.pe.1.b} where the eyes are still visible).
-	    We also found that for the \SI{8}{\pixel} scrambling kernel, the subsequent cluster-based scrambling includes very many clusters with predominantly background patches (as seen in figure~\ref{fig:m.vs.pe.1.d})
+	    We found that for smaller scrambling kernels, the spatial frequency low-pass cut-off was too low (as seen in in figures \ref{fig:m_vs_pe_1_a} and \ref{fig:m_vs_pe_1_b} where the eyes are still visible).
+	    We also found that for the \SI{8}{\pixel} scrambling kernel, the subsequent cluster-based scrambling includes very many clusters with predominantly background patches (as seen in figure~\ref{fig:m_vs_pe_1_d})
 	    This happens because as the scrambling kernel becomes larger face-pixels diffuse further into the background forming a sparsely populated halo which still has to be included to preserve pixel consistency.
 	    
 	    For the \SI{6}{\pixel} kernel we found that the eyes were still recognisable in the picture which had not yet undergone cluster-based scrambling, but became unrecognisable after cluster-based scrambling.
-	    The recognition of the eyes in the first image of figure~\ref{fig:m.vs.pe.1.c} relies on contextual information from other low-frequency features.
+	    The recognition of the eyes in the first image of figure~\ref{fig:m_vs_pe_1_c} relies on contextual information from other low-frequency features.
 	    As soon as the image is scrambled on a cluster basis, a second high-pass cut-off takes place - 
 	    after which only features with a vertical or horizontal spatial frequency strictly above $\frac{1}{\SI{26}{\pixel}}$ (\SI{26}{\pixel} being the cluster height and width) can be distinguished.
 	    With the contextual information from other features such as brows and nose gone, the pupil, the iris, and adjacent portions of the eyelids only look like a dark blob.
@@ -93,45 +101,65 @@
     		\begin{subfigure}[b]{0.495\textwidth}
 		    \centering\scalebox{0.3}{\includegraphics{./img/01F_FE_C100_px2rand.jpg} \includegraphics{./img/01F_FE_C100_px2rand_cell26rand.jpg}}
 		    \subcaption{\SI{2}{\pixel} scrambling kernel}
-		    \label{fig:m.vs.pe.1.a}
+		    \label{fig:m_vs_pe_1_a}
 		\end{subfigure}
 		~%add desired spacing between images, e. g. ~, \quad, \qquad etc. (or a blank line to force the subfigure onto a new line)
 		\begin{subfigure}[b]{0.495\textwidth}
 		    \centering\scalebox{0.3}{\includegraphics{./img/01F_FE_C100_px4rand.jpg} \includegraphics{./img/01F_FE_C100_px4rand_cell26rand.jpg}}
 		    \subcaption{\SI{4}{\pixel} scrambling kernel}
-		    \label{fig:m.vs.pe.1.b}
+		    \label{fig:m_vs_pe_1_b}
 		\end{subfigure}
 		
 		\vspace{0.5cm}%add desired spacing between images, e. g. ~, \quad, \qquad etc. (or a blank line to force the subfigure onto a new line)
 		\begin{subfigure}[b]{0.495\textwidth}
 		    \centering\scalebox{0.3}{\includegraphics{./img/01F_FE_C100_px6rand.jpg} \includegraphics{./img/01F_FE_C100_px6rand_cell26rand.jpg}}
 		    \subcaption{\SI{6}{\pixel} scrambling kernel}
-		    \label{fig:m.vs.pe.1.c}
+		    \label{fig:m_vs_pe_1_c}
 		\end{subfigure}
 		~%add desired spacing between images, e. g. ~, \quad, \qquad etc. (or a blank line to force the subfigure onto a new line)
 		\begin{subfigure}[b]{0.495\textwidth}
 		    \centering\scalebox{0.3}{\includegraphics{./img/01F_FE_C100_px8rand.jpg} \includegraphics{./img/01F_FE_C100_px8rand_cell26rand.jpg}}
 		    \subcaption{\SI{8}{\pixel} scrambling kernel}
-		    \label{fig:m.vs.pe.1.d}
+		    \label{fig:m_vs_pe_1_d}
 		\end{subfigure}
 		\caption{Kernel-based scrambling of faces followed by composite (kernel-based and then cluster-based) scrambling of the same faces. 
 		The kernels are ascending in size; images were prepared via Pyxrand\cite{pyxrand} (revision \textcolor{lg}{1eb1f7cd65e4fc43b3454728ffeac3dedbcc4312}).}
-		\label{fig:animals}
+		\label{fig:m_vs_pe_1}
 	    \end{figure}
 
 	    We also decided to re-write the stimulus sequence in a more automated and reliable manner.
 	    The automation was done via the sequence-calculation software, Pystim\cite{pystim} - a home-brewed Python script written for the purpose of this thesis and openly published on GitHub.
-	     
-	    
-	    
+	    The requirements followed and met by the script are:
+	    \begin{itemize}
+		\item Each emotional picture should be presented once as the template (emotion defining) figure, once as a target, and once as a distractor.
+		\item Only one scrambling alternative of the 
+		\item The same person's face (even with a different emotion) should not appear more than once in one slide.
+	    \end{itemize}
+	    As the decision to show all images an equal number of times and present each one as the template
+    \section{Functional MRI}
+    Patterns of neuronal activity are to be extrapolated from functional magnetic resonance imaging (fMRI) data.
+	 
 \chapter{Results}
-	\section{Preliminary Experiments}\label{sec:r.pe}
-	In order to establish an experimental paradigm which affords the comparison between emotion recognition and simple visual matching, we need to select stimuli whose matching is correspondingly difficult.
-	For the emotion recognition trials, we decided for faces with emotional "concentrations" ??? of 40\% and 100\% (as discussed in section~\ref{sec:m.vs.ef}).
+    \section{Preliminary Experiments}\label{sec:r_pe}
+    In order to establish an experimental paradigm which affords the comparison between emotion recognition and simple visual matching, we need to select stimuli whose matching is correspondingly difficult.
+    For the emotion recognition trials, we decided for faces with emotional "concentrations" ??? of 40\% and 100\% (as discussed in section~\ref{sec:m_vs_ef}).
+    \begin{pycode}
+import subprocess
+import sys
+pytex.add_dependencies('/home/chymera/src/faceRT/analysis/RTforCategories.py')
+pytex.add_dependencies('/home/chymera/src/faceRT/analysis/data_functions.py')
+pytex.add_dependencies('/home/chymera/src/faceRT/analysis/gen.cfg')
+sys.path.append('/home/chymera/src/faceRT/analysis/')
+plt.figure(tight_layout=True)
+import RTforCategories
+RTforCategories.main(elinewidth=1, ecolor='0.3')
+fig = latex_figure(save_fig(fig_width=6.8, fig_height=3))
+    \end{pycode}
+    \py{fig}
 \chapter{Discussion}
 \chapter{Meta}
 \begin{figure}
 \[ \sigma_{x,y} = \sqrt{\sigma_{x}^{2}+\sigma_{y}^{2}} = \sqrt{2\sigma_{x}^{2}} \approx \sqrt{2 \cdot (0.68 K)^{2}} \approx 0.96K\]
-\caption{Here we calculate the standard deviation ($\sigma$) of the distance from the original pixel location to the new pixel location following kernel-based scrambling, as detailed in section~\ref{sec:m.vs.si.kbs}. The standard deviation along one axis is defined as $0.68K$ (\SI{68}{\percent} of the scrambling kernel, $K$) following the 68–95–99.7 rule, though experimentally we have found slightly lower values ($\approx 0.6K$).}\label{eq:lrgn}
+\caption{Here we calculate the standard deviation ($\sigma$) of the distance from the original pixel location to the new pixel location following kernel-based scrambling, as detailed in section~\ref{sec:m_vs_si_kbs}. The standard deviation along one axis is defined as $0.68K$ (\SI{68}{\percent} of the scrambling kernel, $K$) following the 68–95–99.7 rule, though experimentally we have found slightly lower values ($\approx 0.6K$).}\label{eq:lrgn}
 \end{figure}
 \input{footer.tex}

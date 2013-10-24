@@ -1,0 +1,75 @@
+\begin{pythontexcustomcode}[begin]{py}
+import matplotlib as mpl
+mpl.use("pgf")
+pgf_with_custom_preamble = {
+    "font.family": "serif", # use serif/main font for text elements
+    "text.usetex": True,    # use inline math for ticks
+    "pgf.rcfonts": False,   # don't setup fonts from rc parameters
+    "pgf.preamble": [
+         r"\usepackage{units}",         # load additional packages
+         r"\usepackage{metalogo}",
+         r"\usepackage{unicode-math}",  # unicode math setup
+         r"\setmathfont{xits-math.otf}",
+         r"\setmainfont{DejaVu Serif}", # serif font via preamble
+         ]
+}
+mpl.rcParams.update(pgf_with_custom_preamble)
+
+from pylab import *
+
+# Set the prefix used for figure labels
+fig_label_prefix = 'fig'
+# Track figure numbers to create unique auto-generated names
+fig_count = 0
+
+def save_fig(name='', legend=False, fig=None, ext='.pgf', fig_width=1, fig_height=1):
+    '''
+    Save the current figure (or `fig`) to file using `plt.save_fig()`.
+    If called with no arguments, automatically generate a unique filename.
+    Return the filename.
+    '''
+    # Get name (without extension) and extension
+    if not name:
+        global fig_count
+        # Need underscores or other delimiters between `input_*` variables
+        # to ensure uniqueness
+        name = 'auto_fig_{}_{}_{}-{}'.format(pytex.input_family, pytex.input_session, pytex.input_restart, fig_count)
+        fig_count += 1
+    else:
+        if len(name) > 4 and name[:-4] in ['.pgf', '.svg', '.png', '.jpg']:
+            name, ext = name.rsplit('.', 1)
+
+    # Get current figure if figure isn't specified
+    if not fig:
+        fig = gcf()
+    print(name + ext)
+    fig.set_size_inches(fig_width,fig_height)
+    plt.tight_layout()
+    fig.savefig(name + ext, facecolor='#00ee00')
+    fig.clf()
+    return name
+
+def latex_environment(name, content='', option=''):
+    '''
+    Simple helper function to write the `\begin...\end` LaTeX block.
+    '''
+    return '\\begin{%s}%s\n%s\n\\end{%s}' % (name, option, content, name)
+
+def latex_figure(name=None, caption='', label='', width=0.8):
+    ''''
+    Auto wrap `name` in a LaTeX figure environment.
+    Width is a fraction of `\textwidth`.
+    '''
+    if not name:
+        name = save_fig()
+    content = '\\centering\n'
+    content += '\\makeatletter\\let\\input@path\\Ginput@path\\makeatother\n'
+    content += '\\input{%s.pgf}\n' % name
+    if not label:
+        label = name
+    if caption and not caption.rstrip().endswith('.'):
+        caption += '.'
+    # `\label` needs to be in `\caption` to avoid issues in some cases
+    content += "\\caption{%s\\label{%s:%s}}\n" % (caption, fig_label_prefix, label)
+    return latex_environment('figure', content, '[htp]')
+\end{pythontexcustomcode}
