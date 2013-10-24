@@ -12,3 +12,10 @@ img/*
 *.bak
 *.blg
 *.bbl
+
+# PythonTeX traces and binaries
+pythontex*/
+*.pytxcode
+
+# Gedit
+*~
