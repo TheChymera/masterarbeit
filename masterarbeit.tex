@@ -35,10 +35,23 @@
 	\item \textbf{SPQ} - Tranlsated by Klein, Andersen, and Jahn \cite{Klein1997}
     \end{itemize}
     \section{Behavioural Test}
-	
+    In our current study we are exploring neuronal function ??ref in visual emotional perception.
+    The behavioural test chosen to tap into these systems relies on visual recognition and subsequent matching of emotion.
+    We call our paradigm a Hariri-style behavioural test, in acknowledgement of the seminal implementations of a similar paradigm by Hariri and colleagues \cite{Hariri2000,Hariri2003}.
+        
+    The paradigm consists of a triangular arrangement of three faces - with the bottom two aligned horizontally and the upper face displaced vertically and equidistant from both bottom faces.
+    In contrast to other formulations\cite{Hariri2000,Hariri2003} of the same paradigm (which keep all 3 stimuli equidistant),
+    we have decided to adapt positioning of the items to what we believe is a better fit for the human field of view.
+    Simply aligning the midpoints of stimulus images to the vertices of an equilateral triangle presents some issues:
+    \begin{itemize}
+        \item Not accounting for the aspect ratio of the actual stimulus images lessens control over the resulting populated visual window (pVW).
+	\item Horizontal and diagonal distances are not perceived identically by human vision 
+    \end{itemize}
+    We tackled the above by adapting the pVW to the normal human field of vision aspect ratio and by taking the outermost non-neutral pixels (rather than the centers of the stimulus images) to delimitate the pVW.
+    
     \section{Visual Stimuli}
 	\subsection{Emotional Faces}\label{sec:m_vs_ef}
-	As the main focus of our study is performance and neuronal function ??ref in emotional perception, our behavioural test requires stimuli which exhibit emotion.
+	
 	In order to better describe the kinetics of underlying neuronal systems 
 	\subsection{Scrambled Images}\label{sec:m_vs_si}
 	In order to define a baseline of visual recognition we have decided to use trials in which visual input consists of the same pixels as in the emotional trials. 
@@ -74,7 +87,7 @@
 	    The stimulus presentation protocol used for these trials is revision \textcolor{lg}{ce2b3a8f30024504d7f7b087211fdbb8b5e47c3e} of the faceRT\cite{faceRT} script suite.
 	    Stimuli were presented fully randomized per-participant, and sequences were compiled manually, following the listed requirements:
 	    \begin{itemize}
-		\item Each condition should have 10 corresponding trials (conditions are: emotion [2] $\times$ emotion intensity [2], and emotion [2] $\times$ scrambling [6]) - yielding a total of 160 trials.
+		\item Each condition should have 10 corresponding trials (conditions are: emotion \{happy; afraid\} $\times$ emotion intensity \{40\%; 100\%\}; and emotion \{happy; afraid\} $\times$ scrambling \{6; 10; 14; 18; 22; 26\}) - yielding a total of 160 trials.
 		\item The same person's face (even with a different emotion) should not appear more than once in one slide.
 		\item Each face picture should appear no more than 3 times in the entire experiment.
 	    \end{itemize}
@@ -147,13 +160,22 @@
 import subprocess
 import sys
 pytex.add_dependencies('/home/chymera/src/faceRT/analysis/RTforCategories.py')
-pytex.add_dependencies('/home/chymera/src/faceRT/analysis/data_functions.py')
 pytex.add_dependencies('/home/chymera/src/faceRT/analysis/gen.cfg')
 sys.path.append('/home/chymera/src/faceRT/analysis/')
-plt.figure(tight_layout=True)
 import RTforCategories
-RTforCategories.main(elinewidth=1, ecolor='0.3')
-fig = latex_figure(save_fig(fig_width=6.8, fig_height=3))
+RTforCategories.main(experiment='11px-4px-5steps', source='server', elinewidth=1, ecolor='0.3', make_tight={"pad": 0})
+fig = latex_figure(save_fig(fig_width=6.6, fig_height=3))
+    \end{pycode}
+    \py{fig}
+\begin{pycode}
+import subprocess
+import sys
+pytex.add_dependencies('/home/chymera/src/faceRT/analysis/RTforCategories.py')
+pytex.add_dependencies('/home/chymera/src/faceRT/analysis/gen.cfg')
+sys.path.append('/home/chymera/src/faceRT/analysis/')
+import RTforCategories
+RTforCategories.main(experiment='11px-4px-5steps_narrow-angle', source='server', elinewidth=1, ecolor='0.3', make_tight={"pad": 0})
+fig = latex_figure(save_fig(fig_width=6.6, fig_height=3))
     \end{pycode}
     \py{fig}
 \chapter{Discussion}
