@@ -42,10 +42,8 @@ def save_fig(name='', legend=False, fig=None, ext='.pgf', fig_width=1, fig_heigh
     # Get current figure if figure isn't specified
     if not fig:
         fig = gcf()
-    print(name + ext)
     fig.set_size_inches(fig_width,fig_height)
-    plt.tight_layout()
-    fig.savefig(name + ext, facecolor='#00ee00')
+    fig.savefig(name + ext)
     fig.clf()
     return name
 
