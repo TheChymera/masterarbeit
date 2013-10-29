@@ -8,6 +8,8 @@
 Neuronal Correlates of Occulometric Parameters in Face Recognition
 ========
 
+A recently compiled version of this document can be downloaded [here](http://chymera.eu/docs/masterarbeit.pdf).
+The document may be a few commits behind the HEAD version published here.
 .. letag
 
 
