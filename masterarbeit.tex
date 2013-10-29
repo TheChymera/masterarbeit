@@ -36,7 +36,7 @@
     \end{itemize}
     \section{Behavioural Test}
     In our current study we are exploring neuronal function ??ref in visual emotional perception.
-    The behavioural test chosen to tap into these systems relies on visual recognition and subsequent matching of emotion.
+    Our behavioural test of choice to tap into these systems relies on visual recognition and subsequent matching of emotion.
     We call our paradigm a Hariri-style behavioural test, in acknowledgement of the seminal implementations of a similar paradigm by Hariri and colleagues \cite{Hariri2000,Hariri2003}.
         
     The paradigm consists of a triangular arrangement of three faces - with the bottom two aligned horizontally and the upper face displaced vertically and equidistant from both bottom faces.
@@ -49,6 +49,40 @@
     \end{itemize}
     We tackled the above by adapting the pVW to the normal human field of vision aspect ratio and by taking the outermost non-neutral pixels (rather than the centers of the stimulus images) to delimitate the pVW.
     
+    \begin{wrapfigure}{r}{0.45\textwidth}
+      \centering
+	\scalebox{0.55}{\includegraphics{./img/vis_field.jpg}}
+	\caption{Perimetric map of the human field of view. \cite{Ruch1960} 
+	For the measurement both the head and eyes were fixed, with the fovea of both eyes pointing at \SI{0}{\degree} on the cross-hairs.
+	The white area affords binocular vision, the black area is completely outside the field of view.}
+	\label{fig:m_b_1}
+    \end{wrapfigure}    
+    For the following distance specifications we have defined the unit “u” as the height of our stimulus images.
+    Seeing as our stimulus images have a fixed aspect ratio their width is thus consistently \SI[parse-numbers = false]{\frac{3}{4}}{u}.
+    
+    The static human field of view has a complex shape defined amongst others by facial features (as seen in figure~\ref{fig:m_b_1}).
+    If the outermost light paths fitting the referenced figure were to be circumscribed by a planar mask in the shape of the rectangle, its height would span approximately \SI{130}{\degree} and its width \SI{180}{\degree}.
+    This gives the rectangular fit for the field of view a width-to-height ratio of 0.72(2).
+    Given the data - and for numerical convenience - we have chosen to position the midpoints of our stimulus images as follows: 
+    the distance between the two lower image midpoints is \SI{2}{u}; and the vertical offset of the top image midpoint from the horizontal line connecting the bottom image midpoints is \SI{1}{u}.
+    This gives our pVW a total height of \SI{2}{u} and a total width of \SI[parse-numbers = false]{\frac{11}{4}}{u}.
+    The resulting width-to-height ratio of 0.(72) was deemed a sufficiently close match for the afore mentioned human field of view approximation rectangular mask.
+    We thus have reason to believe that our stimulus item distribution is superior to the one implemented by Hariri and colleagues, and we encourage further users of Hariri-style paradigms to note our observations.  
+    
+    We are aware that our simplified approximation still does not account for vertical saccades being slower\cite{TerryBahill1975} and less accurate\cite{Collewijn1988} than horizontal saccades, or for the fact that upward saccades tend to undershoot while downward saccades tend to overshoot \cite{Collewijn1988};
+    however, integrating accurate metrics for these kinetics and determining their relevance for Hariri-style paradigms differs in focus from and far exceeds the scope of our current study.
+    
+    Our resulting pVW was scaled to a subsection of the available monitor space so as to be completely within the area visible through a tilted mirror in our fMIR set-up (more on this in section~\ref{sec:m_fm_eti}).
+    The dimensions (specified in degrees of visual angle) are proportional to the ones mentioned above, scaled for u = \SI{29.44}{\degree}.
+    The midpoint of the pVW (at \SI{0.5}{u} downward from the midpoint of the top image) was aligned to the midpoint of the monitor.
+    A picture of this visual set-up can be seen in figure~\ref{fig:m_b_2}.
+    
+    \begin{figure}[!h]
+	\centering{\includegraphics[width=1\textwidth]{./img/01F_FE_C100_em100_composite.jpg}}
+	\caption{Sample image from the emotional face matching trials in our Hariri-style behavioural test.}
+	\label{fig:m_b_2}
+    \end{figure}
+		
     \section{Visual Stimuli}
 	\subsection{Emotional Faces}\label{sec:m_vs_ef}
 	
@@ -151,7 +185,7 @@
 	    As the decision to show all images an equal number of times and present each one as the template
     \section{Functional MRI}
     Patterns of neuronal activity are to be extrapolated from functional magnetic resonance imaging (fMRI) data.
-	 
+	\subsection{Eye Tracker Integration}\label{sec:m_fm_eti}
 \chapter{Results}
     \section{Preliminary Experiments}\label{sec:r_pe}
     In order to establish an experimental paradigm which affords the comparison between emotion recognition and simple visual matching, we need to select stimuli whose matching is correspondingly difficult.
