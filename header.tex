@@ -21,7 +21,7 @@
 \usepackage[parfill]{parskip} % blank lines instead of indents to separate paragraphs
 \usepackage[hidelinks]{hyperref} % Makes URLs, DOIs, and page links work. w/o colored bracketing.
 \usepackage[outer=1.7cm, inner=2.5cm, top=2.5cm, bottom=2cm]{geometry}% Makes margins narrower.
-\usepackage[autoprint=false]{pythontex} % create figures on-line directly from python!
+\usepackage[autoprint=false, gobble=auto]{pythontex} % create figures on-line directly from python!
 \usepackage{pgf} %reads .pgf files for figures with text annotations scaling separately from the graphic
 \usepackage{wrapfig} %allow text to wrap around certain figures
 
@@ -34,8 +34,7 @@
 \definecolor{mg}{gray}{0.40}
 \DeclareSIUnit\pixel{px}
 
-\input{functions.tex}
-
+\setcounter{secnumdepth}{3} %turns on numbering for subsubsections 
 
 \makeatletter
 \renewcommand\chapter{
@@ -45,15 +44,7 @@
 	}
 \makeatother
 
-
-%~ \makeatletter
-%~ \newenvironment{tablehere}
-%~ {\def\@captype{table}}
-%~ {}
-%~ \newenvironment{figurehere}
-%~ {\def\@captype{figure}}
-%~ {}
-%~ \makeatother
+\input{functions.tex}
 
 \makeatletter
 \def\maketitle{%
