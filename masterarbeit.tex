@@ -6,117 +6,136 @@
     \section{}
 \chapter{Methods}
     \section{Questionnaires}
-    We have decided to complement our studies with a series of previously validated and widely used questionnaires.
-    These tests could provide insights into the interplay between psychotypes on one side and behavioural parameters or their neurophysiological underpinnings on the other.
-    For test presentation we have chosen to use a web-based version of the free and open source (FOSS) software testMaker\cite{testmaker}.
-    
-    The choice of tests was based on both general relevance to the host group's research, and specific relevance to emotional perception.
-    According to these criteria, we have compiled a selection of 8 questionnaires:
-    \begin{itemize}
-        \item The Autism Spectrum Quotient questionnaire (\textbf{AQ}) \cite{Baron-Cohen2001}
-	\item The World Health Organization Adult ADHD Self-Report Scale (\textbf{ASRS}) \cite{Kessler2005}
-	\item The 1996 revised Beck Depression Inventory (\textbf{BDI2}) \cite{Beck1996}
-	\item The short version of the Borderline Symptoms List (\textbf{BSL23}) \cite{Bohus2009}
-	\item The Empathizing Quotient questionnaire (\textbf{EQ}) \cite{Baron-Cohen2004}
-	\item The Systemizing Quotient questionnaire (\textbf{SQ}) \cite{Baron-Cohen2003a}
-	\item The Emotion Regulation Questionnaire (\textbf{ERQ}) \cite{Gross2003}
-	\item The Schizotypal Personality Questionnaire (\textbf{SPQ}) \cite{Raine1991}
-    \end{itemize}
-    The questionnaires were administered in German language, and translated and validated versions were provided by the test databases of the Central Institute of Mental Health.
-    Translation references are as follows:
-    \begin{itemize}
-        \item \textbf{AQ} - Translated by C.M. Freitag, Homburg
-	\item \textbf{ASRS} - Translated by Dr. P. Kirsch, JLU Gießen 2005
-	\item \textbf{BDI2} - Translated by Pearson Assessment \& Information GmbH (Frankfurt/M. 2010)
-	\item \textbf{BSL23} - Translated at the Department of Psychosomatic Medicine and Psychotherapy, Central Institute of Mental Health.
-	\item \textbf{EQ} - Translated by Dipl.-Psych. Jörn de Haen
-	\item \textbf{SQ} - Translated by Dipl.-Psych. Jörn de Haen
-	\item \textbf{ERQ} - Translated by Brigit Abler and Henrik Kessler \cite{Abler2009}
-	\item \textbf{SPQ} - Tranlsated by Klein, Andersen, and Jahn \cite{Klein1997}
-    \end{itemize}
-    \section{Behavioural Test}
-    In our current study we are exploring neuronal function ??ref in visual emotional perception.
-    Our behavioural test of choice to tap into these systems relies on visual recognition and subsequent matching of emotion.
-    We call our paradigm a Hariri-style behavioural test, in acknowledgement of the seminal implementations of a similar paradigm by Hariri and colleagues \cite{Hariri2000,Hariri2003}.
-        
-    The paradigm consists of a triangular arrangement of three faces - with the bottom two aligned horizontally and the upper face displaced vertically and equidistant from both bottom faces.
-    In contrast to other formulations\cite{Hariri2000,Hariri2003} of the same paradigm (which keep all 3 stimuli equidistant),
-    we have decided to adapt positioning of the items to what we believe is a better fit for the human field of view.
-    Simply aligning the midpoints of stimulus images to the vertices of an equilateral triangle presents some issues:
-    \begin{itemize}
-        \item Not accounting for the aspect ratio of the actual stimulus images lessens control over the resulting populated visual window (pVW).
-	\item Horizontal and diagonal distances are not perceived identically by human vision 
-    \end{itemize}
-    We tackled the above by adapting the pVW to the normal human field of vision aspect ratio and by taking the outermost non-neutral pixels (rather than the centers of the stimulus images) to delimitate the pVW.
-    
-    \begin{wrapfigure}{r}{0.45\textwidth}
-      \centering
-	\scalebox{0.55}{\includegraphics{./img/vis_field.jpg}}
-	\caption{Perimetric map of the human field of view. \cite{Ruch1960} 
-	For the measurement both the head and eyes were fixed, with the fovea of both eyes pointing at \SI{0}{\degree} on the cross-hairs.
-	The white area affords binocular vision, the black area is completely outside the field of view.}
-	\label{fig:m_b_1}
-    \end{wrapfigure}    
-    For the following distance specifications we have defined the unit “u” as the height of our stimulus images.
-    Seeing as our stimulus images have a fixed aspect ratio their width is thus consistently \SI[parse-numbers = false]{\frac{3}{4}}{u}.
-    
-    The static human field of view has a complex shape defined amongst others by facial features (as seen in figure~\ref{fig:m_b_1}).
-    If the outermost light paths fitting the referenced figure were to be circumscribed by a planar mask in the shape of the rectangle, its height would span approximately \SI{130}{\degree} and its width \SI{180}{\degree}.
-    This gives the rectangular fit for the field of view a width-to-height ratio of 0.72(2).
-    Given the data - and for numerical convenience - we have chosen to position the midpoints of our stimulus images as follows: 
-    the distance between the two lower image midpoints is \SI{2}{u}; and the vertical offset of the top image midpoint from the horizontal line connecting the bottom image midpoints is \SI{1}{u}.
-    This gives our pVW a total height of \SI{2}{u} and a total width of \SI[parse-numbers = false]{\frac{11}{4}}{u}.
-    The resulting width-to-height ratio of 0.(72) was deemed a sufficiently close match for the afore mentioned human field of view approximation rectangular mask.
-    We thus have reason to believe that our stimulus item distribution is superior to the one implemented by Hariri and colleagues, and we encourage further users of Hariri-style paradigms to note our observations.  
-    
-    We are aware that our simplified approximation still does not account for vertical saccades being slower\cite{TerryBahill1975} and less accurate\cite{Collewijn1988} than horizontal saccades, or for the fact that upward saccades tend to undershoot while downward saccades tend to overshoot \cite{Collewijn1988};
-    however, integrating accurate metrics for these kinetics and determining their relevance for Hariri-style paradigms differs in focus from and far exceeds the scope of our current study.
-    
-    Our resulting pVW was scaled to a subsection of the available monitor space so as to be completely within the area visible through a tilted mirror in our fMIR set-up (more on this in section~\ref{sec:m_fm_eti}).
-    The dimensions (specified in degrees of visual angle) are proportional to the ones mentioned above, scaled for u = \SI{29.44}{\degree}.
-    The midpoint of the pVW (at \SI{0.5}{u} downward from the midpoint of the top image) was aligned to the midpoint of the monitor.
-    A picture of this visual set-up can be seen in figure~\ref{fig:m_b_2}.
-    
-    \begin{figure}[!h]
-	\centering{\includegraphics[width=1\textwidth]{./img/01F_FE_C100_em100_composite.jpg}}
-	\caption{Sample image from the emotional face matching trials in our Hariri-style behavioural test.}
-	\label{fig:m_b_2}
-    \end{figure}
-		
+	We have decided to complement our studies with a series of previously validated and widely used questionnaires.
+	These tests could provide insights into the interplay between psychotypes on one side and behavioural parameters or their neurophysiological underpinnings on the other.
+	For test presentation we have chosen to use a web-based version of the free and open source (FOSS) software testMaker\cite{testmaker}.
+	
+	The choice of tests was based on both general relevance to the host group's research, and specific relevance to emotional perception.
+	According to these criteria, we have compiled a selection of 8 questionnaires:
+	\begin{itemize}
+	    \item The Autism Spectrum Quotient questionnaire (\textbf{AQ}) \cite{Baron-Cohen2001}
+	    \item The World Health Organization Adult ADHD Self-Report Scale (\textbf{ASRS}) \cite{Kessler2005}
+	    \item The 1996 revised Beck Depression Inventory (\textbf{BDI2}) \cite{Beck1996}
+	    \item The short version of the Borderline Symptoms List (\textbf{BSL23}) \cite{Bohus2009}
+	    \item The Empathizing Quotient questionnaire (\textbf{EQ}) \cite{Baron-Cohen2004}
+	    \item The Systemizing Quotient questionnaire (\textbf{SQ}) \cite{Baron-Cohen2003a}
+	    \item The Emotion Regulation Questionnaire (\textbf{ERQ}) \cite{Gross2003}
+	    \item The Schizotypal Personality Questionnaire (\textbf{SPQ}) \cite{Raine1991}
+	\end{itemize}
+	The questionnaires were administered in German language, and translated and validated versions were provided by the test databases of the Central Institute of Mental Health.
+	Translation references are as follows:
+	\begin{itemize}
+	    \item \textbf{AQ} - Translated by C.M. Freitag, Homburg
+	    \item \textbf{ASRS} - Translated by Dr. P. Kirsch, JLU Gießen 2005
+	    \item \textbf{BDI2} - Translated by Pearson Assessment \& Information GmbH (Frankfurt/M. 2010)
+	    \item \textbf{BSL23} - Translated at the Department of Psychosomatic Medicine and Psychotherapy, Central Institute of Mental Health.
+	    \item \textbf{EQ} - Translated by Dipl.-Psych. Jörn de Haen
+	    \item \textbf{SQ} - Translated by Dipl.-Psych. Jörn de Haen
+	    \item \textbf{ERQ} - Translated by Brigit Abler and Henrik Kessler \cite{Abler2009}
+	    \item \textbf{SPQ} - Tranlsated by Klein, Andersen, and Jahn \cite{Klein1997}
+	\end{itemize}
+	The questionnaires were evaluated with questioPy\cite{questiopy}, a Python script written for the purpose of this thesis and openly published on GitHub\cite{github}.
+    \section{Behavioural Test}\label{ref:m_bt}
+	In our current study we are exploring neuronal function ??ref in visual emotional perception.
+	Our behavioural test of choice to tap into these systems relies on visual recognition and subsequent matching of emotion.
+	We call our paradigm a Hariri-style behavioural test, in acknowledgement of the seminal implementations of a similar paradigm by Hariri and colleagues \cite{Hariri2000,Hariri2003}.
+	    
+	The paradigm consists of a triangular arrangement of three faces - with the bottom two aligned horizontally and the upper face displaced vertically and equidistant from both bottom faces.
+	The behavioural test prompts the participant to observe a certain feature (in our case emotion, or - as described in section~\ref{sec:m_vs_si} - pixel arrangement) of the top face, and to select of the bottom faces the one repeating that feature.
+	
+	In our case bottom face selection was done via the arrow keys of a keyboard (in the preliminary experiments further described under section~\ref{sec:m_pe}) and via a remote control (in the fMRI trials further described under section~\ref{sec:m_fmri}).
+	The participants received no sort of feedback after reacting to the individual items, and the images were continuously displayed independently of input for \SI{5}{\second} or \SI{4.5}{\second} (in the preliminary experiments), and for \SI{4}{\second} (in the fMRI trials); intertrial intervals showed a point or a cross and lasted for \SI{2}{\second} or approximately \SI{4}{\second} respectively.
+	The higher inter-trial interval duration for the fMRI experiments was chosen to accomodate for two volume acquisitions, and we say “approximately” because a jitter was added (more on that in section~\ref{sec:m_fmri}). 
+	
+	During the above we take measures for valence (correct or incorrect) of responses, and for reaction times.
+	
+	\begin{wrapfigure}{r}{0.45\textwidth}
+	  \centering
+	    \scalebox{0.55}{\includegraphics{./img/vis_field.jpg}}
+	    \caption{Perimetric map of the human field of view \cite{Ruch1960}.
+	    For measurement the head and eyes were fixed, with the fovea pointing at \SI{0}{\degree} on the cross-hairs.
+	    The white area affords binocular vision, the black area is completely outside the field of view.}
+	    \label{fig:m_b_1}
+	    \vspace{-1.0cm}
+	\end{wrapfigure}
+	
+	In contrast to other formulations\cite{Hariri2000,Hariri2003} of the same paradigm (which keep all 3 stimuli equidistant),
+	we have decided to adapt the positions of stimulus images to what we believe is a better fit for the human field of view.
+	Simply aligning the midpoints of stimulus images to the vertices of an equilateral triangle presents some issues:
+	\begin{itemize}
+	    \item Not accounting for the aspect ratio of the actual stimulus images lessens control over the resulting populated visual window (pVW).
+	    \item Horizontal and diagonal distances are not perceived identically by human vision 
+	\end{itemize}
+	
+	We tackled the above by adapting the pVW to the normal human field of vision aspect ratio.
+	To do so, we took the outermost non-neutral pixels (rather than the centers of the stimulus images) and used these as pVW delimiters in deciding where to position our images.
+	
+	For the following distance specifications we have defined the unit “u” as the height of our stimulus images.
+	Seeing as our stimulus images have a fixed aspect ratio their width is thus consistently \SI[parse-numbers = false]{\frac{3}{4}}{u}.
+	
+	The static human field of view has a complex shape modulated amongst others by facial features (as seen in figure~\ref{fig:m_b_1}).
+	If the outermost light paths fitting figure~\ref{fig:m_b_1} were to be circumscribed by a planar mask in the shape of the rectangle, its height would span approximately \SI{130}{\degree} and its width \SI{180}{\degree}.
+	This gives the rectangular fit for the field of view a width-to-height ratio of 0.72(2).
+	Given the data - and for numerical convenience - we have chosen to position the midpoints of our stimulus images as follows: 
+	the distance between the two lower image midpoints is \SI{2}{u}; and the vertical offset of the top image midpoint from the horizontal line connecting the bottom image midpoints is \SI{1}{u}.
+	This gives our pVW a total height of \SI{2}{u} and a total width of \SI[parse-numbers = false]{\frac{11}{4}}{u}.
+	The resulting width-to-height ratio of 0.(72) was deemed a sufficiently close match for the afore mentioned human field of view (as approximated by a rectangle).
+	We thus have reason to believe that our stimulus item distribution is superior to the one implemented by Hariri and colleagues, and we encourage further users of Hariri-style paradigms to note our observations.  
+	
+	We are aware that our simplified approximation still does not account for vertical saccades being slower\cite{TerryBahill1975} and less accurate\cite{Collewijn1988} than horizontal saccades, 
+	nor for the fact that upward saccades tend to undershoot while downward saccades tend to overshoot \cite{Collewijn1988};
+	however, integrating accurate metrics for these kinetics and determining their relevance for Hariri-style paradigms differs in focus from and far exceeds the scope of our current study.
+	
+	Our resulting pVW was scaled to fit the available display field of the monitor and tilted mirror set-up in our MRI scanner (more on this in section~\ref{sec:m_om_et}).
+	The dimensions (specified in degrees of visual angle) are proportional to the ones mentioned above, scaled for u = \SI{29.44}{\degree}.
+	The midpoint of the pVW (at \SI{0.5}{u} downward from the midpoint of the top image) was aligned to the midpoint of the monitor.
+	A picture of this visual set-up can be seen in figure~\ref{fig:m_b_2}.
+	
+	\begin{figure}[!h]
+	    \centering{\includegraphics[width=1\textwidth]{./img/01F_FE_C100_em100_composite.jpg}}
+	    \caption{Sample image from the emotional face matching trials in our Hariri-style behavioural test.}
+	    \label{fig:m_b_2}
+	\end{figure}
+		    
     \section{Visual Stimuli}
 	\subsection{Emotional Faces}\label{sec:m_vs_ef}
-	
-	In order to better describe the kinetics of underlying neuronal systems 
+	    The emotional face stimuli required by our behavioural test paradigm (see section~\ref{sec:m_bt}) have been sourced from the NimStim set of facial expressions \cite{Tottenham2009}.
 	\subsection{Scrambled Images}\label{sec:m_vs_si}
-	In order to define a baseline of visual recognition we have decided to use trials in which visual input consists of the same pixels as in the emotional trials. 
-	To disentangle visual from semantic (emotion) identification we decided to use “scrambled” images - in which pixels from the emotional faces are permuted so as to obfuscate emotional expressions and facial features.
-	The recognition trials would thus entail matching identical permutations of the same picture.
-	For these trials the template and target will be the exact same image and the distractor will be a different permutation of the pixels which constitute the image the template and target were computed from. 
-	
-	There will be two sets of scrambled image trials: \textit{easy} and \textit{difficult} - to act as baselines for easy and difficult emotion recognition trials respectively.
-	Recognition difficulty of the scrambled image trials should scale proportionally with that of the easy and difficult emotional recognition trials (detailed under section~\ref{sec:m_vs_ef}).
-	To achieve this, scrambling has to be progressively complex.
-	Available data ??? suggests that scrambling of images via smaller sub-sections (further referred to as “clusters”) makes the images progressively difficult to identify and match to other copies.
-	This rationale determined the nature of our scrambling algorithms (detailed below) and was also experimentally validated in preliminary trials (as described in section~\ref{sec:r_pe}).
-	
-	Scrambling was done via Pyxrand\cite{pyxrand}, home-brewed Python script written for the purpose of this thesis and openly published on GitHub.
-	The script provides both cluster-based and kernel-based scrambling:
+	    In order to define a baseline of visual recognition we have decided to use trials in which visual input consists of the same pixels as in the emotional trials. 
+	    To disentangle visual from semantic (emotion) identification we decided to use “scrambled” images - in which pixels from the emotional faces are permuted so as to obfuscate emotional expressions and facial features.
+	    The recognition trials would thus entail matching identical permutations of the same picture.
+	    For these trials the template and target will be the exact same image and the distractor will be a different permutation of the pixels which constitute the image the template and target were computed from. 
+	    
+	    There will be two sets of scrambled image trials: “easy” and “difficult” - to act as baselines for easy and difficult emotion recognition trials respectively.
+	    Recognition difficulty of the scrambled image trials should scale proportionally with that of the easy and difficult emotional recognition trials (detailed under section~\ref{sec:m_vs_ef}).
+	    To achieve this, scrambling has to be progressively complex.
+	    Available data ??? suggests that scrambling of images via smaller sub-sections (further referred to as “clusters”) makes the images progressively difficult to identify and match to other copies.
+	    This rationale determined the nature of our scrambling algorithms (detailed below) and was also experimentally validated in preliminary trials (as described in section~\ref{sec:r_pe}).
+	    
+	    Based on the preliminary results detailed in section~\ref{sec:r_pe} we have decided to use composite (kernel \textit{and} cluster based) scrambling for our experiment.
+	    The scrambling kernel was constant at \SI{6}{\pixel} (as explained in section~\ref{sec:m_pe_cs}) 
+	    and “hard” recognition trials had a scrambling cluster size of \SI{10}{\pixel} while “easy” trials had a scrambling cluster of \SI{22}{\pixel}.
+	    
+	    Scrambling was done via Pyxrand\cite{pyxrand}, home-brewed Python script written for the purpose of this thesis and openly published on GitHub.
+	    The script provides both cluster-based and kernel-based scrambling:
 	    \subsubsection{Cluster-Based Scrambling}
-	    This scrambling functionality recognises the face region of interest (ROI) by scanning for pixel lines with few unique values, and then divides the face ROI in square clusters of predefined sizes.
-	    The clusters then get permuted and rewritten in-place on the image - this is done via the \colorbox{vlg}{\texttt{montage2d}} function of the \colorbox{vlg}{\texttt{scikits\_image}} python package 
-	    (the function was written and contributed to the package for the benefit of the scientific community as part of this thesis).
-	    The image background is then filled with homogeneous values.
+		This scrambling functionality recognises the face region of interest (ROI) by scanning for pixel lines with few unique values, and then divides the face ROI in square clusters of predefined sizes.
+		The clusters then get permuted and rewritten in-place on the image - this is done via the \colorbox{vlg}{\texttt{montage2d}} function of the \colorbox{vlg}{\texttt{scikits\_image}} python package 
+		(the function was written and contributed to the package for the benefit of the scientific community as part of this thesis).
+		The image background is then filled with homogeneous values.
 	    \subsubsection{Kernel-Based Scrambling}\label{sec:m_vs_si_kbs}
-	    This is done by remapping single pixels via the \colorbox{vlg}{\texttt{geometric\_transform}} function of the \colorbox{vlg}{\texttt{scipy}} Python suite. 
-	    New positions are computed via a function which adds a random integer in the $[-K;K]$ ($K$ being the scrambling kernel integer) interval to both the X and Y coordinates of the said pixel.
-	    Effectively, this redistributes each pixel in an area of $[-K;K]$ around its original position with a standard deviation ($\sigma$) of $\approx 0.96K$ (as calculated in figure~\ref{eq:lrgn}). 
-	\subsection{Preliminary Experiments} 
-	Preliminary experiments have been conducted in order to establish a proper paradigm for the \textit{main} experiments of the project. 
+		This is done by remapping single pixels via the \colorbox{vlg}{\texttt{geometric\_transform}} function of the \colorbox{vlg}{\texttt{scipy}} Python suite. 
+		New positions are computed via a function which adds a random integer in the $[-K;K]$ ($K$ being the scrambling kernel integer) interval to both the X and Y coordinates of the said pixel.
+		Effectively, this redistributes each pixel in an area of $[-K;K]$ around its original position with a standard deviation ($\sigma$) of $\approx 0.96K$ (as calculated in figure~\ref{eq:lrgn}).
+    \section{Preliminary Experiments}\label{sec:m_pe}
+	Preliminary experiments have been conducted in order to establish a proper paradigm for the main experiments of the project. 
 	Their primary goal is determining which scrambling cluster sizes have reaction times comparable to the \SI{100}{\percent} and \SI{40}{\percent} emotional images (decided upon based on rationales delineated under section~\ref{sec:m_vs_ef}).
 	
 	For stimulus presentation and data acquisition in these experiments we used faceRT\cite{faceRT}, a home-brewed Python script written for the purpose of this thesis and openly published on GitHub.
-	Our Python script uses the PsychoPy suite\cite{Peirce2008} for specialized, high-precision stimulus rendering and timing.   
-	    \subsubsection{Simple Cluster-Based Scrambling}
+	Our Python script uses the PsychoPy suite\cite{Peirce2008} for specialized, high-precision stimulus rendering and timing.
+	
+	For the following categories of experiments we have adhered to the behavioural test specifications under section~\ref{sec:m_bt}.  
+	\subsection{Simple Cluster-Based Scrambling}\label{sec:m_pe_ss}
 	    In a first set of trials we have scrambled images with cluster sizes starting at \SI{6}{\pixel} and progressing to \SI{26}{\pixel} in \SI{4}{\pixel} steps.
 	    The stimulus presentation protocol used for these trials is revision \textcolor{lg}{ce2b3a8f30024504d7f7b087211fdbb8b5e47c3e} of the faceRT\cite{faceRT} script suite.
 	    Stimuli were presented fully randomized per-participant, and sequences were compiled manually, following the listed requirements:
@@ -125,12 +144,15 @@
 		\item The same person's face (even with a different emotion) should not appear more than once in one slide.
 		\item Each face picture should appear no more than 3 times in the entire experiment.
 	    \end{itemize}
-	    \subsubsection{Composite (Kernel-and-Cluster-Based) Scrambling}
-	    As the previous set-up of preliminary experiments proved unsatisfactory due to eye visibility (which is known to provoke fearful emotional reactions ??? that could well disrupt our brain imaging baseline), we decided to obfuscate facial features.
+	    To better determine the appropriate response window duration for further trials, we have decided on a conservative duration of \SI{5}{\second}.
+	    
+	    Due to concerns regarding the recognisability of facial features (as detailed below and in section~\ref{sec:r_pe_ss}) we have decided to test a alternate means of scrambling:
+	\subsection{Composite (Kernel-and-Cluster-Based) Scrambling}\label{sec:m__pe_cs}
+	    As the previous set-up of preliminary experiments proved unsatisfactory due to eye visibility (which is known to elicit fearful emotional reactions ??? that could well disrupt our brain imaging baseline), we decided to obfuscate facial features.
 	    This was done by kernel-scrambling the images (as detailed in section~\ref{sec:m_vs_si_kbs}) before applying the same cluster-based scrambling as in the experiments mentioned above.
 	    Such a preparation of the images would render all features with a spatial frequency above $\frac{1}{\sigma_{K}}$ (where $\sigma_{K}$ is the pixel redistribution standard deviation deonstratively calculated in figure~\ref{eq:lrgn}) unrecognisable.
 	    
-	    The transition from the black of the pupil to the white of the cornea in our stimulus images averages around \SI{7}{\pixel} (based on manual analysis).
+	    The transition from the black of the pupil over the iris to the white of the cornea in our stimulus images averages around \SI{8}{\pixel} (based on manual analysis).
 	    We therefore experimented with a series of kernel-based scrambling steps around that value.
 	    
 	    We found that for smaller scrambling kernels, the spatial frequency low-pass cut-off was too low (as seen in in figures \ref{fig:m_vs_pe_1_a} and \ref{fig:m_vs_pe_1_b} where the eyes are still visible).
@@ -145,7 +167,7 @@
 	    Based on these tests we have decided to use faces pre-scrambled with a kernel of \SI{6}{\pixel} for the second round of reaction time testing.
 	    
 	    \begin{figure}
-    		\begin{subfigure}[b]{0.495\textwidth}
+		\begin{subfigure}[b]{0.495\textwidth}
 		    \centering\scalebox{0.3}{\includegraphics{./img/01F_FE_C100_px2rand.jpg} \includegraphics{./img/01F_FE_C100_px2rand_cell26rand.jpg}}
 		    \subcaption{\SI{2}{\pixel} scrambling kernel}
 		    \label{fig:m_vs_pe_1_a}
@@ -173,49 +195,89 @@
 		The kernels are ascending in size; images were prepared via Pyxrand\cite{pyxrand} (revision \textcolor{lg}{1eb1f7cd65e4fc43b3454728ffeac3dedbcc4312}).}
 		\label{fig:m_vs_pe_1}
 	    \end{figure}
-
+    
 	    We also decided to re-write the stimulus sequence in a more automated and reliable manner.
 	    The automation was done via the sequence-calculation software, Pystim\cite{pystim} - a home-brewed Python script written for the purpose of this thesis and openly published on GitHub.
 	    The requirements followed and met by the script are:
 	    \begin{itemize}
 		\item Each emotional picture should be presented once as the template (emotion defining) figure, once as a target, and once as a distractor.
-		\item Only one scrambling alternative of the 
-		\item The same person's face (even with a different emotion) should not appear more than once in one slide.
+		\item Trial repeat number for each scrambling severity and emotional concentration should be equal
+		\item The same person's face (even with a different emotion) should not appear more than once in any one emotion-recognition trial.
 	    \end{itemize}
-	    As the decision to show all images an equal number of times and present each one as the template
-    \section{Functional MRI}
-    Patterns of neuronal activity are to be extrapolated from functional magnetic resonance imaging (fMRI) data.
-	\subsection{Eye Tracker Integration}\label{sec:m_fm_eti}
+	    The decision to show all emotional images an equal number of times and present each one as the template lead to a total increase the trials count
+	    (8 faces $\times$ 2 genders $\times$ 2 emotions $\times$ 2 intensities \textit{plus} 8 faces $\times$ 2 genders $\times$ 2 emotions $\times$ 6 intensities yields 256 trials as opposed to the 160 resulting from the stimulus sequence in section~\ref{sec:m_pe_ss}).
+	    To limit fatigue experienced by our participants we have decided to only test 5 scrambling cell steps at a time (reducing the trial number to 224).
+	    
+	    Additionally, to constrain test duration and in light of the findings from section~\ref{sec:r_pe_ss} we have decided to provide a response window of \SI{4.5}{\second}.
+    \section{Functional MRI}\label{sec:m_fmri}
+	Patterns of neuronal activity are to be extrapolated from functional magnetic resonance imaging (fMRI) data.
+    \section{Occulometry}\label{sec:m_om}
+	\subsection{Eye Tracking}\label{sec:m_om_et}
+	\subsection{Pupillometry}\label{sec:m_om_pm}
 \chapter{Results}
     \section{Preliminary Experiments}\label{sec:r_pe}
-    In order to establish an experimental paradigm which affords the comparison between emotion recognition and simple visual matching, we need to select stimuli whose matching is correspondingly difficult.
-    For the emotion recognition trials, we decided for faces with emotional "concentrations" ??? of 40\% and 100\% (as discussed in section~\ref{sec:m_vs_ef}).
-    \begin{pycode}
-import subprocess
-import sys
-pytex.add_dependencies('/home/chymera/src/faceRT/analysis/RTforCategories.py')
-pytex.add_dependencies('/home/chymera/src/faceRT/analysis/gen.cfg')
-sys.path.append('/home/chymera/src/faceRT/analysis/')
-import RTforCategories
-RTforCategories.main(experiment='11px-4px-5steps', source='server', elinewidth=1, ecolor='0.3', make_tight={"pad": 0})
-fig = latex_figure(save_fig(fig_width=6.6, fig_height=3))
-    \end{pycode}
-    \py{fig}
-\begin{pycode}
-import subprocess
-import sys
-pytex.add_dependencies('/home/chymera/src/faceRT/analysis/RTforCategories.py')
-pytex.add_dependencies('/home/chymera/src/faceRT/analysis/gen.cfg')
-sys.path.append('/home/chymera/src/faceRT/analysis/')
-import RTforCategories
-RTforCategories.main(experiment='11px-4px-5steps_narrow-angle', source='server', elinewidth=1, ecolor='0.3', make_tight={"pad": 0})
-fig = latex_figure(save_fig(fig_width=6.6, fig_height=3))
-    \end{pycode}
-    \py{fig}
+	In order to establish an experimental paradigm which affords the comparison between emotion recognition and simple visual matching, we need to select stimuli whose matching is correspondingly difficult.
+	For the emotion recognition trials, we decided on faces with emotional concentrations of 40\% and 100\% (as discussed in section~\ref{sec:m_vs_ef}).
+	
+	In the following experiments we examine reaction times and error rates for the recognition of progressively scrambled images in comparison to the recognition of our two emotional concentrations.
+	\subsection{Simple Cluster-Based Scrambling}\label{sec:r_pe_ss}
+	    For the results presented in figure~\ref{fig:r_pe_ss1} we have used a simple cluster-based scrambling algorithm and a hand-written balanced stimulus sequence 
+	    (both detailed in section~\ref{sec:m_pe_ss}).
+	    \begin{pycode}
+		import subprocess
+		import sys
+		from scipy.stats import ttest_ind
+		pytex.add_dependencies('/home/chymera/src/faceRT/analysis/RTforCategories.py')
+		pytex.add_dependencies('/home/chymera/src/faceRT/analysis/gen.cfg')
+		sys.path.append('/home/chymera/src/faceRT/analysis/')
+		import RTforCategories
+		data = RTforCategories.main(experiment='6px-4px-6steps', prepixelation=0, source='server', elinewidth=1, ecolor='0.3', make_tight={"pad": 0})
+		fig = latex_figure(save_fig(fig_width=6.65, fig_height=3), caption='Reaction times for Hariri-style face matching. Scrambled images for simple visual recognition were preprocessed only with a scrambling cluster of the sizes indicated in the graphic (sizes given in pixels). Missed targets are not counted and times exceeding the cap of \SI{5}{\second} were counted as \SI{5}{\second}. The error bars represent the standard deviation.', label='r_pe_ss1')
+	    \end{pycode}
+	    \py{fig}
+	    
+	    As can be seen in figure~\ref{fig:r_pe_ss1} the difficult emotion recognition condition requires a similar amount of time for completion as recognition of the \SI{6}{\pixel} scrambled images 
+	    (with two-tailed \textit{p} = \py{"{:.1e}".format(ttest_ind(data[(data['scrambling'] == 0) & (data['intensity'] == 40)]['RT'], data[(data['scrambling'] == 6)]['RT'])[1])}).
+	    With increasing scrambling cluster size, reaction times are reduced - reaching approximately the same values as for easy emotion recognition already at cluster size of \SI{14}{\pixel}
+	    (two-tailed \textit{p} = \py{"{:.1e}".format(ttest_ind(data[(data['scrambling'] == 0) & (data['intensity'] == 100)]['RT'], data[(data['scrambling'] == 14)]['RT'])[1])}).
+	    For increasing cluster sizes the reaction times plateau. 
+	    The two-tailed \textit{p}-values for \SI{18}{\pixel}, \SI{22}{\pixel}, and \SI{26}{\pixel} cluster sizes compared to easy emotion recognition are:
+	    \py{"{:.1e}".format(ttest_ind(data[(data['scrambling'] == 0) & (data['intensity'] == 100)]['RT'], data[(data['scrambling'] == 18)]['RT'])[1])}, \py{"{:.1e}".format(ttest_ind(data[(data['scrambling'] == 0) & (data['intensity'] == 100)]['RT'], data[(data['scrambling'] == 22)]['RT'])[1])}, and \py{"{:.1e}".format(ttest_ind(data[(data['scrambling'] == 0) & (data['intensity'] == 100)]['RT'], data[(data['scrambling'] == 26)]['RT'])[1])} respectively.
+	    
+	    The abrupt decrease of the reaction times over increasing cluster sizes raised some suspicion.
+	    The plateau suggested that scrambling cluster sizes of \SI{14}{\pixel}, \SI{18}{\pixel}, \SI{22}{\pixel}, and \SI{26}{\pixel} possessed a recognition-relevant quality which the \SI{6}{\pixel} scrambling cluster did not.
+	    If this purported feature is to explain the reaction time distribution, it should emerge at a scrambling cluster size of around \SI{10}{\pixel}.
+	    Visual scrutiny of the images suggested that the emergent feature may be recognizable facial features - more precisely the eyes (with pupil and iris having a diameter of approximately \SI{8}{\pixel}).
+	    To test our hypothesis and define a more appropriate baseline for simple visual recognition, we devised a new set of experiments - described in section~\ref{sec:m_pe_cs}, and analyzed in section \ref{sec:r_pe_cs}.
+	    
+	    In addition to the reaction time analysis, we attempted to gauge the maximal window for reaction times which we should provide. 
+	\subsection{Composite (Kernel-and-Cluster-Based) Scrambling}\label{sec:r_pe_cs}
+	    \begin{pycode}
+		import subprocess
+		import sys
+		pytex.add_dependencies('/home/chymera/src/faceRT/analysis/RTforCategories.py')
+		pytex.add_dependencies('/home/chymera/src/faceRT/analysis/gen.cfg')
+		sys.path.append('/home/chymera/src/faceRT/analysis/')
+		import RTforCategories
+		RTforCategories.main(experiment='11px-4px-5steps', prepixelation=6, source='server', elinewidth=1, ecolor='0.3', make_tight={"pad": 0})
+		fig = latex_figure(save_fig(fig_width=6.65, fig_height=3), caption='Reaction times for Hariri-style face matching. Scrambled images for simple visual recognition were preprocessed with a scrambling kernel of \SI{6}{\pixel} and with scrambling clusters of the sizes indicated in the graphic (sizes given in pixels). Missed targets are not counted and times exceeding the cap of \SI{5}{\second} were counted as \SI{5}{\second}. The error bars represent the standard deviation.')
+	    \end{pycode}
+	    \py{fig}
+	    \begin{pycode}
+		import subprocess
+		import sys
+		pytex.add_dependencies('/home/chymera/src/faceRT/analysis/RTforCategories.py')
+		pytex.add_dependencies('/home/chymera/src/faceRT/analysis/gen.cfg')
+		sys.path.append('/home/chymera/src/faceRT/analysis/')
+		import RTforCategories
+		RTforCategories.main(experiment='11px-4px-5steps_narrow-angle', prepixelation=6, source='server', elinewidth=1, ecolor='0.3', make_tight={"pad": 0})
+		fig = latex_figure(save_fig(fig_width=6.6, fig_height=3), caption='Reaction times for Hariri-style face matching. Scrambled images for simple visual recognition were preprocessed with ca scrambling kernel of \SI{6}{\pixel} and with scrambling clusters of the sizes indicated in the graphic (sizes given in pixels). Missed targets are not counted and times exceeding the cap of \SI{5}{\second} were counted as \SI{5}{\second}. The error bars represent the standard deviation.')
+	    \end{pycode}
+	    \py{fig}
 \chapter{Discussion}
 \chapter{Meta}
-\begin{figure}
-\[ \sigma_{x,y} = \sqrt{\sigma_{x}^{2}+\sigma_{y}^{2}} = \sqrt{2\sigma_{x}^{2}} \approx \sqrt{2 \cdot (0.68 K)^{2}} \approx 0.96K\]
-\caption{Here we calculate the standard deviation ($\sigma$) of the distance from the original pixel location to the new pixel location following kernel-based scrambling, as detailed in section~\ref{sec:m_vs_si_kbs}. The standard deviation along one axis is defined as $0.68K$ (\SI{68}{\percent} of the scrambling kernel, $K$) following the 68–95–99.7 rule, though experimentally we have found slightly lower values ($\approx 0.6K$).}\label{eq:lrgn}
-\end{figure}
+    \begin{figure}
+	\[ \sigma_{x,y} = \sqrt{\sigma_{x}^{2}+\sigma_{y}^{2}} = \sqrt{2\sigma_{x}^{2}} \approx \sqrt{2 \cdot (0.68 K)^{2}} \approx 0.96K\]
+	\caption{Here we calculate the standard deviation ($\sigma$) of the distance from the original pixel location to the new pixel location following kernel-based scrambling, as detailed in section~\ref{sec:m_vs_si_kbs}. The standard deviation along one axis is defined as $0.68K$ (\SI{68}{\percent} of the scrambling kernel, $K$) following the 68–95–99.7 rule, though experimentally we have found slightly lower values ($\approx 0.6K$).}\label{eq:lrgn}
+    \end{figure}
 \input{footer.tex}
