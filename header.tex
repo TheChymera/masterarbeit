@@ -25,9 +25,11 @@
 \usepackage{pgf} %reads .pgf files for figures with text annotations scaling separately from the graphic
 \usepackage{wrapfig} %allow text to wrap around certain figures
 
+\newcommand{\pySI}[2]{\py{'\\SI{' + str(#1) + '}{#2}'}} % lets you use \pySI as a SI equivalent if you need to print pycode output
+
 \renewcommand{\theequation}{\arabic{equation}}
 \widowpenalty1000 % no widows
-\clubpenalty1000 % no ohans
+\clubpenalty1000 % no orphans
 
 \definecolor{vlg}{gray}{0.90}
 \definecolor{lg}{gray}{0.60}
