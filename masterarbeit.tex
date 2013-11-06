@@ -6,9 +6,9 @@
     \section{}
 \chapter{Methods}
     \section{Questionnaires}
-	We have decided to complement our studies with a series of previously validated and widely used questionnaires.
-	These tests could provide insights into the interplay between psychotypes on one side and behavioural parameters or their neurophysiological underpinnings on the other.
-	For test presentation we have chosen to use a web-based version of the free and open source (FOSS) software testMaker\cite{testmaker}.
+	We have decided to complement our studies with a series of validated and widely used questionnaires.
+	These tests could provide valuable insight into the interplay between psychotypes on one side and behavioural parameters or their neurophysiological underpinnings on the other.
+	For test presentation we have decided on a web-based approach, for which we have used a web-enabled version of the free and open source (FOSS) software testMaker\cite{testmaker}.
 	
 	The choice of tests was based on both general relevance to the host group's research, and specific relevance to emotional perception.
 	According to these criteria, we have compiled a selection of 8 questionnaires:
@@ -35,7 +35,7 @@
 	    \item \textbf{SPQ} - Tranlsated by Klein, Andersen, and Jahn \cite{Klein1997}
 	\end{itemize}
 	The questionnaires were evaluated with questioPy\cite{questiopy}, a Python script written for the purpose of this thesis and openly published on GitHub\cite{github}.
-    \section{Behavioural Test}\label{ref:m_bt}
+    \section{Behavioural Test}\label{sec:m_bt}
 	In our current study we are exploring neuronal function ??ref in visual emotional perception.
 	Our behavioural test of choice to tap into these systems relies on visual recognition and subsequent matching of emotion.
 	We call our paradigm a Hariri-style behavioural test, in acknowledgement of the seminal implementations of a similar paradigm by Hariri and colleagues \cite{Hariri2000,Hariri2003}.
@@ -107,7 +107,7 @@
 	    For these trials the template and target will be the exact same image and the distractor will be a different permutation of the pixels which constitute the image the template and target were computed from. 
 	    
 	    There will be two sets of scrambled image trials: “easy” and “difficult” - to act as baselines for easy and difficult emotion recognition trials respectively.
-	    Recognition difficulty of the scrambled image trials should scale proportionally with that of the easy and difficult emotional recognition trials (detailed under section~\ref{sec:m_vs_ef}).
+	    Recognition difficulty of the scrambled image trials should scale proportionally with that of the easy and difficult emotion recognition trials (detailed under section~\ref{sec:m_vs_ef}).
 	    To achieve this, scrambling has to be progressively complex.
 	    Available data ??? suggests that scrambling of images via smaller sub-sections (further referred to as “clusters”) makes the images progressively difficult to identify and match to other copies.
 	    This rationale determined the nature of our scrambling algorithms (detailed below) and was also experimentally validated in preliminary trials (as described in section~\ref{sec:r_pe}).
@@ -133,6 +133,11 @@
 	
 	For stimulus presentation and data acquisition in these experiments we used faceRT\cite{faceRT}, a home-brewed Python script written for the purpose of this thesis and openly published on GitHub.
 	Our Python script uses the PsychoPy suite\cite{Peirce2008} for specialized, high-precision stimulus rendering and timing.
+	
+	Participants were recruited from staff at the Central Institute of Mental Health, and students of the Universities of Mannheim and Heidelberg.
+	Since these are preparatory trials we opted for merely around 7 participants per run.
+	Participants are identified in the study by a 2-letter code, and a subset of them have participated in multiple runs of our preliminary trials.
+	It should be noted that runs are therefore not well suited for direct comparison or for binning; but they do offer a good predictor for expected variability in reaction times.
 	
 	For the following categories of experiments we have adhered to the behavioural test specifications under section~\ref{sec:m_bt}.  
 	\subsection{Simple Cluster-Based Scrambling}\label{sec:m_pe_ss}
@@ -208,7 +213,9 @@
 	    (8 faces $\times$ 2 genders $\times$ 2 emotions $\times$ 2 intensities \textit{plus} 8 faces $\times$ 2 genders $\times$ 2 emotions $\times$ 6 intensities yields 256 trials as opposed to the 160 resulting from the stimulus sequence in section~\ref{sec:m_pe_ss}).
 	    To limit fatigue experienced by our participants we have decided to only test 5 scrambling cell steps at a time (reducing the trial number to 224).
 	    
-	    Additionally, to constrain test duration and in light of the findings from section~\ref{sec:r_pe_ss} we have decided to provide a response window of \SI{4.5}{\second}.
+	    Additionally, to constrain test duration and relieve fatigue for our participants we have decided to provide a response window of \SI{4}{\second}.
+	    This somewhat undershoots the recommended value from section~\ref{sec:r_pe_ss}.
+	    In light of the necessity to reduce test duration and in light of acquisition time considerations further detailed in section~\ref{sec:m_fmri}, we have - however - decided that this is a fair trade-off.
     \section{Functional MRI}\label{sec:m_fmri}
 	Patterns of neuronal activity are to be extrapolated from functional magnetic resonance imaging (fMRI) data.
     \section{Occulometry}\label{sec:m_om}
@@ -284,7 +291,7 @@
 		sys.path.append('/home/chymera/src/faceRT/analysis/')
 		import signal_detection
 		data_ss3 = signal_detection.main(experiment='6px-4px-6steps', prepixelation=0, source='server', elinewidth=1, ecolor='0.3', make_tight={"pad": 0})
-		fig = latex_figure(save_fig(fig_width=6.64, fig_height=3), caption='Error rates for Hariri-style face matching. The error bars represent the standard deviation. Bar-plots with zero-height have been slightly indented for better visibility.', label='r_pe_ss3')
+		fig = latex_figure(save_fig(fig_width=6.64, fig_height=3), caption='Error rates for Hariri-style face matching. Scrambled images for simple visual recognition were preprocessed only with a scrambling cluster of the sizes indicated in the graphic (sizes given in pixels). The error bars represent the standard deviation. Bar-plots with zero-height have been slightly indented for better visibility.', label='r_pe_ss3')
 	    \end{pycode}
 	    \py{fig}
 	    
@@ -302,8 +309,8 @@
 	    \py{"{:.1e}".format(ttest_ind(data_ss3[(data_ss3['scrambling'] == 0) & (data_ss3['intensity'] == 100)]['error rate'], data_ss3[(data_ss3['scrambling'] == 26)]['error rate'])[1]/2)}
 	    for comparisons of easy emotion recognition with hard emotion recognition, and simple visual recognition of \SI{6}{\pixel}, \SI{10}{\pixel}, \SI{14}{\pixel}, \SI{18}{\pixel}, \SI{22}{\pixel}, and \SI{26}{\pixel} scrambled images respectively.
 	    
-	    Even for comparable reaction times (easy emotional recognition vs. simple visual recognition of pictures scrambled with \SI{14}{\pixel}, \SI{18}{\pixel}, \SI{22}{\pixel}, and \SI{26}{\pixel} clusters), simple visual recognition is prone to higher error rates than easy emotional recognition.
-	    This raises doubts about our choice of baseline, and should be kept in mind for the interpretation of further results.
+	    Even for comparable reaction times (easy emotion recognition vs. simple visual recognition of pictures scrambled with \SI{14}{\pixel}, \SI{18}{\pixel}, \SI{22}{\pixel}, and \SI{26}{\pixel} clusters), simple visual recognition is prone to higher error rates than easy emotion recognition.
+	    This could raise doubts about our choice of baseline, and should be kept in mind for further scrutiny (detailed in the discussion of figure~\ref{fig:r_pe_cs5}).
 	\subsection{Composite (Kernel-and-Cluster-Based) Scrambling}\label{sec:r_pe_cs}
 	    Based on the results detailed in section ~\ref{sec:r_pe_ss} we have performed additional experiments using a series of improved method choices (detailed in section \ref{sec:m_pe_cs}).
 	    \begin{pycode}
@@ -314,14 +321,14 @@
 		pytex.add_dependencies('/home/chymera/src/faceRT/analysis/gen.cfg')
 		sys.path.append('/home/chymera/src/faceRT/analysis/')
 		import RTforCategories
-		data_sc1 = RTforCategories.main(experiment='11px-4px-5steps', prepixelation=6, source='server', elinewidth=1, ecolor='0.3', make_tight={"pad": 0})
-		fig = latex_figure(save_fig(fig_width=6.64, fig_height=3), caption='Reaction times for Hariri-style face matching. Scrambled images for simple visual recognition were preprocessed with composite cluster and kernel based scrambling, with a constant kernel of \SI{6}{\pixel} and clusters of the sizes indicated in the graphic (sizes given in pixels). Missed targets are not counted and times exceeding the cap of \SI{5}{\second} were counted as \SI{5}{\second}. The error bars represent the standard deviation.', label='r_pe_sc1')
+		data_cs1 = RTforCategories.main(experiment='11px-4px-5steps', prepixelation=6, source='server', elinewidth=1, ecolor='0.3', make_tight={"pad": 0})
+		fig = latex_figure(save_fig(fig_width=6.64, fig_height=3), caption='Reaction times for Hariri-style face matching. Scrambled images for simple visual recognition were preprocessed with composite cluster and kernel based scrambling, with a constant kernel of \SI{6}{\pixel} and clusters of the sizes indicated in the graphic (sizes given in pixels). Missed targets are not counted and times exceeding the cap of \SI{5}{\second} were counted as \SI{5}{\second}. The error bars represent the standard deviation.', label='r_pe_cs1')
 	    \end{pycode}
 	    \py{fig}
 	    
-	    Figure~\ref{fig:r_pe_sc1} presents the data thus obtained.
-	    An obvious feature here is the disappearance of the plateau phase, which cud confirm our hypothesis regarding its emergence due to facial features with a spatial frequency of around \SI{8}{\pixel} (formulated in section~\ref{sec:r_pe_ss}).
-	    The equivalence of reaction times for images scrambled with \SI{11}{\pixel} and \SI{15}{\pixel} clusters (two-tailed \textit{p} of \py{"{:.1e}".format(ttest_ind(data_sc1[(data_sc1['scrambling'] == 11)]['RT'], data_sc1[(data_sc1['scrambling'] == 15)]['RT'])[1])}) raises concern, not least of all because in light of these results we have identified no appropriate baseline condition for easy emotion recognition.
+	    Figure~\ref{fig:r_pe_cs1} presents the the data from the first run of these experiments.
+	    An obvious feature here is the disappearance of the plateau phase, which supports our hypothesis regarding its emergence due to facial features with a spatial frequency of around \SI{8}{\pixel} (formulated in section~\ref{sec:r_pe_ss}).
+	    The equivalence of reaction times for images scrambled with \SI{11}{\pixel} and \SI{15}{\pixel} clusters (two-tailed \textit{p} of \py{"{:.1e}".format(ttest_ind(data_cs1[(data_cs1['scrambling'] == 11)]['RT'], data_cs1[(data_cs1['scrambling'] == 15)]['RT'])[1])}) raises concern, not least of all because in light of these results we have identified no appropriate baseline condition for easy emotion recognition.
 	    \begin{pycode}
 		import subprocess
 		import sys
@@ -330,20 +337,23 @@
 		pytex.add_dependencies('/home/chymera/src/faceRT/analysis/gen.cfg')
 		sys.path.append('/home/chymera/src/faceRT/analysis/')
 		import RTforCategories
-		data_sc2 = RTforCategories.main(experiment='6px-4px-5steps', prepixelation=6, source='server', elinewidth=1, ecolor='0.3', make_tight={"pad": 0})
-		fig = latex_figure(save_fig(fig_width=6.64, fig_height=3), caption='Reaction times for Hariri-style face matching. Scrambled images for simple visual recognition were preprocessed with composite cluster and kernel based scrambling, with a constant kernel of \SI{6}{\pixel} and clusters of the sizes indicated in the graphic (sizes given in pixels). Missed targets are not counted and times exceeding the cap of \SI{5}{\second} were counted as \SI{5}{\second}. The error bars represent the standard deviation.', label='r_pe_sc2')
+		data_cs2 = RTforCategories.main(experiment='6px-4px-5steps', prepixelation=6, source='server', elinewidth=1, ecolor='0.3', make_tight={"pad": 0})
+		fig = latex_figure(save_fig(fig_width=6.64, fig_height=3), caption='Reaction times for Hariri-style face matching. Scrambled images for simple visual recognition were preprocessed with composite cluster and kernel based scrambling, with a constant kernel of \SI{6}{\pixel} and clusters of the sizes indicated in the graphic (sizes given in pixels). Missed targets are not counted and times exceeding the cap of \SI{5}{\second} were counted as \SI{5}{\second}. The error bars represent the standard deviation.', label='r_pe_cs2')
 	    \end{pycode}
 	    \py{fig}
 	    
 	    To further investigate cateory-dependent reaction times in this new condition (and possibly identify a baseline) we have reiterated the experiment with different scrambling cluster sizes.
-	    We present the new data in figure~\ref{fig:r_pe_sc2}.
-	    The results from this re-run are curious in that they mostly do not corroborate our findings from previous data (figure~\ref{fig:r_pe_sc1}).
-	    The data does seem to indicate an appropriate baseline for easy emotional recognition (namely simple visual recognition of pictures scrambled with a scrambling kernel of \SI{6}{\pixel} and a scrambling cluster of \SI{10}{\pixel} - two-tailed \textit{p} of \py{"{:.1e}".format(ttest_ind(data_sc2[(data_sc2['scrambling'] == 0) & (data_sc2['intensity'] == 100)]['RT'], data_sc2[(data_sc2['scrambling'] == 10)]['RT'])[1])}).
-	    The validity of this finding is however undermined by the fact that an only slightly larger (py \SI{1}{\pixel}) scrambling cluster prompted a significantly different reaction time from the emotional recognition in our previous run of the experiment.
-	    The emergence of a plateau of reaction times for larger scrambling clusters (previously observed in section~\ref{sec:r_pe_ss} also raises further questions.
+	    We present the new data in figure~\ref{fig:r_pe_cs2}.
+	    The results from this re-run are curious in that they mostly do not corroborate our findings from the previous run (figure~\ref{fig:r_pe_cs1}).
+	    The data does seem to indicate an appropriate baseline for easy emotion recognition (namely visual recognition of pictures processed with a scrambling kernel of \SI{6}{\pixel} and a scrambling cluster of \SI{10}{\pixel}: two-tailed \textit{p} = \py{"{:.1e}".format(ttest_ind(data_cs2[(data_cs2['scrambling'] == 0) & (data_cs2['intensity'] == 100)]['RT'], data_cs2[(data_cs2['scrambling'] == 10)]['RT'])[1])}).
+	    The validity of this finding is however undermined by the fact that an only slightly larger (by \SI{1}{\pixel}) scrambling cluster prompted a significantly different reaction time from the difficult emotion recognition in our previous run of the experiment.
+	    The emergence of a plateau of reaction times for larger scrambling clusters (previously observed in section~\ref{sec:r_pe_ss}) raises further questions.
 	    
-	    We believe that this variability is due to our reduced cohort sizes, and that it merits further investigation.
-	    Concomitantly to this realization we have also decided to adapt the size of the visual window to accurately match the degrees of visual angle which our participants would be seeing in our fMRI-monitor set-up. This is a slight decrease in size from the trials above: u = \SI{4.24}{\degree} now versus u $\approx$ \SI{6}{\degree} earlier (with “u” denoting face image height).	    
+	    We believe that this variability is due to our reduced and varying participant sample, and that this merits further investigation.
+	    Concomitantly to this realization we have also decided to adapt the size of the visual window to accurately match the degrees of visual angle which our participants would be seeing in our fMRI-monitor set-up. This is a slight decrease in size from the trials above: u = \SI{4.24}{\degree} now versus u $\approx$ \SI{6}{\degree} earlier (with “u” denoting face image height).
+	    
+	    This third run of our experiment (with results depicted in figure~\ref{fig:r_pe_cs3}) should be the best approximation for the visual input the participants will be receiving in the fMRI trials.
+	    We therefore trust this run above all others as a guideline for further experimental design choices.
 	    \begin{pycode}
 		import subprocess
 		import sys
@@ -352,11 +362,76 @@
 		pytex.add_dependencies('/home/chymera/src/faceRT/analysis/gen.cfg')
 		sys.path.append('/home/chymera/src/faceRT/analysis/')
 		import RTforCategories
-		data_sc3 = RTforCategories.main(experiment='11px-4px-5steps_narrow-angle', prepixelation=6, source='server', elinewidth=1, ecolor='0.3', make_tight={"pad": 0})
-		fig = latex_figure(save_fig(fig_width=6.64, fig_height=3), caption='Reaction times for Hariri-style face matching. Scrambled images for simple visual recognition were preprocessed with composite cluster and kernel based scrambling, with a constant kernel of \SI{6}{\pixel} and clusters of the sizes indicated in the graphic (sizes given in pixels). Missed targets are not counted and times exceeding the cap of \SI{5}{\second} were counted as \SI{5}{\second}. The error bars represent the standard deviation. In addition to the previous results from this section, the trials analyzed herein have a reduced visual angle to emulate our fMRI monitor set-up.', label='r_pe_sc3')
+		data_cs3 = RTforCategories.main(experiment='11px-4px-5steps_narrow-angle', prepixelation=6, source='server', elinewidth=1, ecolor='0.3', make_tight={"pad": 0})
+		fig = latex_figure(save_fig(fig_width=6.64, fig_height=3), caption='Reaction times for Hariri-style face matching. Scrambled images for simple visual recognition were preprocessed with composite cluster and kernel based scrambling, with a constant kernel of \SI{6}{\pixel} and clusters of the sizes indicated in the graphic (sizes given in pixels). Missed targets are not counted and times exceeding the cap of \SI{5}{\second} were counted as \SI{5}{\second}. The error bars represent the standard deviation. In addition to the previous results from this section, the trials analyzed herein have a reduced visual angle to emulate our fMRI monitor set-up.', label='r_pe_cs3')
 	    \end{pycode}
 	    \py{fig}
+	    
+	    Figure~\ref{fig:r_pe_cs3} shows a linear decay of reaction times over increasing scrambling cluster size
+	    (as opposed to a plateau for larger scrambling clusters, which he have noticed in some of the previous runs).
+	    The data recommends pictures scrambled with a kernel of \SI{6}{\pixel} and a cluster of \SI{11}{\pixel} as an appropriate baseline for hard emotion recognition
+	    (2-tailed \textit{p} of \py{"{:.1e}".format(ttest_ind(data_cs3[(data_cs3['scrambling'] == 0) & (data_cs3['intensity'] == 40)]['RT'], data_cs3[(data_cs3['scrambling'] == 11)]['RT'])[1])})
+	    and pictures scrambled with a kernel of \SI{6}{\pixel} and a cluster of \SI{23}{\pixel} as an appropriate baseline for easy emotion recognition
+	    (2-tailed \textit{p} of \py{"{:.1e}".format(ttest_ind(data_cs3[(data_cs3['scrambling'] == 0) & (data_cs3['intensity'] == 100)]['RT'], data_cs3[(data_cs3['scrambling'] == 23)]['RT'])[1])}).
+	    It should be noted that though not significantly different, both of these simple visual recognition reaction times undershoot their counterpart emotion recognition reaction times.
+	    In light of this we have decided to use a \SI{6}{\pixel} kernel- and \SI{10}{\pixel} cluster-scrambled image baseline for difficult emotion recognition, 
+	    and a \SI{6}{\pixel} kernel- and \SI{22}{\pixel} cluster-scrambled image baseline for easy emotion recognition.
+	    \begin{pycode}
+		import subprocess
+		import sys
+		from scipy.stats import ttest_ind
+		pytex.add_dependencies('/home/chymera/src/faceRT/analysis/RTdistribution.py')
+		pytex.add_dependencies('/home/chymera/src/faceRT/analysis/gen.cfg')
+		sys.path.append('/home/chymera/src/faceRT/analysis/')
+		import RTdistribution
+		keep_scrambling=(0, 11, 23)
+		data_cs4 = RTdistribution.main(experiment='11px-4px-5steps_narrow-angle', prepixelation=6, keep_scrambling=keep_scrambling, source='server', make_tight={"pad": 0}, print_title=False)
+		fig = latex_figure(save_fig(fig_width=6.64, fig_height=3), caption='Histogram of reaction times for Hariri-style face matching. Scrambled images for simple visual recognition were preprocessed with a scrambling kernel of \SI{6}{\pixel} and with scrambling cluster. Missed targets have not been counted. For this graphic we have only indexed the '+ ', '.join([str(i) for i in keep_scrambling]) +' pixel scrambling clusters.', label='r_pe_cs4')
+	    \end{pycode}
+	    \py{fig}
+	    
+	    We further decided to analyse whether our slightly over-cropped reaction time window seems to distort our data.
+	    In section~\ref{sec:m_pe_cs} we have detailed our decision to settle for a \SI{4}{\second} reaction time window, the predicted ideal cropping being \pySI{np.around(data_ss2['RT'].mean()+3*np.std(data_ss2['RT']), decimals=2)}{\second}, as calculated in section~\ref{sec:r_pe_ss}.
+	    In figure~\ref{fig:r_pe_cs4} we see that reaction times seem to fade approximately \SI{0.5}{\second} before our cut-off, and the fitted normal distribution does not indicate expected results beyond that point.
+	    We take these results as confirmation that our selected cut-off time is not over-stringent for the selected conditions (easy and hard emotion recognition, plus visual recognition of scrambled images processed with a \SI{6}{\pixel} kernel and \SI{11}{\pixel} and \SI{23}{\pixel} cluster respectively.	    
+	    \begin{pycode}
+		import subprocess
+		import sys
+		from scipy.stats import ttest_ind
+		pytex.add_dependencies('/home/chymera/src/faceRT/analysis/signal_detection.py')
+		pytex.add_dependencies('/home/chymera/src/faceRT/analysis/gen.cfg')
+		sys.path.append('/home/chymera/src/faceRT/analysis/')
+		import signal_detection
+		data_cs5 = signal_detection.main(experiment='11px-4px-5steps_narrow-angle', prepixelation=6, source='server', elinewidth=1, ecolor='0.3', make_tight={"pad": 0})
+		fig = latex_figure(save_fig(fig_width=6.64, fig_height=3), caption='Error rates for Hariri-style face matching. Scrambled images for simple visual recognition were preprocessed with composite cluster and kernel based scrambling, with a constant kernel of \SI{6}{\pixel} and clusters of the sizes indicated in the graphic (sizes given in pixels). The error bars represent the standard deviation. Bar-plots with zero-height have been slightly indented for better visibility.', label='r_pe_cs5')
+	    \end{pycode}
+	    \py{fig}
+	    
+	    To re-examine our doubts on the suitability of our baseline concept (raised in section~\ref{sec:r_pe_ss}), we have also examined error rates for this last and methodologically most faithful preliminary experiment run.
+	    Figure~\ref{fig:r_pe_cs5} presents a slightly divergent picture from what we have seen in figure~\ref{fig:r_pe_ss3}.
+	    For one thing, the easy emotion recognition condition no longer has a null error rate.
+	    This removes our concern about this condition prompting a different reliability of recognition.
+	    On the other hand, a different condition - this time \textit{difficult} emotion recognition - prompts significantly higher error rates than all the others
+	    (one-tailed \textit{p} tests for difficult emotional recognition versus easy emotional recognition and visual recognition with ascending scrambling steps give \textit{p} equal to:
+	    \py{"{:.1e}".format(ttest_ind(data_cs5[(data_cs5['scrambling'] == 0) & (data_cs5['intensity'] == 40)]['error rate'], data_cs5[(data_cs5['scrambling'] == 0) & (data_cs5['intensity'] == 100)]['error rate'])[1]/2)},
+	    \py{"{:.1e}".format(ttest_ind(data_cs5[(data_cs5['scrambling'] == 0) & (data_cs5['intensity'] == 40)]['error rate'], data_cs5[(data_cs5['scrambling'] == 11)]['error rate'])[1]/2)},
+	    \py{"{:.1e}".format(ttest_ind(data_cs5[(data_cs5['scrambling'] == 0) & (data_cs5['intensity'] == 40)]['error rate'], data_cs5[(data_cs5['scrambling'] == 15)]['error rate'])[1]/2)},
+	    \py{"{:.1e}".format(ttest_ind(data_cs5[(data_cs5['scrambling'] == 0) & (data_cs5['intensity'] == 40)]['error rate'], data_cs5[(data_cs5['scrambling'] == 19)]['error rate'])[1]/2)},
+	    \py{"{:.1e}".format(ttest_ind(data_cs5[(data_cs5['scrambling'] == 0) & (data_cs5['intensity'] == 40)]['error rate'], data_cs5[(data_cs5['scrambling'] == 23)]['error rate'])[1]/2)}, and
+	    \py{"{:.1e}".format(ttest_ind(data_cs5[(data_cs5['scrambling'] == 0) & (data_cs5['intensity'] == 40)]['error rate'], data_cs5[(data_cs5['scrambling'] == 27)]['error rate'])[1]/2)}
+	    respectively).
+	    
+	    While this finding indicates limited reliability for our preliminary trials, doubts that our baseline may be unsuited due to differing error rates should also be treated with according scepticism.
+	    
+	    Reproducibility issues apparent in the data presented in this section - along with broader conclusions to be drawn from these experiments - are further discussed in section \ref{sec:m_pe}. 
 \chapter{Discussion}
+    \section{Preliminary Experiments}\label{sec:d_pe}
+	Most conclusions drawn from our preliminary experiments (for instance in section~\ref{sec:m_pe_cs} or section~\ref{sec:r_pe_cs}) are only marginally reliable due to the high inter-run variability noticed throughout section~\ref{sec:r_pe}.
+	We believe the chief reason for this is our reduced participant sample (n = 6 to 7), and we would recommend a more thorough examination on a larger population to better support any claims pertaining to accurate reaction time and error rate comparisons.
+	
+	Some hallmarks, however, have been constant over all our runs, and we believe these deserve to be reported with more pronounced certainty.
+	\subsection{Reaction Times over Scrambling Cluster Sizes}
+	    Our preliminary experiments show that even when confronted with very high variability in results there is a robust decay of reaction times as scrambling cluster sizes increase. 
 \chapter{Meta}
     \begin{figure}[H]
 	\[ \sigma_{x,y} = \sqrt{\sigma_{x}^{2}+\sigma_{y}^{2}} = \sqrt{2\sigma_{x}^{2}} \approx \sqrt{2 \cdot (0.68 K)^{2}} \approx 0.96K\]
