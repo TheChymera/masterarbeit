@@ -26,6 +26,7 @@
 \usepackage{wrapfig} %allow text to wrap around certain figures
 
 \newcommand{\pySI}[2]{\py{'\\SI{' + str(#1) + '}{#2}'}} % lets you use \pySI as a SI equivalent if you need to print pycode output
+\newcommand{\dotbox}[2][.5\linewidth]{\hbox to #1 {\dotfill}\noindent#2}  % make dotted lines for signature/input fields
 
 \renewcommand{\theequation}{\arabic{equation}}
 \widowpenalty1000 % no widows
@@ -46,7 +47,7 @@
 	}
 \makeatother
 
-\input{functions.tex}
+\input{pythontex/functions.tex}
 
 \makeatletter
 \def\maketitle{%
@@ -103,3 +104,4 @@
 \setcounter{page}{1}
 \setlength{\parindent}{0pt}
 \setlength{\hangindent}{0pt}
+\input{pythontex/pycode.tex}
