@@ -14,7 +14,7 @@ img/*
 *.bbl
 
 # PythonTeX traces and binaries
-pythontex*/
+pythontex-*/
 *.pytxcode
 
 # Gedit
