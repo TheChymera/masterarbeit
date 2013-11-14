@@ -1,0 +1,84 @@
+\begin{pycode}
+pytex.add_dependencies('/home/chymera/src/interstats/interstats.py')
+sys.path.append('/home/chymera/src/interstats/')
+from interstats import lm
+\end{pycode}
+\begin{pycode}
+pytex.add_dependencies('/home/chymera/src/faceRT/analysis/RTforCategories.py')
+pytex.add_dependencies('/home/chymera/src/faceRT/analysis/data_functions.py')
+pytex.add_dependencies('/home/chymera/src/faceRT/analysis/gen.cfg')
+sys.path.append('/home/chymera/src/faceRT/analysis/')
+import RTforCategories
+data_ss1 = RTforCategories.main(experiment='6px-4px-6steps', prepixelation=0, source='server', elinewidth=1, ecolor='0.3', make_tight={"pad": 0})
+fig_ss1 = latex_figure(save_fig(fig_width=6.64, fig_height=3), caption='Reaction times for Hariri-style face matching. Scrambled images for simple visual recognition were preprocessed only with a scrambling cluster of the sizes indicated in the graphic (sizes given in pixels). Missed targets are not counted and times exceeding the cap of \SI{5}{\second} were counted as \SI{5}{\second}. The error bars represent the standard deviation.', label='r_pe_ss1')
+\end{pycode}
+\begin{pycode}
+pytex.add_dependencies('/home/chymera/wip/R/mytest.py')
+sys.path.append('/home/chymera/wip/R/')
+import mytest
+latex = mytest.main()
+\end{pycode}
+\begin{pycode}
+pytex.add_dependencies('/home/chymera/src/faceRT/analysis/RTdistribution.py')
+pytex.add_dependencies('/home/chymera/src/faceRT/analysis/data_functions.py')
+sys.path.append('/home/chymera/src/faceRT/analysis/')
+pytex.add_dependencies('/home/chymera/src/faceRT/analysis/gen.cfg')
+import RTdistribution
+keep_scrambling=(0, 6, 14)
+data_ss2 = RTdistribution.main(experiment='6px-4px-6steps', prepixelation=0, keep_scrambling=keep_scrambling, source='server', make_tight={"pad": 0}, print_title=False)
+fig_ss2 = latex_figure(save_fig(fig_width=6.64, fig_height=3), caption='Histogram of reaction times for Hariri-style face matching. Scrambled images for simple visual recognition were preprocessed only with a scrambling cluster. Missed targets have not been counted. For this graphic we have only indexed the '+ ', '.join([str(i) for i in keep_scrambling]) +' pixel scrambling clusters.', label='r_pe_ss2')
+\end{pycode}
+\begin{pycode}
+pytex.add_dependencies('/home/chymera/src/faceRT/analysis/signal_detection.py')
+pytex.add_dependencies('/home/chymera/src/faceRT/analysis/gen.cfg')
+sys.path.append('/home/chymera/src/faceRT/analysis/')
+import signal_detection
+data_ss3 = signal_detection.main(experiment='6px-4px-6steps', prepixelation=0, source='server', elinewidth=1, ecolor='0.3', make_tight={"pad": 0})
+fig_ss3 = latex_figure(save_fig(fig_width=6.64, fig_height=3), caption='Error rates for Hariri-style face matching. Scrambled images for simple visual recognition were preprocessed only with a scrambling cluster of the sizes indicated in the graphic (sizes given in pixels). The error bars represent the standard deviation. Bar-plots with zero-height have been slightly indented for better visibility.', label='r_pe_ss3')
+\end{pycode}
+\begin{pycode}
+pytex.add_dependencies('/home/chymera/src/faceRT/analysis/RTforCategories.py')
+pytex.add_dependencies('/home/chymera/src/faceRT/analysis/data_functions.py')
+pytex.add_dependencies('/home/chymera/src/faceRT/analysis/gen.cfg')
+sys.path.append('/home/chymera/src/faceRT/analysis/')
+import RTforCategories
+data_cs1 = RTforCategories.main(experiment='11px-4px-5steps', prepixelation=6, source='server', elinewidth=1, ecolor='0.3', make_tight={"pad": 0})
+fig_cs1 = latex_figure(save_fig(fig_width=6.64, fig_height=3), caption='Reaction times for Hariri-style face matching. Scrambled images for simple visual recognition were preprocessed with composite cluster and kernel based scrambling, with a constant kernel of \SI{6}{\pixel} and clusters of the sizes indicated in the graphic (sizes given in pixels). Missed targets are not counted and times exceeding the cap of \SI{5}{\second} were counted as \SI{5}{\second}. The error bars represent the standard deviation.', label='r_pe_cs1')
+\end{pycode}
+\begin{pycode}
+pytex.add_dependencies('/home/chymera/src/faceRT/analysis/RTforCategories.py')
+pytex.add_dependencies('/home/chymera/src/faceRT/analysis/data_functions.py')
+pytex.add_dependencies('/home/chymera/src/faceRT/analysis/gen.cfg')
+sys.path.append('/home/chymera/src/faceRT/analysis/')
+import RTforCategories
+data_cs2 = RTforCategories.main(experiment='6px-4px-5steps', prepixelation=6, source='server', elinewidth=1, ecolor='0.3', make_tight={"pad": 0})
+fig_cs2 = latex_figure(save_fig(fig_width=6.64, fig_height=3), caption='Reaction times for Hariri-style face matching. Scrambled images for simple visual recognition were preprocessed with composite cluster and kernel based scrambling, with a constant kernel of \SI{6}{\pixel} and clusters of the sizes indicated in the graphic (sizes given in pixels). Missed targets are not counted and times exceeding the cap of \SI{5}{\second} were counted as \SI{5}{\second}. The error bars represent the standard deviation.', label='r_pe_cs2')
+\end{pycode}
+\begin{pycode}
+pytex.add_dependencies('/home/chymera/src/faceRT/analysis/RTforCategories.py')
+pytex.add_dependencies('/home/chymera/src/faceRT/analysis/data_functions.py')
+pytex.add_dependencies('/home/chymera/src/faceRT/analysis/gen.cfg')
+sys.path.append('/home/chymera/src/faceRT/analysis/')
+import RTforCategories
+data_cs3 = RTforCategories.main(experiment='11px-4px-5steps_narrow-angle', prepixelation=6, source='server', elinewidth=1, ecolor='0.3', make_tight={"pad": 0})
+fig_cs3 = latex_figure(save_fig(fig_width=6.64, fig_height=3), caption='Reaction times for Hariri-style face matching. Scrambled images for simple visual recognition were preprocessed with composite cluster and kernel based scrambling, with a constant kernel of \SI{6}{\pixel} and clusters of the sizes indicated in the graphic (sizes given in pixels). Missed targets are not counted and times exceeding the cap of \SI{5}{\second} were counted as \SI{5}{\second}. The error bars represent the standard deviation. In addition to the previous results from this section, the trials analyzed herein have a reduced visual angle to emulate our fMRI monitor set-up.', label='r_pe_cs3')
+\end{pycode}
+\begin{pycode}
+pytex.add_dependencies('/home/chymera/src/faceRT/analysis/RTdistribution.py')
+pytex.add_dependencies('/home/chymera/src/faceRT/analysis/data_functions.py')
+pytex.add_dependencies('/home/chymera/src/faceRT/analysis/gen.cfg')
+sys.path.append('/home/chymera/src/faceRT/analysis/')
+import RTdistribution
+keep_scrambling=(0, 11, 23)
+data_cs4 = RTdistribution.main(experiment='11px-4px-5steps_narrow-angle', prepixelation=6, keep_scrambling=keep_scrambling, source='server', make_tight={"pad": 0}, print_title=False)
+fig_cs4 = latex_figure(save_fig(fig_width=6.64, fig_height=3), caption='Histogram of reaction times for Hariri-style face matching. Scrambled images for simple visual recognition were preprocessed with a scrambling kernel of \SI{6}{\pixel} and with scrambling cluster. Missed targets have not been counted. For this graphic we have only indexed the '+ ', '.join([str(i) for i in keep_scrambling]) +' pixel scrambling clusters.', label='r_pe_cs4')
+\end{pycode}
+\begin{pycode}
+pytex.add_dependencies('/home/chymera/src/faceRT/analysis/signal_detection.py')
+pytex.add_dependencies('/home/chymera/src/faceRT/analysis/data_functions.py')
+pytex.add_dependencies('/home/chymera/src/faceRT/analysis/gen.cfg')
+sys.path.append('/home/chymera/src/faceRT/analysis/')
+import signal_detection
+data_cs5 = signal_detection.main(experiment='11px-4px-5steps_narrow-angle', prepixelation=6, source='server', elinewidth=1, ecolor='0.3', make_tight={"pad": 0})
+fig_cs5 = latex_figure(save_fig(fig_width=6.64, fig_height=3), caption='Error rates for Hariri-style face matching. Scrambled images for simple visual recognition were preprocessed with composite cluster and kernel based scrambling, with a constant kernel of \SI{6}{\pixel} and clusters of the sizes indicated in the graphic (sizes given in pixels). The error bars represent the standard deviation. Bar-plots with zero-height have been slightly indented for better visibility.', label='r_pe_cs5')
+\end{pycode}
