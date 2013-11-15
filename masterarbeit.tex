@@ -1,7 +1,11 @@
 \input{header.tex}
-\chapter{Summary}	
-\CatchFileBetweenDelims{\readme}{README.rst}{.. letag}{.. letag>} %adds file content between the specified tags 
-\readme
+\chapter{Summary}
+    \section{English}
+	\CatchFileBetweenDelims{\readme}{README.rst}{.. engl}{.. engl>} %adds file content between the specified tags 
+	\readme
+    \section{German}
+	\CatchFileBetweenDelims{\readme}{README.rst}{.. ger}{.. ger>} %adds file content between the specified tags 
+	\readme
 \chapter{Background}
     \section{Pupillometry}\ref{sec:b_p}
     \section{Open Science}\ref{sec:b_os}
@@ -269,20 +273,23 @@
 	As our sample sizes are reduced, we acknowledge the limited reliability with which we can make claims pertaining to the general population. 
 	Instead, we choose to provide a description of mean reaction time reliability for the tested populations.
 	
-	
 	As exemplified in figure~\ref{fig:r_pe1}, both inter-trial and inter-participant variability is high
+	
+	Look at table~\ref{tab:pula}
+	
+	\py{av(data=data_ss3, formula='ER~COI+Error(ID)',title='muie', label='tab:pula')}
 	\subsection{Simple Cluster-Based Scrambling}\label{sec:r_pe_ss}
 	    For the results presented in figure~\ref{fig:r_pe_ss1} we have used a simple cluster-based scrambling algorithm and a hand-written balanced stimulus sequence 
 	    (both detailed in section~\ref{sec:m_pe_ss}).
 	    \py{fig_ss1}
 	    
 	    As can be seen in figure~\ref{fig:r_pe_ss1} the difficult emotion recognition condition requires a similar amount of time for completion as recognition of the \SI{6}{\pixel} scrambled images 
-	    (with two-tailed \textit{p} = \py{"{:.1e}".format(ttest_rel(data_ss1[(data_ss1['scrambling'] == 0) & (data_ss1['intensity'] == 40)]['RT'], data_ss1[(data_ss1['scrambling'] == 6)]['RT'])[1])}).
+	    (with two-tailed \textit{p} = \py{tex_nr(ttest_rel(data_ss1[(data_ss1['scrambling'] == 0) & (data_ss1['intensity'] == 40)]['RT'], data_ss1[(data_ss1['scrambling'] == 6)]['RT'])[1])}).
 	    With increasing scrambling cluster size, reaction times are reduced - reaching approximately the same values as for easy emotion recognition already at cluster size of \SI{14}{\pixel}
-	    (two-tailed \textit{p} = \py{"{:.1e}".format(ttest_rel(data_ss1[(data_ss1['scrambling'] == 0) & (data_ss1['intensity'] == 100)]['RT'], data_ss1[(data_ss1['scrambling'] == 14)]['RT'])[1])}).
+	    (two-tailed \textit{p} = \py{tex_nr(ttest_rel(data_ss1[(data_ss1['scrambling'] == 0) & (data_ss1['intensity'] == 100)]['RT'], data_ss1[(data_ss1['scrambling'] == 14)]['RT'])[1])}).
 	    For increasing cluster sizes the reaction times plateau. 
 	    The two-tailed \textit{p}-values for \SI{18}{\pixel}, \SI{22}{\pixel}, and \SI{26}{\pixel} cluster sizes compared to easy emotion recognition are:
-	    \py{"{:.1e}".format(ttest_rel(data_ss1[(data_ss1['scrambling'] == 0) & (data_ss1['intensity'] == 100)]['RT'], data_ss1[(data_ss1['scrambling'] == 18)]['RT'])[1])}, \py{"{:.1e}".format(ttest_rel(data_ss1[(data_ss1['scrambling'] == 0) & (data_ss1['intensity'] == 100)]['RT'], data_ss1[(data_ss1['scrambling'] == 22)]['RT'])[1])}, and \py{"{:.1e}".format(ttest_rel(data_ss1[(data_ss1['scrambling'] == 0) & (data_ss1['intensity'] == 100)]['RT'], data_ss1[(data_ss1['scrambling'] == 26)]['RT'])[1])} respectively.
+	    \py{tex_nr(ttest_rel(data_ss1[(data_ss1['scrambling'] == 0) & (data_ss1['intensity'] == 100)]['RT'], data_ss1[(data_ss1['scrambling'] == 18)]['RT'])[1])}, \py{tex_nr(ttest_rel(data_ss1[(data_ss1['scrambling'] == 0) & (data_ss1['intensity'] == 100)]['RT'], data_ss1[(data_ss1['scrambling'] == 22)]['RT'])[1])}, and \py{tex_nr(ttest_rel(data_ss1[(data_ss1['scrambling'] == 0) & (data_ss1['intensity'] == 100)]['RT'], data_ss1[(data_ss1['scrambling'] == 26)]['RT'])[1])} respectively.
 	    
 	    The abrupt decrease of the reaction times over increasing cluster sizes raised some suspicion.
 	    The plateau suggested that scrambling cluster sizes of \SI{14}{\pixel}, \SI{18}{\pixel}, \SI{22}{\pixel}, and \SI{26}{\pixel} possessed a recognition-relevant quality which the \SI{6}{\pixel} scrambling cluster did not.
@@ -310,13 +317,13 @@
 	    The main conclusion which can be drawn based upon these data is that emotion recognition in easy trials is probably more robust than image matching in all other categories.
 	    One tailed \textit{p} tests for the aforementioned assumption approach significance for all comparisons; 
 	    with \textit{p} values of 
-	    \py{"{:.1e}".format(ttest_rel(data_ss3[(data_ss3['scrambling'] == 0) & (data_ss3['intensity'] == 100)]['error rate'], data_ss3[(data_ss3['scrambling'] == 0) & (data_ss3['intensity'] == 40)]['error rate'])[1]/2)},
-	    \py{"{:.1e}".format(ttest_rel(data_ss3[(data_ss3['scrambling'] == 0) & (data_ss3['intensity'] == 100)]['error rate'], data_ss3[(data_ss3['scrambling'] == 6)]['error rate'])[1]/2)},
-	    \py{"{:.1e}".format(ttest_rel(data_ss3[(data_ss3['scrambling'] == 0) & (data_ss3['intensity'] == 100)]['error rate'], data_ss3[(data_ss3['scrambling'] == 10)]['error rate'])[1]/2)},
-	    \py{"{:.1e}".format(ttest_rel(data_ss3[(data_ss3['scrambling'] == 0) & (data_ss3['intensity'] == 100)]['error rate'], data_ss3[(data_ss3['scrambling'] == 14)]['error rate'])[1]/2)},
-	    \py{"{:.1e}".format(ttest_rel(data_ss3[(data_ss3['scrambling'] == 0) & (data_ss3['intensity'] == 100)]['error rate'], data_ss3[(data_ss3['scrambling'] == 18)]['error rate'])[1]/2)},
-	    \py{"{:.1e}".format(ttest_rel(data_ss3[(data_ss3['scrambling'] == 0) & (data_ss3['intensity'] == 100)]['error rate'], data_ss3[(data_ss3['scrambling'] == 22)]['error rate'])[1]/2)}, and
-	    \py{"{:.1e}".format(ttest_rel(data_ss3[(data_ss3['scrambling'] == 0) & (data_ss3['intensity'] == 100)]['error rate'], data_ss3[(data_ss3['scrambling'] == 26)]['error rate'])[1]/2)}
+	    \py{tex_nr(ttest_rel(data_ss3[(data_ss3['scrambling'] == 0) & (data_ss3['intensity'] == 100)]['ER'], data_ss3[(data_ss3['scrambling'] == 0) & (data_ss3['intensity'] == 40)]['ER'])[1]/2)},
+	    \py{tex_nr(ttest_rel(data_ss3[(data_ss3['scrambling'] == 0) & (data_ss3['intensity'] == 100)]['ER'], data_ss3[(data_ss3['scrambling'] == 6)]['ER'])[1]/2)},
+	    \py{tex_nr(ttest_rel(data_ss3[(data_ss3['scrambling'] == 0) & (data_ss3['intensity'] == 100)]['ER'], data_ss3[(data_ss3['scrambling'] == 10)]['ER'])[1]/2)},
+	    \py{tex_nr(ttest_rel(data_ss3[(data_ss3['scrambling'] == 0) & (data_ss3['intensity'] == 100)]['ER'], data_ss3[(data_ss3['scrambling'] == 14)]['ER'])[1]/2)},
+	    \py{tex_nr(ttest_rel(data_ss3[(data_ss3['scrambling'] == 0) & (data_ss3['intensity'] == 100)]['ER'], data_ss3[(data_ss3['scrambling'] == 18)]['ER'])[1]/2)},
+	    \py{tex_nr(ttest_rel(data_ss3[(data_ss3['scrambling'] == 0) & (data_ss3['intensity'] == 100)]['ER'], data_ss3[(data_ss3['scrambling'] == 22)]['ER'])[1]/2)}, and
+	    \py{tex_nr(ttest_rel(data_ss3[(data_ss3['scrambling'] == 0) & (data_ss3['intensity'] == 100)]['ER'], data_ss3[(data_ss3['scrambling'] == 26)]['ER'])[1]/2)}
 	    for comparisons of easy emotion recognition with hard emotion recognition, and simple visual recognition of \SI{6}{\pixel}, \SI{10}{\pixel}, \SI{14}{\pixel}, \SI{18}{\pixel}, \SI{22}{\pixel}, and \SI{26}{\pixel} scrambled images respectively.
 	    
 	    Even for comparable reaction times (easy emotion recognition vs. simple visual recognition of pictures scrambled with \SI{14}{\pixel}, \SI{18}{\pixel}, \SI{22}{\pixel}, and \SI{26}{\pixel} clusters), simple visual recognition is prone to higher error rates than easy emotion recognition.
@@ -327,13 +334,13 @@
 	    
 	    Figure~\ref{fig:r_pe_cs1} presents the the data from the first run of these experiments.
 	    An obvious feature here is the disappearance of the plateau phase, which supports our hypothesis regarding its emergence due to facial features with a spatial frequency of around \SI{8}{\pixel} (formulated in section~\ref{sec:r_pe_ss}).
-	    The equivalence of reaction times for images scrambled with \SI{11}{\pixel} and \SI{15}{\pixel} clusters (two-tailed \textit{p} of \py{"{:.1e}".format(ttest_rel(data_cs1[(data_cs1['scrambling'] == 11)]['RT'], data_cs1[(data_cs1['scrambling'] == 15)]['RT'])[1])}) raises concern, not least of all because in light of these results we have identified no appropriate baseline condition for easy emotion recognition.
+	    The equivalence of reaction times for images scrambled with \SI{11}{\pixel} and \SI{15}{\pixel} clusters (two-tailed \textit{p} of \py{tex_nr(ttest_rel(data_cs1[(data_cs1['scrambling'] == 11)]['RT'], data_cs1[(data_cs1['scrambling'] == 15)]['RT'])[1])}) raises concern, not least of all because in light of these results we have identified no appropriate baseline condition for easy emotion recognition.
 	    \py{fig_cs2}
 	    
 	    To further investigate cateory-dependent reaction times in this new condition (and possibly identify a baseline) we have reiterated the experiment with different scrambling cluster sizes.
 	    We present the new data in figure~\ref{fig:r_pe_cs2}.
 	    The results from this re-run are curious in that they mostly do not corroborate our findings from the previous run (figure~\ref{fig:r_pe_cs1}).
-	    The data does seem to indicate an appropriate baseline for easy emotion recognition (namely visual recognition of pictures processed with a scrambling kernel of \SI{6}{\pixel} and a scrambling cluster of \SI{10}{\pixel}: two-tailed \textit{p} = \py{"{:.1e}".format(ttest_rel(data_cs2[(data_cs2['scrambling'] == 0) & (data_cs2['intensity'] == 100)]['RT'], data_cs2[(data_cs2['scrambling'] == 10)]['RT'])[1])}).
+	    The data does seem to indicate an appropriate baseline for easy emotion recognition (namely visual recognition of pictures processed with a scrambling kernel of \SI{6}{\pixel} and a scrambling cluster of \SI{10}{\pixel}: two-tailed \textit{p} = \py{tex_nr(ttest_rel(data_cs2[(data_cs2['scrambling'] == 0) & (data_cs2['intensity'] == 100)]['RT'], data_cs2[(data_cs2['scrambling'] == 10)]['RT'])[1])}).
 	    The validity of this finding is however undermined by the fact that an only slightly larger (by \SI{1}{\pixel}) scrambling cluster prompted a significantly different reaction time from the difficult emotion recognition in our previous run of the experiment.
 	    The emergence of a plateau of reaction times for larger scrambling clusters (previously observed in section~\ref{sec:r_pe_ss}) raises further questions.
 	    
@@ -347,9 +354,9 @@
 	    Figure~\ref{fig:r_pe_cs3} shows a linear decay of reaction times over increasing scrambling cluster size
 	    (as opposed to a plateau for larger scrambling clusters, which he have noticed in some of the previous runs).
 	    The data recommends pictures scrambled with a kernel of \SI{6}{\pixel} and a cluster of \SI{11}{\pixel} as an appropriate baseline for hard emotion recognition
-	    (2-tailed \textit{p} of \py{"{:.1e}".format(ttest_rel(data_cs3[(data_cs3['scrambling'] == 0) & (data_cs3['intensity'] == 40)]['RT'], data_cs3[(data_cs3['scrambling'] == 11)]['RT'])[1])})
+	    (2-tailed \textit{p} of \py{tex_nr(ttest_rel(data_cs3[(data_cs3['scrambling'] == 0) & (data_cs3['intensity'] == 40)]['RT'], data_cs3[(data_cs3['scrambling'] == 11)]['RT'])[1])})
 	    and pictures scrambled with a kernel of \SI{6}{\pixel} and a cluster of \SI{23}{\pixel} as an appropriate baseline for easy emotion recognition
-	    (2-tailed \textit{p} of \py{"{:.1e}".format(ttest_rel(data_cs3[(data_cs3['scrambling'] == 0) & (data_cs3['intensity'] == 100)]['RT'], data_cs3[(data_cs3['scrambling'] == 23)]['RT'])[1])}).
+	    (2-tailed \textit{p} of \py{tex_nr(ttest_rel(data_cs3[(data_cs3['scrambling'] == 0) & (data_cs3['intensity'] == 100)]['RT'], data_cs3[(data_cs3['scrambling'] == 23)]['RT'])[1])}).
 	    It should be noted that though not significantly different, both of these simple visual recognition reaction times undershoot their counterpart emotion recognition reaction times.
 	    In light of this we have decided to use a \SI{6}{\pixel} kernel- and \SI{10}{\pixel} cluster-scrambled image baseline for difficult emotion recognition, 
 	    and a \SI{6}{\pixel} kernel- and \SI{22}{\pixel} cluster-scrambled image baseline for easy emotion recognition.
@@ -367,12 +374,12 @@
 	    This removes our concern about this condition prompting a different reliability of recognition.
 	    On the other hand, a different condition - this time \textit{difficult} emotion recognition - prompts significantly higher error rates than all the others
 	    (one-tailed \textit{p} tests for difficult emotional recognition versus easy emotional recognition and visual recognition with ascending scrambling steps give \textit{p} equal to:
-	    \py{"{:.1e}".format(ttest_rel(data_cs5[(data_cs5['scrambling'] == 0) & (data_cs5['intensity'] == 40)]['error rate'], data_cs5[(data_cs5['scrambling'] == 0) & (data_cs5['intensity'] == 100)]['error rate'])[1]/2)},
-	    \py{"{:.1e}".format(ttest_rel(data_cs5[(data_cs5['scrambling'] == 0) & (data_cs5['intensity'] == 40)]['error rate'], data_cs5[(data_cs5['scrambling'] == 11)]['error rate'])[1]/2)},
-	    \py{"{:.1e}".format(ttest_rel(data_cs5[(data_cs5['scrambling'] == 0) & (data_cs5['intensity'] == 40)]['error rate'], data_cs5[(data_cs5['scrambling'] == 15)]['error rate'])[1]/2)},
-	    \py{"{:.1e}".format(ttest_rel(data_cs5[(data_cs5['scrambling'] == 0) & (data_cs5['intensity'] == 40)]['error rate'], data_cs5[(data_cs5['scrambling'] == 19)]['error rate'])[1]/2)},
-	    \py{"{:.1e}".format(ttest_rel(data_cs5[(data_cs5['scrambling'] == 0) & (data_cs5['intensity'] == 40)]['error rate'], data_cs5[(data_cs5['scrambling'] == 23)]['error rate'])[1]/2)}, and
-	    \py{"{:.1e}".format(ttest_rel(data_cs5[(data_cs5['scrambling'] == 0) & (data_cs5['intensity'] == 40)]['error rate'], data_cs5[(data_cs5['scrambling'] == 27)]['error rate'])[1]/2)}
+	    \py{tex_nr(ttest_rel(data_cs5[(data_cs5['scrambling'] == 0) & (data_cs5['intensity'] == 40)]['ER'], data_cs5[(data_cs5['scrambling'] == 0) & (data_cs5['intensity'] == 100)]['ER'])[1]/2)},
+	    \py{tex_nr(ttest_rel(data_cs5[(data_cs5['scrambling'] == 0) & (data_cs5['intensity'] == 40)]['ER'], data_cs5[(data_cs5['scrambling'] == 11)]['ER'])[1]/2)},
+	    \py{tex_nr(ttest_rel(data_cs5[(data_cs5['scrambling'] == 0) & (data_cs5['intensity'] == 40)]['ER'], data_cs5[(data_cs5['scrambling'] == 15)]['ER'])[1]/2)},
+	    \py{tex_nr(ttest_rel(data_cs5[(data_cs5['scrambling'] == 0) & (data_cs5['intensity'] == 40)]['ER'], data_cs5[(data_cs5['scrambling'] == 19)]['ER'])[1]/2)},
+	    \py{tex_nr(ttest_rel(data_cs5[(data_cs5['scrambling'] == 0) & (data_cs5['intensity'] == 40)]['ER'], data_cs5[(data_cs5['scrambling'] == 23)]['ER'])[1]/2)}, and
+	    \py{tex_nr(ttest_rel(data_cs5[(data_cs5['scrambling'] == 0) & (data_cs5['intensity'] == 40)]['ER'], data_cs5[(data_cs5['scrambling'] == 27)]['ER'])[1]/2)}
 	    respectively).
 	    
 	    While this finding indicates limited reliability for our preliminary trials, doubts that our baseline may be unsuited due to differing error rates should also be treated with according scepticism.
@@ -398,16 +405,21 @@
 	\caption{The general expression of the three-sigma rule, in mathematical notation, for $x$ being an observation from a normally distributed random variable, $\mu$ being the mean of the distribution, and $\sigma$ being its standard deviation. The three-sigma rule (also known as the “68–95–99.7 rule”) states that nearly all values lie within 3 standard deviations of the mean in a normal distribution.}\label{eq:3s}
     \end{figure}
 \chapter{Acknowledgements}
-    In addition to the faculty advisers and supervisors mentioned in the preamble of this document, we would like to give thanks to the numerous other people with whom we have interacted in the process of writing this thesis.
-    Their goodwill and effort made a significant difference pertaining to the quality of this work.
-    This list includes but is not limited to:
+    In addition to the faculty advisers and supervisors mentioned in the preamble of this document, we would like to explicitly give thanks to a number of other members of the department of clinical psychology at the Central Institute of Mental Health in Mannheim.
+    Their expertise in designing and performing experiments was instrumental to the success of this thesis.
+    \begin{itemize}
+	\item Martin Gerchen
+	\item Daniela Mier
+	\item Carina Sauer
+	\item Gabriela Stoessel
+    \end{itemize}
+    \vspace{0.5cm}
+    We would also like to extend our gratitude to the numerous other people with whom we have interacted in the process of writing this thesis, and whose goodwill and effort made a significant difference pertaining to the quality of this work.
     \begin{itemize}
 	\item Ben Bolker, of McMaster University
         \item Denis A. Engemann, of the Juelich Research Centre in Cologne
 	\item Laurent Gautier, of the Technical University of Denmark
 	\item Marek Hlavac, of Harvard University
-	\item Carina Sauer, of the Central Institute of Mental Health in Mannheim
-	\item Gabriela Stoessel, of the Central Institute of Mental Health in Mannheim
+	\item Christopher Louden, of the University of Texas
     \end{itemize}
-    The list in sorted alphabetical order.
 \input{footer.tex}
