@@ -1,7 +1,6 @@
 \begin{pythontexcustomcode}[begin]{py}
 import subprocess
 import sys
-from scipy.stats import ttest_rel, ttest_ind
 
 import matplotlib as mpl
 mpl.use("pgf")
@@ -55,7 +54,7 @@ def latex_environment(name, content='', option=''):
     '''
     Simple helper function to write the `\begin...\end` LaTeX block.
     '''
-    return '\\begin{%s}%s\n%s\n\\end{%s}' % (name, option, content, name)
+    return '\\vspace{0.3cm}\n\\begin{%s}%s\n%s\n\\end{%s}' % (name, option, content, name)
 
 def latex_figure(name=None, caption='', label='', width=0.8):
     ''''
