@@ -10,7 +10,9 @@ A recently compiled version of this document can be downloaded `here <http://chy
 Neuronal Correlates of Occulometric Parameters in Face Recognition
 ========
 
-###English
+English
+-------
+
 .. engl
 
 Pupillometry is a simple yet versatile physiological method with ample applications in neuropsychology.
@@ -29,6 +31,8 @@ All original content present in this work is available under a “Creative Commo
 .. engl>
 
 ###German
+-------
+
 .. ger
 
 Die Pupillometrie ist eine einfache jedoch vielseitige physiologische Untersuchungsmethode, die weitläufige Anwendungen in der Neuropsychologie findet. 
