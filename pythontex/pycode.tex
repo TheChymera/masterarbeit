@@ -1,7 +1,10 @@
 \begin{pycode}
+from scipy.stats import ttest_rel, ttest_ind
+\end{pycode}
+\begin{pycode}
 pytex.add_dependencies('/home/chymera/src/interstats/interstats.py')
 sys.path.append('/home/chymera/src/interstats/')
-from interstats import lm
+from interstats import lm, av, tex_nr
 \end{pycode}
 \begin{pycode}
 pytex.add_dependencies('/home/chymera/src/faceRT/analysis/RTforCategories.py')
