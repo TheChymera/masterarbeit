@@ -47,4 +47,5 @@ deren Auswertung dabei helfen könnte die Relevanz unserer Untersuchung sowohl f
 Wir bereichern den informativen Wert und die Transparenz unserer Arbeit durch die Anwendung neuester “open science” Konzepte und Technologien.
 
 Sämtliche originelle Inhalte dieser Arbeit sind benutzbar unter der “Creative Commons Namensnennung - Weitergabe unter gleichen Bedingungen 3.0 Unported Lizenz”.
+
 .. ger>
