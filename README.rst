@@ -30,7 +30,7 @@ All original content present in this work is available under a “Creative Commo
 
 .. engl>
 
-###German
+German
 -------
 
 .. ger
