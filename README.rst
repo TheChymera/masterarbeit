@@ -26,8 +26,6 @@ We are complementing our neuroimaging and behavioural experiments with psychomet
 the results of which may help uncover further ramifications of our work in psychology as well as in biology.
 We enrich the informative potential of the above and the transparency of our work by implementing the very latest “open science” concepts and technologies.
 
-All original content present in this work is available under a “Creative Commons Attribution-ShareAlike 3.0 Unported License”.
-
 .. engl>
 
 German
@@ -45,7 +43,5 @@ und ob eventuelle Unstimmigkeiten auf die Art der ausgeführten Testaufgabe zur�
 Zusätzlich entnehmen wir Information für die psychometrische und genetische Typisierung der Probanden - 
 deren Auswertung dabei helfen könnte die Relevanz unserer Untersuchung sowohl für die Psychologie als auch für die Biologie zu stärken. 
 Wir bereichern den informativen Wert und die Transparenz unserer Arbeit durch die Anwendung neuester “open science” Konzepte und Technologien.
-
-Sämtliche originelle Inhalte dieser Arbeit sind benutzbar unter der “Creative Commons Namensnennung - Weitergabe unter gleichen Bedingungen 3.0 Unported Lizenz”.
 
 .. ger>
