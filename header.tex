@@ -7,6 +7,7 @@
 \usepackage{subcaption}
 \usepackage{multicol}
 \usepackage{color}
+\usepackage{tabularx} %Make tables with equally distributed ell space
 \usepackage{float}
 \usepackage{wasysym}
 \usepackage{verbatim} 
@@ -28,6 +29,7 @@
 \newcommand{\pySI}[2]{\py{'\\SI{' + str(#1) + '}{#2}'}} % lets you use \pySI as a SI equivalent if you need to print pycode output
 \newcommand{\dotbox}[2][.5\linewidth]{\hbox to #1 {\dotfill}\noindent#2}  % make dotted lines for signature/input fields
 
+\newcolumntype{Y}{>{\centering\arraybackslash}X} % make Y type for tabularx which is like X (equal space distribution) but also centered
 \renewcommand{\theequation}{\arabic{equation}}
 \widowpenalty1000 % no widows
 \clubpenalty1000 % no orphans
