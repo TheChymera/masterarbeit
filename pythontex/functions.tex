@@ -2,6 +2,11 @@
 import subprocess
 import sys
 
+from scipy.stats import ttest_rel, ttest_ind
+pytex.add_dependencies('/home/chymera/src/interstats/interstats.py')
+sys.path.append('/home/chymera/src/interstats/')
+from interstats import lm, av, tex_nr, p_table
+
 import matplotlib as mpl
 mpl.use("pgf")
 pgf_with_custom_preamble = {
