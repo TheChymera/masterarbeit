@@ -1,0 +1,839 @@
+% This file was created with JabRef 2.10b.
+% Encoding: UTF-8
+
+
+@Article{Abler2009,
+  Title                    = {Emotion Regulation Questionnaire – Eine deutschsprachige Fassung des ERQ von Gross und John.},
+  Author                   = {Brigit Abler AND Henrik Kessler},
+  Journal                  = {Diagnostica},
+  Year                     = {2009},
+  Number                   = {55},
+  Pages                    = {144-152},
+
+  Owner                    = {chymera},
+  Timestamp                = {2013.09.25}
+}
+
+@Article{Akerman2006,
+  Title                    = {Technical solutions: Evolving peer review for the internet},
+  Author                   = {Akerman, Richard},
+  Journal                  = {Nature},
+  Year                     = {2006},
+
+  __markedentry            = {[chymera:1]},
+  Doi                      = {10.1038/nature04997},
+  Owner                    = {chymera},
+  Publisher                = {Nature Publishing Group},
+  Timestamp                = {2013.04.03},
+  Url                      = {http://dx.doi.org/10.1038/nature04997}
+}
+
+@Article{Altman2005,
+  Title                    = {Standard deviations and standard errors.},
+  Author                   = {Altman, Douglas G. and Bland, J Martin},
+  Journal                  = {BMJ},
+  Year                     = {2005},
+
+  Month                    = {Oct},
+  Number                   = {7521},
+  Pages                    = {903},
+  Volume                   = {331},
+
+  Doi                      = {10.1136/bmj.331.7521.903},
+  Institution              = {Cancer Research UK/NHS Centre for Statistics in Medicine, Wolfson College, Oxford OX2 6UD. doug.altman@cancer.org.uk},
+  Keywords                 = {Normal Distribution; Reproducibility of Results; Statistics as Topic, methods},
+  Language                 = {eng},
+  Medline-pst              = {ppublish},
+  Owner                    = {chymera},
+  Pii                      = {331/7521/903},
+  Pmid                     = {16223828},
+  Timestamp                = {2013.11.14},
+  Url                      = {http://dx.doi.org/10.1136/bmj.331.7521.903}
+}
+
+@Book{Anderson1996,
+  Title                    = {Statistics for Business and Economics, 6th Edition},
+  Author                   = {David R. Anderson and Dennis J. Sweeney and Thomas A. Williams},
+  Publisher                = {West Group},
+  Year                     = {1996},
+
+  ISBN                     = {0314063781},
+  Owner                    = {chymera},
+  Timestamp                = {2013.11.16},
+  Url                      = {http://www.amazon.com/Statistics-Business-Economics-6th-Edition/dp/0314063781%3FSubscriptionId%3D0JYN1NVW651KCA56C102%26tag%3Dtechkie-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D0314063781}
+}
+
+@Article{Baayen2008,
+  Title                    = {Mixed-effects modeling with crossed random effects for subjects and items},
+  Author                   = {Baayen, R.H. and Davidson, D.J. and Bates, D.M.},
+  Journal                  = {Journal of Memory and Language},
+  Year                     = {2008},
+
+  Month                    = {Nov},
+  Number                   = {4},
+  Pages                    = {390-412},
+  Volume                   = {59},
+
+  Doi                      = {10.1016/j.jml.2007.12.005},
+  Owner                    = {chymera},
+  Publisher                = {Elsevier },
+  Timestamp                = {2013.11.16},
+  Url                      = {http://dx.doi.org/10.1016/j.jml.2007.12.005}
+}
+
+@Article{Baron-Cohen2003a,
+  Title                    = {The systemizing quotient: an investigation of adults with Asperger syndrome or high-functioning autism, and normal sex differences.},
+  Author                   = {Baron-Cohen, Simon and Richler, Jennifer and Bisarya, Dheraj and Gurunathan, Nhishanth and Wheelwright, Sally},
+  Journal                  = {Philos Trans R Soc Lond B Biol Sci},
+  Year                     = {2003},
+
+  Month                    = {Feb},
+  Number                   = {1430},
+  Pages                    = {361--374},
+  Volume                   = {358},
+
+  Abstract                 = {Systemizing is the drive to analyse systems or construct systems. A recent model of psychological sex differences suggests that this is a major dimension in which the sexes differ, with males being more drawn to systemize than females. Currently, there are no self-report measures to assess this important dimension. A second major dimension of sex differences is empathizing (the drive to identify mental states and respond to these with an appropriate emotion). Previous studies find females score higher on empathy measures. We report a new self-report questionnaire, the Systemizing Quotient (SQ), for use with adults of normal intelligence. It contains 40 systemizing items and 20 control items. On each systemizing item, a person can score 2, 1 or 0, so the SQ has a maximum score of 80 and a minimum of zero. In Study 1, we measured the SQ of n = 278 adults (114 males, 164 females) from a general population, to test for predicted sex differences (male superiority) in systemizing. All subjects were also given the Empathy Quotient (EQ) to test if previous reports of female superiority would be replicated. In Study 2 we employed the SQ and the EQ with n = 47 adults (33 males, 14 females) with Asperger syndrome (AS) or high-functioning autism (HFA), who are predicted to be either normal or superior at systemizing, but impaired at empathizing. Their scores were compared with n = 47 matched adults from the general population in Study 1. In Study 1, as predicted, normal adult males scored significantly higher than females on the SQ and significantly lower on the EQ. In Study 2, again as predicted, adults with AS/HFA scored significantly higher on the SQ than matched controls, and significantly lower on the EQ than matched controls. The SQ reveals both a sex difference in systemizing in the general population and an unusually strong drive to systemize in AS/HFA. These results are discussed in relation to two linked theories: the 'empathizing-systemizing' (E-S) theory of sex differences and the extreme male brain (EMB) theory of autism.},
+  Doi                      = {10.1098/rstb.2002.1206},
+  Institution              = {Autism Research Centre, Department of Experimental Psychology, University of Cambridge, Downing Street, Cambridge CB2 3EB, UK. sb205@cam.ac.uk},
+  Keywords                 = {Adult; Asperger Syndrome, diagnosis/psychology; Autistic Disorder, diagnosis/psychology; Empathy; Female; Humans; Male; Psychological Tests; Psychological Theory; Questionnaires; Sex Characteristics},
+  Language                 = {eng},
+  Medline-pst              = {ppublish},
+  Owner                    = {chymera},
+  Pmid                     = {12639333},
+  Timestamp                = {2013.09.25},
+  Url                      = {http://dx.doi.org/10.1098/rstb.2002.1206}
+}
+
+@Article{Baron-Cohen2004,
+  Title                    = {The empathy quotient: an investigation of adults with Asperger syndrome or high functioning autism, and normal sex differences.},
+  Author                   = {Baron-Cohen, Simon and Wheelwright, Sally},
+  Journal                  = {J Autism Dev Disord},
+  Year                     = {2004},
+
+  Month                    = {Apr},
+  Number                   = {2},
+  Pages                    = {163--175},
+  Volume                   = {34},
+
+  Abstract                 = {Empathy is an essential part of normal social functioning, yet there are precious few instruments for measuring individual differences in this domain. In this article we review psychological theories of empathy and its measurement. Previous instruments that purport to measure this have not always focused purely on empathy. We report a new self-report questionnaire, the Empathy Quotient (EQ), for use with adults of normal intelligence. It contains 40 empathy items and 20 filler/control items. On each empathy item a person can score 2, 1, or 0, so the EQ has a maximum score of 80 and a minimum of zero. In Study 1 we employed the EQ with n = 90 adults (65 males, 25 females) with Asperger Syndrome (AS) or high-functioning autism (HFA), who are reported clinically to have difficulties in empathy. The adults with AS/HFA scored significantly lower on the EQ than n = 90 (65 males, 25 females) age-matched controls. Of the adults with AS/HFA, 81\% scored equal to or fewer than 30 points out of 80, compared with only 12\% of controls. In Study 2 we carried out a study of n = 197 adults from a general population, to test for previously reported sex differences (female superiority) in empathy. This confirmed that women scored significantly higher than men. The EQ reveals both a sex difference in empathy in the general population and an empathy deficit in AS/HFA.},
+  Institution              = {Autism Research Centre, Department of Experimental Psychology, University of Cambridge, Douglas House, 18b Trumpington Rd., CB2 2AH United Kingdom.},
+  Keywords                 = {Adolescent; Adult; Asperger Syndrome, diagnosis/psychology; Autistic Disorder, diagnosis/psychology; Empathy; Female; Humans; Male; Middle Aged; Psychological Tests; Psychological Theory; Questionnaires; Sex Characteristics},
+  Language                 = {eng},
+  Medline-pst              = {ppublish},
+  Owner                    = {chymera},
+  Pmid                     = {15162935},
+  Timestamp                = {2013.09.25}
+}
+
+@Article{Baron-Cohen2001,
+  Title                    = {The autism-spectrum quotient (AQ): evidence from Asperger syndrome/high-functioning autism, males and females, scientists and mathematicians.},
+  Author                   = {Baron-Cohen, S. and Wheelwright, S. and Skinner, R. and Martin, J. and Clubley, E.},
+  Journal                  = {J Autism Dev Disord},
+  Year                     = {2001},
+
+  Month                    = {Feb},
+  Number                   = {1},
+  Pages                    = {5--17},
+  Volume                   = {31},
+
+  Abstract                 = {Currently there are no brief, self-administered instruments for measuring the degree to which an adult with normal intelligence has the traits associated with the autistic spectrum. In this paper, we report on a new instrument to assess this: the Autism-Spectrum Quotient (AQ). Individuals score in the range 0-50. Four groups of subjects were assessed: Group 1: 58 adults with Asperger syndrome (AS) or high-functioning autism (HFA); Group 2: 174 randomly selected controls. Group 3: 840 students in Cambridge University; and Group 4: 16 winners of the UK Mathematics Olympiad. The adults with AS/HFA had a mean AQ score of 35.8 (SD = 6.5), significantly higher than Group 2 controls (M = 16.4, SD = 6.3). 80\% of the adults with AS/HFA scored 32+, versus 2\% of controls. Among the controls, men scored slightly but significantly higher than women. No women scored extremely highly (AQ score 34+) whereas 4\% of men did so. Twice as many men (40\%) as women (21\%) scored at intermediate levels (AQ score 20+). Among the AS/HFA group, male and female scores did not differ significantly. The students in Cambridge University did not differ from the randomly selected control group, but scientists (including mathematicians) scored significantly higher than both humanities and social sciences students, confirming an earlier study that autistic conditions are associated with scientific skills. Within the sciences, mathematicians scored highest. This was replicated in Group 4, the Mathematics Olympiad winners scoring significantly higher than the male Cambridge humanities students. 6\% of the student sample scored 32+ on the AQ. On interview, 11 out of 11 of these met three or more DSM-IV criteria for AS/HFA, and all were studying sciences/mathematics, and 7 of the 11 met threshold on these criteria. Test-retest and interrater reliability of the AQ was good. The AQ is thus a valuable instrument for rapidly quantifying where any given individual is situated on the continuum from autism to normality. Its potential for screening for autism spectrum conditions in adults of normal intelligence remains to be fully explored.},
+  Institution              = {Departments of Experimental Psychology and Psychiatry, University of Cambridge, Downing Street, Cambridge, CB2 3EB, United Kingdom.},
+  Keywords                 = {Adult; Asperger Syndrome, diagnosis/psychology; Autistic Disorder, diagnosis/psychology; Diagnosis, Differential; England; Female; Humans; Intelligence; Male; Personality Assessment, statistics /&/ numerical data; Personality Inventory, statistics /&/ numerical data; Psychometrics; Reproducibility of Results; Students, psychology},
+  Language                 = {eng},
+  Medline-pst              = {ppublish},
+  Owner                    = {chymera},
+  Pmid                     = {11439754},
+  Timestamp                = {2013.09.25}
+}
+
+@Electronic{Bates2006,
+  Title                    = {{[R]} - lmer, p-values and all that},
+  Author                   = {Douglas Bates},
+  HowPublished             = {stats.ethz.ch},
+  Language                 = {English},
+  Month                    = {May},
+  Organization             = {ETH Zürich},
+  Url                      = {https://stat.ethz.ch/pipermail/r-help/2006-May/094765.html},
+  Year                     = {2006},
+
+  Owner                    = {chymera},
+  Timestamp                = {2013.11.17}
+}
+
+@Article{Bates2007,
+  Title                    = {Linear mixed model implementation in lme4},
+  Author                   = {Douglas M. Bates},
+  Journal                  = {Manuscript, University of Wisconsin - Madison},
+  Year                     = {2007},
+
+  Month                    = {January},
+
+  Owner                    = {chymera},
+  Timestamp                = {2013.11.17}
+}
+
+@Article{Bates2005,
+  Title                    = {Fitting linear mixed models in {R}},
+  Author                   = {Douglas M. Bates},
+  Journal                  = {R News},
+  Year                     = {2005},
+  Number                   = {5},
+  Pages                    = {27–30},
+
+  Owner                    = {chymera},
+  Timestamp                = {2013.11.17}
+}
+
+@Article{Beck1996,
+  Title                    = {Comparison of Beck Depression Inventories-IA and-II in Psychiatric Outpatients},
+  Author                   = {Beck, Aaron T. and Steer, Robert A. and Ball, Roberta and Ranieri, William F.},
+  Journal                  = {Journal of Personality Assessment},
+  Year                     = {1996},
+
+  Month                    = {Dec},
+  Number                   = {3},
+  Pages                    = {588-597},
+  Volume                   = {67},
+
+  Doi                      = {10.1207/s15327752jpa6703_13},
+  Owner                    = {chymera},
+  Publisher                = {Informa UK (Taylor \&amp; Francis)},
+  Timestamp                = {2013.09.25},
+  Url                      = {http://dx.doi.org/10.1207/s15327752jpa6703_13}
+}
+
+@Article{Bloom2006,
+  Title                    = {Online frontiers of the peer-reviewed literature},
+  Author                   = {Bloom, Theodora},
+  Journal                  = {Nature},
+  Year                     = {2006},
+
+  __markedentry            = {[chymera:1]},
+  Doi                      = {10.1038/nature05030},
+  Owner                    = {chymera},
+  Publisher                = {Nature Publishing Group},
+  Timestamp                = {2013.04.03},
+  Url                      = {http://dx.doi.org/10.1038/nature05030}
+}
+
+@Article{Bohus2009,
+  Title                    = {The Short Version of the Borderline Symptom List (BSL-23): Development and Initial Data on Psychometric Properties},
+  Author                   = {Bohus, Martin and Kleindienst, Nikolaus and Limberger, Matthias F. and Stieglitz, Rolf-Dieter and Domsalla, Melanie and Chapman, Alexander L. and Steil, Regina and Philipsen, Alexandra and Wolf, Martina},
+  Journal                  = {Psychopathology},
+  Year                     = {2009},
+  Number                   = {1},
+  Pages                    = {32-39},
+  Volume                   = {42},
+
+  Doi                      = {10.1159/000173701},
+  Owner                    = {chymera},
+  Publisher                = {S. Karger AG},
+  Timestamp                = {2013.09.25},
+  Url                      = {http://dx.doi.org/10.1159/000173701}
+}
+
+@Article{Bojko2006,
+  Title                    = {Using Eye Tracking to Compare Web Page Designs: A Case Study},
+  Author                   = {Agnieszka Bojko},
+  Journal                  = {Journal of Usability Studies},
+  Year                     = {2006},
+
+  Month                    = {May},
+  Number                   = {3},
+  Pages                    = {112-120},
+  Volume                   = {1},
+
+  Owner                    = {chymera},
+  Timestamp                = {2013.11.15}
+}
+
+@Article{Bradley2010,
+  Title                    = {Clinical performance of a handheld digital infrared monocular pupillometer for measurement of the dark-adapted pupil diameter},
+  Author                   = {Bradley, Jay C. and Bentley, Karl C. and Mughal, Aleem I. and Brown, Sandra M.},
+  Journal                  = {Journal of Cataract \& Refractive Surgery},
+  Year                     = {2010},
+
+  Month                    = {Feb},
+  Number                   = {2},
+  Pages                    = {277-281},
+  Volume                   = {36},
+
+  Doi                      = {10.1016/j.jcrs.2009.09.025},
+  Owner                    = {chymera},
+  Publisher                = {Elsevier },
+  Timestamp                = {2013.11.21},
+  Url                      = {http://dx.doi.org/10.1016/j.jcrs.2009.09.025}
+}
+
+@Article{Bradshaw1967,
+  Title                    = {Pupil size as a measure of arousal during information processing.},
+  Author                   = {Bradshaw, J.},
+  Journal                  = {Nature},
+  Year                     = {1967},
+
+  Month                    = {Nov},
+  Number                   = {5114},
+  Pages                    = {515--516},
+  Volume                   = {216},
+
+  Keywords                 = {Arousal; Humans; Learning; Motor Skills; Problem Solving; Pupil, physiology; Reaction Time},
+  Language                 = {eng},
+  Medline-pst              = {ppublish},
+  Owner                    = {chymera},
+  Pmid                     = {6057275},
+  Timestamp                = {2013.11.21}
+}
+
+@Book{Chambers1992,
+  Title                    = {Statistical Models in S},
+  Author                   = {Chambers, J. M. and Freeny, A and Heiberger, R. M},
+  Editor                   = {J. M. Chambers and T. J. Hastie},
+  Publisher                = {Wadsworth \& Brooks/Cole.},
+  Year                     = {1992},
+  Volume                   = {Chapter 5: Analysis of variance; designed experiments},
+
+  Owner                    = {chymera},
+  Timestamp                = {2013.11.16}
+}
+
+@Electronic{faceRT,
+  Title                    = {{“faceRT”} - {Python} Script Suite},
+  Author                   = {Horea Christian},
+  HowPublished             = {GitHub},
+  Language                 = {Python},
+  Url                      = {https://github.com/TheChymera/facesRT},
+  Year                     = {2013--present},
+
+  Owner                    = {chymera},
+  Timestamp                = {2013.09.26}
+}
+
+@Electronic{interstats,
+  Title                    = {“interstats” - {Python} wrappers for statistical tools with optional {\LaTeX} output},
+  Author                   = {Horea Christian},
+  HowPublished             = {GitHub},
+  Language                 = {Python},
+  Url                      = {https://github.com/TheChymera/interstats},
+  Year                     = {2013--present},
+
+  Owner                    = {chymera},
+  Timestamp                = {2013.11.16}
+}
+
+@Electronic{pystim,
+  Title                    = {“pystim” - a {Python} Script for Automated Stimulus Sequence Calculation},
+  Author                   = {Horea Christian},
+  HowPublished             = {GitHub},
+  Language                 = {Python},
+  Url                      = {https://github.com/TheChymera/pystim},
+  Year                     = {2013--present},
+
+  Owner                    = {chymera},
+  Timestamp                = {2013.09.27}
+}
+
+@Electronic{pyxrand,
+  Title                    = {{“Pyxrand”} - {Python} script for shuffling pixels in images},
+  Author                   = {Horea Christian},
+  HowPublished             = {GitHub},
+  Language                 = {Python},
+  Url                      = {https://github.com/TheChymera/pyxrand},
+  Year                     = {2013--present},
+
+  Owner                    = {chymera},
+  Timestamp                = {2013.09.27}
+}
+
+@Electronic{questiopy,
+  Title                    = {{“questioPy”} - a {Python} Script for Automated Questionnaire Evaluation},
+  Author                   = {Horea Christian},
+  HowPublished             = {GitHub},
+  Language                 = {Python},
+  Url                      = {https://github.com/TheChymera/questioPy},
+  Year                     = {2013--present},
+
+  Owner                    = {chymera},
+  Timestamp                = {2013.09.27}
+}
+
+@Article{Collewijn1988,
+  Title                    = {Binocular co-ordination of human vertical saccadic eye movements.},
+  Author                   = {Collewijn, H. and Erkelens, C. J. and Steinman, R. M.},
+  Journal                  = {J Physiol},
+  Year                     = {1988},
+
+  Month                    = {Oct},
+  Pages                    = {183--197},
+  Volume                   = {404},
+
+  Abstract                 = {1. The binocular co-ordination of human vertical saccades was analysed systematically over the full oculomotor range, with a precise and accurate scleral sensor coil technique. Effects of amplitude (1.25-70 deg), direction (upward vs. downward and centripetal vs. centrifugal), as well as position (upper or lower sector of vertical oculomotor range), were investigated systematically in three subjects. 2. All saccades were made voluntarily between continuously presented pairs of targets, which subtended equal angles of target vergence. 3. Vertical saccades were less accurate than horizontal saccades (as described by Collewijn, Erkelens & Steinman, 1988). For target distances between 10 and 70 deg, upward saccades undershot the target by about 10\%, whereas downward saccades tended to overshoot the target. Downward saccades were about 1.5 deg larger than upward saccades between the same targets. 4. Peak velocities continued to increase monotonically with saccadic amplitude up to 513 +/- 27 (S.D.) deg/s for 70 deg saccades; a distinct asymptotic level was not reached. 5. Velocity profiles of upward and downward saccades, made symmetrically about the primary (straight-ahead) position, were very similar for amplitudes up to 30 deg. At larger amplitudes, velocity profiles of upward saccades remained single peaked, whereas those of downward saccades invariably developed a second velocity peak. 6. Parameters of upward saccades depended heavily on the position of the eye. In the upper oculomotor range such saccades had lower maximum speeds, longer durations, and were more skewed than similar saccades in the lower oculomotor range (below primary). Downward saccades were almost independent of eye position. 7. Vertical eye movements during vertical saccades were virtually identical in the two eyes. In contrast, disjunctive horizontal components were systematically present. Upward saccades, at all amplitudes, were associated with diverging eye movements. Converging eye movements occurred during downward saccades. These systematic effects suggest that the vergence subsystem is not turned off during saccades. 8. These changes in vergence were followed by converging horizontal post-saccadic drift after upward saccades, and in diverging horizontal drift after downward saccades.(ABSTRACT TRUNCATED AT 400 WORDS)},
+  Institution              = {Department of Physiology I, Erasmus University Rotterdam, The Netherlands.},
+  Keywords                 = {Adult; Convergence, Ocular; Eye Movements; Fixation, Ocular; Humans; Male; Middle Aged; Saccades; Time Factors; Vision, Binocular},
+  Language                 = {eng},
+  Medline-pst              = {ppublish},
+  Owner                    = {chymera},
+  Pmid                     = {3253430},
+  Timestamp                = {2013.10.29}
+}
+
+@Article{Conway2008,
+  Title                    = {Transient pupil constrictions to faces are sensitive to orientation and species},
+  Author                   = {Conway, C. A. and Jones, B. C. and DeBruine, L. M. and Little, A. C. and Sahraie, A.},
+  Journal                  = {Journal of Vision},
+  Year                     = {2008},
+
+  Month                    = {Mar},
+  Number                   = {3},
+  Pages                    = {17-17},
+  Volume                   = {8},
+
+  Doi                      = {10.1167/8.3.17},
+  Owner                    = {chymera},
+  Publisher                = {Association for Research in Vision and Opthalmology},
+  Timestamp                = {2013.11.19},
+  Url                      = {http://dx.doi.org/10.1167/8.3.17}
+}
+
+@Article{Dubois1955,
+  Title                    = {Un appareil utilisant les convertisseurs d'infra-rouges pour l'etude de la pupille dans l'obscurite absolue. [Apparatus using infra-red converters for the study of the pupils in total darkness]},
+  Author                   = {A DUBOIS-POULSEN and F LOISILLIER and M LOISILLER},
+  Journal                  = {Bulletin des societes d'ophtalmologie de France},
+  Year                     = {1955},
+
+  Month                    = {March},
+  Pages                    = {4-150},
+  Volume                   = {3},
+
+  Owner                    = {chymera},
+  Timestamp                = {2013.11.21}
+}
+
+@Article{Eckel2011,
+  Title                    = {Textual appropriation in engineering master's theses: a preliminary study.},
+  Author                   = {Eckel, Edward J.},
+  Journal                  = {Sci Eng Ethics},
+  Year                     = {2011},
+
+  Month                    = {Sep},
+  Number                   = {3},
+  Pages                    = {469--483},
+  Volume                   = {17},
+
+  __markedentry            = {[chymera:1]},
+  Abstract                 = {In the thesis literature review, an engineering graduate student is expected to place original research in the context of previous work by other researchers. However, for some students, particularly those for whom English is a second language, the literature review may be a mixture of original writing and verbatim source text appropriated without quotations. Such problematic use of source material leaves students vulnerable to an accusation of plagiarism, which carries severe consequences. Is such textual appropriation common in engineering master's writing? Furthermore, what, if anything, can be concluded when two texts have been found to have textual material in common? Do existing definitions of plagiarism provide a sufficient framework for determining if an instance of copying is transgressive or not? In a preliminary attempt to answer these questions, text strings from a random sample of 100 engineering master's theses from the ProQuest Dissertations and Theses database were searched for appropriated verbatim source text using the Google search engine. The results suggest that textual borrowing may indeed be a common feature of the master's engineering literature review, raising questions about the ability of graduate students to synthesize the literature. The study also illustrates the difficulties of making a determination of plagiarism based on simple textual similarity. A context-specific approach is recommended when dealing with any instance of apparent copying.},
+  Doi                      = {10.1007/s11948-010-9214-6},
+  Institution              = {University Libraries, Western Michigan University, Kalamazoo, MI, USA. edward.eckel@wmich.edu},
+  Keywords                 = {Dissertations, Academic as Topic, standards; Education, Graduate, ethics; Engineering, education/ethics; Ethics, Research; Humans; Language; Plagiarism; Research, education},
+  Language                 = {eng},
+  Medline-pst              = {ppublish},
+  Owner                    = {chymera},
+  Pmid                     = {20521174},
+  Timestamp                = {2013.11.16},
+  Url                      = {http://dx.doi.org/10.1007/s11948-010-9214-6}
+}
+
+@Article{Ellis1981,
+  Title                    = {The pupillary light reflex in normal subjects.},
+  Author                   = {Ellis, C. J.},
+  Journal                  = {Br J Ophthalmol},
+  Year                     = {1981},
+
+  Month                    = {Nov},
+  Number                   = {11},
+  Pages                    = {754--759},
+  Volume                   = {65},
+
+  Abstract                 = {In 19 normal subjects the pupillary reflex to light was studied over a range of stimulus intensities by infrared electronic pupillography and analysed by a computer technique. Increasing stimulus intensity was associated with an increase in direct light reflex amplitude and maximum rate of constriction and redilatation. Latency from stimulus to onset of response-decreased with increasing stimulus intensity. The normal range for each of these parameters is given and the significance of these results in clinical pupillary assessment discussed.},
+  Keywords                 = {Adolescent; Adult; Dose-Response Relationship, Radiation; Female; Humans; Light; Male; Middle Aged; Pupil, physiology; Reflex, Pupillary, radiation effects; Time Factors},
+  Language                 = {eng},
+  Medline-pst              = {ppublish},
+  Owner                    = {chymera},
+  Pmid                     = {7326222},
+  Timestamp                = {2013.11.15}
+}
+
+@Article{Gilzenrat2010,
+  Title                    = {Pupil diameter tracks changes in control state predicted by the adaptive gain theory of locus coeruleus function},
+  Author                   = {Gilzenrat, Mark S. and Nieuwenhuis, Sander and Jepma, Marieke and Cohen, Jonathan D.},
+  Journal                  = {Cognitive, Affective, \& Behavioral Neuroscience},
+  Year                     = {2010},
+
+  Month                    = {Jun},
+  Number                   = {2},
+  Pages                    = {252-269},
+  Volume                   = {10},
+  Doi                      = {10.3758/CABN.10.2.252},
+  Owner                    = {chymera},
+  Publisher                = {Springer - Psychonomic Society},
+  Timestamp                = {2013.11.23},
+  Url                      = {http://dx.doi.org/10.3758/CABN.10.2.252}
+}
+
+@Article{Goldwater1972,
+  Title                    = {Psychological significance of pupillary movements.},
+  Author                   = {Goldwater, B. C.},
+  Journal                  = {Psychol Bull},
+  Year                     = {1972},
+
+  Month                    = {May},
+  Number                   = {5},
+  Pages                    = {340--355},
+  Volume                   = {77},
+
+  Keywords                 = {Arousal; Attention; Attitude; Auditory Perception; Conditioning, Classical; Dilatation; Emotions; Humans; Light; Mental Processes; Muscle Contraction; Orientation; Personality; Photic Stimulation; Pupil, physiology; Reflex, Pupillary; Sound; Suggestion; Visual Perception},
+  Language                 = {eng},
+  Medline-pst              = {ppublish},
+  Owner                    = {chymera},
+  Pmid                     = {5021049},
+  Timestamp                = {2013.11.22}
+}
+
+@Electronic{Nature-debate2006,
+  Author                   = {Sarah Greaves and Joanna Scott and Maxine Clarke and Linda Miller and Timo Hannay and Annette Thomas and Philip Campbell},
+  Organization             = {Nature Publishing Group},
+  Url                      = {http://www.nature.com/nature/peerreview/debate/nature05535.html},
+  Year                     = {2006},
+
+  Doi                      = {doi:10.1038/nature05535},
+  Owner                    = {chymera},
+  Timestamp                = {2013.04.01}
+}
+
+@Article{Gross2003,
+  Title                    = {Individual differences in two emotion regulation processes: implications for affect, relationships, and well-being.},
+  Author                   = {Gross, James J. and John, Oliver P.},
+  Journal                  = {J Pers Soc Psychol},
+  Year                     = {2003},
+
+  Month                    = {Aug},
+  Number                   = {2},
+  Pages                    = {348--362},
+  Volume                   = {85},
+
+  Abstract                 = {Five studies tested two general hypotheses: Individuals differ in their use of emotion regulation strategies such as reappraisal and suppression, and these individual differences have implications for affect, well-being, and social relationships. Study 1 presents new measures of the habitual use of reappraisal and suppression. Study 2 examines convergent and discriminant validity. Study 3 shows that reappraisers experience and express greater positive emotion and lesser negative emotion, whereas suppressors experience and express lesser positive emotion, yet experience greater negative emotion. Study 4 indicates that using reappraisal is associated with better interpersonal functioning, whereas using suppression is associated with worse interpersonal functioning. Study 5 shows that using reappraisal is related positively to well-being, whereas using suppression is related negatively.},
+  Institution              = {Department of Psychology, Stanford University, California 94305-2130, USA. james@psych.stanford.edu},
+  Keywords                 = {Adult; Affect, physiology; Discriminant Analysis; Emotions, physiology; Ethnic Groups, psychology; Female; Humans; Individuality; Interpersonal Relations; Male; Models, Psychological; Quality of Life, psychology; Repression, Psychology; Sex Factors; Social Behavior; Students, psychology},
+  Language                 = {eng},
+  Medline-pst              = {ppublish},
+  Owner                    = {chymera},
+  Pmid                     = {12916575},
+  Timestamp                = {2013.09.25}
+}
+
+@Article{Gueorguieva2004,
+  Title                    = {Move over ANOVA: progress in analyzing repeated-measures data and its reflection in papers published in the Archives of General Psychiatry.},
+  Author                   = {Gueorguieva, Ralitza and Krystal, John H.},
+  Journal                  = {Arch Gen Psychiatry},
+  Year                     = {2004},
+
+  Month                    = {Mar},
+  Number                   = {3},
+  Pages                    = {310--317},
+  Volume                   = {61},
+
+  Abstract                 = {The analysis of repeated-measures data presents challenges to investigators and is a topic for ongoing discussion in the Archives of General Psychiatry. Traditional methods of statistical analysis (end-point analysis and univariate and multivariate repeated-measures analysis of variance [rANOVA and rMANOVA, respectively]) have known disadvantages. More sophisticated mixed-effects models provide flexibility, and recently developed software makes them available to researchers.To review methods for repeated-measures analysis and discuss advantages and potential misuses of mixed-effects models. Also, to assess the extent of the shift from traditional to mixed-effects approaches in published reports in the Archives of General Psychiatry.The Archives of General Psychiatry from 1989 through 2001, and the Department of Veterans Affairs Cooperative Study 425.Studies with a repeated-measures design, at least 2 groups, and a continuous response variable.The first author ranked the studies according to the most advanced statistical method used in the following order: mixed-effects model, rMANOVA, rANOVA, and end-point analysis.The use of mixed-effects models has substantially increased during the last 10 years. In 2001, 30\% of clinical trials reported in the Archives of General Psychiatry used mixed-effects analysis.Repeated-measures ANOVAs continue to be used widely for the analysis of repeated-measures data, despite risks to interpretation. Mixed-effects models use all available data, can properly account for correlation between repeated measurements on the same subject, have greater flexibility to model time effects, and can handle missing data more appropriately. Their flexibility makes them the preferred choice for the analysis of repeated-measures data.},
+  Doi                      = {10.1001/archpsyc.61.3.310},
+  Institution              = {Department of Epidemiology and Public Health, Yale University School of Medicine, New Haven, Connecticut, USA.},
+  Keywords                 = {Analysis of Variance; Endpoint Determination; Humans; Models, Statistical; Psychiatry, statistics /&/ numerical data; Research Design},
+  Language                 = {eng},
+  Medline-pst              = {ppublish},
+  Owner                    = {chymera},
+  Pii                      = {61/3/310},
+  Pmid                     = {14993119},
+  Timestamp                = {2013.11.16},
+  Url                      = {http://dx.doi.org/10.1001/archpsyc.61.3.310}
+}
+
+@Article{Hariri2000,
+  Title                    = {Modulating emotional responses: effects of a neocortical network on the limbic system.},
+  Author                   = {Hariri, A. R. and Bookheimer, S. Y. and Mazziotta, J. C.},
+  Journal                  = {Neuroreport},
+  Year                     = {2000},
+
+  Month                    = {Jan},
+  Number                   = {1},
+  Pages                    = {43--48},
+  Volume                   = {11},
+
+  Abstract                 = {Humans share with animals a primitive neural system for processing emotions such as fear and anger. Unlike other animals, humans have the unique ability to control and modulate instinctive emotional reactions through intellectual processes such as reasoning, rationalizing, and labeling our experiences. This study used functional MRI to identify the neural networks underlying this ability. Subjects either matched the affect of one of two faces to that of a simultaneously presented target face (a perceptual task) or identified the affect of a target face by choosing one of two simultaneously presented linguistic labels (an intellectual task). Matching angry or frightened expressions was associated with increased regional cerebral blood flow (rCBF) in the left and right amygdala, the brain's primary fear centers. Labeling these same expressions was associated with a diminished rCBF response in the amygdalae. This decrease correlated with a simultaneous increase in rCBF in the right prefrontal cortex, a neocortical region implicated in regulating emotional responses. These results provide evidence for a network in which higher regions attenuate emotional responses at the most fundamental levels in the brain and suggest a neural basis for modulating emotional experience through interpretation and labeling.},
+  Institution              = {Brain Mapping Division, UCLA School of Medicine, Ahmanson-Lovelace Brain Mapping Center 90095, USA.},
+  Keywords                 = {Adult; Amygdala, blood supply/physiology; Anger, physiology; Cerebrovascular Circulation, physiology; Emotions, physiology; Facial Expression; Fear, physiology; Female; Humans; Image Interpretation, Computer-Assisted; Limbic System, blood supply/physiology; Magnetic Resonance Imaging; Male; Neocortex, blood supply/physiology; Nerve Net, physiology; Social Perception},
+  Language                 = {eng},
+  Medline-pst              = {ppublish},
+  Owner                    = {chymera},
+  Pmid                     = {10683827},
+  Timestamp                = {2013.10.14}
+}
+
+@Article{Hariri2003,
+  Title                    = {Neocortical modulation of the amygdala response to fearful stimuli.},
+  Author                   = {Hariri, Ahmad R. and Mattay, Venkata S. and Tessitore, Alessandro and Fera, Francesco and Weinberger, Daniel R.},
+  Journal                  = {Biol Psychiatry},
+  Year                     = {2003},
+
+  Month                    = {Mar},
+  Number                   = {6},
+  Pages                    = {494--501},
+  Volume                   = {53},
+
+  Abstract                 = {The cortical circuitry involved in conscious cognitive processes and the subcortical circuitry involved in fear responses have been extensively studied with neuroimaging, but their interactions remain largely unexplored. A recent functional magnetic resonance imaging (fMRI) study demonstrated that the engagement of the right prefrontal cortex during the cognitive evaluation of angry and fearful facial expressions is associated with an attenuation of the response of the amygdala to these same stimuli, providing evidence for a functional neural network for emotional regulation.In the current study, we have explored the generalizability of this functional network by using threatening and fearful non-face stimuli derived from the International Affective Picture System (IAPS), as well as the influence of this network on peripheral autonomic responses.Similar to the earlier findings with facial expressions, blood oxygen level dependent fMRI revealed that whereas perceptual processing of IAPS stimuli was associated with a bilateral amygdala response, cognitive evaluation of these same stimuli was associated with attenuation of this amygdala response and a correlated increase in response of the right prefrontal cortex and the anterior cingulate cortex. Moreover, this pattern was reflected in changes in skin conductance.The current results further implicate the importance of neocortical regions, including the prefrontal and anterior cingulate cortices, in regulating emotional responses mediated by the amygdala through conscious evaluation and appraisal.},
+  Institution              = {Clinical Brain Disorders Branch, Intramural Research Program, National Institute of Mental Health, National Institutes of Health, Department of Health and Human Services, Bethesda, Maryland 20892, USA.},
+  Keywords                 = {Adult; Affect; Amygdala, anatomy /&/ histology/metabolism; Cognition, physiology; Equipment Design; Fear; Female; Galvanic Skin Response, physiology; Humans; Magnetic Resonance Imaging, instrumentation; Male; Oxygen, blood; Photic Stimulation; Prefrontal Cortex, anatomy /&/ histology/metabolism},
+  Language                 = {eng},
+  Medline-pst              = {ppublish},
+  Owner                    = {chymera},
+  Pii                      = {S0006322302017869},
+  Pmid                     = {12644354},
+  Timestamp                = {2013.10.14}
+}
+
+@Electronic{testmaker,
+  Title                    = {testMaker - a computer software for web-based assessments},
+  Author                   = {Hartweg, V. AND Milbradt, A. AND Zimmerhofer, A. AND Hornke, L. F.},
+  Organization             = {RWTH Aachen University, Department of Industrial and Organizational Psychology.},
+  Url                      = {http://www.global-assess.rwth-aachen.de/testmaker-wiki/en/index.php/Main_Page},
+  Year                     = {2013},
+
+  Owner                    = {chymera},
+  Timestamp                = {2013.09.25}
+}
+
+@Book{Hastie1992,
+  Title                    = {Statistical Models in S},
+  Author                   = {Hastie, T. J. and Pregibon, D.},
+  Editor                   = {J. M. Chambers and T. J. Hastie},
+  Publisher                = {Wadsworth \& Brooks/Cole},
+  Year                     = {1992},
+  Volume                   = {Generalized linear models. Chapter 6},
+
+  Owner                    = {chymera},
+  Timestamp                = {2013.11.17}
+}
+
+@Article{Hayes2013,
+  Title                    = {Pupillometry as a method for tracking shifts in control state during visual relational reasoning},
+  Author                   = {Hayes, T. R. and Petrov, A. A.},
+  Journal                  = {Journal of Vision},
+  Year                     = {2013},
+
+  Month                    = {Jul},
+  Number                   = {9},
+  Pages                    = {799-799},
+  Volume                   = {13},
+
+  __markedentry            = {[chymera:]},
+  Doi                      = {10.1167/13.9.799},
+  Owner                    = {chymera},
+  Publisher                = {Association for Research in Vision and Opthalmology},
+  Timestamp                = {2013.11.23},
+  Url                      = {http://dx.doi.org/10.1167/13.9.799}
+}
+
+@Article{HESS1960,
+  Title                    = {Pupil size as related to interest value of visual stimuli.},
+  Author                   = {HESS, E. H. and POLT, J. M.},
+  Journal                  = {Science},
+  Year                     = {1960},
+
+  Month                    = {Aug},
+  Number                   = {3423},
+  Pages                    = {349--350},
+  Volume                   = {132},
+
+  Abstract                 = {Increases in the size of the pupil of the eye have been found to accompany the viewing of emotionally toned or interesting visual stimuli. A technique for recording such changes has been developed, and preliminary results with cats and human beings are reported with attention being given to differences between the sexes in response to particular types of material.},
+  Keywords                 = {Pupil; Sex Characteristics; Sympathetic Nervous System},
+  Language                 = {eng},
+  Medline-pst              = {ppublish},
+  Owner                    = {chymera},
+  Pmid                     = {14401489},
+  Timestamp                = {2013.11.21}
+}
+
+@Article{HESS1965,
+  Title                    = {PUPIL RESPONSE OF HETERO- AND HOMOSEXUAL MALES TO PICTURES OF MEN AND WOMEN: A PILOT STUDY.},
+  Author                   = {HESS, E. H. and SELTZER, A. L. and SHLIEN, J. M.},
+  Journal                  = {J Abnorm Psychol},
+  Year                     = {1965},
+
+  Month                    = {Jun},
+  Pages                    = {165--168},
+  Volume                   = {70},
+
+  Keywords                 = {Homosexuality; Pupil; Sex; Sexual Behavior},
+  Language                 = {eng},
+  Medline-pst              = {ppublish},
+  Owner                    = {chymera},
+  Pmid                     = {14297654},
+  Timestamp                = {2013.11.22}
+}
+
+@Manual{Hlavac2013,
+  Title                    = {stargazer: LaTeX code and ASCII text for well-formatted regression and summary statistics tables},
+
+  Address                  = {Cambridge, USA},
+  Author                   = {Marek Hlavac},
+  Note                     = {R package version 4.5.3},
+  Organization             = {Harvard University},
+  Year                     = {2013},
+
+  Url                      = {http://CRAN.R-project.org/package=stargazer}
+}
+
+@Electronic{github,
+  Title                    = {Powerful collaboration, code review, and code management for open source and private projects.},
+  Author                   = {GitHub Inc.},
+  HowPublished             = {online},
+  Organization             = {GitHub},
+  Url                      = {https://github.com/},
+
+  Owner                    = {chymera},
+  Timestamp                = {2013.11.02}
+}
+
+@Electronic{scipy,
+  Title                    = {{SciPy}: Open source scientific tools for {Python}},
+  Author                   = {Eric Jones and Travis Oliphant and Pearu Peterson and others},
+  Url                      = {http://www.scipy.org/},
+  Year                     = {2001--},
+
+  Owner                    = {chymera},
+  Timestamp                = {2013.11.16}
+}
+
+@Article{Kessler2005,
+  Title                    = {The World Health Organization Adult ADHD Self-Report Scale (ASRS): a short screening scale for use in the general population},
+  Author                   = {Kessler, Ronald C and Adler, Lenard and Ames, Minnie and Demler, Olga and Faraone, Steve and Hiripi, Eva and Howes, Mary J and Jin, Robert and Secnik, Kristina and Spencer, Thomas and others},
+  Journal                  = {Psychological medicine},
+  Year                     = {2005},
+  Number                   = {02},
+  Pages                    = {245--256},
+  Volume                   = {35},
+
+  Owner                    = {chymera},
+  Publisher                = {Cambridge Univ Press},
+  Timestamp                = {2013.09.25},
+  Url                      = {http://journals.cambridge.org/abstract_S0033291704002892}
+}
+
+@Article{Klein1997,
+  Title                    = {Erfassung der schizotypen Persönlichkeit nach DSM-III-R: Psychometrische Eigenschaften einer autorisierten deutschsprachigen Übersetzung des “schizotypal personality questionnaire” (SPQ) von Raine.},
+  Author                   = {Klein, C AND Andresen, B AND Jahn, T},
+  Journal                  = {Diagnostica},
+  Year                     = {1997},
+  Number                   = {43},
+  Pages                    = {347–369},
+
+  Owner                    = {chymera},
+  Timestamp                = {2013.09.26}
+}
+
+@Article{Kraemer2000,
+  Title                    = {Time-of-day variations of indicators of attention: performance, physiologic parameters, and self-assessment of sleepiness},
+  Author                   = {Kraemer, Susanne and Danker-Hopfe, Heidi and Dorn, Hans and Schmidt, Andrea and Ehlert, Ingrid and Herrmann, Werner M},
+  Journal                  = {Biological Psychiatry},
+  Year                     = {2000},
+
+  Month                    = {Dec},
+  Number                   = {11},
+  Pages                    = {1069-1080},
+  Volume                   = {48},
+
+  Doi                      = {10.1016/S0006-3223(00)00908-2},
+  Owner                    = {chymera},
+  Publisher                = {Elsevier },
+  Timestamp                = {2013.11.22},
+  Url                      = {http://dx.doi.org/10.1016/S0006-3223(00)00908-2}
+}
+
+@Article{Leek2011,
+  Title                    = {Cooperation between referees and authors increases peer review accuracy.},
+  Author                   = {Leek, Jeffrey T. and Taub, Margaret A. and Pineda, Fernando J.},
+  Journal                  = {PLoS One},
+  Year                     = {2011},
+  Number                   = {11},
+  Pages                    = {e26895},
+  Volume                   = {6},
+
+  __markedentry            = {[chymera:1]},
+  Abstract                 = {Peer review is fundamentally a cooperative process between scientists in a community who agree to review each other's work in an unbiased fashion. Peer review is the foundation for decisions concerning publication in journals, awarding of grants, and academic promotion. Here we perform a laboratory study of open and closed peer review based on an online game. We show that when reviewer behavior was made public under open review, reviewers were rewarded for refereeing and formed significantly more cooperative interactions (13\% increase in cooperation, P = 0.018). We also show that referees and authors who participated in cooperative interactions had an 11\% higher reviewing accuracy rate (P = 0.016). Our results suggest that increasing cooperation in the peer review process can lead to a decreased risk of reviewing errors.},
+  Doi                      = {10.1371/journal.pone.0026895},
+  Institution              = {Department of Biostatistics, Johns Hopkins Bloomberg School of Public Health, Baltimore, Maryland, United States of America. jleek@jhsph.edu},
+  Keywords                 = {Humans; Interpersonal Relations; Peer Review, Research},
+  Language                 = {eng},
+  Medline-pst              = {ppublish},
+  Owner                    = {chymera},
+  Pii                      = {PONE-D-11-16716},
+  Pmid                     = {22096506},
+  Timestamp                = {2013.11.16},
+  Url                      = {http://dx.doi.org/10.1371/journal.pone.0026895}
+}
+
+@Article{Leifeld2013,
+  Title                    = {{texreg}: Conversion of Statistical Model Output in {R} to {\LaTeX} and HTML Tables},
+  Author                   = {Philip Leifeld},
+  Journal                  = {Journal of Statistical Software},
+  Year                     = {2013},
+  Number                   = {8},
+  Pages                    = {1--24},
+  Volume                   = {55},
+
+  Url                      = {http://www.jstatsoft.org/v55/i08/}
+}
+
+@Article{Morad2000,
+  Title                    = {Pupillography as an objective indicator of fatigue.},
+  Author                   = {Morad, Y. and Lemberg, H. and Yofe, N. and Dagan, Y.},
+  Journal                  = {Curr Eye Res},
+  Year                     = {2000},
+
+  Month                    = {Jul},
+  Number                   = {1},
+  Pages                    = {535--542},
+  Volume                   = {21},
+
+  Abstract                 = {To determine whether parameters calculated from pupillary activity can identify subjects with sleep deprivation, and whether the objective values correlate with a subjective feeling of fatigue.pupil size in the dark was recorded continuously for 10 minutes in 12 healthy volunteers using an infrared video camera. Two recordings were made for each subject: after a full night's sleep, and after 24 hours of sleep deprivation. Several parameters calculated from pupil size and activity were analyzed and compared with a subjective rating of the state of alertness provided by the participants in each test.All pupillary parameters differed significantly between alertness and fatigue (p = 0.0076-0. 0186). Changes in one of the parameters - average pupillary diameter - correlated with changes in the subjective level of sleepiness (r = -0.51, p = 0.028). Although the values of most parameters differed among subjects, an absolute value of more than 25 in one parameter, cumulative pupillary variability ratio, was always associated with sleep deprivation.On-line analysis of the pupillogram using the suggested parameters can be performed easily to produce a real-time assessment of an individual's state of alertness or fatigue that correlates with his/her subjective assessment of this state.},
+  Institution              = {Department of Ophthalmology, Assaf-Harofeh Medical Center, Zerifin, Israel.},
+  Keywords                 = {Adult; Arousal; Automatic Data Processing; Darkness; Female; Humans; Infrared Rays; Male; Pupil, physiology; Reference Values; Self Concept; Sleep Deprivation, physiopathology; Sleep Stages, physiology; Sleep, physiology; Videotape Recording},
+  Language                 = {eng},
+  Medline-pst              = {ppublish},
+  Owner                    = {chymera},
+  Pmid                     = {11035533},
+  Timestamp                = {2013.11.21}
+}
+
+@Article{Nagele2003,
+  Title                    = {Misuse of standard error of the mean (SEM) when reporting variability of a sample. A critical evaluation of four anaesthesia journals.},
+  Author                   = {Nagele, P.},
+  Journal                  = {Br J Anaesth},
+  Year                     = {2003},
+
+  Month                    = {Apr},
+  Number                   = {4},
+  Pages                    = {514--516},
+  Volume                   = {90},
+
+  Abstract                 = {In biomedical research papers, authors often use descriptive statistics to describe the study sample. The standard deviation (SD) describes the variability between individuals in a sample; the standard error of the mean (SEM) describes the uncertainty of how the sample mean represents the population mean. Authors often, inappropriately, report the SEM when describing the sample. As the SEM is always less than the SD, it misleads the reader into underestimating the variability between individuals within the study sample.The aim of this study was to evaluate the frequency of inappropriate use of the SEM in four leading anaesthesia journals in 2001. The journals were searched manually for descriptive statistics reporting either the mean (SD) or the mean (SEM), and inappropriate use of the SEM was noted.In 2001, all four anaesthesia journals published articles that used the SEM incorrectly: Anesthesia & Analgesia 27.7\%, British Journal of Anaesthesia 22.6\%, Anesthesiology 18.7\% and European Journal of Anaesthesiology 11.5\%. Laboratory reports and clinical studies were equally affected, except for Anesthesiology where 90\% were basic science reports.One in four articles (n=198/860, 23\%) published in four anaesthesia journals in 2001 inappropriately used the SEM in descriptive statistics to describe the variability of the study sample. Anaesthesia journals are encouraged to provide clearer statistical guidelines on how to report data variability in descriptive statistics.},
+  Institution              = {Department of Anesthesiology and General Intensive Care, University of Vienna, Austria. peter.nagele@univie.ac.at},
+  Keywords                 = {Anesthesiology, standards; Data Interpretation, Statistical; Periodicals as Topic, standards; Research, standards},
+  Language                 = {eng},
+  Medline-pst              = {ppublish},
+  Owner                    = {chymera},
+  Pmid                     = {12644429},
+  Timestamp                = {2013.11.14}
+}
+
+@Article{Nunally1967,
+  Title                    = {Pupillary response as a general measure of activation.},
+  Author                   = {J C Nunally and P D Knott and A Duchnowski and R Parker},
+  Journal                  = {Perception and Psychophysics},
+  Year                     = {1967},
+  Pages                    = {149-155},
+  Volume                   = {2},
+
+  Owner                    = {chymera},
+  Timestamp                = {2013.11.22}
+}
+
+@Article{Oliphant2007,
+  Title                    = {Python for Scientific Computing},
+  Author              

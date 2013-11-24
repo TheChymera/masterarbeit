@@ -8,15 +8,14 @@
 	For the emotion recognition trials, we decided on faces with emotional concentrations of 40\% and 100\% (as discussed in section~\ref{sec:m_vs_ef}).
 	
 	In the following experiments we examine reaction times and error rates for the recognition of progressively scrambled images in comparison to the recognition of our two emotional concentrations.
-
 	\py[pe1]{fig_pe1}
 	
 	The reaction time figures which we present include both per-participant and population sample bar plots (the latter marked as “ALL”).
 	As our sample sizes are reduced, we acknowledge the limited reliability with which we can make claims pertaining to the general population. 
 	
 	We would, however, also like to indicate that both inter-trial and inter-participant variability is high (as seen in figure~\ref{fig:r_pe1}).
-	The accuracy of the determined mean (reflected by the standard errors in figure~\ref{fig:r_pe1}) could be improved by more extensive testing.
-	However, reaction times on individual trials would still often coincide even for less stringent or sub-optimal choices of a baseline.  
+	The accuracy of the determined mean (reflected by the standard errors in figure~\ref{fig:r_pe1}) could be improved by more extensive testing - though the usefulness of doing so with respect to our search for an optimal baseline would be limited.
+	Regardless of the quality of our mean, reaction times on individual trials would still often coincide even for less stringent or sub-optimal choices of a baseline.  
 	This would happen on the trial level, as well as on the \textit{mean} level for certain participants.
 	Please see the standard deviations in figure~\ref{fig:r_pe1} for a graphical representation of where approximately \SI{68}{\percent} of data points reside for each condition.
 	\subsection{Simple Cluster-Based Scrambling}\label{sec:r_pe_ss}
@@ -28,18 +27,19 @@
 	    \py[pe_ss1]{tex_nr(ttest_rel(data_pe_ss1[(data_pe_ss1['scrambling'] == 0) & (data_pe_ss1['intensity'] == 40)]['RT'], data_pe_ss1[(data_pe_ss1['scrambling'] == 0) & (data_pe_ss1['intensity'] == 100)]['RT'])[1]/2)}),
 	    and higher than for the easy condition.
 	    The results also support our assumption of the presence of a downward trend in reaction times over increasing scrambling cluster sizes.
+	    Additionally we see the emergence of a plateau-phase over higher scrambling cluster sizes.
 	    
-	    To test the validity of this tentative interpretation, we have fitted a linear model to the reaction times of pattern recognition trials.
+	    To test the validity of this tentative interpretation, we have fitted a mixed model to the reaction times of pattern recognition trials.
 	    The model presented in table~\ref{tab:r_pe_ss1} supports our interpretation by showing that:
 	    \begin{itemize}
 		\item There is a negative progression among the first three factors, with all factor values lying outside of the confidence intervals of all others.
 		\item For the subsequent 4 factors there is no obvious trend, with all factor values lying within each other's confidence intervals. 
 	    \end{itemize}
-	    \py[pe_ss1]{lm(data=data_pe_ss1[(data_pe_ss1['scrambling'] != 0)], fixed='RT~COI', random='ID', title='Linear model fitted to the raw data depicted in figure~\\ref{fig:r_pe_ss1}. Our factors are the conditions of interest (COI), excluding the emotion recognition trials. The mod el chooses the first factor (scrambling-06) as the base intercept. Note the downwards trend for the first 3 factors and that the last 4 factors\' values lie within each other\'s confidence intervals.', label='tab:r_pe_ss1')}
+	    \py[pe_ss1]{lm(data=data_pe_ss1[(data_pe_ss1['scrambling'] != 0)], fixed='RT~COI', random='ID', title='Mixed model fitted to the raw data depicted in figure~\\ref{fig:r_pe_ss1}. Our factors are the conditions of interest (COI), excluding the emotion recognition trials. The mod el chooses the first factor (scrambling-06) as the base intercept. Note the downwards trend for the first 3 factors and that the last 4 factors\' values lie within each other\'s confidence intervals.', label='tab:r_pe_ss1')}
 
 	    This plateau suggests that scrambling cluster sizes of \SI{14}{\pixel}, \SI{18}{\pixel}, \SI{22}{\pixel}, and \SI{26}{\pixel} possessed the same recognition-relevant quality, which the \SI{6}{\pixel} scrambling cluster - at least - did not.
 	    If this purported feature is to explain the reaction time distribution, it should emerge at a scrambling cluster size of around \SI{10}{\pixel}.
-	    Visual scrutiny of the images suggested that the emergent feature may be recognizable facial elements - more precisely the eyes (with pupil and iris having a diameter of approximately \SI{8}{\pixel}).
+	    Visual scrutiny of the images suggested that the emergent feature may be recognizable facial elements - more precisely the eyes (with the iris having an outer diameter of approximately \SI{8}{\pixel}).
 	    To test our hypothesis and define a more appropriate baseline for simple visual recognition, we devised a new set of experiments - described in section~\ref{sec:m_pe_cs}, and analyzed in section \ref{sec:r_pe_cs}.
 	    
 	    Though the images used in this first experiment run shall not be used as the definitive baseline, we conduct a baseline search to use for our further analysis in this section.
@@ -62,54 +62,35 @@
 
 	    Our error rate distribution over categories proves difficult to interpret.
 	    It is obvious for one thing that error rates for most categories vary greatly among participants.
-	    It also seems possible that emotion recognition in easy trials may be more robust than image matching in all other categories (owing to the robust null rate).
+	    It also seems possible that emotion recognition in easy trials may be more robust than image matching in all other categories (owing to the constant null rate).
 	    \py[pe_ss3]{av(data_pe_ss3, 'ER~COI+Error(ID)', title='One-way repeated measure ANOVA table for the data depicted in figure~\\ref{fig:r_pe_ss3}. The $Pr(>F)$ value indicates the probability of our results occurring by chance if the means of our defined categories are equal.', label='tab:r_pe_ss3')}
 	    
 	    To test this assumption we have performed an ANOVA (see table~\ref{tab:r_pe_ss3}).
 	    The results of this analysis prove equally difficult to interpret. While the $Pr(>F)$ (nominally, \textit{p}) value lies above the popular significance threshold of \textit{p}<0.05, 
-	    it is still below the more lax - though not unheard of - \textit{p}<0.1 threshold.
+	    it is still below the more lax (though not unheard of) \textit{p}<0.1 threshold.
 	    
-	    To further document this analysis we have fitted a linear model with computed \textit{p}-values (see table~\ref{tab:r_pe_ss3a}).
-	    This model indicates that while there are !!!
-	    \py[pe_ss3]{lm(data_pe_ss3, fixed='ER~COI', random='ID', title='figure~\\ref{fig:r_pe_ss1}', label='tab:r_pe_ss3a', model='nlme')}
-
-	    This could raise doubts about our choice of baseline, and should be kept in mind for further scrutiny (continued in the discussion of figure~\ref{fig:r_pe_cs5}).
+	    To further document this analysis we have fitted a mixed model with computed \textit{p}-values (see table~\ref{tab:r_pe_ss3a}).
+	    This model indicates that, while it could find 3 factor values which were significantly different than the base intercept, it found 4 which were not.
+	    Note that it is not abnormal for single comparison to find significant effects though ANOVA does not (more on this in section~\ref{sec:m_sa}).
+	    We take this as supporting our decision no not reject the null hypothesis of all categories sharing the same mean.
+	    \py[pe_ss3]{lm(data_pe_ss3, fixed='ER~COI', random='ID', title='Mixed model fitted to the raw data presented in figure~\\ref{fig:r_pe_ss3}. The model chooses easy emotion recognition (incidentally our category suspected of deviating from the mean) as the base intercept.', label='tab:r_pe_ss3a', model='nlme')}
 	\subsection{Composite (Kernel-and-Cluster-Based) Scrambling}\label{sec:r_pe_cs}
 	    Based on the results detailed in section ~\ref{sec:r_pe_ss} we have performed additional experiments using a series of improved method choices (detailed in section \ref{sec:m_pe_cs}).
-	    \py{fig_pe_cs1}
 	    
-	    Figure~\ref{fig:r_pe_cs1} presents the the data from the first run of these experiments.
-	    An obvious feature here is the disappearance of the plateau phase, which supports our hypothesis regarding its emergence due to facial features with a horizontal and/or vertical spatial frequency of around \SI{8}{\pixel} (formulated in section~\ref{sec:r_pe_ss}).
+	    We have re-run experiments with kernel-and-cluster scrambled images a number of times.
+	    This was based on progressively noticing parameters in need of adjustment so as to create a most faithful emulation of the in-scanner visual experience.
+	    For the sake of brevity, we will only discuss the results of our final and most faithful emulation here in this section.
+	    Data from the previous runs is appended for the sake of completion under section~\ref{sec:sm_ndper}.
+	     
+	    \py[pe_cs3]{fig_pe_cs3} 
 	    
-	    We have tried to determine the best-guess equivalent in terms of reaction times for our categories of interest using a t-test \textit{p}-value listing (see table~\ref{tab:r_pe_cs1}).
+	    Figure~\ref{fig:r_pe_cs3} presents the the data from the final preliminary experiment run - which best approximates the visual input participants will be receiving in the fMRI trials, and which we trust above all others as an appropriate guideline for further experimental choices.
+	    An obvious feature here is the disappearance of the plateau phase, which supports our hypothesis regarding its emergence due to facial features with a horizontal and/or vertical spatial frequency of around \SI{8}{\pixel} (formulated in section~\ref{sec:r_pe_ss}; this is only partly corroborated by other test runs, as seen in supplementary figures~\ref{fig:r_pe_cs1} and~\ref{fig:r_pe_cs2}).
+	    
+	    We have tried to determine the best-guess equivalent for our categories of interest - in terms of reaction times - using a t-test \textit{p}-value listing (see table~\ref{tab:r_pe_cs3}).
 	    Our results indicate that pattern recognition of figures produced with a \SI{11}{\pixel} scrambling cluster is the least unlikely condition to share an equivalent baseline with difficult emotion recognition.
 	    Similarly, it is pattern recognition of images processed with a \SI{23}{\pixel} scrambling cluster which we choose as our best-guess reaction time equivalent for easy emotion recognition.
-	    \py{p_table(data_pe_cs1, ['COI', 'emotion-easy', 'emotion-hard'], ['scrambling', 11, 15, 19, 23, 27], refcap='Proposed best estimators (scrambling cluster sizes in \\SI{}{px})', caption='Table of two-tailed paired sample t-test \\textit{p}-values for the data in figure ~\\ref{fig:r_pe_cs1}, testing the probability of our observations if the compared conditions share the same mean. Note that - though unorthodox - this test does not lose accuracy due to multiple comparisons. As we are looking for the group least likely to reject the null hypothesis, multiple comparison actually makes the test more stringent.', label='tab:r_pe_cs1')}
-	    
-	    It is somewhat concerning that the \textit{p}-value of our best difficult emotion recognition match (\py{tex_nr(ttest_rel(data_pe_cs1[(data_pe_cs1['scrambling'] == 0) & (data_pe_cs1['intensity'] == 40)].groupby('ID')['RT'].mean(), data_pe_cs1[(data_pe_cs1['scrambling'] == 11)].groupby('ID')['RT'].mean())[1])}) is considerably higher than what we have obtained in section~\ref{sec:r_pe_ss}.
-	    
-	    We assume that individual variability of our small sample of participants may be responsible for this irregularity.
-	    In an effort to make a more accurate prediction we have re-run the experiment with slightly different (and lower) scrambling clusters.
-	    \py{fig_pe_cs2}
-	    
-	    We present the new data in figure~\ref{fig:r_pe_cs2}.
-	    The results from this re-run are curious in that they mostly do not corroborate our findings from the previous run (figure~\ref{fig:r_pe_cs1}).
-	    The data does seem to indicate a more appropriate baseline for hard emotion recognition (namely visual recognition of pictures processed with a scrambling kernel of \SI{6}{\pixel} and a scrambling cluster of \SI{10}{\pixel} - two-tailed \textit{p} = \py{tex_nr(ttest_rel(data_pe_cs2[(data_pe_cs2['scrambling'] == 0) & (data_pe_cs2['intensity'] == 40)].groupby('ID')['RT'].mean(), data_pe_cs2[(data_pe_cs2['scrambling'] == 10)].groupby('ID')['RT'].mean())[1])}, see table~\ref{tab:r_pe_cs2} for the full comparison).
-	    However, pattern recognition conditions with as little as \SI{1}{\pixel} cluster scrambling difference between them show a notable - though strictly speaking not significant - difference in reaction times in this run compared to the one before
-	    (figure~\ref{fig:r_pe_cs2}'s \SI{10}{\pixel} vs. figure~\ref{fig:r_pe_cs1}'s \SI{11}{\pixel}: two-tailed unpaired t-test \textit{p}-value of  
-	    \py{tex_nr(ttest_ind(data_pe_cs2[(data_pe_cs2['scrambling'] == 10)].groupby('ID')['RT'].mean(), data_pe_cs1[(data_pe_cs1['scrambling'] == 11)].groupby('ID')['RT'].mean())[1])}). 
-	    \py{p_table(data_pe_cs2, ['COI', 'emotion-easy', 'emotion-hard'], ['scrambling', 6, 10, 14, 18, 22], refcap='Proposed best estimators (scrambling cluster sizes in \\SI{}{px})', caption='Table of two-tailed paired sample t-test \\textit{p}-values for the data in figure ~\\ref{fig:r_pe_cs2}, testing the probability of our observations if the compared conditions share the same mean. Note that - though unorthodox - this test does not lose accuracy due to multiple comparisons. As we are looking for the group least likely to reject the null hypothesis, multiple comparison actually makes the test more stringent.', label='tab:r_pe_cs2')}
-	    
-	    The emergence of a reaction time plateau for larger scrambling clusters (previously observed in section~\ref{sec:r_pe_ss}; analogous linear model shown under table~\ref{tab:r_pe_cs2a}) raises further questions.
-	    \py{lm(data=data_pe_cs2[(data_pe_cs2['scrambling'] != 0)], fixed='RT~COI', random='ID', title='Linear model fitted to the raw data depicted in figure~\\ref{tab:r_pe_cs2a}. Our factors are the conditions of interest (COI), excluding the emotion recognition trials. The model chooses the first factor (scrambling-06) as the base intercept. Note the downwards trend for the first 3 factors and that the last 3 factors\' values land confidence intervals are almost identical.', label='tab:r_pe_cs2a')}
-	    
-	    We believe that this variability is - again - due to our reduced and varying participant sample, and that this merits even further investigation.
-	    Concomitantly to this realization we have also decided to adapt the size of the visual window to accurately match the degrees of visual angle which our participants would be seeing in our fMRI-monitor set-up. This is a slight decrease in size from the trials above: u = \SI{4.24}{\degree} now versus u $\approx$ \SI{6}{\degree} earlier (with “u” denoting face image height) -
-	    further technical clarification is available under section~\ref{sec:m_bt}.
-	    
-	    This third run of our experiment (with results depicted in figure~\ref{fig:r_pe_cs3}) should be the best approximation for the visual input the participants will be receiving in the fMRI trials.
-	    We therefore trust this run above all others as a guideline for further experimental design choices.
-	    \py[pe_cs3]{fig_pe_cs3}
+	    \py[pe_cs3]{p_table(data_pe_cs3, ['COI', 'emotion-easy', 'emotion-hard'], ['scrambling', 11, 15, 19, 23, 27], refcap='Proposed best estimators (scrambling cluster sizes in \\SI{}{px})', caption='Table of two-tailed paired sample t-test \\textit{p}-values for the data in figure ~\\ref{fig:r_pe_cs3}, testing the probability of our observations if the compared conditions share the same mean. Note that - though unorthodox - this test does not lose accuracy due to multiple comparisons. As we are looking for the group least likely to reject the null hypothesis, multiple comparison actually makes the test more stringent.', label='tab:r_pe_cs3')}
 	    
 	    Figure~\ref{fig:r_pe_cs3} shows a linear decay of reaction times over increasing scrambling cluster size
 	    (as opposed to a plateau for larger scrambling clusters, which we had noticed in some of the previous runs).
@@ -119,7 +100,7 @@
 	    It should be noted that though not significantly different, both of these simple visual recognition reaction times undershoot their counterpart emotion recognition reaction times.
 	    In light of this we have decided to use a \SI{6}{\pixel} kernel- and \SI{10}{\pixel} cluster-scrambled image baseline for difficult emotion recognition, 
 	    and a \SI{6}{\pixel} kernel- and \SI{22}{\pixel} cluster-scrambled image baseline for easy emotion recognition.
-	    \py[pe_cs3]{p_table(data_pe_cs3, ['COI', 'emotion-easy', 'emotion-hard'], ['scrambling', 11, 15, 19, 23, 27], refcap='Proposed best estimators (scrambling cluster sizes in \\SI{}{px})', caption='Table of two-tailed paired sample t-test \\textit{p}-values for the data in figure ~\\ref{fig:r_pe_cs3}, testing the probability of our observations if the compared conditions share the same mean. Note that - though unorthodox - this test does not lose accuracy due to multiple comparisons. As we are looking for the group least likely to reject the null hypothesis, multiple comparison actually makes the test more stringent.', label='tab:r_pe_cs3')}
+	    
 	    \py[pe_cs5]{fig_pe_cs5}
 	    
 	    To re-examine our doubts on the suitability of our baseline concept (raised in section~\ref{sec:r_pe_ss}), we have also examined error rates for this last and methodologically most faithful preliminary experiment run.
@@ -148,6 +129,8 @@
 	    
 	    For our ideal baseline we would be expecting a null value for the scrambling factor and a positive value for the difficulty factor in the reaction time model.
 	    In the error rate model we would be expecting a null value for the scrambling factor and either a null or positive value for the difficulty factor.
+	    \py[pe_cs5]{lm(data=data_pe_cs5[(data_pe_cs5['COI'] == 'scrambling-11') | (data_pe_cs5['COI'] == 'scrambling-23') | (data_pe_cs5['COI'] == 'emotion-hard') | (data_pe_cs5['COI'] == 'emotion-easy')], fixed='ER~difficulty*scrambled', random='ID', title='Mixed model fitted to the raw error rate data depicted in figure~\\ref{fig:r_pe_cs5}. Our factors are scrambling (yes or no) and difficulty (easy or hard). The model chooses "easy" and "not scrambled" as the intercept value. Difficulty and scrambling show no significant factor value, while their interaction does. The base intercept is not significant meaning that the base error rate of the model may not be be reliably considered to lie above zero.', label='tab:r_pe_cs5s')}
+
 	    
 	    Tables~\ref{tab:r_pe_cs5s} and~\ref{tab:r_pe_cs3s}, provide a succinct and reliable validation for our proposed baseline model.
 	    
@@ -162,65 +145,27 @@
 	    The reaction time model (table~\ref{tab:r_pe_cs3s}) paints a similar picture: with a significant value for the difficulty factor and no significance either for scrambling nor for scrambling and difficulty interaction.
 	    We would conclude that in spite of our reduced sample sizes and aforementioned reproducibility issues our scrambling algorithm represents a viable choice of baseline (further discussion in section~\ref{sec:d_pe}.
 	    
-	    \py[pe_cs5]{lm(data=data_pe_cs5[(data_pe_cs5['COI'] == 'scrambling-11') | (data_pe_cs5['COI'] == 'scrambling-23') | (data_pe_cs5['COI'] == 'emotion-hard') | (data_pe_cs5['COI'] == 'emotion-easy')], fixed='ER~difficulty*scrambled', random='ID', title='Linear model fitted to the raw error rate data depicted in figure~\\ref{fig:r_pe_cs5}. Our factors are scrambling (yes or no) and difficulty (easy or hard). The model chooses "easy" and "not scrambled" as the intercept value. Difficulty and scrambling show no significant factor value, while their interaction does. The base intercept is not significant meaning that the base error rate of the model may not be be reliably considered to lie above zero.', label='tab:r_pe_cs5s')}
-	    \py[pe_cs3]{lm(data=data_pe_cs3[(data_pe_cs3['COI'] == 'scrambling-11') | (data_pe_cs3['COI'] == 'scrambling-23') | (data_pe_cs3['COI'] == 'emotion-hard') | (data_pe_cs3['COI'] == 'emotion-easy')], fixed='RT~difficulty*scrambled', random='ID', title='Linear model fitted to the raw reaction time data depicted in figure~\\ref{fig:r_pe_cs3}. Our factors are scrambling (yes or no) and difficulty (easy or hard). The model chooses "easy" and "not scrambled" as the intercept value. The base intercept is significant, indicating reaction times of the model are above zero. The difficulty factor is also positive and significant meaning that difficulty adds to response latency. All other factors are not significantly other than zero.', label='tab:r_pe_cs3s')}
-	    
+	    \py[pe_cs3]{lm(data=data_pe_cs3[(data_pe_cs3['COI'] == 'scrambling-11') | (data_pe_cs3['COI'] == 'scrambling-23') | (data_pe_cs3['COI'] == 'emotion-hard') | (data_pe_cs3['COI'] == 'emotion-easy')], fixed='RT~difficulty*scrambled', random='ID', title='Mixed model fitted to the raw reaction time data depicted in figure~\\ref{fig:r_pe_cs3}. Our factors are scrambling (yes or no) and difficulty (easy or hard). The model chooses "easy" and "not scrambled" as the intercept value. The base intercept is significant, indicating reaction times of the model are above zero. The difficulty factor is also positive and significant meaning that difficulty adds to response latency. All other factors are not significantly other than zero.', label='tab:r_pe_cs3s')}
+    \section{Pupillometry}\label{sec:r_p}
 \chapter{Discussion}
     \section{Preliminary Experiments}\label{sec:d_pe}
-	Most conclusions drawn from our preliminary experiments (for instance in section~\ref{sec:m_pe_cs} or section~\ref{sec:r_pe_cs}) are only marginally reliable due to the high inter-run variability noticed throughout section~\ref{sec:r_pe}.
+	Most conclusions drawn from our preliminary experiments (for instance in section~\ref{sec:m_pe_cs} or section~\ref{sec:r_pe_cs}) are only marginally reliable due to the high inter-run variability noticed throughout our re-runs in section~\ref{sec:r_pe}.
 	We believe the chief reason for this is our reduced participant sample (n = 6 to 7), and we would recommend a more thorough examination on a larger population to better support any claims pertaining to accurate reaction time and error rate comparisons.
 	
 	Some hallmarks, however, have been constant over all our runs, and we believe these deserve to be reported with more pronounced certainty.
 	\subsection{Reaction Times over Scrambling Cluster Sizes}
-	    Our preliminary experiments show that even when confronted with very high variability in results there is a robust decay of reaction times as scrambling cluster sizes increase. 
-\chapter{Meta}
-    \begin{figure}[H]
-	\[ \sigma_{x,y} = \sqrt{\sigma_{x}^{2}+\sigma_{y}^{2}} = \sqrt{2\sigma_{x}^{2}} \approx \sqrt{2 \cdot (0.68 K)^{2}} \approx 0.96K\]
-	\caption{Here we calculate the standard deviation ($\sigma$) of the distance from the original pixel location to the new pixel location following kernel-based scrambling, as detailed in section~\ref{sec:m_vs_si_kbs}. The standard deviation along one axis is defined as $0.68K$ (\SI{68}{\percent} of the scrambling kernel, $K$) following the 68–95–99.7 rule, though experimentally we have found slightly lower values ($\approx 0.6K$).}
-	\label{eq:lrgn}
-    \end{figure}
-    \begin{figure}[H]
-	\[\Pr(\mu - \sigma \le x \le \mu + \sigma) \approx 0.6827 \]
-	\[\Pr(\mu - 2\sigma \le x \le \mu + 2\sigma) \approx 0.9545 \]
-	\[\Pr(\mu - 3\sigma \le x \le \mu + 3\sigma) \approx 0.9973 \]
-	\caption{The general expression of the three-sigma rule, in mathematical notation, for $x$ being an observation from a normally distributed random variable, $\mu$ being the mean of the distribution, and $\sigma$ being its standard deviation. The three-sigma rule (also known as the “68–95–99.7 rule”) states that nearly all values lie within 3 standard deviations of the mean in a normal distribution.}
-	\label{eq:3s}
-    \end{figure}
-    \begin{figure}[H]
-	\begin{eqnarray*}
-	    A(h)&=&\frac{R^2}{2}\left[2\arccos\left(1-\frac{h}{R}\right) - \sin\left(2 \arccos\left(1-\frac{h}{R}\right)\right) \right]\\
-	    &=&R^2 \left [\arccos{\left (1-\frac{h}{R}\right)} - \left (1-\frac{h}{R}\right) \sqrt{2 \frac{h}{R} - \frac{h^2}{R^2}} \right]
-	\end{eqnarray*}
-	\caption{The area of a circle segment $A$ defined relative to the height of that segment, $h$ - with $R$ as the circle radius. We use this as a function for how much of the pupil area will be lost relative to how far an eyelid covers it. For the sake of simplicity we approximate the eyelid with a straight rather than very slightly curved line.}
-	\label{eq:cs}
-    \end{figure}
-    \py[pe_cs5]{lm(data=data_pe_cs5[(data_pe_cs5['COI'] == 'scrambling-11') | (data_pe_cs5['COI'] == 'scrambling-23') | (data_pe_cs5['COI'] == 'emotion-hard') | (data_pe_cs5['COI'] == 'emotion-easy')], fixed='ER~difficulty+scrambled', random='ID', title='Linear model fitted to the raw error rate data depicted in figure~\\ref{fig:r_pe_cs5}. Our factors are scrambling (yes or no) and difficulty (easy or hard) - not including their interaction. The model chooses "easy" and "not scrambled" as the intercept value.', label='tab:r_pe_cs5s1')}
-    \py[pe_cs5]{lm(data=data_pe_cs5[(data_pe_cs5['COI'] == 'scrambling-11') | (data_pe_cs5['COI'] == 'scrambling-23') | (data_pe_cs5['COI'] == 'emotion-hard') | (data_pe_cs5['COI'] == 'emotion-easy')], fixed='ER~difficulty', random='ID', title='Linear model fitted to the raw error rate data depicted in figure~\\ref{fig:r_pe_cs5}. Our factor is and difficulty (easy or hard). The model chooses "easy" as the intercept value', label='tab:r_pe_cs5s2')}
-    \py[pe_cs5]{lm(data=data_pe_cs5[(data_pe_cs5['COI'] == 'scrambling-11') | (data_pe_cs5['COI'] == 'scrambling-23') | (data_pe_cs5['COI'] == 'emotion-hard') | (data_pe_cs5['COI'] == 'emotion-easy')], fixed='ER~scrambled', random='ID', title='Linear model fitted to the raw error rate data depicted in figure~\\ref{fig:r_pe_cs5}. Our factors are scrambling (yes or no). The model chooses "not scrambled" as the intercept value.', label='tab:r_pe_cs5s3')}
-
+	    Our preliminary experiments show that even when confronted with very high variability in results there is a robust decay of reaction times as scrambling cluster sizes increase.
+	    We report this is happening both with composite scrambling and with simple cluster-based scrambling.
+	    
+	    Though this effect was assumed by us a priori, and is hardly surprising, we hold that it validates our scrambling software for ample uses in Neuropsychology.
+    \section{Pyxrand}
+    A number of studies\cite{Rakover2013} have used scrambled face stimuli for their experiments.
+    The stimuli are often prepared either by hand, or through time-consuming per-picture editing in an image manipulation program.
+    Though automated scrambling software already exists \cite{Conway2008}, its scope is a lot narrower and its algorithms are nor released publicly.
     
-
-\chapter{Acknowledgements}
-    In addition to the faculty advisers mentioned in the preamble of this document, we would like to explicitly give thanks to a number of other members of the department of clinical psychology at the Central Institute of Mental Health in Mannheim.
-    Their expertise in designing and performing experiments, and analysing results was instrumental to the success of this thesis.
-    \begin{multicols}{2}
-	\begin{itemize}
-	    \item Martin Gerchen
-	    \item Daniela Mier
-	    \item Carina Sauer
-	    \item Gabriela Stoessel
-	\end{itemize}
-    \end{multicols}
-    \vspace{0.5cm}
-    We would also like to extend our gratitude to the numerous other people with whom we have interacted in the process of writing this thesis, and whose goodwill and effort made a significant difference pertaining to the quality of this work.
-    \begin{itemize}
-	\item Øystein Bjørndal, of the Norwegian Defence Research Establishment
-	\item Ben Bolker, of McMaster University
-        \item Denis A. Engemann, of the Juelich Research Centre in Cologne
-	\item Laurent Gautier, of the Technical University of Denmark
-	\item Marek Hlavac, of Harvard University
-	\item Philip Leifeld, of the University of Konstanz
-	\item Christopher Louden, of the University of Texas
-	\item Geoffrey M. Poore, of Union University
-    \end{itemize}
+    In findings 
+    
+    We recommend our software over possible alternatives due to its time-efficient batch functionality and its capacity to scramble both with and without specifically distorting facial features.
+\input{acknowledgements.tex}
+\input{supplementary.tex}
 \input{footer.tex}

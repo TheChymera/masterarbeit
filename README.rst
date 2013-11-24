@@ -25,7 +25,7 @@ and whether any discrepancies can be accounted for by the type of task being per
 A correlation of pupil dilation and locus coeruleus activity would pave the way for establishing pupillometry as a convenient, rapid, and low-cost avenue of approximating noradrenergic activity.  
 We are complementing our neuroimaging and behavioural experiments with psychometric and genetic assays - 
 the results of which may help uncover further ramifications of our work in psychology as well as in biology.
-We enrich the informative potential of the above and the transparency of our work by implementing the very latest “open science” concepts and technologies.
+We enrich the informative potential of the above and the transparency of our work by implementing the very latest open science concepts and technologies.
 
 .. engl>
 
@@ -44,6 +44,6 @@ und ob eventuelle Unstimmigkeiten auf die Art der ausgeführten Testaufgabe zur�
 Eine Korrelation von Pupillenweitung und Locus Coeruleus Aktivität würde den Weg für die Etablierung der Pupillometrie als ein unumständliches und kostengünstiges Verfahren zur Approximierung neuroadrenerger Aktivität bahnen.  
 Zusätzlich entnehmen wir Information für die psychometrische und genetische Typisierung der Probanden - 
 deren Auswertung dabei helfen könnte die Relevanz unserer Untersuchung sowohl für die Psychologie als auch für die Biologie zu stärken. 
-Wir bereichern den informativen Wert und die Transparenz unserer Arbeit durch die Anwendung neuester “open science” Konzepte und Technologien.
+Wir bereichern den informativen Wert und die Transparenz unserer Arbeit durch die Anwendung neuester Open Science Konzepte und Technologien.
 
 .. ger>

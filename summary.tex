@@ -1,0 +1,8 @@
+\chapter{Summary}
+    \section{English}
+	\CatchFileBetweenDelims{\readme}{README.rst}{.. engl}{.. engl>} %adds file content between the specified tags 
+	\readme
+    \clearpage
+    \section{German}
+	\CatchFileBetweenDelims{\readme}{README.rst}{.. ger}{.. ger>} %adds file content between the specified tags 
+	\readme

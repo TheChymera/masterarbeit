@@ -1,0 +1,32 @@
+\chapter{Supplementary Material}
+    \begin{figure}[H]
+	\[ \sigma_{x,y} = \sqrt{\sigma_{x}^{2}+\sigma_{y}^{2}} = \sqrt{2\sigma_{x}^{2}} \approx \sqrt{2 \cdot (0.68 K)^{2}} \approx 0.96K\]
+	\caption{Here we calculate the standard deviation ($\sigma$) of the distance from the original pixel location to the new pixel location following kernel-based scrambling, as detailed in section~\ref{sec:m_vs_si_kbs}. The standard deviation along one axis is defined as $0.68K$ (\SI{68}{\percent} of the scrambling kernel, $K$) following the 68–95–99.7 rule, though experimentally we have found slightly lower values ($\approx 0.6K$).}
+	\label{eq:lrgn}
+    \end{figure}
+    \begin{figure}[H]
+	\[\Pr(\mu - \sigma \le x \le \mu + \sigma) \approx 0.6827 \]
+	\[\Pr(\mu - 2\sigma \le x \le \mu + 2\sigma) \approx 0.9545 \]
+	\[\Pr(\mu - 3\sigma \le x \le \mu + 3\sigma) \approx 0.9973 \]
+	\caption{The general expression of the three-sigma rule, in mathematical notation, for $x$ being an observation from a normally distributed random variable, $\mu$ being the mean of the distribution, and $\sigma$ being its standard deviation. The three-sigma rule (also known as the “68–95–99.7 rule”) states that nearly all values lie within 3 standard deviations of the mean in a normal distribution.}
+	\label{eq:3s}
+    \end{figure}
+    \begin{figure}[H]
+	\begin{eqnarray*}
+	    A(h)&=&\frac{R^2}{2}\left[2\arccos\left(1-\frac{h}{R}\right) - \sin\left(2 \arccos\left(1-\frac{h}{R}\right)\right) \right]\\
+	    &=&R^2 \left [\arccos{\left (1-\frac{h}{R}\right)} - \left (1-\frac{h}{R}\right) \sqrt{2 \frac{h}{R} - \frac{h^2}{R^2}} \right]
+	\end{eqnarray*}
+	\caption{The area of a circle segment $A$ defined relative to the height of that segment, $h$ - with $R$ as the circle radius. We use this as a function for how much of the pupil area will be lost relative to how far an eyelid covers it. For the sake of simplicity we approximate the eyelid with a straight rather than very slightly curved line.}
+	\label{eq:cs}
+    \end{figure}
+    \section{Non-Definitive Preliminary Experiment Runs}\label{sec:sm_ndper}
+	\py{fig_pe_cs1}
+	\py{p_table(data_pe_cs1, ['COI', 'emotion-easy', 'emotion-hard'], ['scrambling', 11, 15, 19, 23, 27], refcap='Proposed best estimators (scrambling cluster sizes in \\SI{}{px})', caption='Table of two-tailed paired sample t-test \\textit{p}-values for the data in figure ~\\ref{fig:r_pe_cs1}, testing the probability of our observations if the compared conditions share the same mean. Note that - though unorthodox - this test does not lose accuracy due to multiple comparisons. As we are looking for the group least likely to reject the null hypothesis, multiple comparison actually makes the test more stringent.', label='tab:r_pe_cs1')}
+	\py{fig_pe_cs2}
+	\py{p_table(data_pe_cs2, ['COI', 'emotion-easy', 'emotion-hard'], ['scrambling', 6, 10, 14, 18, 22], refcap='Proposed best estimators (scrambling cluster sizes in \\SI{}{px})', caption='Table of two-tailed paired sample t-test \\textit{p}-values for the data in figure ~\\ref{fig:r_pe_cs2}, testing the probability of our observations if the compared conditions share the same mean. Note that - though unorthodox - this test does not lose accuracy due to multiple comparisons. As we are looking for the group least likely to reject the null hypothesis, multiple comparison actually makes the test more stringent.', label='tab:r_pe_cs2')}
+	\py{lm(data=data_pe_cs2[(data_pe_cs2['scrambling'] != 0)], fixed='RT~COI', random='ID', title='Mixed model fitted to the raw data depicted in figure~\\ref{tab:r_pe_cs2a}. Our factors are the conditions of interest (COI), excluding the emotion recognition trials. The model chooses the first factor (scrambling-06) as the base intercept. Note the downwards trend for the first 3 factors and that the last 3 factors\' values land confidence intervals are almost identical.', label='tab:r_pe_cs2a')}
+	\py[pe_cs3]{fig_pe_cs3}
+	\py[pe_cs5]{lm(data=data_pe_cs5[(data_pe_cs5['COI'] == 'scrambling-11') | (data_pe_cs5['COI'] == 'scrambling-23') | (data_pe_cs5['COI'] == 'emotion-hard') | (data_pe_cs5['COI'] == 'emotion-easy')], fixed='ER~difficulty+scrambled', random='ID', title='Linear model fitted to the raw error rate data depicted in figure~\\ref{fig:r_pe_cs5}. Our factors are scrambling (yes or no) and difficulty (easy or hard) - not including their interaction. The model chooses "easy" and "not scrambled" as the intercept value.', label='tab:r_pe_cs5s1')}
+	\py[pe_cs5]{lm(data=data_pe_cs5[(data_pe_cs5['COI'] == 'scrambling-11') | (data_pe_cs5['COI'] == 'scrambling-23') | (data_pe_cs5['COI'] == 'emotion-hard') | (data_pe_cs5['COI'] == 'emotion-easy')], fixed='ER~difficulty', random='ID', title='Linear model fitted to the raw error rate data depicted in figure~\\ref{fig:r_pe_cs5}. Our factor is and difficulty (easy or hard). The model chooses "easy" as the intercept value', label='tab:r_pe_cs5s2')}
+	\py[pe_cs5]{lm(data=data_pe_cs5[(data_pe_cs5['COI'] == 'scrambling-11') | (data_pe_cs5['COI'] == 'scrambling-23') | (data_pe_cs5['COI'] == 'emotion-hard') | (data_pe_cs5['COI'] == 'emotion-easy')], fixed='ER~scrambled', random='ID', title='Linear model fitted to the raw error rate data depicted in figure~\\ref{fig:r_pe_cs5}. Our factors are scrambling (yes or no). The model chooses "not scrambled" as the intercept value.', label='tab:r_pe_cs5s3')}
+    
