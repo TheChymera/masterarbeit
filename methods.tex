@@ -215,6 +215,32 @@
 	    In light of the necessity to reduce test duration and in light of acquisition time considerations further detailed in section~\ref{sec:m_fmri}, we have - however - decided that this is a fair trade-off.
     \section{Functional MRI}\label{sec:m_fmri}
 	Patterns of neuronal activity are to be extrapolated from functional magnetic resonance imaging (fMRI) data.
+	This data was acquired over a \SI{3}{\tesla} Siemens “TIM Trio” MRI scanner at the Central Institute of Mental Health in Mannheim.
+	\subsection{Behavioural Test Protocol}
+	    The behavioural test described under section~\ref{sec:m_bt} was slightly modified to accommodate for the added requirements of fMRI.
+	    
+	    Fixed trial sequences were used to increase signal detection power.
+	    These trial sequences were calculated using the Optseq2 \cite{optseq} software package, from an list with permitted and counterbalanced stimulus compositions computed by our Pystim\cite{pystim} script.
+	    Trial durations (as detailed under section~\ref{sec:m_pe_cs}) have been fixed at \SI{4}{\second}, and inter-trial intervals have been jittered around that value with a maximum amplitude of \SI{1.5}{\second} (!!!NB, I concluded this from the data, was the input to optseq the same?). 
+	    
+	    These trials were performed after an anatomical measurement and a different behavioural test - collectively lasting approximately \SI{20}{\minute}.
+	\subsection{Data Acquisition}
+	    Anatomical images were acquired at a slice thickness and an X and Y-axis resolution of \SI{1}{\milli\metre}.
+	    Signal acquisition used an echo time of \SI{2.7}{\milli\second} and a repetition time of \SI{1.57}{\second}.
+	
+	    Functional images were acquired at a slice thickness and an X and Y-axis resolution of \SI{2}{\milli\metre}.
+	    Signal acquisition used an echo time of \SI{30}{\milli\second} and a repetition time (TR) of \SI{2}{\second}.
+	\subsection{Data Processing}
+	    The resulting fMRI data in \colorbox{vlg}{\texttt{.dcm}} (DICOM) format was converted to the more convenient \colorbox{vlg}{\texttt{.nii}} (NIfTI) via the MRIconvert \cite{MRIconvert} software package.
+	    Further preprocessing steps have been done in accordance with the established guidelines of the group, and are documented (in simplified form) as part of the faceOM script suite \cite{faceOM} - which was written for the purpose of this thesis and openly published for the benefit of researchers pursuing similar analysis.
+	    
+	    Data was analysed by a first-level computation of per-participant contrasts, and a subsequent second-level statistical analysis of these contrasts, resulting in a probability-of-activation map.
+	    The second-level, significance determining analysis step was done both with and without a locus coeruleus mask.
+	    We used an in-house mask drawn in the MARINA program \cite{Walter2003} and based on in-vivo magnetic resonance localization of the LC available in peer-reviewed literature \cite{Keren2009}.
+	    
+	    Additionally, pupil diameter obtained from infra-red pupillometry (see section~\ref{sec:m_om_pm}) was down-sampled to a rate of \SI{0.5}{\hertz} (to match the functional TR) and used as a signal regressor.
+	    
+	    All the above detailed NIfTI file processing and analysis was performed via SPM8 - a MATLAB\textsuperscript{\small\textregistered}-based brain imaging analysis suite.
     \section{Occulometry}\label{sec:m_om}
 	As part of our experiments we have measured occulometric parameters of our participants during behavioural trials performed inside the MRI scanner.
 	Occulometric data was captured via a SemsoMotoric Instruments (SMI) “IVIEW X\textsuperscript{\small\texttrademark} MRI-LR” fMRI-compatible eye tracker.
@@ -237,9 +263,10 @@
 	    These distortions are not critical for gaze point calculation (as long as they remain constant over the course of the measurement); 
 	    but they do interfere non-linearly with the firmware-calculated pupil area 
 	    (pupil area lost to eyelid coverage, for instance, scales quite complexly with overlap distance - see figure~\ref{eq:cs}).
-	    To avoid such complex data-reconstruction algorithms we are using the pupil horizontal diameter as a reference measure for the pupil dilation response in lieu of the actual area.
+	    To avoid such complex data-reconstruction algorithms we are considering using the pupil horizontal diameter as a reference measure for the pupil dilation response in lieu of the actual area.
+	    These considerations are further addressed based on experimental results under section~\ref{sec:r_p}.
 	    
-	    As discussed in section~\ref{sec:r_p} we are considering a number of other data post-processing methods (such as frequency filtering) to eliminate further measurement artefacts from our pupil diameter time course. 
+	    As discussed in section~\ref{sec:r_p} we are also considering a number of other data post-processing methods (such as frequency filtering) to eliminate further measurement artefacts from our pupil diameter time course. 
     \section{Statistical Analysis}\label{sec:m_sa}
 	For the analysis of our data we have implemented a number of statistic methods from different software packages.
 	Our choice of methods took into account transparency and reproducibility (concerns extensively discussed in section~\ref{sec:b_os}), and we have thus - whenever possible - avoided closed-source and/or graphical user interface based software (such as for example MATLAB\textsuperscript{\small\textregistered} or SPSS\textsuperscript{\small\textregistered}).
@@ -315,7 +342,8 @@
 	    This function - though one of the most powerful current tools for mixed modelling - fails to provide \textit{p}-values.
 	    The author has justified this \cite{Bates2006}, and generally recommended against using \textit{p}-values with such models.
 	    In spite of this recommendation, we hold that \textit{p}-values are a stringent standard in quantifying the reliability of scientific observations -
-	    and will be using the \colorbox{vlg}{\texttt{nlme::lme}} \cite{Pinheiro2013} function whenever we believe \textit{p}-values are needed.
+	    and will be using the alternate \colorbox{vlg}{\texttt{nlme::lme}} \cite{Pinheiro2013} function whenever we believe \textit{p}-values are needed.
 	    
-	    We are using these function in many instances to compute mixed models \textit{live} in this document.
+	    We are using these functions in many instances to compute mixed models \textit{live} in this document.
 	    For this purpose we are using the interstats \cite{interstats} software package as a wrapper.
+	    This software was written for the purpose of this thesis and openly published on GitHub\cite{github}.
