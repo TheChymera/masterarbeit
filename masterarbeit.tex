@@ -63,7 +63,7 @@
 	    Our error rate distribution over categories proves difficult to interpret.
 	    It is obvious for one thing that error rates for most categories vary greatly among participants.
 	    It also seems possible that emotion recognition in easy trials may be more robust than image matching in all other categories (owing to the constant null rate).
-	    \py[pe_ss3]{av(data_pe_ss3, 'ER~COI+Error(ID)', title='One-way repeated measure ANOVA table for the data depicted in figure~\\ref{fig:r_pe_ss3}. The $Pr(>F)$ value indicates the probability of our results occurring by chance if the means of our defined categories are equal.', label='tab:r_pe_ss3')}
+	    \py[pe_ss3]{av(data_pe_ss3, 'ER~COI+Error(ID)', title='One-way repeated measure ANOVA table for the data depicted in figure~\\ref{fig:r_pe_ss3}. The $Pr(>F)$ value indicates the adjusted probability of observed results occurring by chance if the means of our defined categories are equal.', label='tab:r_pe_ss3')}
 	    
 	    To test this assumption we have performed an ANOVA (see table~\ref{tab:r_pe_ss3}).
 	    The results of this analysis prove equally difficult to interpret. While the $Pr(>F)$ (nominally, \textit{p}) value lies above the popular significance threshold of \textit{p}<0.05, 
@@ -73,7 +73,7 @@
 	    This model indicates that, while it could find 3 factor values which were significantly different than the base intercept, it found 4 which were not.
 	    Note that it is not abnormal for single comparison to find significant effects though ANOVA does not (more on this in section~\ref{sec:m_sa}).
 	    We take this as supporting our decision no not reject the null hypothesis of all categories sharing the same mean.
-	    \py[pe_ss3]{lm(data_pe_ss3, fixed='ER~COI', random='ID', title='Mixed model fitted to the raw data presented in figure~\\ref{fig:r_pe_ss3}. The model chooses easy emotion recognition (incidentally our category suspected of deviating from the mean) as the base intercept.', label='tab:r_pe_ss3a', model='nlme')}
+	    \py[pe_ss3]{lm(data_pe_ss3, fixed='ER~COI', random='ID', title='Mixed model fitted to the raw data presented in figure~\\ref{fig:r_pe_ss3}. The model chooses easy emotion recognition (incidentally our category suspected of deviating from the mean) as the base intercept. The confidence interval for the factor values is annotated in the parentheses.', label='tab:r_pe_ss3a', model='nlme')}
 	\subsection{Composite (Kernel-and-Cluster-Based) Scrambling}\label{sec:r_pe_cs}
 	    Based on the results detailed in section ~\ref{sec:r_pe_ss} we have performed additional experiments using a series of improved method choices (detailed in section \ref{sec:m_pe_cs}).
 	    
@@ -92,37 +92,30 @@
 	    Similarly, it is pattern recognition of images processed with a \SI{23}{\pixel} scrambling cluster which we choose as our best-guess reaction time equivalent for easy emotion recognition.
 	    \py[pe_cs3]{p_table(data_pe_cs3, ['COI', 'emotion-easy', 'emotion-hard'], ['scrambling', 11, 15, 19, 23, 27], refcap='Proposed best estimators (scrambling cluster sizes in \\SI{}{px})', caption='Table of two-tailed paired sample t-test \\textit{p}-values for the data in figure ~\\ref{fig:r_pe_cs3}, testing the probability of our observations if the compared conditions share the same mean. Note that - though unorthodox - this test does not lose accuracy due to multiple comparisons. As we are looking for the group least likely to reject the null hypothesis, multiple comparison actually makes the test more stringent.', label='tab:r_pe_cs3')}
 	    
-	    Figure~\ref{fig:r_pe_cs3} shows a linear decay of reaction times over increasing scrambling cluster size
-	    (as opposed to a plateau for larger scrambling clusters, which we had noticed in some of the previous runs).
-	    The data recommends pictures scrambled with a kernel of \SI{6}{\pixel} and a cluster of \SI{11}{\pixel} as an appropriate baseline for hard emotion recognition
-	    and pictures scrambled with a kernel of \SI{6}{\pixel} and a cluster of \SI{23}{\pixel} as an appropriate baseline for easy emotion recognition
-	    (for the \textit{p}-value listing, see table~\ref{tab:r_pe_cs3}).
 	    It should be noted that though not significantly different, both of these simple visual recognition reaction times undershoot their counterpart emotion recognition reaction times.
 	    In light of this we have decided to use a \SI{6}{\pixel} kernel- and \SI{10}{\pixel} cluster-scrambled image baseline for difficult emotion recognition, 
 	    and a \SI{6}{\pixel} kernel- and \SI{22}{\pixel} cluster-scrambled image baseline for easy emotion recognition.
 	    
 	    \py[pe_cs5]{fig_pe_cs5}
 	    
-	    To re-examine our doubts on the suitability of our baseline concept (raised in section~\ref{sec:r_pe_ss}), we have also examined error rates for this last and methodologically most faithful preliminary experiment run.
+	    To re-examine potential weaknesses of our baseline concept (related to error rate distribution and further discussed in section~\ref{sec:r_pe_ss}), we have also analysed error rates for this last and methodologically most faithful preliminary experiment run.
 	    Figure~\ref{fig:r_pe_cs5} presents a slightly divergent picture from what we have seen in figure~\ref{fig:r_pe_ss3}.
 	    For one thing, the easy emotion recognition condition no longer has a null error rate.
 	    This time, however, there is a significant error rate divergence for one of our conditions compared to all of the others (as seen in figure~\ref{fig:r_pe_cs5}, and verified in table~\ref{tab:r_pe_cs5}).
-	    \py[pe_cs5]{av(data_pe_cs5, 'ER~COI+Error(ID)', title='One-way repeated measure ANOVA table for the data depicted in figure~\\ref{fig:r_pe_cs5}. The $Pr(>F)$ value indicates the probability of our results occurring by chance if the means of our defined categories are equal.', label='tab:r_pe_cs5')}
+	    \py[pe_cs5]{av(data_pe_cs5, 'ER~COI+Error(ID)', title='One-way repeated measure ANOVA table for the data depicted in figure~\\ref{fig:r_pe_cs5}. The $Pr(>F)$ value indicates the adjusted probability of observed results occurring by chance if the means of our defined categories are equal.', label='tab:r_pe_cs5')}
 	
-	    While this finding confirms limited reliability for all of our our preliminary trials, possible doubts that our baseline may be unsuited due to differing error rates should also be treated with according scepticism.
+	    While this finding confirms limited reliability for all of our our preliminary trials, resulting doubts that our baseline may be unsuited due to differing error rates should also be treated with according scepticism.
+	    
+	    We also analyse whether our slightly over-cropped reaction time window seems to distort our data.
+	    In section~\ref{sec:m_pe_cs} we have detailed our decision to settle for a \SI{4}{\second} reaction time window, the predicted ideal cropping being \pySI{np.around(data_pe_ss2['RT'].mean()+3*np.std(data_pe_ss2['RT']), decimals=2)}{\second}, as calculated in section~\ref{sec:r_pe_ss}.
+	    In figure~\ref{fig:r_pe_cs4} we see that reaction times seem to fade approximately \SI{0.5}{\second} before our cut-off, and the fitted normal distribution does not indicate expected results beyond that point.
+	    We take these results as confirmation that our selected cut-off time is not over-stringent for the selected conditions (easy and hard emotion recognition, plus visual recognition of scrambled images processed with a \SI{6}{\pixel} scrambling kernel and \SI{11}{\pixel} and \SI{23}{\pixel} scrambling cluster respectively).	    
+	    \py[pe_cs4]{fig_pe_cs4}
 	    
 	    Reproducibility issues apparent in the data presented in this section - along with broader conclusions to be drawn from these experiments - are further discussed in section \ref{sec:d_pe}.
 	    
 	\subsection{Final Model Quality Assessment}
-	    We have decided to perform a number of tests to check the quality of the baseline we have proposed as the best-guess solution based on the data detailed above.
-	    
-	    First we analyse whether our slightly over-cropped reaction time window seems to distort our data.
-	    In section~\ref{sec:m_pe_cs} we have detailed our decision to settle for a \SI{4}{\second} reaction time window, the predicted ideal cropping being \pySI{np.around(data_pe_ss2['RT'].mean()+3*np.std(data_pe_ss2['RT']), decimals=2)}{\second}, as calculated in section~\ref{sec:r_pe_ss}.
-	    In figure~\ref{fig:r_pe_cs4} we see that reaction times seem to fade approximately \SI{0.5}{\second} before our cut-off, and the fitted normal distribution does not indicate expected results beyond that point.
-	    We take these results as confirmation that our selected cut-off time is not over-stringent for the selected conditions (easy and hard emotion recognition, plus visual recognition of scrambled images processed with a \SI{6}{\pixel} kernel and \SI{11}{\pixel} and \SI{23}{\pixel} cluster respectively).	    
-	    \py[pe_cs4]{fig_pe_cs4}
-	    
-	    Additionally we are fitting a mixed model to both the reaction times and error rates of our last-run data.
+	    We have decided to fit a mixed model to both the reaction times and error rates of our last-run data in order to check the quality of the baseline we have proposed as the best-guess solution based on the data detailed above.
 	    For this model we are defining “scrambling” and “difficulty” as our factors of interest (independent variables).
 	    Easy emotion recognition and its corresponding pattern recognition variant (\SI{6}{\pixel} kernel- and \SI{23}{\pixel} cluster-scrambled) are defined as easy,
 	    while hard emotion recognition and its corresponding pattern recognition variant (\SI{6}{\pixel} kernel- and \SI{11}{\pixel} cluster-scrambled) are defined as hard.
@@ -130,7 +123,7 @@
 	    For our ideal baseline we would be expecting a null value for the scrambling factor and a positive value for the difficulty factor in the reaction time model.
 	    In the error rate model we would be expecting a null value for the scrambling factor and either a null or positive value for the difficulty factor.
 	    \py[pe_cs5]{lm(data=data_pe_cs5[(data_pe_cs5['COI'] == 'scrambling-11') | (data_pe_cs5['COI'] == 'scrambling-23') | (data_pe_cs5['COI'] == 'emotion-hard') | (data_pe_cs5['COI'] == 'emotion-easy')], fixed='ER~difficulty*scrambled', random='ID', title='Mixed model fitted to the raw error rate data depicted in figure~\\ref{fig:r_pe_cs5}. Our factors are scrambling (yes or no) and difficulty (easy or hard). The model chooses "easy" and "not scrambled" as the intercept value. Difficulty and scrambling show no significant factor value, while their interaction does. The base intercept is not significant meaning that the base error rate of the model may not be be reliably considered to lie above zero.', label='tab:r_pe_cs5s')}
-
+	    \py[pe_cs3]{lm(data=data_pe_cs3[(data_pe_cs3['COI'] == 'scrambling-11') | (data_pe_cs3['COI'] == 'scrambling-23') | (data_pe_cs3['COI'] == 'emotion-hard') | (data_pe_cs3['COI'] == 'emotion-easy')], fixed='RT~difficulty*scrambled', random='ID', title='Mixed model fitted to the raw reaction time data depicted in figure~\\ref{fig:r_pe_cs3}. Our factors are scrambling (yes or no) and difficulty (easy or hard). The model chooses "easy" and "not scrambled" as the intercept value. The base intercept is significant, indicating reaction times of the model are above zero. The difficulty factor is also positive and significant meaning that difficulty adds to response latency. All other factors are not significantly other than zero.', label='tab:r_pe_cs3s')}
 	    
 	    Tables~\ref{tab:r_pe_cs5s} and~\ref{tab:r_pe_cs3s}, provide a succinct and reliable validation for our proposed baseline model.
 	    
@@ -138,15 +131,55 @@
 	    The factor determined for this dimension is null, meaning that scrambling does not compromise the behavioural equivalence of emotional testing and baseline trials.
 	    Difficulty does also not seem to impact the error rate, which we consider fortunate, though a higher error rate for difficult trials would also have been acceptable.
 	    The interaction effect of difficulty and scrambling is probably an effect of the deviating hard emotion recognition category we have observed under figure~\ref{fig:fig_pe_cs5}, with an inverted balance due to our model's choice of a base intercept.
+	    
 	    We would like to point out that the null residual variance of our model indicates that it could be overparameterized.
 	    We have tried a series of alternate models (“scrambled” and “difficulty” - not including interaction -, “scrambled” alone and “difficulty” alone), but all resulted in null residual variance - 
 	    see tables~\ref{tab:r_pe_cs5s1}, \ref{tab:r_pe_cs5s1}, and~\ref{tab:r_pe_cs5s1}.
 	    
 	    The reaction time model (table~\ref{tab:r_pe_cs3s}) paints a similar picture: with a significant value for the difficulty factor and no significance either for scrambling nor for scrambling and difficulty interaction.
-	    We would conclude that in spite of our reduced sample sizes and aforementioned reproducibility issues our scrambling algorithm represents a viable choice of baseline (further discussion in section~\ref{sec:d_pe}.
+	    We would conclude that in spite of our reduced sample sizes and aforementioned reproducibility issues our scrambling algorithm represents a viable type for a baseline (further discussion in section~\ref{sec:d_pe}.
+    \vspace{0.2cm}
+    \begin{center}
+    \textbf{Henceforth we are dealing with multimodal data obtained in our optometry-fMRI set-up (described under sections~\ref{sec:m_fmri} and~\ref{sec:m_om}):}
+    \end{center}
+    
+    \section{Participant Response Analysis}\label{sec:r_ra}
+	We are testing parameters of the participant input in our main experiments similarly to how we have assessed our preliminary trials.
+	This is to determine the extent to which we can rely on our baseline in in the further analysis of this data set.
+
+	Due to equipment malfunction participant input data is only available for 8 of our 12 participants.
+	\subsection{Reaction Times}\label{sec:r_ra_rt}
+	    \py[ra_rt]{fig_ra_rt}
+	    \py[ra_rt]{lm(data=data_ra_rt[(data_ra_rt['difficulty'] == 'easy') | (data_ra_rt['difficulty'] == 'hard')].reset_index(), fixed='RT~difficulty*scrambled', random='ID', title='Mixed model fitted to the raw reaction times depicted in figure~\\ref{fig:fig:ra_rt}. Our factors are scrambling (yes or no) and difficulty (easy or hard). The model chooses "easy" and "not scrambled" as the intercept value. Difficulty shows a significant positive effect, which is to be expected. Scrambling also shows a significant positive effect - meaning that pattern recognition trials have higher reaction times. This reaction time difference is also not a global offset as difficulty and scrambling interact to form a significant negative effect.', label='tab:r_ra_rt')}
+	    The reaction times for our experiment are shown in figure~\ref{fig:ra_rt}.
+	    An obvious feature (especially in comparison to the reaction time relationships we sought to find in section~\ref{sec:r_pe}) is the highly significant difference between easy emotion recognition and “easy” pattern recognition -
+	    two tailed paired t-test \textit{p}-value of \py[ra_rt]{tex_nr(ttest_rel(data_ra_rt[(data_ra_rt['difficulty'] == "easy") & (data_ra_rt['emotion'] == "scrambled")].groupby(level=0)['RT'].mean(), data_ra_rt[(data_ra_rt['difficulty'] == "easy") & (data_ra_rt['emotion'] != "scrambled")].groupby(level=0)['RT'].mean())[1]/2)}.
 	    
-	    \py[pe_cs3]{lm(data=data_pe_cs3[(data_pe_cs3['COI'] == 'scrambling-11') | (data_pe_cs3['COI'] == 'scrambling-23') | (data_pe_cs3['COI'] == 'emotion-hard') | (data_pe_cs3['COI'] == 'emotion-easy')], fixed='RT~difficulty*scrambled', random='ID', title='Mixed model fitted to the raw reaction time data depicted in figure~\\ref{fig:r_pe_cs3}. Our factors are scrambling (yes or no) and difficulty (easy or hard). The model chooses "easy" and "not scrambled" as the intercept value. The base intercept is significant, indicating reaction times of the model are above zero. The difficulty factor is also positive and significant meaning that difficulty adds to response latency. All other factors are not significantly other than zero.', label='tab:r_pe_cs3s')}
+	    To further describe this potentially disruptive development for our baseline, we have fitted a mixed model with reaction time as our dependent variable, and emotion and difficulty as our factors (independent variables).
+	    Overall, the model listed in table~\ref{tab:r_ra_rt} gives a quantitative description which accurately describes that pattern recognition trials prompted significantly higher reaction times.
+	    Also, the emergence of a significant interaction factor in the model indicates that among the easy and hard pattern recognition trials, the difference in reaction times does not correspond directly to what the effect of the difficulty factor prescribes.
+	    These observations on a whole prompt caution in further utilisation of our baseline and predict limited reliability of results thus obtained.
+	\subsection{Error Rates}\label{sec:r_ra_er}
+	    Additionally we have performed an error rate analysis to check for baseline weaknesses as seen in section~\ref{sec:r_pe_cs}.
+	    \py[ra_er]{fig_ra_er}
+	    \py[ra_er]{av(data_ra_er.reset_index(), 'ER~difficulty*scrambled+Error(ID)', title='One-way repeated measure ANOVA table for the data depicted in figure~\\ref{fig:ra_er}. The $Pr(>F)$ value indicates the adjusted probability observed results occurring by chance if the means of our defined categories are equal.', label='tab:r_ra_er')}
+	    
+	    Both figure~\ref{fig:ra_er} and the ANOVA test run on the portrayed data (under table~\ref{tab:r_ra_er}) show that the baseline is not robust in terms of error rates.
+	    Note that the highly significant effect observed for the difficulty factor is not a weakness in the model per se - changes in error rates over difficulty alone would be acceptable and expected.
+	    The significant interaction effect of difficulty and scrambling, however, indicates that the given difficulty effect on emotion recognition trials is not reproduced by pattern recognition trials, thus coming to the detriment of the pattern recognition baseline.	    
+    
     \section{Pupillometry}\label{sec:r_p}
+	\subsection{Methodological Reliability}\label{sec:r_p_mr}
+	    Addressing concerns regarding the viability of our method (outlined in section~\ref{sec:sec:m_om_pm}) -
+	    and seeing as we are performing the debut pupillometric study on this set-up -
+	    we have decided to first address possible inaccuracies that became apparent during data acquisition.
+	    
+	    To reiterate, it seemed concerning that Y-axis pupil diameter is often obfuscated by eyelid coverage.
+	    Seeing as X-axis diameter incurred no such interference, we believe a simple analysis of correlation can settle the issue.
+	    \py[p_mr]{fig_p_mr}
+
+	
+	Figure~\ref{fig:p_mr}
 \chapter{Discussion}
     \section{Preliminary Experiments}\label{sec:d_pe}
 	Most conclusions drawn from our preliminary experiments (for instance in section~\ref{sec:m_pe_cs} or section~\ref{sec:r_pe_cs}) are only marginally reliable due to the high inter-run variability noticed throughout our re-runs in section~\ref{sec:r_pe}.

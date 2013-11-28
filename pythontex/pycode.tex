@@ -60,7 +60,7 @@ pytex.add_dependencies('/home/chymera/src/faceRT/analysis/gen.cfg')
 sys.path.append('/home/chymera/src/faceRT/analysis/')
 import RTforCategories
 data_pe_cs3 = RTforCategories.main(experiment='11px-4px-5steps_narrow-angle', prepixelation=6, source='server', elinewidth=1, ecolor='0.3', make_tight={"pad": 0})
-fig_pe_cs3 = latex_figure(save_fig(fig_width=6.64, fig_height=3), caption='Reaction times for Hariri-style face matching. Scrambled images for simple visual recognition were preprocessed with composite cluster and kernel based scrambling, with a constant kernel of \SI{6}{\pixel} and clusters of the sizes indicated in the graphic (sizes given in pixels). Reaction times for non-response trials were counted as \SI{5}{\second}. The error bars represent the standard deviation. In addition to the previous results from this section, the trials analyzed herein have a reduced visual angle to emulate our fMRI monitor set-up.', label='r_pe_cs3')
+fig_pe_cs3 = latex_figure(save_fig(fig_width=6.64, fig_height=3), caption='Reaction times for Hariri-style face matching. Scrambled images for simple visual recognition were preprocessed with composite cluster and kernel based scrambling, with a constant kernel of \SI{6}{\pixel} and clusters of the sizes indicated in the graphic (sizes given in pixels). Reaction times for non-response trials were counted as \SI{5}{\second}. The error bars represent the standard deviation.', label='r_pe_cs3')
 data_pe_cs3['difficulty']=''
 data_pe_cs3['scrambled']=''
 data_pe_cs3.ix[(data_pe_cs3['COI'] == 'emotion-hard') | (data_pe_cs3['COI'] == 'scrambling-11'), 'difficulty'] = 'hard'
@@ -92,5 +92,32 @@ data_pe_cs5.ix[(data_pe_cs5['COI'] == 'emotion-hard') | (data_pe_cs5['COI'] == '
 data_pe_cs5.ix[(data_pe_cs5['COI'] == 'emotion-easy') | (data_pe_cs5['COI'] == 'scrambling-23'), 'difficulty'] = 'easy'
 data_pe_cs5.ix[(data_pe_cs5['scrambling'] == 0), 'scrambled'] = 'no'
 data_pe_cs5.ix[(data_pe_cs5['scrambling'] != 0), 'scrambled'] = 'yes'
+\end{pycode}
+\begin{pycode}[p_mr]
+pytex.add_dependencies('/home/chymera/src/faceOM/analysis/et.py')
+pytex.add_dependencies('/home/chymera/src/faceRT/analysis/data_functions.py')
+pytex.add_dependencies('/home/chymera/src/faceRT/analysis/gen.cfg')
+sys.path.append('/home/chymera/src/faceOM/analysis/')
+import et
+data_p_mr = et.main(make='corr', source='local', make_tight={"pad": 0})
+fig_p_mr = latex_figure(save_fig(fig_width=5.5, fig_height=5.5), caption='Correlation between X-axis and Y-axis pupil diameters on all measurement data points. Raw data points are shown in faint gray, and per-participant per-timepoint (relative to trial onset) means are shown in green. The regression line is drawn in magenta.', label='p_mr')
+\end{pycode}
+\begin{pycode}[ra_rt]
+pytex.add_dependencies('/home/chymera/src/faceOM/analysis/rt.py')
+pytex.add_dependencies('/home/chymera/src/faceRT/analysis/data_functions.py')
+pytex.add_dependencies('/home/chymera/src/faceRT/analysis/gen.cfg')
+sys.path.append('/home/chymera/src/faceOM/analysis/')
+import rt
+data_ra_rt = rt.main(source='local', make_tight={"pad": 0}, make_std=False, make_scrambled_yn=True, elinewidth=1)
+fig_ra_rt = latex_figure(save_fig(fig_width=6.64, fig_height=3), caption='Reaction times for Hariri-style face matching. Reaction times for non-response trials were not counted. The error bars represent the standard deviation.', label='ra_rt')
+\end{pycode}
+\begin{pycode}[ra_er]
+pytex.add_dependencies('/home/chymera/src/faceOM/analysis/er.py')
+pytex.add_dependencies('/home/chymera/src/faceRT/analysis/data_functions.py')
+pytex.add_dependencies('/home/chymera/src/faceRT/analysis/gen.cfg')
+sys.path.append('/home/chymera/src/faceOM/analysis/')
+import er
+data_ra_er = er.main(source='local', make_tight={"pad": 0}, make_std=False, make_scrambled_yn=True, elinewidth=1)
+fig_ra_er = latex_figure(save_fig(fig_width=6.64, fig_height=3), caption='Error rates for Hariri-style face matching. The error bars represent the standard deviation. Bar-plots with zero-height have been slightly indented for better visibility.', label='ra_er')
 \end{pycode}
 %END FIGURES AND DATA
