@@ -134,7 +134,7 @@
 	    
 	    We would like to point out that the null residual variance of our model indicates that it could be overparameterized.
 	    We have tried a series of alternate models (“scrambled” and “difficulty” - not including interaction -, “scrambled” alone and “difficulty” alone), but all resulted in null residual variance - 
-	    see tables~\ref{tab:r_pe_cs5s1}, \ref{tab:r_pe_cs5s1}, and~\ref{tab:r_pe_cs5s1}.
+	    see tables~\ref{tab:r_pe_cs5s1}, \ref{tab:r_pe_cs5s2}, and~\ref{tab:r_pe_cs5s3}.
 	    
 	    The reaction time model (table~\ref{tab:r_pe_cs3s}) paints a similar picture: with a significant value for the difficulty factor and no significance either for scrambling nor for scrambling and difficulty interaction.
 	    We would conclude that in spite of our reduced sample sizes and aforementioned reproducibility issues our scrambling algorithm represents a viable type for a baseline (further discussion in section~\ref{sec:d_pe}.
@@ -170,16 +170,27 @@
     
     \section{Pupillometry}\label{sec:r_p}
 	\subsection{Methodological Reliability}\label{sec:r_p_mr}
-	    Addressing concerns regarding the viability of our method (outlined in section~\ref{sec:sec:m_om_pm}) -
-	    and seeing as we are performing the debut pupillometric study on this set-up -
-	    we have decided to first address possible inaccuracies that became apparent during data acquisition.
+	    Seeing as we are performing the debut pupillometric study on our present set-up, we have decided to perform at least a rough assessment of the quality of our measurements.
+	    A number of possible inaccuracies became apparent during data acquisition (described in detail under section~\ref{sec:m_om_pm}) - 
+	    and we are addressing these accordingly in the following paragraphs.
 	    
 	    To reiterate, it seemed concerning that Y-axis pupil diameter is often obfuscated by eyelid coverage.
-	    Seeing as X-axis diameter incurred no such interference, we believe a simple analysis of correlation can settle the issue.
+	    Seeing as X-axis diameter incurred no such interference, we believe a simple analysis of correlation can show in how far our measurements are congruent and in how far the Y-axis measurements are reliable.
+	    
+	    Figure~\ref{fig:p_mr} shows raw data points and means for pupil diameters.
+	    Due to the overwhelming amount of raw data points sharing the same variance, Pearson's \textit{r} is numerically undefined for our raw data.
+	    We are thus fitting the correlation to the data point means. 
+	    Here we see a Pearson's \textit{r} of \py[p_mr]{tex_nr(data_p_mr[0][0])} and a \textit{p}-value for non-correlation of approximately \py[p_mr]{tex_nr(data_p_mr[0][1])}.
+	    It is safe to conclude from this result that our measurements are congruent.
+	    We will thus be using the mean of X-axis and Y-axis diameters as our preferred diameter approximation.
+	    
+	    The observations we made during data acquisition pertaining to interference from the eyelids with Y-axis measurements are however also confirmed to be true.
+	    A slight offshoot of raw data points is visible for higher values underneath the regression curve.
+	    This very probably represents single measurements during which the eyelid partially covered the pupil.  
+	    while this offshoot is obscured for mean values, its effect can be traced in the linear formula of the regression line: 
+	    $y = $\py[p_mr]{tex_nr(data_p_mr[1])}$x$\py[p_mr]{tex_nr(data_p_mr[2])}.
+	    The \textit{y}-intercept (\py[p_mr]{tex_nr(data_p_mr[2])}) indicates that there is a fixed offset between X-axis and Y-axis measurements, by which across our measurement range (approx $[20;75]$) Y-axis values are smaller than X-axis values.
 	    \py[p_mr]{fig_p_mr}
-
-	
-	Figure~\ref{fig:p_mr}
 \chapter{Discussion}
     \section{Preliminary Experiments}\label{sec:d_pe}
 	Most conclusions drawn from our preliminary experiments (for instance in section~\ref{sec:m_pe_cs} or section~\ref{sec:r_pe_cs}) are only marginally reliable due to the high inter-run variability noticed throughout our re-runs in section~\ref{sec:r_pe}.
