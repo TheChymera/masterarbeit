@@ -94,6 +94,12 @@
     \section{Visual Stimuli}
 	\subsection{Emotional Faces}\label{sec:m_vs_ef}
 	    The emotional face stimuli required by our behavioural test paradigm (see section~\ref{sec:m_bt}) have been sourced from the NimStim set of facial expressions \cite{Tottenham2009}.
+	    We have decided to use different emotion intensities in order to better describe step-wise effects of emotion perception and/or emotion recognition for either pupil dilation time courses, brain activation, reaction times - or interactions thereof.
+	    
+	    Our emotion intensities of choice are \SI{40}{\percent} and \SI{100}{\percent} - these being referred to as weak (“hard” in the sense of recognition) and strong (“easy” in the sense of recognition) emotion images respectively.
+	    The semi-quantitative measure of emotion (in percent) stems from the image morphing used to obtain these images - \SI{40}{\percent} happy images are thus a 4:6 linear combination of principal component decomposition images obtained from \SI{0}{\percent} happy and \SI{100}{\percent} happy faces.
+	    
+	    The choice of \SI{40}{\percent} was made to obtain the highest possible activation variance both in brain areas presenting discrete (amygdala) or continuous (superior temporal sulcus) sensitivity to increasing emotional concentrations \cite{Harris2012}.
 	\subsection{Scrambled Images}\label{sec:m_vs_si}
 	    In order to define a baseline of visual recognition we have decided to use trials in which visual input consists of the same pixels as in the emotional trials. 
 	    To disentangle visual from semantic (emotion) identification we decided to use “scrambled” images - in which pixels from the emotional faces are permuted so as to obfuscate emotional expressions and facial features.
@@ -347,3 +353,17 @@
 	    We are using these functions in many instances to compute mixed models \textit{live} in this document.
 	    For this purpose we are using the interstats \cite{interstats} software package as a wrapper.
 	    This software was written for the purpose of this thesis and openly published on GitHub\cite{github}.
+	\subsection{Pearson's \textit{r}}
+	    We use “Pearson's \textit{r}” for the quantitative description of variable dependence - in cases where we believe this dependence can be reasonably approximated by linear correlation.
+	    Pearson's \textit{r} is a century-old method with widespread use in sciences \cite{Stigler1989}.
+	    It is however noteworthy that it is only meaningful for linear correlations (nonlinear correlations with linear components).
+	    To give a graphic overview of data point distributions which would or would not be accurately described by Pearson's \textit{r} we would like to refer to figure~\ref{fig:m_sa_pr}.
+	    
+	    \begin{figure}[htb]
+		\centering
+		\scalebox{1.11}{\input{img/pearson.pdf_tex}}
+		\caption{Pearson's \textit{r} values for a number of data point distributions. \textcolor{lg}{Image from the public domain, authored by Denis Boigelot.}}
+		\label{fig:m_sa_pr}
+	    \end{figure}
+	    
+	    To test for this statistical measure we are using the \colorbox{vlg}{\texttt{scipy.stats.pearsonr}} function from the Scipy ecosystem \cite{scipy,Oliphant2007}. 
