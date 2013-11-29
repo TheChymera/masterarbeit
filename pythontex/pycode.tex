@@ -99,8 +99,8 @@ pytex.add_dependencies('/home/chymera/src/faceRT/analysis/data_functions.py')
 pytex.add_dependencies('/home/chymera/src/faceRT/analysis/gen.cfg')
 sys.path.append('/home/chymera/src/faceOM/analysis/')
 import et
-data_p_mr = et.main(make='corr', source='local', make_tight={"pad": 0})
-fig_p_mr = latex_figure(save_fig(fig_width=5.5, fig_height=5.5), caption='Correlation between X-axis and Y-axis pupil diameters on all measurement data points. Raw data points are shown in faint gray, and per-participant per-timepoint (relative to trial onset) means are shown in green. The regression line is drawn in magenta.', label='p_mr')
+data_p_mr = et.corr(source='local', make_tight={"pad": 0})
+fig_p_mr = latex_figure(save_fig(fig_width=5.5, fig_height=5.5), caption='Correlation between X-axis and Y-axis pupil diameters on measurement data points. Raw data points are shown in faint gray, and per-participant per-timepoint (relative to trial onset) means are shown in green. The regression line is drawn in magenta. To decrease cluttering, only one in three raw data points is plotted.', label='p_mr')
 \end{pycode}
 \begin{pycode}[ra_rt]
 pytex.add_dependencies('/home/chymera/src/faceOM/analysis/rt.py')
