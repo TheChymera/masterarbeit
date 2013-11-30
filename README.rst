@@ -15,11 +15,12 @@ English
 
 .. engl
 
-Pupillometry is a simple yet versatile physiological method with ample applications in neuropsychology.
+Pupillometry is a simple physiological method with ample applications in neuropsychology.
 While initially considered a marker for arousal and emotionality, pupillometry is more recently used as a marker for cognitive load.
 In this study we use a behavioural task based on both emotion and pattern recognition to determine whether:
 (a) emotional perception impacts the pupil dilation response differently from equivalent non-emotional cognitive load;
 (b) perception of different emotions influences the pupil dilation response differently.
+Strong electrophysiological evidence has been presented for pupil dilation control via the locus coeruleus, the main site of norepinephrine synthesis in the brain.
 We use functional magnetic resonance imaging (fMRI) to test whether the pupil dilation response is a reliable indicator of locus coeruleus activity, 
 and whether any discrepancies can be accounted for by the type of task being performed.
 A correlation of pupil dilation and locus coeruleus activity would pave the way for establishing pupillometry as a convenient, rapid, and low-cost avenue of approximating noradrenergic activity.  
@@ -34,11 +35,12 @@ German
 
 .. ger
 
-Die Pupillometrie ist eine einfache jedoch vielseitige physiologische Untersuchungsmethode, die weitläufige Anwendungen in der Neuropsychologie findet. 
+Die Pupillometrie ist eine einfache physiologische Untersuchungsmethode, die weitläufige Anwendungen in der Neuropsychologie findet. 
 Ursprünglich wurde die Pupillometrie als ein Messverfahren für Erregung und Emotionalität gesehen; in jüngerer Zeit wird sie aber als Indokator für kognitive Auslastung benutzt. 
 In dieser Untersuchung benutzen wir einen sowohl auf Emotions- wie auch auf Mustererkennung basierenden Verhaltenstest, um zu ermitteln ob:
 (a) sich Emotionserkennung anders auf die Pupillenweitung auswirkt als äquivalente nicht-emotionale kognitiven Auslastung;
 (b) die Wahrnehmung verschiedener Emotionen die Pupillenweitung unterschiedlich beeinflusst.
+Elektrophysiologische Befunde deuten auf eine Kontrolle der Pupillendilatation über dem Locus Coeruleus, dem Hauptsyntheseort für Norepinephrin im Gehirn, hin.
 Wir benutzen funktionelle Magnetresonanztomographie (fMRI), um zu überprüfen ob Pupillenweitung zuverlässig Aufschluss über neuronale Aktivität im Locus Coeruleus gibt,
 und ob eventuelle Unstimmigkeiten auf die Art der ausgeführten Testaufgabe zurückzuführen sind.
 Eine Korrelation von Pupillenweitung und Locus Coeruleus Aktivität würde den Weg für die Etablierung der Pupillometrie als ein unumständliches und kostengünstiges Verfahren zur Approximierung neuroadrenerger Aktivität bahnen.  
