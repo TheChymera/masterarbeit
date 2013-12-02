@@ -1,13 +1,4 @@
 %START FIGURES AND DATA 
-\begin{pycode}[pe1]
-pytex.add_dependencies('/home/chymera/src/faceRT/analysis/RTforCategories.py')
-pytex.add_dependencies('/home/chymera/src/faceRT/analysis/data_functions.py')
-pytex.add_dependencies('/home/chymera/src/faceRT/analysis/gen.cfg')
-sys.path.append('/home/chymera/src/faceRT/analysis/')
-import RTforCategories
-data_pe1 = RTforCategories.main(experiment='11px-4px-5steps_narrow-angle', prepixelation=6, source='server', make_std=True, elinewidth=1, ecolor='0.3', make_tight={"pad": 0})
-fig_pe1 = latex_figure(save_fig(fig_width=6.64, fig_height=3), caption='Reaction times for Hariri-style face matching. Scrambled images for simple visual recognition were preprocessed with composite cluster and kernel based scrambling, with a constant kernel of \SI{6}{\pixel} and clusters of the sizes indicated in the graphic (given in pixels). Reaction times for non-response trials were counted as \SI{5}{\second}. The light error bars represent the standard deviation, while the dark bars represent the standard error of the mean.', label='r_pe1')
-\end{pycode}
 \begin{pycode}[pe_ss1]
 pytex.add_dependencies('/home/chymera/src/faceRT/analysis/RTforCategories.py')
 pytex.add_dependencies('/home/chymera/src/faceRT/analysis/data_functions.py')
@@ -59,12 +50,12 @@ pytex.add_dependencies('/home/chymera/src/faceRT/analysis/data_functions.py')
 pytex.add_dependencies('/home/chymera/src/faceRT/analysis/gen.cfg')
 sys.path.append('/home/chymera/src/faceRT/analysis/')
 import RTforCategories
-data_pe_cs3 = RTforCategories.main(experiment='11px-4px-5steps_narrow-angle', prepixelation=6, source='server', elinewidth=1, ecolor='0.3', make_tight={"pad": 0})
-fig_pe_cs3 = latex_figure(save_fig(fig_width=6.64, fig_height=3), caption='Reaction times for Hariri-style face matching. Scrambled images for simple visual recognition were preprocessed with composite cluster and kernel based scrambling, with a constant kernel of \SI{6}{\pixel} and clusters of the sizes indicated in the graphic (sizes given in pixels). Reaction times for non-response trials were counted as \SI{5}{\second}. The error bars represent the standard deviation.', label='r_pe_cs3')
+data_pe_cs3 = RTforCategories.main(experiment='11px-4px-5steps_narrow-angle', prepixelation=6, source='server', make_std=True, elinewidth=1, ecolor='0.3', make_tight={"pad": 0})
+fig_pe_cs3 = latex_figure(save_fig(fig_width=6.64, fig_height=3), caption='Reaction times for Hariri-style face matching. Scrambled images for simple visual recognition were preprocessed with composite cluster and kernel based scrambling, with a constant kernel of \SI{6}{\pixel} and clusters of the sizes indicated in the graphic (sizes given in pixels). Reaction times for non-response trials were counted as \SI{5}{\second}. The light error bars represent the standard deviation, while the dark bars represent the standard error of the mean.', label='r_pe_cs3')
 data_pe_cs3['difficulty']=''
 data_pe_cs3['scrambled']=''
-data_pe_cs3.ix[(data_pe_cs3['COI'] == 'emotion-hard') | (data_pe_cs3['COI'] == 'scrambling-11'), 'difficulty'] = 'hard'
-data_pe_cs3.ix[(data_pe_cs3['COI'] == 'emotion-easy') | (data_pe_cs3['COI'] == 'scrambling-23'), 'difficulty'] = 'easy'
+data_pe_cs3.ix[(data_pe_cs3['CoI'] == 'emotion-hard') | (data_pe_cs3['CoI'] == 'scrambling-11'), 'difficulty'] = 'hard'
+data_pe_cs3.ix[(data_pe_cs3['CoI'] == 'emotion-easy') | (data_pe_cs3['CoI'] == 'scrambling-23'), 'difficulty'] = 'easy'
 data_pe_cs3.ix[(data_pe_cs3['scrambling'] == 0), 'scrambled'] = 'no'
 data_pe_cs3.ix[(data_pe_cs3['scrambling'] != 0), 'scrambled'] = 'yes'
 \end{pycode}
@@ -88,8 +79,8 @@ data_pe_cs5 = signal_detection.main(experiment='11px-4px-5steps_narrow-angle', p
 fig_pe_cs5 = latex_figure(save_fig(fig_width=6.64, fig_height=3), caption='Error rates for Hariri-style face matching. Scrambled images for simple visual recognition were preprocessed with composite cluster and kernel based scrambling, with a constant kernel of \SI{6}{\pixel} and clusters of the sizes indicated in the graphic (sizes given in pixels). The error bars represent the standard deviation. Bar-plots with zero-height have been slightly indented for better visibility.', label='r_pe_cs5')
 data_pe_cs5['difficulty']=''
 data_pe_cs5['scrambled']=''
-data_pe_cs5.ix[(data_pe_cs5['COI'] == 'emotion-hard') | (data_pe_cs5['COI'] == 'scrambling-11'), 'difficulty'] = 'hard'
-data_pe_cs5.ix[(data_pe_cs5['COI'] == 'emotion-easy') | (data_pe_cs5['COI'] == 'scrambling-23'), 'difficulty'] = 'easy'
+data_pe_cs5.ix[(data_pe_cs5['CoI'] == 'emotion-hard') | (data_pe_cs5['CoI'] == 'scrambling-11'), 'difficulty'] = 'hard'
+data_pe_cs5.ix[(data_pe_cs5['CoI'] == 'emotion-easy') | (data_pe_cs5['CoI'] == 'scrambling-23'), 'difficulty'] = 'easy'
 data_pe_cs5.ix[(data_pe_cs5['scrambling'] == 0), 'scrambled'] = 'no'
 data_pe_cs5.ix[(data_pe_cs5['scrambling'] != 0), 'scrambled'] = 'yes'
 \end{pycode}
@@ -100,7 +91,7 @@ pytex.add_dependencies('/home/chymera/src/faceRT/analysis/gen.cfg')
 sys.path.append('/home/chymera/src/faceOM/analysis/')
 import et
 data_p_mr = et.corr(source='local', make_tight={"pad": 0})
-fig_p_mr = latex_figure(save_fig(fig_width=5.5, fig_height=5.5), caption='Correlation between X-axis and Y-axis pupil diameters on measurement data points. Raw data points are shown in faint gray, and per-participant per-timepoint (relative to trial onset) means are shown in green. The regression line is drawn in magenta. To decrease cluttering, only one in three raw data points is plotted.', label='p_mr')
+fig_p_mr = latex_figure(save_fig(fig_width=3.5, fig_height=3.5), caption='Correlation between X-axis and Y-axis pupil diameters on measurement data points. Raw data points are shown in faint gray, and per-participant per-timepoint (relative to trial onset) means are shown in green. The regression line is drawn in magenta. To decrease cluttering, only one in three raw data points is plotted.', label='p_mr')
 \end{pycode}
 \begin{pycode}[ra_rt]
 pytex.add_dependencies('/home/chymera/src/faceOM/analysis/rt.py')
@@ -119,5 +110,41 @@ sys.path.append('/home/chymera/src/faceOM/analysis/')
 import er
 data_ra_er = er.main(source='local', make_tight={"pad": 0}, make_std=False, make_scrambled_yn=True, elinewidth=1)
 fig_ra_er = latex_figure(save_fig(fig_width=6.64, fig_height=3), caption='Error rates for Hariri-style face matching. The error bars represent the standard deviation. Bar-plots with zero-height have been slightly indented for better visibility.', label='ra_er')
+\end{pycode}
+\begin{pycode}[r_pd]
+pytex.add_dependencies('/home/chymera/src/faceOM/analysis/et.py')
+pytex.add_dependencies('/home/chymera/src/faceRT/analysis/data_functions.py')
+pytex.add_dependencies('/home/chymera/src/faceRT/analysis/gen.cfg')
+sys.path.append('/home/chymera/src/faceOM/analysis/')
+import et
+data_r_pd = et.time_course(source='local', make_tight={"pad": 0}, show=["fix", "all", "rt_all"])
+fig_r_pd = latex_figure(save_fig(fig_width=6.64, fig_height=3.2), caption='Pupil dilation over time. The values are proportional to the mean pupil dilation size during fixation (here 1.0). Shaded areas represent the standard errors of the mean. The vertical line represents the mean reaction time. Plotted data was down-sampled to \\SI{15}{\\hertz}.', label='r_pd')
+\end{pycode}
+\begin{pycode}[r_pd_ed1]
+pytex.add_dependencies('/home/chymera/src/faceOM/analysis/et.py')
+pytex.add_dependencies('/home/chymera/src/faceRT/analysis/data_functions.py')
+pytex.add_dependencies('/home/chymera/src/faceRT/analysis/gen.cfg')
+sys.path.append('/home/chymera/src/faceOM/analysis/')
+import et
+data_r_pd_ed1 = et.time_course(source='local', make_tight={"pad": 0}, show=["easy", "hard", "rt_e", "rt_h"])
+fig_r_pd_ed1 = latex_figure(save_fig(fig_width=6.64, fig_height=3.2), caption='Pupil dilation over time for easy and difficult matching. The values are proportional to the mean pupil dilation size during fixation (here 1.0). Shaded areas represent the standard errors of the mean. Vertical lines represent mean reaction times. Plotted data was down-sampled to \\SI{15}{\\hertz}.', label='r_pd_ed1')
+\end{pycode}
+\begin{pycode}[r_pd_hf1]
+pytex.add_dependencies('/home/chymera/src/faceOM/analysis/et.py')
+pytex.add_dependencies('/home/chymera/src/faceRT/analysis/data_functions.py')
+pytex.add_dependencies('/home/chymera/src/faceRT/analysis/gen.cfg')
+sys.path.append('/home/chymera/src/faceOM/analysis/')
+import et
+data_r_pd_hf1 = et.time_course(source='local', make_tight={"pad": 0}, show=["happy", "fearful", "rt_ha", "rt_fe"])
+fig_r_pd_hf1 = latex_figure(save_fig(fig_width=6.64, fig_height=3.2), caption='Pupil dilation over time for emotional faces matching. The values are proportional to the mean pupil dilation size during fixation (here 1.0). Shaded areas represent the standard errors of the mean. Vertical lines represent mean reaction times. Plotted data was down-sampled to \\SI{15}{\\hertz}.', label='r_pd_hf1')
+\end{pycode}
+\begin{pycode}[r_pd_es1]
+pytex.add_dependencies('/home/chymera/src/faceOM/analysis/et.py')
+pytex.add_dependencies('/home/chymera/src/faceRT/analysis/data_functions.py')
+pytex.add_dependencies('/home/chymera/src/faceRT/analysis/gen.cfg')
+sys.path.append('/home/chymera/src/faceOM/analysis/')
+import et
+data_r_pd_es1 = et.time_course(source='local', make_tight={"pad": 0}, show=["emotion", "scrambled", "rt_em", "rt_sc"])
+fig_r_pd_es1 = latex_figure(save_fig(fig_width=6.64, fig_height=3.2), caption='Pupil dilation over time for matching of either emotional or scrambled faces. The values are proportional to the mean pupil dilation size during fixation (here 1.0). Shaded areas represent the standard errors of the mean. Vertical lines represent mean reaction times. Plotted data was down-sampled to \\SI{15}{\\hertz}.', label='r_pd_es1')
 \end{pycode}
 %END FIGURES AND DATA
