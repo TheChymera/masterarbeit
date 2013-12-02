@@ -5,23 +5,22 @@
 \input{methods.tex}
 \chapter{Results}                                                                          
     \section{Participant Response Analysis}\label{sec:r_ra}
-	We are testing parameters of the participant input in our main experiments similarly to how we have assessed our preliminary trials.
-	This is to determine the extent to which we can rely on our baseline in in the further analysis of this data set.
+	We are testing parameters of the participant input in our main experiments similarly to how we have assessed our preliminary trials (in section~\ref{sec:pe_r}).
+	The purpose of this analysis is to determine the extent to which we can rely on our baseline in the further investigation of this data set.
 
 	Due to equipment malfunction participant input data is only available for 8 of our 12 participants.
 	\subsection{Reaction Times}\label{sec:r_ra_rt}
 	    \py[ra_rt]{fig_ra_rt}
 	    \py[ra_rt]{lm(data=data_ra_rt[(data_ra_rt['difficulty'] == 'easy') | (data_ra_rt['difficulty'] == 'hard')].reset_index(), fixed='RT~difficulty*scrambled', random='ID', title='Mixed model fitted to the raw reaction times depicted in figure~\\ref{fig:fig:ra_rt}. Our factors are scrambling (yes or no) and difficulty (easy or hard). The model chooses "easy" and "not scrambled" as the intercept value. Difficulty shows a significant positive effect, which is to be expected. Scrambling also shows a significant positive effect - meaning that pattern recognition trials have higher reaction times. This reaction time difference is also not a global offset as difficulty and scrambling interact to form a significant negative effect.', label='tab:r_ra_rt')}
 	    The reaction times for our experiment are shown in figure~\ref{fig:ra_rt}.
-	    An obvious feature (especially in comparison to the reaction time relationships we sought to find in section~\ref{sec:r_pe}) is the highly significant difference between easy emotion recognition and “easy” pattern recognition -
+	    An obvious feature (especially in comparison to the reaction time relationships we sought to find in section~\ref{sec:pe_r}) is the highly significant difference between easy emotion recognition and “easy” pattern recognition -
 	    two tailed paired t-test \textit{p}-value of \py[ra_rt]{tex_nr(ttest_rel(data_ra_rt[(data_ra_rt['difficulty'] == "easy") & (data_ra_rt['emotion'] == "scrambled")].groupby(level=0)['RT'].mean(), data_ra_rt[(data_ra_rt['difficulty'] == "easy") & (data_ra_rt['emotion'] != "scrambled")].groupby(level=0)['RT'].mean())[1]/2)}.
 	    
 	    To further describe this potentially disruptive development for our baseline, we have fitted a mixed model with reaction time as our dependent variable, and emotion and difficulty as our factors (independent variables).
-	    Overall, the model listed in table~\ref{tab:r_ra_rt} gives a quantitative description which accurately describes that pattern recognition trials prompted significantly higher reaction times.
-	    Also, the emergence of a significant interaction factor in the model indicates that among the easy and hard pattern recognition trials, the difference in reaction times does not correspond directly to what the effect of the difficulty factor prescribes.
-	    These observations on a whole prompt caution in further utilisation of our baseline and predict limited reliability of results thus obtained.
+	    The model listed in table~\ref{tab:r_ra_rt} gives a quantitative description confirming that pattern recognition trials prompted significantly higher reaction times.
+	    The emergence of a significant interaction factor in the model indicates that among the easy and hard pattern recognition trials, the difference in reaction times does not correspond directly to what the effect of the difficulty factor prescribes.
 	\subsection{Error Rates}\label{sec:r_ra_er}
-	    Additionally we have performed an error rate analysis to check for baseline weaknesses as seen in section~\ref{sec:r_pe_cs}.
+	    Additionally, we have performed an error rate analysis to check for baseline weaknesses (as seen in section~\ref{sec:pe_r_cs}).
 	    \py[ra_er]{fig_ra_er}
 	    \py[ra_er]{av(data_ra_er.reset_index(), 'ER~difficulty*scrambled+Error(ID)', title='One-way repeated measure ANOVA table for the data depicted in figure~\\ref{fig:ra_er}. The $Pr(>F)$ value indicates the adjusted probability observed results occurring by chance if the means of our defined categories are equal.', label='tab:r_ra_er')}
 	    
@@ -29,48 +28,45 @@
 	    Note that the highly significant effect observed for the difficulty factor is not a weakness in the model per se - changes in error rates over difficulty alone would be acceptable and expected.
 	    The significant interaction effect of difficulty and scrambling, however, indicates that the given difficulty effect on emotion recognition trials is not reproduced by pattern recognition trials, thus coming to the detriment of the pattern recognition baseline.	    
     
-    \section{Pupillometry}\label{sec:r_p}
-	\subsection{Methodological Reliability}\label{sec:r_p_mr}
-	    Seeing as we are performing the debut pupillometric study on our present set-up, we have decided to perform at least a rough assessment of the quality of our measurements.
-	    A number of possible inaccuracies became apparent during data acquisition (described in detail under section~\ref{sec:m_om_pm}) - 
-	    and we are addressing these accordingly in the following paragraphs.
-	    
-	    To reiterate, it seemed concerning that Y-axis pupil diameter is often obfuscated by eyelid coverage.
-	    Seeing as X-axis diameter incurred no such interference, we believe a simple analysis of correlation can show in how far our measurements are congruent and in how far the Y-axis measurements are reliable.
-	    
-	    Figure~\ref{fig:p_mr} shows raw data points and means for pupil diameters.
-	    Due to the overwhelming amount of raw data points sharing the same variance, Pearson's \textit{r} is numerically undefined for our raw data.
-	    We are thus fitting the correlation to the data point means. 
-	    Here we see a Pearson's \textit{r} of \py[p_mr]{tex_nr(data_p_mr[0][0])} and a \textit{p}-value for non-correlation of approximately \py[p_mr]{tex_nr(data_p_mr[0][1])}.
-	    It is safe to conclude from this result that our measurements are congruent.
-	    We will thus be using the mean of X-axis and Y-axis diameters as our preferred diameter approximation.
-	    
-	    The observations we made during data acquisition pertaining to interference from the eyelids with Y-axis measurements are however also confirmed to be true.
-	    A slight offshoot of raw data points is visible for higher values underneath the regression curve.
-	    This very probably represents single measurements during which the eyelid partially covered the pupil.  
-	    while this offshoot is obscured for mean values, its effect can be traced in the linear formula of the regression line: 
-	    $y = $\py[p_mr]{tex_nr(data_p_mr[1])}$x$\py[p_mr]{tex_nr(data_p_mr[2])}.
-	    The \textit{y}-intercept (\py[p_mr]{tex_nr(data_p_mr[2])}) indicates that there is a fixed offset between X-axis and Y-axis measurements, by which across our measurement range (approx $[20;75]$) Y-axis values are smaller than X-axis values.
-	    \py[p_mr]{fig_p_mr}
-\chapter{Discussion}
-    \section{Preliminary Experiments}\label{sec:d_pe}
-	Most conclusions drawn from our preliminary experiments (for instance in section~\ref{sec:m_pe_cs} or section~\ref{sec:r_pe_cs}) are only marginally reliable due to the high inter-run variability noticed throughout our re-runs in section~\ref{sec:r_pe}.
-	We believe the chief reason for this is our reduced participant sample (n = 6 to 7), and we would recommend a more thorough examination on a larger population to better support any claims pertaining to accurate reaction time and error rate comparisons.
+    \section{Pupillometry - Methodological Reliability}\label{sec:r_p}
+	Seeing as we are performing the debut pupillometric study on our present set-up, we have decided to perform at least a rough assessment of the quality of our measurements.
+	A number of possible inaccuracies became apparent during data acquisition (described in detail under section~\ref{sec:m_om_pm}) - 
+	and we are addressing these accordingly in the following paragraphs.
 	
-	Some hallmarks, however, have been constant over all our runs, and we believe these deserve to be reported with more pronounced certainty.
-	\subsection{Reaction Times over Scrambling Cluster Sizes}
-	    Our preliminary experiments show that even when confronted with very high variability in results there is a robust decay of reaction times as scrambling cluster sizes increase.
-	    We report this is happening both with composite scrambling and with simple cluster-based scrambling.
+	To reiterate, Y-axis pupil diameter is often obfuscated by eyelid coverage.
+	Seeing as X-axis diameter incurs no such interference, we believe a simple analysis of correlation can show in how far our measurements are congruent and in how far the Y-axis measurements are reliable.
+	
+	Figure~\ref{fig:p_mr} shows raw data points and means for pupil diameters.
+	Due to the overwhelming amount of raw data points sharing the same variance, Pearson's \textit{r} is numerically undefined for our raw data.
+	We are thus fitting the correlation to the data point means. 
+	Here we see a Pearson's \textit{r} of \py[p_mr]{tex_nr(data_p_mr[0][0])} and a \textit{p}-value for non-correlation best approximated within the 64 bit numerical range as  \py[p_mr]{tex_nr(data_p_mr[0][1])}.
+	It is safe to conclude from this result that our measurements are congruent.
+	We will thus be using the mean of X-axis and Y-axis diameters as our preferred diameter approximation.
+	
+	The observations we made during data acquisition pertaining to interference from the eyelids with Y-axis measurements are however also confirmed to be true.
+	A slight offshoot of raw data points is visible for higher values underneath the regression curve.
+	This very probably represents single measurements during which the eyelid partially covered the pupil.  
+	while this offshoot is obscured for mean values, its effect can be traced in the linear formula of the regression line: 
+	$y = $\py[p_mr]{tex_nr(data_p_mr[1])}$x$\py[p_mr]{tex_nr(data_p_mr[2])}.
+	The \textit{y}-intercept (\py[p_mr]{tex_nr(data_p_mr[2])}) indicates that there is a fixed offset between X-axis and Y-axis measurements, by which across our measurement range (approx $[20;75]$) Y-axis values are smaller than X-axis values.
+	\py[p_mr]{fig_p_mr}
+    \section{Per-Condition Pupil Dilation Response}\label{sec:r_pd}
+	In this section we are presenting how our conditions of interest (CoI) affect the pupil dilation response.
+	Figure~\ref{fig:r_pd} shows the general time course for all trial conditions as compared to the non-trial mean.
+	The data indicates that trial conditions prompt a rapid increase in pupil diameter (over the first \SI{0.5}{\second}) followed by a more attenuated slope, which is terminated by a steady decline starting about \SI{0.5}{\second} before the mean reaction time.
+	
+	The time course during fixation sees a high amplitude decrease in pupil dilation
+	\py[r_pd]{fig_r_pd}
+	
+	\subsection{Easy vs. Difficult Trials}\label{sec:r_pd_ed}
+	    The pupil dilation response time courses in easy and difficult matching trials (regardless of emotion/pattern recognition) are shown in figure~\ref{fig:r_pd_ed1}
+	    \py[r_pd_ed1]{fig_r_pd_ed1}
+	\subsection{Happy vs. Fearful Emotion Trials}\label{sec:r_pd_hf}
+	    \py[r_pd_hf1]{fig_r_pd_hf1}
+	\subsection{Emotional vs. Scrambled Trials}\label{sec:r_pd_es}
+	    \py[r_pd_es1]{fig_r_pd_es1}	    
 	    
-	    Though this effect was assumed by us a priori, and is hardly surprising, we hold that it validates our scrambling software for ample uses in Neuropsychology.
-    \section{Pyxrand}
-    A number of studies\citep{Rakover2013} have used scrambled face stimuli for their experiments.
-    The stimuli are often prepared either by hand, or through time-consuming per-picture editing in an image manipulation program.
-    Though automated scrambling software already exists \citep{Conway2008}, its scope is a lot narrower and its algorithms are nor released publicly.
-    
-    In findings 
-    
-    We recommend our software over possible alternatives due to its time-efficient batch functionality and its capacity to scramble both with and without specifically distorting facial features.
+\input{discussion.tex}
 \input{acknowledgements.tex}
 \input{supplementary.tex}
 \input{footer.tex}
