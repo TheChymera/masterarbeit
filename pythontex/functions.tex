@@ -1,11 +1,12 @@
 \begin{pythontexcustomcode}[begin]{py}
 import subprocess
 import sys
+sys.path.append('/home/chymera/src/interstats/')
+pytex.add_dependencies('/home/chymera/src/interstats/interstats.py')
 
 from scipy.stats import ttest_rel, ttest_ind
-pytex.add_dependencies('/home/chymera/src/interstats/interstats.py')
-sys.path.append('/home/chymera/src/interstats/')
 from interstats import lm, av, tex_nr, p_table
+
 
 import matplotlib as mpl
 mpl.use("pgf")
