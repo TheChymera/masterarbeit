@@ -19,6 +19,7 @@
 	\caption{The area of a circle segment $A$ defined relative to the height of that segment, $h$ - with $R$ as the circle radius. We use this as a function for how much of the pupil area will be lost relative to how far an eyelid covers it. For the sake of simplicity we approximate the eyelid with a straight rather than very slightly curved line.}
 	\label{eq:cs}
     \end{figure}
+    \py[r_pd_hf2]{lm(data=data_r_pd_hf2, model="nlme", fixed='Pupil~CoI*dTime', random=["ID"], title='Mixed model fitted to the latter half of the time course depicted in figure~\\ref{fig:r_pd_ed1}. The independent variable is CoI (condition of interest) which is either "hard" or "difficult". Time and ID (participant) are defined as random variables.', label='tab:r_pd_hf3')}
     \section{Non-Definitive Preliminary Experiment Runs}\label{sec:sm_ndper}
 	\py{fig_pe_cs1}
 	\py{p_table(data_pe_cs1, ['CoI', 'emotion-easy', 'emotion-hard'], ['scrambling', 11, 15, 19, 23, 27], refcap='Proposed best estimators (scrambling cluster sizes in \\SI{}{px})', caption='Table of two-tailed paired sample t-test \\textit{p}-values for the data in figure ~\\ref{fig:r_pe_cs1}, testing the probability of our observations if the compared conditions share the same mean. Note that - though unorthodox - this test does not lose accuracy due to multiple comparisons. As we are looking for the group least likely to reject the null hypothesis, multiple comparison actually makes the test more stringent.', label='tab:r_pe_cs1')}
