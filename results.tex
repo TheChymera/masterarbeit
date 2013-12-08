@@ -67,7 +67,7 @@
 	    \py[r_pd_ta]{fig_r_pd_ta}
 	    \py[r_pd_ta]{av(data_r_pd_ta_av, 'Pupil~CoI+Error(ID)', title='One-way repeated measure ANOVA table for the data depicted in figure~\\ref{fig:r_pd_ta}. Here we test the effect of our conditions of interest ("CoI") on mean puoil dilation. The $Pr(>F)$ value indicates the adjusted probability of present results occurring by chance if the means of our defined categories are equal.', label='tab:r_pd_ta')}
 	
-	\subsection{Task Engagement: Trial vs. Inter-Trial}
+	\subsection{Task Engagement: Trial vs. Inter-Trial}\label{sec:r_pd_ti}
 	    \py[r_pd]{fig_r_pd}
 	    Figure~\ref{fig:r_pd} shows the general time course for all trial conditions and for inter-trial (fixation) periods.
 	    The data indicates that trial conditions prompt a rapid increase in pupil diameter (over the first \SI{0.5}{\second}) followed by a more attenuated slope, which is terminated by a steady decline starting about \SI{0.5}{\second} before the mean reaction time.
@@ -95,7 +95,7 @@
 	\subsection{Emotionality: Emotional vs. Scrambled Trials}\label{sec:r_pd_es}
 	    \py[r_pd_es1]{fig_r_pd_es1}	    
 	    In the comparison of emotion and pattern matching we find a picture very similar to the one described in section~\ref{sec:r_pd_ed}.
-	    First we see a rapid increase in pupil area for both of these conditions.
+	    In figure~\ref{fig:r_pd_es1}, first we see a rapid increase in pupil area for both of these conditions.
 	    Following this initial trend the pupil area appears to plateau over approximately \SI{1.0}{\second} before trending upwards again and subsequently downwards.
 	    
 	    \py[r_pd_es1]{lm(data=data_r_pd_es1_lm, model="nlme", fixed='Pupil~CoI', random=["ID","Time"], title='Mixed model fitted to the latter half of the time course depicted in figure~\\ref{fig:r_pd_es1}. The independent variable is CoI (condition of interest) which is either "hard" or "difficult". Time and ID (participant) are defined as random variables.', label='tab:r_pd_es1')}
@@ -118,35 +118,22 @@
 	    \py[r_pd_hf2]{av(data_r_pd_hf2, 'Pupil~CoI*dTime+Error(ID)', title='Two-way repeated measure ANOVA table for the data depicted in figure~\\ref{fig:r_pd_hf1}. Here we test the effect of our conditions of interest ("CoI") and of discrete time octiles ("dTime"). The $Pr(>F)$ value indicates the adjusted probability of obtained results occurring by chance if the means of our defined categories are equal.', label='tab:r_pd_hf2')}
 	    
     \section{Per-Condition Brain Activity Contrasts}\label{sec:r_pc}
-	The following brain activation analyses have been preferentially thresholded at an uncorrected \textit{p}-value of 0.001 and a spatial extent threshold of 20 voxels.
+	The following brain activation analyses have been thresholded at an uncorrected \textit{p}-value of 0.001 and a spatial extent threshold of 20 voxels.
 	\subsection{Difficult vs. Easy Pattern Matching}\label{sec:r_pc_ed}
-	    \begin{wrapfigure}{r}{0.5\textwidth}
-		\centering
-		\vspace{-1.8cm}
-		\scalebox{0.6}{\includegraphics{./img/cell10_cell22.png}}
-		\caption{Glass brain depiction of brain activity contrast between easy and difficult pattern recognition trials. The markers highlight the main cluster peak.}
-		\label{fig:r_pc_ed}
-		\vspace{-0.8cm}
-	    \end{wrapfigure}
-	    No significant brain activation was obtained for the contrast of difficult pattern matching trials against the baseline of easy pattern matching tasks.
-	    The cluster closest to significance is detailed in table~\ref{tab:r_pc_ed}, and was identified at an uncorrected \textit{p}-value of 0.005 and a spatial extent threshold of 20 voxels.
-	    
-	    A graphical depiction of this cluster is presented in figure~\ref{fig:r_pc_ed}.
-	    The main cluster peak is assigned the “superior parietal lobule - left” ICBM label by the WFU PickAtlas. 
-	    \py{tex_mr([["A",22,1.000,0.988,4.43,-39,-58,58],["n","n",1.000,0.988,3.52,-42,-49,58]],caption="Summary statistics for brain activation clusters in the contrast of difficult pattern matching against easy pattern matching tasks. FWE = Family-Wise Error; FDR = False Discovery Rate; X, Y, and Z coordinates given in MNI space.",label="tab:r_pc_ed")}
-	    
-	    The inverse contrast yielded no activation clusters at our preferred significance level.
+	    No significant brain activation was obtained for the contrast of difficult pattern matching trials against the baseline of easy pattern matching tasks at our preferred threshold.
+	    The analysis of the inverse contrast has similarly yielded no activation clusters.
 	\subsection{Emotion vs. Pattern Recognition}\label{sec:r_pc_ep}
 	    We have analysed emotion vs. pattern recognition contrasts separately for the two matched pairs: \SI{100}{\percent} emotion and \SI{22}{\pixel} scrambling; and \SI{40}{\percent} emotion and \SI{10}{\pixel} scrambling respectively.
 	    This was done in lieu of binning the two sets of conditions together chiefly because the two contrasts are not comparable in terms of difficulty difference between conditions (as shown in section~\ref{sec:r_ra}).
-	    For the subsequently presented data we define pattern recognition as the baseline, and view activation prompted by emotion recognition as relative to that baseline.
+	    For the subsequently presented data we define pattern recognition as the baseline, and describe activation prompted by emotion recognition as relative to that baseline.
 	    \subsubsection{\SI{100}{\percent} Emotion vs. \SI{22}{\pixel} Scrambling}\label{sec:r_pc_ep_12}
 		A number of regions show activity in this contrast at our preferred uncorrected significance (\textit{p} = 0.001) and spatial extent (\SI{20}{voxel}) thresholds.
 		These clusters are detailed in table~\ref{tab:r_pc_ep_12}.
 		\py{tex_mr([["A",147,0.041,0.390,9.31,54,-73,1],["n","n",0.302,0.428,7.57,60,-58,7],["n","n",0.961,0.545,5.68,51,-43,7],["B",57,0.051,0.390,9.11,33,-82,-35],["n","n",0.919,0.541,5.95,42,-76,-35],["C",155,0.278,0.428,7.63,3,-52,43],["n","n",0.768,0.428,6.52,9,-61,34],["n","n",0.918,0.541,5.95,-9,-46,37],["D",31,0.449,0.428,7.25,18,-88,-32],["n","n",1.000,0.721,4.73,12,-82,-29],["E",36,0.636,0.428,6.93,39,-52,-14],["n","n",0.984,0.623,5.43,39,-46,-23],["n","n",0.998,0.642,5.05,42,-34,-11],["F",26,0.730,0.428,6.64,-30,-85,-32],["G",24,0.744,0.428,6.60,-39,-52,-17],["H",36,0.746,	0.428,6.59,-21,-10,-20],["I",20,0.785,0.428,6.47,-45,14,-23]],caption="Summary statistics for brain activation clusters in the contrast of easy emotion matching trials against a baseline of easy pattern matching trials. FWE = Family-Wise Error; FDR = False Discovery Rate; X, Y, and Z coordinates given in MNI space.",label="tab:r_pc_ep_12")}
 		
 		The activation clusters with the highest degree of significance are thus located within the right medial temporal gyrus (cluster A), the right hemisphere of the cerebellum (cluster B), the right superior parietal lobule (cluster C), and the right superior occiptial gyrus (cluster D).
-		Lower peak voxel significance (FWE-corrected \textit{p}-value of 0.746, cluster H) has been found for amygdala/hippocampus activation, which we present for illustrative purposes alongside the precuneus activation of cluster C in figure~\ref{fig:r_pc_ep_12}
+		Lower peak voxel significance (FWE-corrected \textit{p}-value of 0.746, cluster H) has been found for amygdala/hippocampus activation, which we present for illustrative purposes alongside the precuneus activation of cluster C in figure~\ref{fig:r_pc_ep_12}.
+		Other areas presenting activation clusters are the right and left lateral occipitotemporal gyri (cluster E and G respectively), the left cerebellunm (cluster F), and the left superior temporal gyrus (cluster I).
 		\begin{figure}[H]
 		    \begin{subfigure}[H]{0.495\textwidth}
 			\centering\scalebox{0.45}{\includegraphics{./img/12_pc.png}}
@@ -165,10 +152,12 @@
 		
 		The inverse of this condition yielded activation clusters in the occipital and superior parietal lobules with higher significance in the left cerebral hemisphere.
 		These clusters are accurately documented in table~\ref{tab:r_pc_ep_12i}.
+		They are distributed across the left angular gyrus (cluster A) and lingual gyrus (cluster B), the right superior parietal lobule (cluster C) and lateral occipitotemporal gyrus (cluster D), and the left lateral occipitotemporal gyrus (cluster E).
 		\py{tex_mr([["A",256,0.022,0.129,9.90,-27,-70,31],["n","n",0.692,0.323,6.76,-24,-88,16],["n","n",0.811,0.323,6.38,-33,-85,19],["B",74,0.031,0.129,9.58,-9,-91,-5],["n","n",0.396,0.323,7.35,0,-88,-2],["n","n",1.000,0.634,4.72,-18,-85,-8],["C",187,0.650,0.323,6.89,18,-64,61],["n","n",0.802,0.323,6.41,39,-79,10],["n","n",0.895,0.323,6.06,36,-88,7],["D",23,0.894,0.323,6.06,27,-40,-11],["n","n",0.993,0.463,5.26,27,-34,-17],["E",38,0.967,0.370,5.63,-30,-46,-11],["n","n",0.975,0.370,5.63,-30,-46,-11],["n","n",0.975,0.384,5.55,-27,-61,-11],["n","n",1.000,0.928,4.15,-30,-73,-5]],caption="Summary statistics for brain activation clusters in the contrast of easy pattern matching trials against a baseline of easy emotion matching trials. FWE = Family-Wise Error; FDR = False Discovery Rate; X, Y, and Z coordinates given in MNI space.",label="tab:r_pc_ep_12i")}
+	    
 	    \subsubsection{\SI{40}{\percent} Emotion vs. \SI{10}{\pixel} Scrambling}\label{sec:r_pc_ep_41}
 		Brain activation evoked by difficult emotion matching trials relative to difficult pattern matching trials was distributed over the clusters listed in table~\ref{tab:r_pc_ep_41}.
-		These clusters are confined mostly to the right occipitoparietal and occipitotemporal lobules (with the exception of cluster H, which is located in the right frontal lobe; and cluster B in the left lateral occipitotemporal gyrus).
+		These clusters are confined to the right occipitoparietal and occipitotemporal lobules (with the exception of cluster H, which is located in the right frontal lobe; and cluster B in the left lateral occipitotemporal gyrus).
 		
 		Of these clusters we would like to illustrate the recurring activation cluster in the right precuneus (E), and the most significant activation clusters (A and B) in the right and left lateral occipitotemporal gyri - see figure~\ref{fig:r_pc_ep_41}.
 		\begin{figure}[H]
@@ -189,21 +178,25 @@
 		\py{tex_mr([["A",45,0.154,0.407,8.13,39,-49,-17],["B",20,0.795,0.407,6.47,-39,-52,-17],["C",30,0.838,0.407,6.32,42,-79,-11],["n","n",0.937,0.434,5.88,45,-73,-5],["D",35,0.860,0.407,6.24,54,-64,4],["n","n",0.992,0.500,5.31,48,-55,7],["n","n",1.000,0.742,4.52,48,-64,19],["E",28,0.864,0.407,6.23,3,-64,28],["F",29,0.985,0.496,5.46,36,17,22]],caption="Summary statistics for brain activation clusters in the contrast of difficult emotion matching trials against a baseline of difficult pattern matching trials. FWE = Family-Wise Error; FDR = False Discovery Rate; X, Y, and Z coordinates given in MNI space.",label="tab:r_pc_ep_41")}
 		
 		The inverse contrast of this condition - difficult pattern recognition compared to a baseline of difficult emotion recognition yields activation clusters in high agreement with those of the inverse contrast from section~\ref{sec:r_pc_ep_12}.
-		These activation clusters lie predominantly in the occipital and superior parietal lobules and are accurately documented by table~\ref{tab:r_pc_ep_41i}.
+		These activation clusters are accurately documented by table~\ref{tab:r_pc_ep_41i}.
+		They span across the left angualr gyrus (cluster A), superior parietal lobule (cluster B), and putamen (cluster C), the right superior parietal lobule (cluster D), insula (cluster E), and superior parietal lobule (cluster F), the left medial occipitotemporal gyrus (cluster G), and the right cerebellum (cluster H).
 		\py{tex_mr([["A",93,0.006,0.184,11.27,-42,-43,46],["n","n",0.877,0.491,6.17,-48,-49,34],["B",355,0.235,0.465,7.77,-18,-67,52],["n","n",0.449,0.465,7.25,-36,-82,16],["n","n",0.607,0.465,7.02,-36,-79,28],["C",32,0.645,0.465,6.94,-24,11,-11],["n","n",0.657,0.465,6.90,-24,17,-2],["D",402,0.684,0.465,6.82,15,-67,61],["n","n",0.695,0.465,6.79,27,-64,49],["n","n",0.717,0.465,6.72,36,-82,7],["E",20,0.828,0.492,6.36,30,23,-2],["n","n",0.980,0.492,5.53,36,20,-11],["F",21,0.858,0.492,6.25,39,-46,58],["G",35,0.961,0.492,5.72,-27,-58,-8],["n","n",0.997,0.566,5.15,-27,-46,-17],["H",28,0.991,0.545,5.34,15,-67,-38],["n","n",0.994,0.552,5.25,18,-52,-41],["n","n",0.998,0.588,5.05,9,-58,-47]],caption="Summary statistics for brain activation clusters in the contrast of difficult pattern matching trials against a baseline of difficult emotion matching trials. FWE = Family-Wise Error; FDR = False Discovery Rate; X, Y, and Z coordinates given in MNI space.",label="tab:r_pc_ep_41i")}
+	
 	\subsection{Strong vs. Weak emotion Intensity}\label{sec:r_pc_sw}
 	    As described in detail under section~\ref{sec:m_vs_ef}, “easy” and “difficult” emotion matching are designed based on face images with more obvious (more concentrated - \SI{100}{\percent}) or less obvious (less concentrated - \SI{40}{\percent}) emotions.
-	    Comparing the emotion matching trials based on difficulty - difficult matching against a baseline of easy matching, shows no significant brain activation at our preferred significance and spatial extent threshold.
+	    Comparing the emotion matching trials based on difficulty (difficult emotion matching against a baseline of easy easy matching) shows no significant brain activation at our preferred significance and spatial extent threshold.
 	    The cluster closest to significance is detailed in table~\ref{tab:r_pc_swi}, and was identified at an uncorrected \textit{p}-value of 0.005 and a spatial extent threshold of 20 voxels.
-	    \py{tex_mr([["A",26,1.000,0.981,4.06,45,20,25],["n","n",1.000,0.981,3.17,42,5,28]],caption="Summary statistics for brain activation clusters in the contrast of difficult emotion matching tasks against easy emotion matching tasks. FWE = Family-Wise Error; FDR = False Discovery Rate; X, Y, and Z coordinates given in MNI space.",label="tab:r_pc_swi")}
+	    \py{tex_mr([["A",26,1.000,0.981,4.06,45,20,25],["n","n",1.000,0.981,3.17,42,5,28]],caption="Summary statistics for brain activation clusters in the contrast of difficult emotion matching tasks against easy emotion matching tasks. The single cluster activated in this contrast lies in the right middle frontal gyrus. FWE = Family-Wise Error; FDR = False Discovery Rate; X, Y, and Z coordinates given in MNI space.",label="tab:r_pc_swi")}
 	    
-	    The inverse contrast of the aforementioned comparison - easy emotion recognition against a baseline of difficult emotion recognition - is also the contrast of strongly emotional stimuli against a baseline of faintly emotional stimuli.
+	    The inverse contrast of the aforementioned comparison - easy emotion recognition against a baseline of difficult emotion recognition - is also the contrast of strong emotional stimuli against a baseline of weak emotional stimuli.
 	    This comparison yields many more activation clusters (at our preferred thresholds) - all of which are detailed under table~\ref{tab:r_pc_sw}.
 	    The area covered by these clusters is ample and includes the left superior temporal gyrus (cluster A), the left medial frontal gyrus (cluster D), and the posterior cingulate cortex (“PCC”, cluster B).
 	    We present an illustrative example of the latter two of these clusters under figure~\ref{fig:r_pc_sw}.
+	    
+	    Other areas over which the clusters of this contrast spread include the left angular gyrus (cluster C), the right superior occipital lobe (cluster E) and middle temporal gyrus (cluster F), the left superior frontal lobe (cluster G), the left frontal lobe (cluster H) and superior frontal gyrus (cluster I).
 	    \begin{figure}[H]
 		\begin{subfigure}[H]{0.495\textwidth}
-		    \centering\scalebox{0.45}{\includegraphics{./img/sw_pcc.png}}
+		    \centering\scalebox{0.45}{\includegraphics{./img/sw_fm.png}}
 		    \subcaption{Left Medial Frontal Gyrus cluster (D)}
 		    \label{fig:r_pc_sw_mf}
 		\end{subfigure}
@@ -216,26 +209,32 @@
 		\caption{Graphical depiction of brain activation in the contrast of strong emotion stimulus trials against a baseline of weak emotion stimulus trials; with cross-hairs positioned at the corresponding highest significance voxel of the cluster (as listed under table~\ref{tab:r_pc_sw}).}
 		\label{fig:r_pc_sw}
 	    \end{figure}
-	    \py{tex_mr([["A",137,0.002,0.074,12.90,-60,-16,-8],["n","n",0.332,0.303,7.49,-63,-25,-5],["n","n",0.343,0.303,7.47,-57,-34,-2],["B",233,0.008,0.081,11.0,-3,-37,43],["n","n",0.157,0.303,8.11,-6,-31,37],["n","n",0.555,0.314,7.09,-12,-46,34],["C",203,0.008,0.081,10.96,-42,-58,40],["n","n",0.476,0.303,7.21,-42,-58,31],["n","n",0.665,0.340,6.88,-48,-52,25],["D",468,0.232,0.303,7.78,-6,56,13],["n","n",0.324,0.303,7.51,-6,50,-5],["n","n",0.432,0.303,7.28,0,59,4],["E",85,0.240,0.303,7.76,21,-91,19],["n","n",0.880,0.354,6.16,6,-85,37],["n","n",0.975,0.458,5.58,18,-85,37],["F",41,0.673,0.340,6.85,60,-19,-8],["n","n",0.977,0.458,5.55,60,-25,-14],["n","n",1.000,0.869,4.31,60,-7,-8],["G",21,0.824,0.348,6.37,-12,38,46],["n","n",1.000,0.825,4.54,-15,35,34],["H",21,0.911,0.380,6.02,21,-40,40],["I",29,0.930,0.394,5.92,-24,32,46],["n","n",0.956,0.427,5.75,-33,20,49],["n","n",1.000,0.918,4.19,-30,29,40]],caption="Summary statistics for brain activation clusters in the contrast of strong emotion stimulus trials against a baseline of weak emotion stimulus trials. FWE = Family-Wise Error; FDR = False Discovery Rate; X, Y, and Z coordinates given in MNI space.",label="tab:r_pc_sw")}	
-    \section{Pupil Dilation Regression}\label{sec:r_pdr}
-	For a first analysis attempt, the per-participant pupil area time course - downsampled to the TR (as detailed under section~\ref{sec:m_fmri_dp}) - was introduced as a regressor condition in the first level analysis of the fMRI data, and subsequently mapped as a population contrast in the second-level analysis.
 	
-	This non-folded (not convoluted with the HRF) regressor is correlated with a peak inside the Locus Coeruleus (LC) region of interest (ROI).
-	This correlated voxel is located in the right LC nucleus area and is documented in table~\ref{tab:r_pdr_nc}, and shown in figure~\ref{fig:r_pdr_nc}.
+	    \py{tex_mr([["A",137,0.002,0.074,12.90,-60,-16,-8],["n","n",0.332,0.303,7.49,-63,-25,-5],["n","n",0.343,0.303,7.47,-57,-34,-2],["B",233,0.008,0.081,11.0,-3,-37,43],["n","n",0.157,0.303,8.11,-6,-31,37],["n","n",0.555,0.314,7.09,-12,-46,34],["C",203,0.008,0.081,10.96,-42,-58,40],["n","n",0.476,0.303,7.21,-42,-58,31],["n","n",0.665,0.340,6.88,-48,-52,25],["D",468,0.232,0.303,7.78,-6,56,13],["n","n",0.324,0.303,7.51,-6,50,-5],["n","n",0.432,0.303,7.28,0,59,4],["E",85,0.240,0.303,7.76,21,-91,19],["n","n",0.880,0.354,6.16,6,-85,37],["n","n",0.975,0.458,5.58,18,-85,37],["F",41,0.673,0.340,6.85,60,-19,-8],["n","n",0.977,0.458,5.55,60,-25,-14],["n","n",1.000,0.869,4.31,60,-7,-8],["G",21,0.824,0.348,6.37,-12,38,46],["n","n",1.000,0.825,4.54,-15,35,34],["H",21,0.911,0.380,6.02,21,-40,40],["I",29,0.930,0.394,5.92,-24,32,46],["n","n",0.956,0.427,5.75,-33,20,49],["n","n",1.000,0.918,4.19,-30,29,40]],caption="Summary statistics for brain activation clusters in the contrast of strong emotion stimulus trials against a baseline of weak emotion stimulus trials. FWE = Family-Wise Error; FDR = False Discovery Rate; X, Y, and Z coordinates given in MNI space.",label="tab:r_pc_sw")}	
+    
+    \section{Pupil Dilation Regression}\label{sec:r_pdr}
+	For a first analysis attempt, the per-participant pupil area time course was downsampled to the TR (as detailed under section~\ref{sec:m_fmri_dp}) - in order to be used as a regressor.
+	This regressor (\textbf{Regressor I.}) was introduced as a condition in the first level analysis of the fMRI data (independent of the afore detailed conditions of interest).
+	Subsequently the resulting per-participant contrasts were integrated to form population contrast in the second-level analysis.
+	
+	This first regressor is not folded (not convoluted with the HRF), and turns out to be weakly correlated with a peak inside the Locus Coeruleus (LC) region of interest (ROI).
+	This correlated voxel is located at the transition from the right LC nucleus to the fourth ventricle area and is documented in table~\ref{tab:r_pdr_nc}, and shown in figure~\ref{fig:r_pdr_nc}.
+	
 	\py{tex_mr([["A",1,0.053,0.905,4.10,3,-37,-20]],caption="Summary statistics for the LC ROI brain activation peak correlated with a raw pupil area time course regressor. FWE = Family-Wise Error; FDR = False Discovery Rate; X, Y, and Z coordinates given in MNI space.",label="tab:r_pdr_nc")}
 	
 	For further clarification of results, three other regressors have been used to explore pupil dilation correlated activity in the fMRI data.
 	These are:
 	\begin{itemize}
-	    \item A raw pupil area time course regressor convoluted with the HRF
-	    \item A pupil area time course differential (computed at the original \SI{60}{\hertz}) regressor
-	    \item A pupil area time course differential regressor convoluted with the HRF
+	    \item \textbf{Regressor II.} - A raw pupil area time series downsampled at \SI{0.5}{\hertz} (identical with regressor I.) convoluted with the HRF.
+	    \item \textbf{Regressor III.} - A pupil area time series differential (computed at on the pupil area data at the original \SI{60}{\hertz}) and subsequently downsampled at \SI{0.5}{\hertz}. 
+	    \item \textbf{Regressor IV.} - A pupil area time series differential (computed at on the pupil area data at the original \SI{60}{\hertz}) and subsequently downsampled at \SI{0.5}{\hertz} and convoluted with the HRF.
 	\end{itemize}
 	
-	Of these, the first two did not extract any LC ROI activation.
-	The third regressor - the HRF-convoluted pupil area time course differential - was correlated with LC ROI activation similar to the one identified by the raw pupil area time course regressor.
-	The activation cluster is broader than the previously identified one, with a more significant peak voxel - but similarly lateralized.
-	The brain activation data for this regressor is sumarized under table~\ref{tab:r_pdr} and depicted in figure~\ref{fig:r_pdr_c}.
+	Of these other regressors, the first two (II. and III.) did not identify any LC ROI activation.
+	Regressor IV. - the HRF-convoluted pupil area time series differential - was correlated with LC ROI activation similar to the one identified by the raw pupil area time course regressor.
+	The activation cluster is broader than the previously identified one, with a more significant peak voxel - but similarly lateralized towards the right LC nucleus.
+	The brain activation data for this regressor is summarized under table~\ref{tab:r_pdr} and depicted in figure~\ref{fig:r_pdr_c}.
+	
 	\py{tex_mr([["A",5,0.003,0.189,6.04,6,-34,-26],["B",1,0.54,0.838,4.17,-6,-34,-26]],caption="Summary statistics for the LC ROI brain activation peak correlated with a pupil area time course differential regressor convoluted with the HRF. FWE = Family-Wise Error; FDR = False Discovery Rate; X, Y, and Z coordinates given in MNI space.",label="tab:r_pdr")}
 	
 	\begin{figure}[H]
