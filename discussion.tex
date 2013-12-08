@@ -1,19 +1,115 @@
 \chapter{Discussion}
-    \section{Preliminary Experiments}\label{sec:d_pe}
-	Most conclusions drawn from our preliminary experiments (for instance in section~\ref{sec:m_pe_cs} or section~\ref{sec:r_pe_cs}) are only marginally reliable due to the high inter-run variability noticed throughout our re-runs in section~\ref{sec:r_pe}.
-	We believe the chief reason for this is our reduced participant sample (n = 6 to 7), and we would recommend a more thorough examination on a larger population to better support any claims pertaining to accurate reaction time and error rate comparisons.
+    \section{Pyxrand's Stimuli for Non-Semantic Matching}
+	A number of publications describe the use of scrambled face stimuli for their experiments - as baseline conditions or in other contexts \citep{Lewis2005,Rakover2013}.
+	The stimuli are often prepared either manually, or through time-consuming per-picture editing in an image manipulation program.
+	Pyxrand \citep{pyxrand} simplifies this procedure by automatically scrambling images without any constraint on dimensions or ratio, and provides great customisability of its scrambling procedure. 
+	Though automated scrambling software already exists \citep{Conway2008}, its scope is a lot narrower and its algorithms are nor released publicly.
+
+	The results presented under sections~\ref{sec:pe_r_ss} and~\ref{sec:pe_r_cs} show that Pyxrand can produce stimulus images the matching of witch can be tuned to the same time range as the matching of emotional face stimulus images.
+	The emergence of a plateau phase in reaction times when using only cluster-based scrambling (see section~\ref{sec:m_vs_si} for technical descriptions), and its preponderant disappearance when using both kernel and cluster based scrambling, indicates that the software can provide both low-pass and high-pass filtering for facial features.
+	This makes it suitable not only for rendering stimulus images non-semantic, but also for selectively excluding features used for semantic identification via their spatial frequencies.
+	Data described under section~\ref{sec:pe_r_cs} also shows that the various scrambling parameters offered by Pyxrand can be successfully tweaked to vary reaction times (but apparently not error rates - see sections~\ref{sec:r_ra_er} and~\ref{sec:pe_r_cs}).
 	
-	Some hallmarks, however, have been constant over all our runs, and we believe these deserve to be reported with more pronounced certainty.
-	\subsection{Reaction Times over Scrambling Cluster Sizes}
-	    Our preliminary experiments show that even when confronted with very high variability in results there is a robust decay of reaction times as scrambling cluster sizes increase.
-	    We report this is happening both with composite scrambling and with simple cluster-based scrambling.
+	The non-replicability of our chosen pattern recognition baseline (seen under section~\ref{sec:r_ra_rt}) could be due to different performance attributes of either the different population or the different setting (inside the fMRI scanner).
+	Elucidating this issue would require testing of multiple scrambling steps in the fMRI scanner, or in an environment closely resembling it. 
+	
+	Pyxrand also appears to have fulfilled the task of generating equiluminous baseline trial images, as we were unable to detect a main effect of matching task type (emotional vs. pattern matching) in the comparison of pupil area documented under section~\ref{sec:r_pd_es}.
+	We believe that pixel interpolation effects which emerge upon image scaling could disrupt the stimulus equiluminescence of processed and unprocessed images, though this would require a quantitative study of pixel gray values over different input image types.
+	
+	We would like to conclude the assessment of Pyxrand by stating that its usability in experimental psychological contexts is well-validated, and that its transparent publication and versatile functionality would make it a valuable tool for visual cognition researchers dealing with topics even very remote from our own.
+
+    \section{Pupillometric Time Course}\label{sec:d_pd}
+	\subsection{Method Viability}
+	    Based on the X/Y-axis correlation data under section~\ref{sec:r_p}, and the visual coherence of time plots under section~\ref{sec:r_pd}, we believe pupillometry is a viable method for use in our current fMRI set-up.
 	    
-	    Though this effect was assumed by us a priori, and is hardly surprising, we hold that it validates our scrambling software for ample uses in Neuropsychology.
-    \section{Pyxrand}
-    A number of studies\citep{Rakover2013} have used scrambled face stimuli for their experiments.
-    The stimuli are often prepared either by hand, or through time-consuming per-picture editing in an image manipulation program.
-    Though automated scrambling software already exists \citep{Conway2008}, its scope is a lot narrower and its algorithms are nor released publicly.
-    
-    In findings 
-    
-    We recommend our software over possible alternatives due to its time-efficient batch functionality and its capacity to scramble both with and without specifically distorting facial features.
+	    Mean pupil dilation levels, when normalized to the same baseline (as seen in section~\ref{sec:r_pd_ta}), show highly consistent per-participant trends but a strong inter-participant variability (the dynamic range of participant means being approximately \SI{10}{\decibel}).
+	    We take the first of these observations as further support of the method's viability.
+	    The second observation, however, is difficult to explain simply by anatomical variability of pupil sizes and the task-independent variability of baseline pupil dilation.
+	    We posit that this high variability is due to variant distances from the eye to the camera, and different zoom levels of our optometric equipment in between trials.
+	    
+	    As the pupil-to-camera distance is contingent on many factors including head size, we do not presume to accomplish measurements comparable in absolute terms between testing sessions.
+	    This comes somewhat to the detriment of pupillometry in our set-up, as we can thus only analyse changes in pupil size, and not baseline pupil diameters (which could be connected with participant genotype, emotional state progress over multiple sessions, or disease progress over multiple sessions).
+	\subsection{Task Difficulty}\label{sec:d_pd_td}
+	    Time courses of pupil dilation for easy and difficult trials (as seen in figure~\ref{fig:r_pd_ed1}) follow a similar pattern over the first half of the trial duration, but present divergent trends for the latter half.
+	    As stimulus images remain on-screen regardless of participant input, we can tentatively exclude the possibility that this effect is due to changing visual input.
+	    We cannot fully do so due to the fact that visual input depends on gaze point, and we have not yet established a control for this - such an explanation is however highly improbable, as our stimulus pictures have a mean luminosity close to the background luminosity value.
+	    
+	    We assume that this difference arises indeed from no other source than task difficulty.   
+	    In pupillometry literature increased pupil dilation proportional with cognitive load and/or task difficulty is a solidly documented phenomenon \citep{Piquado2010}.
+	    Our time course analysis seems, however, unprecedented - whereby we provide the first analysis of pupil dilation response parameters in a Hariri-style matching task.
+	    In describing the effects we documented, we would tentatively argue that the decrease in pupil dilation seen in easy trials (as opposed to hard trials) starts approximately \SI{0.25}{\second} after the mean reaction time and is representative of task disengagement and reduced attention.
+	    Recent literature presents an opposite (pupil dilation, as opposed to constriction) effect of task disengagement \citep{Franklin2013} - the authors, however, define the phenomenon of disengagement by self-reported mind wandering.
+	    We do not assume our participants to engage in mind wandering during the pupil constriction period, and thus do not believe these findings to be conflicting.  
+	    
+	    Due to our reduced participant sample size (n=12), our evaluation of the time course data is only sparsely significant.
+	    We believe that more refined modelling of the time course data (using time as a continuous variable and analysing data at the original sampling frequency of \SI{60}{\hertz}), together with a slightly increased participant sample size would be sufficient for a highly accurate description of pupil dilation time courses with solid significance levels.
+	    For such an analysis we believe the usage of mixed models which can account for autocorrelation (as for example the ones provided by R's \colorbox{vlg}{\texttt{nlme:lme}}) would be viable.
+	    We are however yet to find a formula adequate for fitting our data to.
+	\subsection{Task Type Effect}
+	    In the comparison of emotion matching task pupil dilation and pattern matching task pupil dilation time courses, we see a very similar picture to that described in section~\ref{sec:d_pd_td}.
+	    The very high similarity between the time courses plotted in figures~\ref{fig:r_pd_ed1} and~\ref{fig:r_pd_es1} is probably due to the difference in difficulty which accompanies the task type.
+	    
+	    This difference in difficulty was unintended, and we have sought to minimize the chance of its emergence via the preliminary testing detailed in section~\ref{sec:pe}.
+	    The scrambling parameters which we have thus chosen under section~\ref{sec:pe_d_fm} were shown to be unsatisfactory by the reaction time analysis performed under section~\ref{sec:r_ra_rt}.
+	    Summarizing this state of affairs, we would conclude that there is no reliable way to disentangle task type and difficulty based on our data.
+	    
+	    Nonetheless it appears that the effect of task type is either identical with the effect of task difficulty, absent, or opposite but considerably weaker.
+	    We make this educated guess based on the thought that in any other case the similarity between the two comparisons would be in some way reduced.
+	    
+	    In the comparison of task vs. non-task pupil dilation (seen in section~\ref{sec:r_pd_ti}) we notice an initial increase of pupil area in trial periods and an initial decrease of pupil area in non-trial periods.
+	    This is indeed congruent with the fact that our fixation cross is lighter in colour than the mean grey value of our stimulus images.
+	    However, due to the small area of the cross and the gradual re-widening of the pupil over a time when only the cross is displayed, we propose that these phasic dilation and constriction effects are caused by task engagement and disengagement processes (rather than the pupillary light reflex).
+	\subsection{Emotional Valence Effect}
+	    In the comparison of pupil dilation time courses for trials using happy or fearful target stimuli, we only notice a main effect of condition, whereby happy faces prompt an overall increase in pupil area. 
+	    As opposed to the previous comparisons we do not suggest the presence of any time-condition interaction trend.
+	    
+	    Our results from section~\ref{sec:r_pd_hf} - when seen alongside the results of the other aforementioned comparisons - suggest that pupil dilation can also be affected \textit{independently} of task-related attention allocation.
+	    This dichotomy of task parameter effects on pupil dilation is to the best of our knowledge first documented in this study, and in agreement with both recent work on pupil dilation as a marker for cognitive load \textit{and} with initial studies on pupil dilation as a marker for affect \citep{Nunally1967, Bradshaw1967}.
+	    With the greatest caution we would also like to suggest that this may indicate a potential relationship of pupil dilation with both the NA and the 5-HT systems (the backdrop of which we have extensively discussed in section~\ref{sec:b_pdr}).
+	\subsection{Per-Condition Brain Activation}
+	    As seen under section~\ref{sec:r_pc}, our paradigm is inefficient in eliciting strong brain activation responses.
+	    Additionally, considerable signal detection power is lost due to pattern matching being roughly equal for both “easy” and “difficult” pattern matching.
+	    
+	    In the comparison of easy and difficult pattern matching trials (see section~\ref{sec:r_pc_ed}) we see no activation in either the easy vs. hard or hard vs. easy contrasts.
+	    In liaison with the reaction time comparison of these conditions (performed under section~\ref{sec:r_ra_rt}) it becomes obvious that our pattern matching contrasts were indeed not significantly different in difficulty.
+	    
+	    In the comparison of easy emotion matching tasks with easy pattern matching tasks, we see what we believe are repercussions of the same baseline flaws.
+	    Activation of the precuneus (which we see in this comparison and illustrate in figure~\ref{fig:r_pc_ep_12_pc}) is commonly associated with the default mode network, and is considered the main hub thereof \citep{Cavanna2007}.
+	    The default mode network is well-documented as a contrast of \textit{not} performing a task against the baseline of performing a task \citep{Raichle2007}.
+	    We believe the precuneus activation in our participants is indicative of the reduced difficulty of easy emotion matching compared to easy pattern matching (confirmed by the reaction time analysis under section~\ref{sec:r_ra_rt}).
+	    We also see amygdala activation in the contrast of easy emotion matching against easy pattern matching (as illustrated under figure~\ref{fig:r_pc_ep_12_am}).
+	    We attribute this to the semantic emotional quality of the stimuli used for this condition and note that this is in congruence with documented amygdala reactivity to emotional stimuli \citep{Hariri2002}.
+	    
+	    Amygdala activation is absent in the contrast of hard emotion matching vs. hard pattern matching (see section~\ref{sec:r_pc_ep_41}).
+	    We believe this indicates that the threshold emotionality value for amygdala activation is not superseded by the \SI{40}{\percent} emotional stimuli used for the hard emotion matching trials.
+	    The precuneus also shows activity in this contrast, which we find curious, seeing as according to the reaction time analysis under section~\ref{sec:r_ra_rt}, there should be no difference in difficulty between these trial types.
+	    Moreover, the error rate analysis (under section~\ref{sec:r_ra_er}) suggests that the hard emotion matching condition may be \textit{more} difficult than the hard pattern matching condition.
+	    We can not rule out the possibility of emotionality-related precuneus activation and the possibility of difference in task difficulty which is not accounted for by error rates or reaction times, though our data is insufficient to formulate a model of these phenomena.
+	    
+	    In the comparison of hard emotion matching against easy emotion matching we do not see any significant activation clusters.
+	    As there is indeed a difficulty difference (as documented by reaction time \textit{and} error rate analysis in sections~\ref{sec:r_ra_rt} and~\ref{sec:r_ra_er}) between these trials, we can only conclude that brain areas implicated in task-compliance would become obvious over a larger sample size.
+	    the inverse contrast (easy emotion matching vs. difficult emotion matching, which is incidentally also the contrast of strongly emotional stimulus images vs. faintly emotional stimulus images) surprisingly shows little activation in areas documented for their engagement in emotional processing.
+	    A surprising hallmark of this comparison is the absence of amygdala activation.
+	    Instead of activation best described in terms of emotion perception we see a cluster pattern highly consistent with the default mode network (see figure~\ref{sec:r_pc_sw}).
+	    We take this as a marker of reduced trial difficulty which is consistent with our comparison of easy emotion matching vs. easy pattern matching. 
+	\subsection{Pupil Area Correlated LC Activity}
+	    In section~\ref{sec:r_pdr} we describe activity within the locus coeruleus (LC) region of interest (ROI).
+	    The pupil dilatory effect of LC activity is a common assumption made in literature - based on circumstantial evidence and animal studies (as extensively described under section~\ref{sec:b_lc}).
+	    Until now, however, the relationship was never functionally imaged in humans. 
+	    To the best of our knowledge our attempt is the first to succeed in documenting a correlation between pupil dilation and neuronal activity in the human LC - and which also withstands rigorous scrutiny of coordinates (by the use of a ROI based on in vivo, fMRI-localization of the LC).
+	     
+	    The LC activity is - interestingly - not correlated with the HRF convoluted regressor computed from the time course of the pupil area.
+	    It is in fact better correlated (approaching significance) with the \textit{not convoluted} regressor computed from the pupil area time course.
+	    This is surprising in as far as fMRI measures BOLD responses only (which are by definition HRF-convoluted functions of neuronal activity).
+	    Under the assumption that the activation seen under figure~\ref{fig:r_pdr_nc} is not an artefact, this would suggest that the dependence between pupil area and LC neuronal activity is somewhat similar to the HRF.
+	    
+	    A slightly different model for the relationship between LC neuronal activity and pupil dilation emerges from the analysis of our fMRI data with an HRF-convoluted regressor obtained from the first differential of the pupil area time course.
+	    This regressor identifies a significant bilateral (and slightly lateralized) activation highly coincident with in vivo documented LC coordinates.
+	    It is interesting to note that while the left LC is slightly larger in cell count than the right \citep{Mouton1994}, our activity pattern was lateralized to the right.
+	    In light of the regressor-correlated activity illustrated under figure~\ref{fig:r_pdr_c} we would posit that LC neuronal activity prompts pupil dilation (as an active phenomenon), but is not required for dilation level maintenance.
+	    This would mean that the LC acts only as a pupil dilation homoeostasis regulator, and would also explain why its correlation with pupil dilation in humans has been so elusive.
+	    We would be cautious with overly detailed interpretation of this correlation's kinetics, as the BOLD response in the brainstem has been documented as non-canonical \citep{Astafiev2010}.
+	    This is a crucial issue, since the accuracy with which we describe activation kinetics is inextricably contingent on the accuracy with which we approximate the brain stem BOLD.
+	    
+	    Though our study provides ample evidence of a significant relationship between pupil dilation and LC activity, we would look towards increased participant sample sizes, and analysis with various (experimental) BOLD models in order to more accurately describe the phenomenon we have uncovered.
+	    In light of an accurate model for the phenomenon, usage of pupil dilation as a portable, rapid, low-cost proxy for LC activation (and possibly activity within other interconnected systems) would be within immediate reach.
