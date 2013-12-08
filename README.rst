@@ -16,7 +16,7 @@ English
 .. engl
 
 Pupillometry is a simple physiological method with ample applications in neuropsychology.
-Electrophysiological evidence has been presented for pupil dilation control via the locus coeruleus, the main site of norepinephrine synthesis in the brain.
+Electrophysiological studies indicate pupil dilation control via the locus coeruleus, the main site of norepinephrine synthesis in the brain.
 We use functional magnetic resonance imaging (fMRI) to test whether the pupil dilation response is a reliable indicator of locus coeruleus activity, 
 and whether any discrepancies can be accounted for by the type of activity being performed during brain imaging.
 In this study we use a behavioural task based on both emotion and pattern recognition and test whether:
