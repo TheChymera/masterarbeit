@@ -1,0 +1,255 @@
+\chapter{Results}                                                                          
+    \section{Participant Response Analysis}\label{sec:r_ra}
+	We are testing parameters of the participant input in our main experiments similarly to how we have assessed our preliminary trials (in section~\ref{sec:pe_r}).
+	The purpose of this analysis is to determine the extent to which we can rely on our baseline in the further investigation of this data set.
+
+	Due to equipment malfunction participant input data is only available for 8 of our 12 participants.
+	\subsection{Reaction Times}\label{sec:r_ra_rt}
+	    \py[ra_rt]{fig_ra_rt}
+	    \py[ra_rt]{lm(data=data_ra_rt[(data_ra_rt['difficulty'] == 'easy') | (data_ra_rt['difficulty'] == 'hard')].reset_index(), fixed='RT~difficulty*scrambled', random='ID', title='Mixed model fitted to the raw reaction times depicted in figure~\\ref{fig:ra_rt}. Our factors are scrambling (yes or no) and difficulty (easy or hard). The model chooses "easy" and "not scrambled" as the intercept value. Difficulty shows a significant positive effect, which is to be expected. Scrambling also shows a significant positive effect - meaning that pattern recognition trials have higher reaction times. This reaction time difference is also not a global offset as difficulty and scrambling interact to form a significant negative effect.', label='tab:r_ra_rt')}
+	    The reaction times for our experiment are shown in figure~\ref{fig:ra_rt}.
+	    An obvious feature (especially in comparison to the reaction time relationships we sought to find in section~\ref{sec:pe_r}) is the highly significant difference between easy emotion recognition and “easy” pattern recognition -
+	    two tailed paired t-test \textit{p}-value of \py[ra_rt]{tex_nr(ttest_rel(data_ra_rt[(data_ra_rt['difficulty'] == "easy") & (data_ra_rt['emotion'] == "scrambled")].groupby(level=0)['RT'].mean(), data_ra_rt[(data_ra_rt['difficulty'] == "easy") & (data_ra_rt['emotion'] != "scrambled")].groupby(level=0)['RT'].mean())[1]/2)}.
+	    
+	    To further describe this potentially disruptive development for our baseline, we have fitted a mixed model with reaction time as our dependent variable, emotion and difficulty as our factors (independent variables), and ID (participant) as our random variable.
+	    The model listed in table~\ref{tab:r_ra_rt} gives a quantitative description confirming that pattern recognition trials prompted significantly higher reaction times.
+	    The emergence of a significant interaction factor in the model indicates that among the easy and hard pattern recognition trials, the difference in reaction times does not correspond directly to what the effect of the difficulty factor prescribes.
+	\subsection{Error Rates}\label{sec:r_ra_er}
+	    Additionally, we have performed an error rate analysis to check for baseline weaknesses (as previously found in section~\ref{sec:pe_r_cs}).
+	    \py[ra_er]{fig_ra_er}
+	    \py[ra_er]{av(data_ra_er.reset_index(), 'ER~difficulty*scrambled+Error(ID)', title='Two-way repeated measure ANOVA table for the data depicted in figure~\\ref{fig:ra_er}. The $Pr(>F)$ value indicates the adjusted probability obtained results occurring by chance if the means of our defined categories are equal.', label='tab:r_ra_er')}
+	    
+	    Both figure~\ref{fig:ra_er} and the ANOVA test run on the portrayed data (under table~\ref{tab:r_ra_er}) show that the baseline is not robust in terms of error rates.
+	    Note that the highly significant effect of the difficulty factor is not a weakness in the model per se - changes in error rates over difficulty alone would be acceptable and expected.
+	    The significant interaction effect of difficulty and scrambling, however, indicates that the given difficulty effect on emotion recognition trials is not reproduced by pattern recognition trials, thus coming to the detriment of the pattern recognition baseline.	    
+    
+    \section{Pupillometry - Methodological Reliability}\label{sec:r_p}
+	Seeing as we are performing the debut pupillometric study on our present set-up, we have decided to perform at least a rough quality assessment for our measurements.
+	A number of possible inaccuracies became apparent during data acquisition (described in detail under section~\ref{sec:m_om_pm}) - 
+	and we are addressing these accordingly in the following paragraphs.
+	
+	To reiterate, Y-axis pupil diameter is often obfuscated by eyelid coverage.
+	Seeing as X-axis diameter incurs no such interference, we believe a simple analysis of correlation can show in how far our measurements are congruent and in how far Y-axis measurements are reliable.
+	
+	Figure~\ref{fig:p_mr} shows raw data points and means for pupil diameters.
+	Due to the overwhelming amount of raw data points sharing the same variance, Pearson's \textit{r} is numerically undefined for our raw data.
+	We are thus fitting the correlation to the data point means. 
+	Here we see a Pearson's \textit{r} of \py[p_mr]{tex_nr(data_p_mr[0][0])} and a \textit{p}-value for non-correlation best approximated within the 64 bit numerical range as  \py[p_mr]{tex_nr(data_p_mr[0][1])}.
+	It is safe to conclude from this result that our measurements are congruent.
+	We will thus be using the mean of X-axis and Y-axis diameters as our preferred diameter approximation.
+	
+	The observations we made during data acquisition pertaining to interference from the eyelids with Y-axis measurements are however also confirmed to be true.
+	A slight offshoot of raw data points is visible for higher values underneath the regression curve.
+	This very probably represents single measurements during which the eyelid partially covered the pupil.  
+	While this offshoot is obscured for mean values, its effect can be traced in the linear formula of the regression line (the computed least-squares solution to a linear matrix equation $Y = aX + b$): 
+	$y = $\py[p_mr]{tex_nr(data_p_mr[1])}$x$\py[p_mr]{tex_nr(data_p_mr[2])}.
+	The \textit{y}-intercept (\py[p_mr]{tex_nr(data_p_mr[2])}) indicates that there is a fixed offset between X-axis and Y-axis measurements, by which Y-axis values are smaller than X-axis values across our measurement range (approx $[20;75]$).
+	\py[p_mr]{fig_p_mr}
+    \section{Per-Condition Pupil Dilation Response}\label{sec:r_pd}
+	In this section we are presenting how our conditions of interest (CoI) affect the pupil dilation response.
+	\subsection{Time-Agnostic Comparison}\label{sec:r_pd_ta}
+	    We first examine the overall pupil dilation prompted by our conditions of interest.
+	    A bar plot showing participant dilation values and population values of per-participant means is presented under figure~\ref{fig:r_pd_ta}.
+	    All values in this figure are normalized to the \textit{global} mean of inter-trial (fixation) dilation size, and thus also reflect inter-participant variability.
+	    We notice a strong overall coherence of per-condition pupil dilation values on the participant level, but high variability of pupil dilation between participants.
+	    
+	    There appears to be a main effect of condition of interest for the mean pupil dilation, as seen in the ANOVA summary of table~\ref{tab:r_pd_ta}.
+	    Visual scrutiny of the bar plot, as well as post-hoc t-tests indicate that inter-trial pupil dilation is significantly different from all other conditions - 
+	    with related measurements t-test \textit{p}-values of 
+	    \py[r_pd_ta]{tex_nr(ttest_rel(data_r_pd_ta.ix["fix"], data_r_pd_ta.ix["emotion-easy"])[1])},
+	    \py[r_pd_ta]{tex_nr(ttest_rel(data_r_pd_ta.ix["fix"], data_r_pd_ta.ix["emotion-hard"])[1])},
+	    \py[r_pd_ta]{tex_nr(ttest_rel(data_r_pd_ta.ix["fix"], data_r_pd_ta.ix["scrambling-easy"])[1])}, and
+	    \py[r_pd_ta]{tex_nr(ttest_rel(data_r_pd_ta.ix["fix"], data_r_pd_ta.ix["scrambling-hard"])[1])}
+	    (for the comparison of inter-trial means with easy emotion matching, hard emotion matching, easy pattern matching, and hard pattern matching trials respectively).
+	    
+	    Based on the high inter-participant variability noticed in this analysis, we are conducting time-course plotting and data analysis by normalizing all measurements to the \textit{per-participant} intertrial mean value.
+
+	    \py[r_pd_ta]{fig_r_pd_ta}
+	    \py[r_pd_ta]{av(data_r_pd_ta_av, 'Pupil~CoI+Error(ID)', title='One-way repeated measure ANOVA table for the data depicted in figure~\\ref{fig:r_pd_ta}. Here we test the effect of our conditions of interest ("CoI") on mean puoil dilation. The $Pr(>F)$ value indicates the adjusted probability of present results occurring by chance if the means of our defined categories are equal.', label='tab:r_pd_ta')}
+	
+	\subsection{Task Engagement: Trial vs. Inter-Trial}
+	    \py[r_pd]{fig_r_pd}
+	    Figure~\ref{fig:r_pd} shows the general time course for all trial conditions and for inter-trial (fixation) periods.
+	    The data indicates that trial conditions prompt a rapid increase in pupil diameter (over the first \SI{0.5}{\second}) followed by a more attenuated slope, which is terminated by a steady decline starting about \SI{0.5}{\second} before the mean reaction time.
+	    
+	    The time course during fixation sees an initial high amplitude decrease of pupil are, followed by a slow recovery phase.
+	    In this per-participant normalized analysis, means integrating all values across the time course (per-participant) are significantly higher for trial sessions than for inter-trial intervals - with a related sample t-test \textit{p}-value of 
+	    \py[r_pd]{tex_nr(ttest_rel(data_r_pd_IDmeans.ix["fix"]["Pupil"], data_r_pd_IDmeans.ix[["easy","hard"]].groupby(level=1).mean()["Pupil"])[1])}.
+	\subsection{Difficulty: Easy vs. Difficult Trials}\label{sec:r_pd_ed}
+	    The pupil dilation response time courses of easy and difficult matching trials - integrating both recognition types (emotional and scrambled faces) - are plotted in figure~\ref{fig:r_pd_ed1}.
+	    This graphic shows that upon stimulus presentation pupil area experiences a short dip, followed by an apparent rapid increase for easy and hard emotion recognition respectively.
+	    After a seemingly steady phase of around \SI{1.5}{\second} pupil area experiences a slow decrease over the rest of the trial duration. 
+	    \py[r_pd_ed1]{fig_r_pd_ed1}
+	    
+	    A few differences in easy vs. difficult task time course are also apparent.
+	    One of the most accessible to basic statistical models is the main effect of condition over the latter half of the trial time window (\SIrange{2}{4}{\second}).
+	    The summary of a mixed model fitted to this linear decay phase can be seen in table~\ref{tab:r_pd_ed1}.
+	    
+	    \py[r_pd_ed1]{lm(data=data_r_pd_ed1_lm, model="nlme", fixed='Pupil~CoI', random=["ID","Time"], title='Mixed model fitted to the latter half of the time course depicted in figure~\\ref{fig:r_pd_ed1}. The independent variable is CoI (condition of interest) which is either "hard" or "difficult". Time and ID (participant) are defined as random variables. Confidence intervals are shown in the parentheses.', label='tab:r_pd_ed1')}
+	    \py[r_pd_ed2]{av(data_r_pd_ed2, 'Pupil~CoI*dTime+Error(ID)', title='Two-way repeated measure ANOVA table for the data depicted in figure~\\ref{fig:r_pd_ed1}. Here we test the effect of our conditions of interest ("CoI") and of discrete time octiles ("dTime"). The $Pr(>F)$ value indicates the adjusted probability of obtained results occurring by chance if the means of our defined categories are equal.', label='tab:r_pd_ed2')}
+
+	    Further features relating to an interaction factor for time and condition are less accessible to statistical modelling due to the complex non-linear shape of the pupil dilation time courses.
+	    Such trends include: a starting dip in pupil dilation (which seems more pronounced for hard emotion matching) and a relationship between mean reaction times and pupil dilation decay onset. 
+	    A popular analysis method in psychology - dividing the time into discrete bins and performing an ANOVA with a simple linear model (thereby circumventing issues arising from non-linearity and autocorrelation) - also fails to find significance for anything but the time factor (as seen in table~\ref{tab:r_pd_ed2}).
+	
+	\subsection{Emotionality: Emotional vs. Scrambled Trials}\label{sec:r_pd_es}
+	    \py[r_pd_es1]{fig_r_pd_es1}	    
+	    In the comparison of emotion and pattern matching we find a picture very similar to the one described in section~\ref{sec:r_pd_ed}.
+	    First we see a rapid increase in pupil area for both of these conditions.
+	    Following this initial trend the pupil area appears to plateau over approximately \SI{1.0}{\second} before trending upwards again and subsequently downwards.
+	    
+	    \py[r_pd_es1]{lm(data=data_r_pd_es1_lm, model="nlme", fixed='Pupil~CoI', random=["ID","Time"], title='Mixed model fitted to the latter half of the time course depicted in figure~\\ref{fig:r_pd_es1}. The independent variable is CoI (condition of interest) which is either "hard" or "difficult". Time and ID (participant) are defined as random variables.', label='tab:r_pd_es1')}
+	    
+	    \py[r_pd_es2]{av(data_r_pd_es2, 'Pupil~CoI*dTime+Error(ID)', title='Two-way repeated measure ANOVA table for the data depicted in figure~\\ref{fig:r_pd_es1}. Here we test the effect of our conditions of interest ("CoI") and of discrete time octiles ("dTime"). The $Pr(>F)$ value indicates the adjusted probability of obtained results occurring by chance if the means of our defined categories are equal.', label='tab:r_pd_es2')}
+	    
+	    There is a pronounced and significant main effect of condition (emotion vs. pattern recognition) over the latter half of the time course - from \SIrange{2}{4}{\second}.
+	    A model of this effect is documented in the mixed model summary from table~\ref{tab:r_pd_es1}.
+	    Additional scrutiny of the time course (as approximated by distinct time octiles) also fails to find significant interactions - as seen in table~\ref{tab:r_pd_es2}.
+	\subsection{Emotion: Happy vs. Fearful Emotion Trials}\label{sec:r_pd_hf}
+	    \py[r_pd_hf1]{fig_r_pd_hf1}
+	    
+	    In comparing happy and fearful emotion recognition tasks we find an overall similar time course picture.
+	    Pupil area experiences a rapid increase,
+	    and this initial trend, the pupil area appears to plateau for approximately \SI{1.5}{\second} before trending downwards for the remainder of the trial time.
+	    
+	    For this particular comparison there seems to be a main effect of condition (happy vs. fearful emotion recognition), which is independent of time.
+	    This is also indicated by an ANOVA performed on discrete time octiles (intervals of \SI{0.5}{\milli\second} each) - the summary of which is presented in table~\ref{tab:r_pd_hf2}.
+	    Overall the pupil dilation is considerably stronger for fearful emotion recognition than for happy emotion recognition, until approximately the last octile (\SIrange{3.5}{4.0}{\second}), where the main effect of the “happy” condition is counteracted by the “happy”-dTime interaction (explicit linear model shown under supplementary materials, in table~\ref{tab:r_pd_hf3}).
+	    \py[r_pd_hf2]{av(data_r_pd_hf2, 'Pupil~CoI*dTime+Error(ID)', title='Two-way repeated measure ANOVA table for the data depicted in figure~\\ref{fig:r_pd_hf1}. Here we test the effect of our conditions of interest ("CoI") and of discrete time octiles ("dTime"). The $Pr(>F)$ value indicates the adjusted probability of obtained results occurring by chance if the means of our defined categories are equal.', label='tab:r_pd_hf2')}
+	    
+    \section{Per-Condition Brain Activity Contrasts}\label{sec:r_pc}
+	The following brain activation analyses have been preferentially thresholded at an uncorrected \textit{p}-value of 0.001 and a spatial extent threshold of 20 voxels.
+	\subsection{Difficult vs. Easy Pattern Matching}\label{sec:r_pc_ed}
+	    \begin{wrapfigure}{r}{0.5\textwidth}
+		\centering
+		\vspace{-1.8cm}
+		\scalebox{0.6}{\includegraphics{./img/cell10_cell22.png}}
+		\caption{Glass brain depiction of brain activity contrast between easy and difficult pattern recognition trials. The markers highlight the main cluster peak.}
+		\label{fig:r_pc_ed}
+		\vspace{-0.8cm}
+	    \end{wrapfigure}
+	    No significant brain activation was obtained for the contrast of difficult pattern matching trials against the baseline of easy pattern matching tasks.
+	    The cluster closest to significance is detailed in table~\ref{tab:r_pc_ed}, and was identified at an uncorrected \textit{p}-value of 0.005 and a spatial extent threshold of 20 voxels.
+	    
+	    A graphical depiction of this cluster is presented in figure~\ref{fig:r_pc_ed}.
+	    The main cluster peak is assigned the “superior parietal lobule - left” ICBM label by the WFU PickAtlas. 
+	    \py{tex_mr([["A",22,1.000,0.988,4.43,-39,-58,58],["n","n",1.000,0.988,3.52,-42,-49,58]],caption="Summary statistics for brain activation clusters in the contrast of difficult pattern matching against easy pattern matching tasks. FWE = Family-Wise Error; FDR = False Discovery Rate; X, Y, and Z coordinates given in MNI space.",label="tab:r_pc_ed")}
+	    
+	    The inverse contrast yielded no activation clusters at our preferred significance level.
+	\subsection{Emotion vs. Pattern Recognition}\label{sec:r_pc_ep}
+	    We have analysed emotion vs. pattern recognition contrasts separately for the two matched pairs: \SI{100}{\percent} emotion and \SI{22}{\pixel} scrambling; and \SI{40}{\percent} emotion and \SI{10}{\pixel} scrambling respectively.
+	    This was done in lieu of binning the two sets of conditions together chiefly because the two contrasts are not comparable in terms of difficulty difference between conditions (as shown in section~\ref{sec:r_ra}).
+	    For the subsequently presented data we define pattern recognition as the baseline, and view activation prompted by emotion recognition as relative to that baseline.
+	    \subsubsection{\SI{100}{\percent} Emotion vs. \SI{22}{\pixel} Scrambling}\label{sec:r_pc_ep_12}
+		A number of regions show activity in this contrast at our preferred uncorrected significance (\textit{p} = 0.001) and spatial extent (\SI{20}{voxel}) thresholds.
+		These clusters are detailed in table~\ref{tab:r_pc_ep_12}.
+		\py{tex_mr([["A",147,0.041,0.390,9.31,54,-73,1],["n","n",0.302,0.428,7.57,60,-58,7],["n","n",0.961,0.545,5.68,51,-43,7],["B",57,0.051,0.390,9.11,33,-82,-35],["n","n",0.919,0.541,5.95,42,-76,-35],["C",155,0.278,0.428,7.63,3,-52,43],["n","n",0.768,0.428,6.52,9,-61,34],["n","n",0.918,0.541,5.95,-9,-46,37],["D",31,0.449,0.428,7.25,18,-88,-32],["n","n",1.000,0.721,4.73,12,-82,-29],["E",36,0.636,0.428,6.93,39,-52,-14],["n","n",0.984,0.623,5.43,39,-46,-23],["n","n",0.998,0.642,5.05,42,-34,-11],["F",26,0.730,0.428,6.64,-30,-85,-32],["G",24,0.744,0.428,6.60,-39,-52,-17],["H",36,0.746,	0.428,6.59,-21,-10,-20],["I",20,0.785,0.428,6.47,-45,14,-23]],caption="Summary statistics for brain activation clusters in the contrast of easy emotion matching trials against a baseline of easy pattern matching trials. FWE = Family-Wise Error; FDR = False Discovery Rate; X, Y, and Z coordinates given in MNI space.",label="tab:r_pc_ep_12")}
+		
+		The activation clusters with the highest degree of significance are thus located within the right medial temporal gyrus (cluster A), the right hemisphere of the cerebellum (cluster B), the right superior parietal lobule (cluster C), and the right superior occiptial gyrus (cluster D).
+		Lower peak voxel significance (FWE-corrected \textit{p}-value of 0.746, cluster H) has been found for amygdala/hippocampus activation, which we present for illustrative purposes alongside the precuneus activation of cluster C in figure~\ref{fig:r_pc_ep_12}
+		\begin{figure}[H]
+		    \begin{subfigure}[H]{0.495\textwidth}
+			\centering\scalebox{0.45}{\includegraphics{./img/12_pc.png}}
+			\subcaption{Right Precuneus cluster (C)}
+			\label{fig:r_pc_ep_12_pc}
+		    \end{subfigure}
+		    ~%add desired spacing between images, e. g. ~, \quad, \qquad etc. (or a blank line to force the subfigure onto a new line)
+		    \begin{subfigure}[H]{0.495\textwidth}
+			\centering\scalebox{0.45}{\includegraphics{./img/12_am.png}}
+			\subcaption{Left Amygdala/Hippocampus cluster (H)}
+			\label{fig:r_pc_ep_12_am}
+		    \end{subfigure}
+		    \caption{Graphical depiction of brain activation in the contrast of easy emotion matching trials against a baseline of easy pattern matching trials; with cross-hairs positioned at the corresponding highest significance voxel of the cluster (as listed under table~\ref{tab:r_pc_ep_12}).}
+		    \label{fig:r_pc_ep_12}
+		\end{figure}
+		
+		The inverse of this condition yielded activation clusters in the occipital and superior parietal lobules with higher significance in the left cerebral hemisphere.
+		These clusters are accurately documented in table~\ref{tab:r_pc_ep_12i}.
+		\py{tex_mr([["A",256,0.022,0.129,9.90,-27,-70,31],["n","n",0.692,0.323,6.76,-24,-88,16],["n","n",0.811,0.323,6.38,-33,-85,19],["B",74,0.031,0.129,9.58,-9,-91,-5],["n","n",0.396,0.323,7.35,0,-88,-2],["n","n",1.000,0.634,4.72,-18,-85,-8],["C",187,0.650,0.323,6.89,18,-64,61],["n","n",0.802,0.323,6.41,39,-79,10],["n","n",0.895,0.323,6.06,36,-88,7],["D",23,0.894,0.323,6.06,27,-40,-11],["n","n",0.993,0.463,5.26,27,-34,-17],["E",38,0.967,0.370,5.63,-30,-46,-11],["n","n",0.975,0.370,5.63,-30,-46,-11],["n","n",0.975,0.384,5.55,-27,-61,-11],["n","n",1.000,0.928,4.15,-30,-73,-5]],caption="Summary statistics for brain activation clusters in the contrast of easy pattern matching trials against a baseline of easy emotion matching trials. FWE = Family-Wise Error; FDR = False Discovery Rate; X, Y, and Z coordinates given in MNI space.",label="tab:r_pc_ep_12i")}
+	    \subsubsection{\SI{40}{\percent} Emotion vs. \SI{10}{\pixel} Scrambling}\label{sec:r_pc_ep_41}
+		Brain activation evoked by difficult emotion matching trials relative to difficult pattern matching trials was distributed over the clusters listed in table~\ref{tab:r_pc_ep_41}.
+		These clusters are confined mostly to the right occipitoparietal and occipitotemporal lobules (with the exception of cluster H, which is located in the right frontal lobe; and cluster B in the left lateral occipitotemporal gyrus).
+		
+		Of these clusters we would like to illustrate the recurring activation cluster in the right precuneus (E), and the most significant activation clusters (A and B) in the right and left lateral occipitotemporal gyri - see figure~\ref{fig:r_pc_ep_41}.
+		\begin{figure}[H]
+		    \begin{subfigure}[H]{0.495\textwidth}
+			\centering\scalebox{0.45}{\includegraphics{./img/41_pc.png}}
+			\subcaption{Right Precuneus cluster (E)}
+			\label{fig:r_pc_ep_41_pc}
+		    \end{subfigure}
+		    ~%add desired spacing between images, e. g. ~, \quad, \qquad etc. (or a blank line to force the subfigure onto a new line)
+		    \begin{subfigure}[H]{0.495\textwidth}
+			\centering\scalebox{0.45}{\includegraphics{./img/41_ot.png}}
+			\subcaption{Left (and right) Occipitotemporal cluster (A and B)}
+			\label{fig:r_pc_ep_41_ot}
+		    \end{subfigure}
+		    \caption{Graphical depiction of brain activation in the contrast of difficult emotion matching trials against a baseline of difficult pattern matching trials; with cross-hairs positioned at the corresponding highest significance voxel of the cluster (as listed under table~\ref{tab:r_pc_ep_41}).}
+		    \label{fig:r_pc_ep_41}
+		\end{figure}
+		\py{tex_mr([["A",45,0.154,0.407,8.13,39,-49,-17],["B",20,0.795,0.407,6.47,-39,-52,-17],["C",30,0.838,0.407,6.32,42,-79,-11],["n","n",0.937,0.434,5.88,45,-73,-5],["D",35,0.860,0.407,6.24,54,-64,4],["n","n",0.992,0.500,5.31,48,-55,7],["n","n",1.000,0.742,4.52,48,-64,19],["E",28,0.864,0.407,6.23,3,-64,28],["F",29,0.985,0.496,5.46,36,17,22]],caption="Summary statistics for brain activation clusters in the contrast of difficult emotion matching trials against a baseline of difficult pattern matching trials. FWE = Family-Wise Error; FDR = False Discovery Rate; X, Y, and Z coordinates given in MNI space.",label="tab:r_pc_ep_41")}
+		
+		The inverse contrast of this condition - difficult pattern recognition compared to a baseline of difficult emotion recognition yields activation clusters in high agreement with those of the inverse contrast from section~\ref{sec:r_pc_ep_12}.
+		These activation clusters lie predominantly in the occipital and superior parietal lobules and are accurately documented by table~\ref{tab:r_pc_ep_41i}.
+		\py{tex_mr([["A",93,0.006,0.184,11.27,-42,-43,46],["n","n",0.877,0.491,6.17,-48,-49,34],["B",355,0.235,0.465,7.77,-18,-67,52],["n","n",0.449,0.465,7.25,-36,-82,16],["n","n",0.607,0.465,7.02,-36,-79,28],["C",32,0.645,0.465,6.94,-24,11,-11],["n","n",0.657,0.465,6.90,-24,17,-2],["D",402,0.684,0.465,6.82,15,-67,61],["n","n",0.695,0.465,6.79,27,-64,49],["n","n",0.717,0.465,6.72,36,-82,7],["E",20,0.828,0.492,6.36,30,23,-2],["n","n",0.980,0.492,5.53,36,20,-11],["F",21,0.858,0.492,6.25,39,-46,58],["G",35,0.961,0.492,5.72,-27,-58,-8],["n","n",0.997,0.566,5.15,-27,-46,-17],["H",28,0.991,0.545,5.34,15,-67,-38],["n","n",0.994,0.552,5.25,18,-52,-41],["n","n",0.998,0.588,5.05,9,-58,-47]],caption="Summary statistics for brain activation clusters in the contrast of difficult pattern matching trials against a baseline of difficult emotion matching trials. FWE = Family-Wise Error; FDR = False Discovery Rate; X, Y, and Z coordinates given in MNI space.",label="tab:r_pc_ep_41i")}
+	\subsection{Strong vs. Weak emotion Intensity}\label{sec:r_pc_sw}
+	    As described in detail under section~\ref{sec:m_vs_ef}, “easy” and “difficult” emotion matching are designed based on face images with more obvious (more concentrated - \SI{100}{\percent}) or less obvious (less concentrated - \SI{40}{\percent}) emotions.
+	    Comparing the emotion matching trials based on difficulty - difficult matching against a baseline of easy matching, shows no significant brain activation at our preferred significance and spatial extent threshold.
+	    The cluster closest to significance is detailed in table~\ref{tab:r_pc_swi}, and was identified at an uncorrected \textit{p}-value of 0.005 and a spatial extent threshold of 20 voxels.
+	    \py{tex_mr([["A",26,1.000,0.981,4.06,45,20,25],["n","n",1.000,0.981,3.17,42,5,28]],caption="Summary statistics for brain activation clusters in the contrast of difficult emotion matching tasks against easy emotion matching tasks. FWE = Family-Wise Error; FDR = False Discovery Rate; X, Y, and Z coordinates given in MNI space.",label="tab:r_pc_swi")}
+	    
+	    The inverse contrast of the aforementioned comparison - easy emotion recognition against a baseline of difficult emotion recognition - is also the contrast of strongly emotional stimuli against a baseline of faintly emotional stimuli.
+	    This comparison yields many more activation clusters (at our preferred thresholds) - all of which are detailed under table~\ref{tab:r_pc_sw}.
+	    The area covered by these clusters is ample and includes the left superior temporal gyrus (cluster A), the left medial frontal gyrus (cluster D), and the posterior cingulate cortex (“PCC”, cluster B).
+	    We present an illustrative example of the latter two of these clusters under figure~\ref{fig:r_pc_sw}.
+	    \begin{figure}[H]
+		\begin{subfigure}[H]{0.495\textwidth}
+		    \centering\scalebox{0.45}{\includegraphics{./img/sw_pcc.png}}
+		    \subcaption{Left Medial Frontal Gyrus cluster (D)}
+		    \label{fig:r_pc_sw_mf}
+		\end{subfigure}
+		~%add desired spacing between images, e. g. ~, \quad, \qquad etc. (or a blank line to force the subfigure onto a new line)
+		\begin{subfigure}[H]{0.495\textwidth}
+		    \centering\scalebox{0.45}{\includegraphics{./img/sw_pcc.png}}
+		    \subcaption{PCC cluster (B)}
+		    \label{fig:r_pc_sw_pcc}
+		\end{subfigure}
+		\caption{Graphical depiction of brain activation in the contrast of strong emotion stimulus trials against a baseline of weak emotion stimulus trials; with cross-hairs positioned at the corresponding highest significance voxel of the cluster (as listed under table~\ref{tab:r_pc_sw}).}
+		\label{fig:r_pc_sw}
+	    \end{figure}
+	    \py{tex_mr([["A",137,0.002,0.074,12.90,-60,-16,-8],["n","n",0.332,0.303,7.49,-63,-25,-5],["n","n",0.343,0.303,7.47,-57,-34,-2],["B",233,0.008,0.081,11.0,-3,-37,43],["n","n",0.157,0.303,8.11,-6,-31,37],["n","n",0.555,0.314,7.09,-12,-46,34],["C",203,0.008,0.081,10.96,-42,-58,40],["n","n",0.476,0.303,7.21,-42,-58,31],["n","n",0.665,0.340,6.88,-48,-52,25],["D",468,0.232,0.303,7.78,-6,56,13],["n","n",0.324,0.303,7.51,-6,50,-5],["n","n",0.432,0.303,7.28,0,59,4],["E",85,0.240,0.303,7.76,21,-91,19],["n","n",0.880,0.354,6.16,6,-85,37],["n","n",0.975,0.458,5.58,18,-85,37],["F",41,0.673,0.340,6.85,60,-19,-8],["n","n",0.977,0.458,5.55,60,-25,-14],["n","n",1.000,0.869,4.31,60,-7,-8],["G",21,0.824,0.348,6.37,-12,38,46],["n","n",1.000,0.825,4.54,-15,35,34],["H",21,0.911,0.380,6.02,21,-40,40],["I",29,0.930,0.394,5.92,-24,32,46],["n","n",0.956,0.427,5.75,-33,20,49],["n","n",1.000,0.918,4.19,-30,29,40]],caption="Summary statistics for brain activation clusters in the contrast of strong emotion stimulus trials against a baseline of weak emotion stimulus trials. FWE = Family-Wise Error; FDR = False Discovery Rate; X, Y, and Z coordinates given in MNI space.",label="tab:r_pc_sw")}	
+    \section{Pupil Dilation Regression}\label{sec:r_pdr}
+	For a first analysis attempt, the per-participant pupil area time course - downsampled to the TR (as detailed under section~\ref{sec:m_fmri_dp}) - was introduced as a regressor condition in the first level analysis of the fMRI data, and subsequently mapped as a population contrast in the second-level analysis.
+	
+	This non-folded (not convoluted with the HRF) regressor is correlated with a peak inside the Locus Coeruleus (LC) region of interest (ROI).
+	This correlated voxel is located in the right LC nucleus area and is documented in table~\ref{tab:r_pdr_nc}, and shown in figure~\ref{fig:r_pdr_nc}.
+	\py{tex_mr([["A",1,0.053,0.905,4.10,3,-37,-20]],caption="Summary statistics for the LC ROI brain activation peak correlated with a raw pupil area time course regressor. FWE = Family-Wise Error; FDR = False Discovery Rate; X, Y, and Z coordinates given in MNI space.",label="tab:r_pdr_nc")}
+	
+	For further clarification of results, three other regressors have been used to explore pupil dilation correlated activity in the fMRI data.
+	These are:
+	\begin{itemize}
+	    \item A raw pupil area time course regressor convoluted with the HRF
+	    \item A pupil area time course differential (computed at the original \SI{60}{\hertz}) regressor
+	    \item A pupil area time course differential regressor convoluted with the HRF
+	\end{itemize}
+	
+	Of these, the first two did not extract any LC ROI activation.
+	The third regressor - the HRF-convoluted pupil area time course differential - was correlated with LC ROI activation similar to the one identified by the raw pupil area time course regressor.
+	The activation cluster is broader than the previously identified one, with a more significant peak voxel - but similarly lateralized.
+	The brain activation data for this regressor is sumarized under table~\ref{tab:r_pdr} and depicted in figure~\ref{fig:r_pdr_c}.
+	\py{tex_mr([["A",5,0.003,0.189,6.04,6,-34,-26],["B",1,0.54,0.838,4.17,-6,-34,-26]],caption="Summary statistics for the LC ROI brain activation peak correlated with a pupil area time course differential regressor convoluted with the HRF. FWE = Family-Wise Error; FDR = False Discovery Rate; X, Y, and Z coordinates given in MNI space.",label="tab:r_pdr")}
+	
+	\begin{figure}[H]
+	    \begin{subfigure}[H]{0.495\textwidth}
+		\centering\scalebox{0.45}{\includegraphics{./img/p_nc.png}}
+		\subcaption{Unconvoluted regressor of raw\\ pupil area time course.}
+		\label{fig:r_pdr_nc}
+	    \end{subfigure}
+	    ~%add desired spacing between images, e. g. ~, \quad, \qquad etc. (or a blank line to force the subfigure onto a new line)
+	    \begin{subfigure}[H]{0.495\textwidth}
+		\centering\scalebox{0.45}{\includegraphics{./img/p_c.png}}
+		\subcaption{HRF-convoluted regressor of\\ time course differential.}
+		\label{fig:r_pdr_c}
+	    \end{subfigure}
+	    \caption{Graphical depiction of brain activation within the LC ROI correlated with 2 different pupil area regressors.}
+	    \label{fig:r_pdr}
+	\end{figure}
