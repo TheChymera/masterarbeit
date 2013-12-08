@@ -85,12 +85,12 @@ data_pe_cs5.ix[(data_pe_cs5['scrambling'] == 0), 'scrambled'] = 'no'
 data_pe_cs5.ix[(data_pe_cs5['scrambling'] != 0), 'scrambled'] = 'yes'
 \end{pycode}
 \begin{pycode}[p_mr]
-pytex.add_dependencies('/home/chymera/src/faceOM/analysis/et.py')
+pytex.add_dependencies('/home/chymera/src/faceOM/analysis/timecourse_dilation.py')
 pytex.add_dependencies('/home/chymera/src/faceRT/analysis/data_functions.py')
 pytex.add_dependencies('/home/chymera/src/faceRT/analysis/gen.cfg')
 sys.path.append('/home/chymera/src/faceOM/analysis/')
-import et
-data_p_mr = et.corr(source='local', make_tight={"pad": 0})
+import timecourse_dilation
+data_p_mr = timecourse_dilation.corr(source='local', make_tight={"pad": 0})
 fig_p_mr = latex_figure(save_fig(fig_width=3.5, fig_height=3.5), caption='Correlation between X-axis and Y-axis pupil diameters on measurement data points. Raw data points are shown in faint gray, and per-participant per-timepoint (relative to trial onset) means are shown in green. The regression line is drawn in magenta. To decrease cluttering, only one in three raw data points is plotted.', label='p_mr')
 \end{pycode}
 \begin{pycode}[ra_rt]
@@ -111,40 +111,97 @@ import er
 data_ra_er = er.main(source='local', make_tight={"pad": 0}, make_std=False, make_scrambled_yn=True, elinewidth=1)
 fig_ra_er = latex_figure(save_fig(fig_width=6.64, fig_height=3), caption='Error rates for Hariri-style face matching. The error bars represent the standard deviation. Bar-plots with zero-height have been slightly indented for better visibility.', label='ra_er')
 \end{pycode}
-\begin{pycode}[r_pd]
-pytex.add_dependencies('/home/chymera/src/faceOM/analysis/et.py')
+\begin{pycode}[r_pd_ta]
+import pandas as pd
+pytex.add_dependencies('/home/chymera/src/faceOM/analysis/barplot_dilation.py')
 pytex.add_dependencies('/home/chymera/src/faceRT/analysis/data_functions.py')
 pytex.add_dependencies('/home/chymera/src/faceRT/analysis/gen.cfg')
 sys.path.append('/home/chymera/src/faceOM/analysis/')
-import et
-data_r_pd = et.time_course(source='local', make_tight={"pad": 0}, show=["fix", "all", "rt_all"])
-fig_r_pd = latex_figure(save_fig(fig_width=6.64, fig_height=3.2), caption='Pupil dilation over time. The values are proportional to the mean pupil dilation size during fixation (here 1.0). Shaded areas represent the standard errors of the mean. The vertical line represents the mean reaction time. Plotted data was down-sampled to \\SI{15}{\\hertz}.', label='r_pd')
+import barplot_dilation
+data_r_pd_ta = barplot_dilation.main(source='local', make_tight={"pad": 0}, make_std=False, make_sem=True, elinewidth=1)
+fig_r_pd_ta = latex_figure(save_fig(fig_width=6.64, fig_height=3.2), caption='Bar plots of pupil dilation integrated over the entire time course. The Y-axis values are proportional to the global fixation (inter-trial interval) pupil size. The error bars represent the standard error of the mean.', label='r_pd_ta')
+data_r_pd_ta = data_r_pd_ta["Pupil"].groupby(level=(0,2)).mean()
+data_r_pd_ta_av = data_r_pd_ta.reset_index()
+data_r_pd_ta_av.columns=["CoI","ID","Pupil"]
+\end{pycode}
+\begin{pycode}[r_pd]
+pytex.add_dependencies('/home/chymera/src/faceOM/analysis/timecourse_dilation.py')
+pytex.add_dependencies('/home/chymera/src/faceRT/analysis/data_functions.py')
+pytex.add_dependencies('/home/chymera/src/faceRT/analysis/gen.cfg')
+sys.path.append('/home/chymera/src/faceOM/analysis/')
+import timecourse_dilation
+data_r_pd = timecourse_dilation.time_course(source='local', make_tight={"pad": 0}, show=["fix", "all", "rt_all"])
+fig_r_pd = latex_figure(save_fig(fig_width=6.64, fig_height=3.2), caption='Pupil dilation over time. The values are proportional to the mean pupil dilation size during fixation (the inter-trial interval). Shaded areas represent the standard errors of the mean. The vertical line represents the mean reaction time. Plotted data was down-sampled to \\SI{15}{\\hertz}.', label='r_pd')
+data_r_pd_IDmeans = data_r_pd.set_index(["ID"], append=True, drop=True)
+data_r_pd_IDmeans = data_r_pd_IDmeans.groupby(level=(0,2)).mean()
 \end{pycode}
 \begin{pycode}[r_pd_ed1]
-pytex.add_dependencies('/home/chymera/src/faceOM/analysis/et.py')
+pytex.add_dependencies('/home/chymera/src/faceOM/analysis/timecourse_dilation.py')
 pytex.add_dependencies('/home/chymera/src/faceRT/analysis/data_functions.py')
 pytex.add_dependencies('/home/chymera/src/faceRT/analysis/gen.cfg')
 sys.path.append('/home/chymera/src/faceOM/analysis/')
-import et
-data_r_pd_ed1 = et.time_course(source='local', make_tight={"pad": 0}, show=["easy", "hard", "rt_e", "rt_h"])
+import timecourse_dilation
+data_r_pd_ed1 = timecourse_dilation.time_course(source='local', make_tight={"pad": 0}, show=["easy", "hard", "rt_e", "rt_h"])
 fig_r_pd_ed1 = latex_figure(save_fig(fig_width=6.64, fig_height=3.2), caption='Pupil dilation over time for easy and difficult matching. The values are proportional to the mean pupil dilation size during fixation (here 1.0). Shaded areas represent the standard errors of the mean. Vertical lines represent mean reaction times. Plotted data was down-sampled to \\SI{15}{\\hertz}.', label='r_pd_ed1')
+data_r_pd_ed1_lm = data_r_pd_ed1.reset_index()
+data_r_pd_ed1_lm = data_r_pd_ed1_lm[(data_r_pd_ed1_lm["CoI"] =="easy")|(data_r_pd_ed1_lm["CoI"] =="hard")&(data_r_pd_ed1_lm["measurement"] >= 120)]
+\end{pycode}
+\begin{pycode}[r_pd_ed2]
+pytex.add_dependencies('/home/chymera/src/faceOM/analysis/timecourse_dilation.py')
+pytex.add_dependencies('/home/chymera/src/faceRT/analysis/data_functions.py')
+pytex.add_dependencies('/home/chymera/src/faceRT/analysis/gen.cfg')
+sys.path.append('/home/chymera/src/faceOM/analysis/')
+import timecourse_dilation
+data_r_pd_ed2 = timecourse_dilation.discrete_time(make_tight={"pad": 0}, show=["easy", "hard"], sample_size = 30)
+fig_r_pd_ed2 = latex_figure(save_fig(fig_width=6.64, fig_height=3.2), caption='Pupil dilation over time for easy and difficult matching. The values are proportional to the mean pupil dilation size during fixation (here 1.0). Shaded areas represent the standard errors of the mean. Vertical lines represent mean reaction times. Plotted data was down-sampled to \\SI{15}{\\hertz}.', label='r_pd_ed2')
+data_r_pd_ed2 = data_r_pd_ed2.reset_index()
+data_r_pd_ed2 = data_r_pd_ed2[(data_r_pd_ed2["CoI"] == "easy") | (data_r_pd_ed2["CoI"] == "hard")]
 \end{pycode}
 \begin{pycode}[r_pd_hf1]
-pytex.add_dependencies('/home/chymera/src/faceOM/analysis/et.py')
+pytex.add_dependencies('/home/chymera/src/faceOM/analysis/timecourse_dilation.py')
 pytex.add_dependencies('/home/chymera/src/faceRT/analysis/data_functions.py')
 pytex.add_dependencies('/home/chymera/src/faceRT/analysis/gen.cfg')
 sys.path.append('/home/chymera/src/faceOM/analysis/')
-import et
-data_r_pd_hf1 = et.time_course(source='local', make_tight={"pad": 0}, show=["happy", "fearful", "rt_ha", "rt_fe"])
+import timecourse_dilation
+data_r_pd_hf1 = timecourse_dilation.time_course(source='local', make_tight={"pad": 0}, show=["happy", "fearful", "rt_ha", "rt_fe"])
 fig_r_pd_hf1 = latex_figure(save_fig(fig_width=6.64, fig_height=3.2), caption='Pupil dilation over time for emotional faces matching. The values are proportional to the mean pupil dilation size during fixation (here 1.0). Shaded areas represent the standard errors of the mean. Vertical lines represent mean reaction times. Plotted data was down-sampled to \\SI{15}{\\hertz}.', label='r_pd_hf1')
+data_r_pd_hf1_IDmeans = data_r_pd_hf1.set_index(["ID"], append=True, drop=True)
+data_r_pd_hf1_IDmeans = data_r_pd_hf1_IDmeans.groupby(level=(0,1)).mean()
+\end{pycode}
+\begin{pycode}[r_pd_hf2]
+pytex.add_dependencies('/home/chymera/src/faceOM/analysis/timecourse_dilation.py')
+pytex.add_dependencies('/home/chymera/src/faceRT/analysis/data_functions.py')
+pytex.add_dependencies('/home/chymera/src/faceRT/analysis/gen.cfg')
+sys.path.append('/home/chymera/src/faceOM/analysis/')
+import timecourse_dilation
+data_r_pd_hf2 = timecourse_dilation.discrete_time(make_tight={"pad": 0}, show=["happy", "fearful"], sample_size = 30)
+fig_r_pd_hf2 = latex_figure(save_fig(fig_width=6.64, fig_height=3.2), caption='Pupil dilation over time for easy and difficult matching. The values are proportional to the mean pupil dilation size during fixation (here 1.0). Shaded areas represent the standard errors of the mean. Vertical lines represent mean reaction times. Plotted data was down-sampled to \\SI{15}{\\hertz}.', label='r_pd_hf2')
+data_r_pd_hf2 = data_r_pd_hf2.reset_index()
+data_r_pd_hf2 = data_r_pd_hf2[(data_r_pd_hf2["CoI"] == "happy") | (data_r_pd_hf2["CoI"] == "fearful")]
 \end{pycode}
 \begin{pycode}[r_pd_es1]
-pytex.add_dependencies('/home/chymera/src/faceOM/analysis/et.py')
+pytex.add_dependencies('/home/chymera/src/faceOM/analysis/timecourse_dilation.py')
 pytex.add_dependencies('/home/chymera/src/faceRT/analysis/data_functions.py')
 pytex.add_dependencies('/home/chymera/src/faceRT/analysis/gen.cfg')
 sys.path.append('/home/chymera/src/faceOM/analysis/')
-import et
-data_r_pd_es1 = et.time_course(source='local', make_tight={"pad": 0}, show=["emotion", "scrambled", "rt_em", "rt_sc"])
+import timecourse_dilation
+data_r_pd_es1 = timecourse_dilation.time_course(source='local', make_tight={"pad": 0}, show=["emotion", "scrambled", "rt_em", "rt_sc"])
 fig_r_pd_es1 = latex_figure(save_fig(fig_width=6.64, fig_height=3.2), caption='Pupil dilation over time for matching of either emotional or scrambled faces. The values are proportional to the mean pupil dilation size during fixation (here 1.0). Shaded areas represent the standard errors of the mean. Vertical lines represent mean reaction times. Plotted data was down-sampled to \\SI{15}{\\hertz}.', label='r_pd_es1')
+data_r_pd_es1 = data_r_pd_es1.reset_index()
+data_r_pd_es1[(data_r_pd_es1["CoI"] =="fearful")]["CoI"] = (data_r_pd_es1[(data_r_pd_es1["CoI"] =="fearful")]["CoI"]+data_r_pd_es1[(data_r_pd_es1["CoI"] =="happy")]["CoI"])/2
+data_r_pd_es1.ix[(data_r_pd_es1["CoI"]=="fearful"), "CoI"] = "emotion"
+data_r_pd_es1_lm = data_r_pd_es1[(data_r_pd_es1["CoI"] =="scrambled")|(data_r_pd_es1["CoI"] =="emotion")&(data_r_pd_es1["measurement"] >= 120)]
+\end{pycode}
+\begin{pycode}[r_pd_es2]
+pytex.add_dependencies('/home/chymera/src/faceOM/analysis/timecourse_dilation.py')
+pytex.add_dependencies('/home/chymera/src/faceRT/analysis/data_functions.py')
+pytex.add_dependencies('/home/chymera/src/faceRT/analysis/gen.cfg')
+sys.path.append('/home/chymera/src/faceOM/analysis/')
+import timecourse_dilation
+data_r_pd_es2 = timecourse_dilation.discrete_time(make_tight={"pad": 0}, show=["happy", "fearful"], sample_size = 30)
+data_r_pd_es2 = data_r_pd_es2.reset_index()
+data_r_pd_es2[(data_r_pd_es2["CoI"] =="fearful")]["CoI"] = (data_r_pd_es2[(data_r_pd_es2["CoI"] =="fearful")]["CoI"]+data_r_pd_es2[(data_r_pd_es2["CoI"] =="happy")]["CoI"])/2
+data_r_pd_es2.ix[(data_r_pd_es2["CoI"]=="fearful"), "CoI"] = "emotion"
+data_r_pd_es2 = data_r_pd_es2[(data_r_pd_es2["CoI"] == "emotion")|(data_r_pd_es2["CoI"] == "scrambled")]
 \end{pycode}
 %END FIGURES AND DATA
