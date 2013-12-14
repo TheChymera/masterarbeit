@@ -1,6 +1,6 @@
-\chapter{Preliminary Experiments}\label{sec:pe}
+\chapter{Excursus: Preliminary Experiments}\label{sec:pe}
     \section{Background}\label{sec:pa_s}
-	Our visual matching task (described in detail under section~\ref{sec:m_bt}) relies on both emotion and pattern recognition.
+	Our visual matching task (as described in detail under section~\ref{sec:m_bt}) relies on both emotion and pattern recognition.
 	As luminosity variations could greatly disturb our pupillary measurements, we need equally luminous images in all conditions.
 	In this thesis we are employing a novel feature-obfuscation algorithm, Pyxrand \citep{pyxrand}, which allows us to process the same images we use for emotion recognition and use them as pattern recognition templates - the algorithm is more accurately described under section~\ref{sec:m_vs_si}.
 	
@@ -11,6 +11,7 @@
 	    \item Scrambling type (our script provides both cluster-based and kernel-based scrambling, functions which we explicitly detail under section~\ref{sec:m_vs_si}).
 	    \item Scrambling resolution.
 	\end{itemize}
+	
 	The information which we try to extract from combinations of the above is:
 	\begin{itemize}
 	    \item What scrambling kind and resolution provide for equally fast performance in pattern recognition trials as in our easy and hard emotion recognition trials (see section~\ref{sec:m_vs_ef} for information on our emotional images).
@@ -23,7 +24,7 @@
 	    Since these are preparatory trials we opted for merely around 7 participants per run.
 	    Participants are identified in the study by a 2-letter code, and a subset of them have participated in multiple runs of our preliminary trials.
 	    It should be noted that runs are therefore not well suited for direct comparison or for binning; but they do offer a good predictor for expected variability in reaction times.
-	\subsection{Behavioural Test}
+	\subsection{Visual Matching Task}
 	    For stimulus presentation and data acquisition in these experiments we used faceRT \citep{faceRT}, a Python script written for the purpose of this thesis and openly published on GitHub \citep{github}.
 	    Our script uses the PsychoPy suite \citep{Peirce2008} for specialized, high-precision stimulus rendering and timing.
 	    
@@ -59,7 +60,7 @@
 		In a first set of trials we have scrambled images with scrambling clusters of sizes starting at \SI{6}{\pixel} and progressing to \SI{26}{\pixel} in \SI{4}{\pixel} steps.
 	    \subsubsection{Composite Kernel-and-Cluster-Based Scrambling}\label{sec:pe_m_si_cs}
 		As the previous set-up of preliminary experiments proved unsatisfactory due to eye visibility (which is known to elicit fearful emotional reactions \citep{Whalen2004} that could well disrupt our brain imaging baseline), we decided to further obfuscate facial features.
-		This was done by kernel-scrambling the images (as detailed in section~\ref{sec:m_vs_si_kbs}) before applying the same cluster-based scrambling as in the experiments mentioned above.
+		This was done by kernel-scrambling the images (as detailed in section~\ref{sec:m_vs_si_ks}) before applying the same cluster-based scrambling as in the experiments mentioned above.
 		Such a preparation of the images renders all features with a horizontal and/or vertical spatial frequency above $\frac{1}{\sigma_{K}}$ (where $\sigma_{K}$ is the pixel redistribution standard deviation demonstratively calculated in figure~\ref{eq:lrgn}) unrecognisable.
 		
 		The transition from the black of the pupil over the iris to the white of the cornea in our stimulus images averages around \SI{8}{\pixel} (based on manual analysis).
@@ -148,9 +149,12 @@
 	    The results herefor are presented in figure~\ref{fig:r_pe_ss3}.
 	    The data presented therein shows a constant null error rate for easy emotion recognition.
 	    \py[pe_ss3]{fig_pe_ss3}
+	    
+	    \py[pe_ss3]{av(data_pe_ss3, 'ER~CoI+Error(ID)', title='One-way repeated measure ANOVA table for the data depicted in figure~\\ref{fig:r_pe_ss3}. The $Pr(>F)$ value indicates the adjusted probability of observed results occurring by chance if the means of our defined categories are equal.', label='tab:r_pe_ss3')}
 	    	    
 	    To test whether error rates for this one condition are indeed significantly different we have performed an ANOVA (see table~\ref{tab:r_pe_ss3}).
 	    The value lies considerably above the popular significance threshold of \textit{p}<0.05, indicating that the data does not support our tentative interpretation.
+
 	\subsection{Composite (Kernel-and-Cluster-Based) Scrambling}\label{sec:pe_r_cs}
 	    Based on the results presented in section~\ref{sec:pe_r_ss} we have performed additional experiments using a series of improved method choices (detailed in sections~\ref{sec:pe_m_si_cs} and~\ref{sec:pe_m_bt_cs}).
 	    
@@ -206,7 +210,7 @@
 	    see tables~\ref{tab:r_pe_cs5s1}, \ref{tab:r_pe_cs5s2}, and~\ref{tab:r_pe_cs5s3}.
 	    
 	    The reaction time model (table~\ref{tab:r_pe_cs3s}) paints a similar picture: with a significant value for the difficulty factor and no significance either for scrambling nor for scrambling and difficulty interaction.
-	    We would conclude that in spite of our reduced sample sizes and aforementioned reproducibility issues our scrambling algorithm represents a viable type for a baseline (further discussion in section~\ref{sec:d_pe}.
+	    We would conclude that in spite of our reduced sample sizes and aforementioned reproducibility issues our scrambling algorithm represents a viable type of baseline.
 	    
 	    It should be noted that though not significantly different, both of these simple visual recognition reaction times undershoot their counterpart emotion recognition reaction times.
 	    In light of this we have decided to use a \SI{6}{\pixel} kernel- and \SI{10}{\pixel} cluster-scrambled image baseline for difficult emotion recognition, 
@@ -236,7 +240,7 @@
 	\subsection{Data Reliability}
 	    As our sample sizes are reduced, we acknowledge the limited reliability with which we can make claims pertaining to the general population. 
 	
-	    We would, however, also like to indicate that both inter-trial and inter-participant variability is high (as seen in figure~\ref{fig:pe_r1}).
+	    We would, however, also like to indicate that both inter-trial and inter-participant variability is high (as seen in figure~\ref{fig:r_pe_cs3}).
 	    The accuracy of the determined mean (reflected by the standard errors of figure~\ref{fig:r_pe_cs3}) could be improved by more extensive testing - though the usefulness of doing so with respect to our search for an optimal baseline would be limited.
 	    Regardless of the quality of our mean, reaction times on individual trials would still often coincide even for less stringent or sub-optimal choices of a baseline.  
 	    This would happen on the trial level, as well as on the \textit{participant mean} level.

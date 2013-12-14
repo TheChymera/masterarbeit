@@ -10,9 +10,9 @@
 	    The appointment commenced with safety instructions and discussion of the information/consent forms.
 	    Participants were placed in the fMRI/eye tracking set-up where they completed the behavioural test documented in section~\ref{sec:m_bt} (after approximately \SI{5}{\minute} of anatomical measurements and \SI{17}{\minute} of an other behavioural test performed as part of a different study).
 	    Genetic material samples (detailed in section~\ref{sec:m_gms}) were taken after approximately \SI{45}{\minute} of time spent in the scanner.
-    \section{Behavioural Test}\label{sec:m_bt}
+    \section{Visual Matching Task}\label{sec:m_bt}
 	In our current study we are exploring neuronal function in visual emotional perception.
-	Our behavioural test of choice to tap into these systems relies on visual recognition and subsequent matching of emotions and/or patterns.
+	Our behavioural task of choice to tap into these systems relies on visual recognition and subsequent matching of emotions and/or patterns.
 	We call our paradigm a Hariri-style behavioural test, in acknowledgement of the seminal implementations of a similar paradigm by Hariri and colleagues \citep{Hariri2000,Hariri2003}.
 	    
 	The paradigm consists of a triangular arrangement of three faces - with the bottom two aligned horizontally and the upper face displaced vertically and equidistant from both bottom faces.
@@ -23,21 +23,18 @@
 	
 	The images were continuously displayed independently of input for \SI{5}{\second} or \SI{4.5}{\second} (in the preliminary experiments), and for \SI{4}{\second} (in the fMRI trials).
 	Inter-trial intervals - fixation periods - showed a dot (in the preliminary experiments) or a cross (in the fMRI experiments) and lasted for \SI{2}{\second} or around \SI{4}{\second} respectively.
-	The higher inter-trial interval duration for the fMRI experiments was chosen to accomodate for two volume acquisitions.
+	
+	The higher inter-trial interval duration for the fMRI experiments was chosen to accommodate for a jitter of one fMRI scan repetition time (TR, \SI{2}{\second}).
+	Inter-trial intervals have been jittered around the value of \SI{4}{\second} with a maximum jitter amplitude of \SI{2}{\second}.
 	\subsection{Trial Sequences}
 	    Trial sequences were computed to allow for event-related data analysis.
 	    For the fMRI trials we have employed fixed trial sequences to increase signal detection power.
 	    These trial sequences were calculated using the Optseq2 \citep{optseq} software package, from a list with permitted and counterbalanced stimulus compositions computed by our Pystim \citep{pystim} script.
 	    
-	    According to the stimulus compositions and trial sequences each condition (easy emotion matching, difficult emotion matching, easy pattern matching, difficult pattern matching) is represented by 32 trials - in which all pictures depicting a strong emotion are used as a template: 8 $\times$ {male; female} $\times$ {happy; fearful}.
+	    According to the stimulus compositions and trial sequences each condition (easy emotion matching, difficult emotion matching, easy pattern matching, difficult pattern matching) is represented by 32 trials - in which all pictures depicting a strong emotion are used as a template: 8 $\times$ \{male; female\} $\times$ \{happy; fearful\}.
 	    Thereby within each condition every picture is repeated thrice - once as the template, once as the target, and once as the distractor.
 	    An exception from this is that in difficult emotion matching trials - where we use images with a lower emotional concentration (see section~\ref{sec:m_vs_ef}) - the templates are still images from the higher emotion concentration set.
 	\subsection{Visual Composition}	
-	    Trial durations (as detailed under section~\ref{sec:pe_m_bt_cs}) have been fixed at \SI{4}{\second}, and inter-trial intervals have been jittered around that value with a maximum amplitude of \SI{2}{\second}.
-	    These trials were performed after an anatomical measurement and a different behavioural test - collectively lasting approximately \SI{20}{\minute}.
-	    
-	    During the above we take measures for valence (correct or incorrect) of responses, and for reaction times.
-	    
 	    \begin{wrapfigure}{r}{0.45\textwidth}
 		\centering
 		\vspace{-1.0cm}
@@ -93,7 +90,7 @@
 			
     \section{Stimulus Images}
 	\subsection{Emotional Faces}\label{sec:m_vs_ef}
-	    The emotional face stimuli required by our behavioural test (see section~\ref{sec:m_bt}) have been sourced from the NimStim set of facial expressions \citep{Tottenham2009}.
+	    The emotional face stimuli required by our visual matching task (see section~\ref{sec:m_bt}) have been sourced from the NimStim set of facial expressions \citep{Tottenham2009}.
 	    We have decided to use different emotion intensities in order to better describe step-wise effects of emotion perception and/or emotion recognition for either pupil dilation time courses, brain activation, reaction times - or interactions thereof.
 	    
 	    Our emotion intensities of choice are \SI{40}{\percent} and \SI{100}{\percent} - these being referred to as weak (“hard” in the sense of recognition) and strong (“easy” in the sense of recognition) emotion images respectively.
@@ -117,7 +114,7 @@
 	    We assume that scrambling of images via progressively smaller sub-sections (further referred to as “clusters”) makes the images progressively more difficult to identify and match to other copies.
 	    This rationale determined the nature of our scrambling algorithms (detailed below) and was also experimentally validated in preliminary trials (as described in section~\ref{sec:pe_d}).
 	    
-	    Based on the preliminary results detailed in section~\ref{sec:pe_r} we have decided to use composite (kernel \textit{and} cluster based) scrambling for our experiment.
+	    Based on the preliminary results to be detailed in section~\ref{sec:pe_r} we have decided to use composite (kernel \textit{and} cluster based) scrambling for our experiment.
 	    The scrambling kernel was constant at \SI{6}{\pixel} (following considerations explained in sections~\ref{sec:pe_m_si_cs}) 
 	    and “hard” recognition trials had a scrambling cluster size of \SI{10}{\pixel} while “easy” trials had a scrambling cluster of \SI{22}{\pixel} (following preliminary experiment results described in section~\ref{sec:pe_d_rt}.
 	    The quality of this baseline is assessed under section~\ref{sec:pe_d_fm}.
@@ -132,8 +129,40 @@
 		The Kernel-Bases scrambling variant is performed by remapping every pixel of the image via the \colorbox{vlg}{\texttt{geometric\_transform}} function provided by the SciPy ecosystem \citep{scipy,Oliphant2007}.
 		New positions are computed via a function which adds a random integer in the $[-K;K]$ ($K$ being the scrambling kernel integer) interval to both the X and Y coordinates of the said pixel.
 		Effectively, this redistributes each pixel in an area of $[-K;K]$ around its original position with a standard deviation ($\sigma$) of $\approx 0.96K$ (as calculated in figure~\ref{eq:lrgn}).
+    
+    \section{Occulometry}\label{sec:m_om}
+	As part of our experiments we have measured occulometric parameters of our participants during behavioural trials performed inside the MRI scanner.
+	Occulometric data was captured via an infra-red SemsoMotoric Instruments (SMI) “IVIEW X\textsuperscript{\small\texttrademark} MRI-LR” \SI{60}{\hertz} fMRI-compatible eye tracker.
+	The light source needed to afford signal for the eye-tracking camera is built-in and shines infra-red light.
+	This avoids triggering the pupillary light reflex \citep{Ellis1981} and distorting the pupil diameter data.
+
+	\subsection{Eye Tracking}\label{sec:m_om_et}
+	    More accurately, we are performing “gaze tracking” rather than “eye tracking”, as the system measures the gaze coordinates rather than eye-in-head angles.
+	    We use “eye tracking” as a general term for both measurements, keeping with the trend in both industry specifications \citep{Bojko2006} as well as peer-reviewed publications \citep{Kirk2013}.
+	    
+	    \subsubsection{Data Acquisition}
+		Gaze coordinates are calculated by the firmware provided with our eye tracker, based on the position of the corneal light source reflection relative to the pupil.
+		As our stimulus presentation does not yet incorporate a drift correction mechanism, our eye-tracking data is subject to gross movement artefacts.
+
+	\subsection{Pupillometry}\label{sec:m_om_pm}
+	    \subsubsection{Data Acquisition}
+		From the data provided by the aforementioned hardware we are separately extracting the pupil diameter.
+		The pupil is identified by the firmware of our eye tracker via the contrast between pupil (dark) and iris (bright under infra-red light, regardless of eye color)
+		Pupil area is approximated by the firmware via an edge detection algorithm with a perimeter-to-area ratio constraint
+		(keeping the detected area as close as possible to a circular form).
+
+	    \subsubsection{Data Analysis}
+		Pupillometric data is analysed and plotted via specialized the faceOM script suite \citep{faceOM}.
+		
+		Our data is slightly distorted due to a number of factors: most prominently subjects' eyelids covering parts of the pupils; or dark make-up of some female participants being registered as pupil area.
+		These distortions are not critical for gaze point calculation (as long as they remain constant over the course of calibration and measurement); 
+		but they do interfere non-linearly with the firmware-calculated pupil area 
+		(pupil area lost to eyelid coverage, for instance, scales quite complexly with overlap distance - see figure~\ref{eq:cs}).
+		To avoid such complex data-reconstruction algorithms we are considering using the pupil horizontal diameter as a reference measure for the pupil dilation response in lieu of the actual area.
+		These considerations are further addressed based on experimental results under section~\ref{sec:r_p}.
+	    
     \section{Functional MRI}\label{sec:m_fmri}
-	Patterns of neuronal activity are to be extrapolated from functional magnetic resonance imaging (fMRI) data.
+	In the present study we are using BOLD response data obtained via fMRI as a proxy for neuronal activation.
 	This data was acquired over a \SI{3}{\tesla} Siemens “TIM Trio” MRI scanner at the Central Institute of Mental Health in Mannheim.
 	\subsection{Data Acquisition}
 	    176 anatomical slices were acquired in the sagital plane via a T1-MPRAGE sequence \citep{Brant-Zawadzki1992}, with a repetition time (TR) of \SI{1.57}{\second}, an echo time of \SI{2.7}{\milli\second}, and a flip angle of \SI{15}{\degree}.
@@ -143,32 +172,35 @@
 	    A total of 33 transversal slices were acquired in descending (dorsocaudal) order, at a slice thickness of \SI{3}{\milli\metre}, and an X and Y-axis resolution of again \SI{3}{\milli\metre} (\SI{27}{\milli\metre$^3$} voxel size).
 	\subsection{Data Processing}\label{sec:m_fmri_dp}
 	    The resulting fMRI data in \colorbox{vlg}{\texttt{.dcm}} (DICOM) format was converted to the more convenient \colorbox{vlg}{\texttt{.nii}} (NIfTI) via the MRIconvert \citep{MRIconvert} software package.
+	    Unless otherwise specified, all subsequent NIfTI file processing and analysis was performed via SPM8 \citep{spm} - a MATLAB\textsuperscript{\small\textregistered}-based brain imaging analysis suite.
 	    
 	    Further preprocessing steps have been done in accordance with the established guidelines of the group, and are documented (in simplified form) as part of the faceOM script suite \citep{faceOM} - which was written for the purpose of this thesis and openly published for the benefit of researchers pursuing similar analysis.
-	    Slice timing correction was done according to the EPI sequence - in descending order of slices, non-interlaced, and with the \nth{17} slice as the reference.
 	    
 	    \begin{wrapfigure}{r}{0.55\textwidth}
 		\centering
-		\vspace{-0.5cm}
+		\vspace{-0.7cm}
 		\scalebox{0.31}{\includegraphics{./img/LC_pic.png}}
 		\caption{Mask for the LC based on MNI coordinates extracted from in-vivo MRI localization \citep{Keren2009}. The mask was smoothed and the dynamic range remapped to [-1;1].}
 		\label{fig:m_fmri_dp}
-		\vspace{-1.0cm}
+		\vspace{-1.1cm}
 	    \end{wrapfigure}
+
+	    Slice timing correction was done according to the EPI sequence - in descending order of slices, non-interlaced, and with the \nth{17} slice (the middle slice) as the reference.
+	    Normalization of the data was achieved by coregistration of the EPI to the anatomical scan, segmentation of the anatomical scan, coregistration to the standard MNI (Montreal Neurological Institute) template, and subsequent mapping of the EPI to these parameters. 
+	    Data was realigned to the mean image, and smoothing was done with a 6 $\times$ 6 $\times$ \SI{6}{\milli\metre} full width half maximum kernel.
 	    
 	    Data was analysed by a first-level computation of per-participant contrasts, and a subsequent second-level statistical analysis of these contrasts, resulting in an activation probability map.
-	    The second-level (significance determining) analysis step was done both with and without a locus coeruleus mask.
-	    We used a mask drawn for the purpose of this thesis in the MARINA program \citep{Walter2003} and based on in-vivo magnetic resonance localization of the LC available in peer-reviewed literature \citep{Keren2009}.
-	    Three representative cross sections of our mask are presented in figure~\ref{fig:m_fmri_dp}
-		
-	    All the above detailed NIfTI file processing and analysis was performed via SPM8 \citep{spm} - a MATLAB\textsuperscript{\small\textregistered}-based brain imaging analysis suite.
-	    Coordinates of non-ROI (region of interest) brain activation clusters were assigned anatomical descriptions based on the Wake Forest University (WFU) PickAtlas \citep{Maldjian2003}; 
-	    and the anatomical descriptions are given as International Consortium for Brain Mapping (ICBM) labels.
-	    In cases where the coordinates exceed the bounds of the ICBM we convert them to Talairach coordinates and fall back to the Talairach atlas labelling.
-	    Unless otherwise specified all coordinates are given in Montreal Neurological Institute (MNI) standard space.
-	    
+	    First level analyses used movement regressors as regressors of no interest, and per-condition lists of trial onsets as regressors of interest.
+	    The conditions which we have compared are:
+	    \begin{itemize}
+		\item Hard vs. easy trials (integrating both emotion and pattern matching)
+		\item Easy emotion matching trials vs. easy pattern matching trials
+		\item Hard emotion matching trials vs. hard pattern matching trials
+		\item Hard emotion matching trials vs. easy emotion matching trials.
+	    \end{itemize} 
+
 	    Additionally, pupil diameter time course data obtained from infra-red pupillometry (see section~\ref{sec:m_om_pm}) was down-sampled to a rate of \SI{0.5}{\hertz} (to match the functional TR) and used as a signal regressor.
-	    As it is yet unclear what temporal relationship the pupil dilation response and LC activation have in humans, we implement the regressor in a series of different variations:
+	    As it is yet unclear what temporal relationship the pupil dilation response and LC activation have in humans, we implement this kind of regressor in a series of different variations:
 	    \begin{itemize}
 		\item Raw pupil dilation time course
 		\item Pupil dilation time course convolved with the hemodynamic response function (HRF)
@@ -178,31 +210,16 @@
 	    
 	    The numerical first derivative (first differential) of the raw pupil area time course was computed by the faceOM script suite via the \colorbox{vlg}{\texttt{DataFrame.diff()}} function of the Pandas \citep{pandas} library.
 	    The regressors were convoluted with the haemodynamic response function (HRF) via SPM8.
-    \section{Occulometry}\label{sec:m_om}
-	As part of our experiments we have measured occulometric parameters of our participants during behavioural trials performed inside the MRI scanner.
-	Occulometric data was captured via an infra-red SemsoMotoric Instruments (SMI) “IVIEW X\textsuperscript{\small\texttrademark} MRI-LR” \SI{60}{\hertz} fMRI-compatible eye tracker.
-	\subsection{Eye Tracking}\label{sec:m_om_et}
-	    More accurately, we are performing “gaze tracking” rather than “eye tracking”, as the system measures the gaze coordinates rather than eye-in-head angles.
-	    We use “eye tracking” as a general term for both measurements, keeping with the trend in both industry specifications \citep{Bojko2006} as well as peer-reviewed publications \citep{Kirk2013}.
 	    
-	    Gaze coordinates are calculated by the firmware provided with our eye tracker, based on the position of the corneal light source reflection relative to the pupil.
-	    As our stimulus presentation does not yet incorporate a drift correction mechanism, our eye-tracking data is subject to gross movement artefacts.
-	\subsection{Pupillometry}\label{sec:m_om_pm}
-	    From the data provided by the aforementioned hardware we are separately extracting the pupil diameter.
-	    The pupil diameter is determined by the firmware of our eye tracker via an edge detection algorithm with a perimeter-to-area ratio constraint
-	    (keeping the detected pupil area as close as possible to a circular form).
-	    The light source needed to afford signal for the eye-tracking camera is built-in and shines infra-red light.
-	    This avoids triggering the pupillary light reflex \citep{Ellis1981} and distorting the pupil diameter data.
+	    The second-level (significance determining) analysis step was done both with and without a locus coeruleus mask.
+	    We used a mask drawn for the purpose of this thesis in the MARINA program \citep{Walter2003} and based on in-vivo magnetic resonance localization of the LC available in peer-reviewed literature \citep{Keren2009}.
+	    Three representative cross sections of our mask are presented in figure~\ref{fig:m_fmri_dp}
+		
+	    Coordinates of non-ROI (region of interest) brain activation clusters were assigned anatomical descriptions based on the Wake Forest University (WFU) PickAtlas \citep{Maldjian2003}; 
+	    and the anatomical descriptions are given as International Consortium for Brain Mapping (ICBM) labels.
+	    In cases where the coordinates exceed the bounds of the ICBM we convert them to Talairach coordinates and fall back to the Talairach atlas labelling.
+	    Unless otherwise specified all coordinates are given in Montreal Neurological Institute (MNI) standard space.
 	    
-	    Our data is slightly distorted due to a number of factors: most prominently subjects' eyelids covering parts of the pupils; or dark make-up of some female participants being registered as pupil area.
-	    These distortions are not critical for gaze point calculation (as long as they remain constant over the course of calibration and measurement); 
-	    but they do interfere non-linearly with the firmware-calculated pupil area 
-	    (pupil area lost to eyelid coverage, for instance, scales quite complexly with overlap distance - see figure~\ref{eq:cs}).
-	    To avoid such complex data-reconstruction algorithms we are considering using the pupil horizontal diameter as a reference measure for the pupil dilation response in lieu of the actual area.
-	    These considerations are further addressed based on experimental results under section~\ref{sec:r_p}.
-	    
-	    As discussed in section~\ref{sec:r_p} we are also considering a number of other data post-processing methods (such as frequency filtering) to eliminate further measurement artefacts from our pupil diameter time course.
-	    Pupillometric data is analysed and plotted via specialized the faceOM script suite \citep{faceOM}. 
     \section{Statistical Analysis}\label{sec:m_sa}
 	For the analysis of our data we have implemented a number of statistic methods from different software packages.
 	Our choice of methods took into account transparency and reproducibility, and we have thus - whenever possible - avoided closed-source and/or graphical user interface based software (such as for example MATLAB\textsuperscript{\small\textregistered} or SPSS\textsuperscript{\small\textregistered}), and have published our data analysis scripts in full on-line.

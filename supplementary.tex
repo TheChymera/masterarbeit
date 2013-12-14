@@ -1,7 +1,7 @@
 \chapter{Supplementary Material}
     \begin{figure}[H]
 	\[ \sigma_{x,y} = \sqrt{\sigma_{x}^{2}+\sigma_{y}^{2}} = \sqrt{2\sigma_{x}^{2}} \approx \sqrt{2 \cdot (0.68 K)^{2}} \approx 0.96K\]
-	\caption{Here we calculate the standard deviation ($\sigma$) of the distance from the original pixel location to the new pixel location following kernel-based scrambling, as detailed in section~\ref{sec:m_vs_si_kbs}. The standard deviation along one axis is defined as $0.68K$ (\SI{68}{\percent} of the scrambling kernel, $K$) following the 68–95–99.7 rule, though experimentally we have found slightly lower values ($\approx 0.6K$).}
+	\caption{Here we calculate the standard deviation ($\sigma$) of the distance from the original pixel location to the new pixel location following kernel-based scrambling, as detailed in section~\ref{sec:m_vs_si_ks}. The standard deviation along one axis is defined as $0.68K$ (\SI{68}{\percent} of the scrambling kernel, $K$) following the 68–95–99.7 rule, though experimentally we have found slightly lower values ($\approx 0.6K$).}
 	\label{eq:lrgn}
     \end{figure}
     \begin{figure}[H]
@@ -20,6 +20,7 @@
 	\label{eq:cs}
     \end{figure}
     \py[r_pd_hf2]{lm(data=data_r_pd_hf2, model="nlme", fixed='Pupil~CoI*dTime', random=["ID"], title='Mixed model fitted to the latter half of the time course depicted in figure~\\ref{fig:r_pd_ed1}. The independent variable is CoI (condition of interest) which is either "hard" or "difficult". Time and ID (participant) are defined as random variables.', label='tab:r_pd_hf3')}
+    \clearpage
     \section{Non-Definitive Preliminary Experiment Runs}\label{sec:sm_ndper}
 	\py{fig_pe_cs1}
 	\py{p_table(data_pe_cs1, ['CoI', 'emotion-easy', 'emotion-hard'], ['scrambling', 11, 15, 19, 23, 27], refcap='Proposed best estimators (scrambling cluster sizes in \\SI{}{px})', caption='Table of two-tailed paired sample t-test \\textit{p}-values for the data in figure ~\\ref{fig:r_pe_cs1}, testing the probability of our observations if the compared conditions share the same mean. Note that - though unorthodox - this test does not lose accuracy due to multiple comparisons. As we are looking for the group least likely to reject the null hypothesis, multiple comparison actually makes the test more stringent.', label='tab:r_pe_cs1')}

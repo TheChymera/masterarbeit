@@ -30,6 +30,8 @@
 	
 	To reiterate, Y-axis pupil diameter is often obfuscated by eyelid coverage.
 	Seeing as X-axis diameter incurs no such interference, we believe a simple analysis of correlation can show in how far our measurements are congruent and in how far Y-axis measurements are reliable.
+
+	\py[p_mr]{fig_p_mr}
 	
 	Figure~\ref{fig:p_mr} shows raw data points and means for pupil diameters.
 	Due to the overwhelming amount of raw data points sharing the same variance, Pearson's \textit{r} is numerically undefined for our raw data.
@@ -44,7 +46,7 @@
 	While this offshoot is obscured for mean values, its effect can be traced in the linear formula of the regression line (the computed least-squares solution to a linear matrix equation $Y = aX + b$): 
 	$y = $\py[p_mr]{tex_nr(data_p_mr[1])}$x$\py[p_mr]{tex_nr(data_p_mr[2])}.
 	The \textit{y}-intercept (\py[p_mr]{tex_nr(data_p_mr[2])}) indicates that there is a fixed offset between X-axis and Y-axis measurements, by which Y-axis values are smaller than X-axis values across our measurement range (approx $[20;75]$).
-	\py[p_mr]{fig_p_mr}
+	
     \section{Per-Condition Pupil Dilation Response}\label{sec:r_pd}
 	In this section we are presenting how our conditions of interest (CoI) affect the pupil dilation response.
 	\subsection{Time-Agnostic Comparison}\label{sec:r_pd_ta}
@@ -117,8 +119,9 @@
 	    Overall the pupil dilation is considerably stronger for fearful emotion recognition than for happy emotion recognition, until approximately the last octile (\SIrange{3.5}{4.0}{\second}), where the main effect of the “happy” condition is counteracted by the “happy”-dTime interaction (explicit linear model shown under supplementary materials, in table~\ref{tab:r_pd_hf3}).
 	    \py[r_pd_hf2]{av(data_r_pd_hf2, 'Pupil~CoI*dTime+Error(ID)', title='Two-way repeated measure ANOVA table for the data depicted in figure~\\ref{fig:r_pd_hf1}. Here we test the effect of our conditions of interest ("CoI") and of discrete time octiles ("dTime"). The $Pr(>F)$ value indicates the adjusted probability of obtained results occurring by chance if the means of our defined categories are equal.', label='tab:r_pd_hf2')}
 	    
-    \section{Per-Condition Brain Activity Contrasts}\label{sec:r_pc}
-	The following brain activation analyses have been thresholded at an uncorrected \textit{p}-value of 0.001 and a spatial extent threshold of 20 voxels.
+    \section{Condition-Dependent Brain Activity Contrasts}\label{sec:r_pc}
+	The following brain activation analyses have been thresholded at an uncorrected \textit{p}-value of 0.001 and a spatial extent threshold of \SI{20}{voxels}.
+	None of the subsequently presented contrast pairs presented any activity in the LC ROI at an uncorrected \textit{p}-value threshold of 0.001 and a spatial extent threshold of \SI{0}{voxels}.  
 	\subsection{Difficult vs. Easy Pattern Matching}\label{sec:r_pc_ed}
 	    No significant brain activation was obtained for the contrast of difficult pattern matching trials against the baseline of easy pattern matching tasks at our preferred threshold.
 	    The analysis of the inverse contrast has similarly yielded no activation clusters.
@@ -213,6 +216,9 @@
 	    \py{tex_mr([["A",137,0.002,0.074,12.90,-60,-16,-8],["n","n",0.332,0.303,7.49,-63,-25,-5],["n","n",0.343,0.303,7.47,-57,-34,-2],["B",233,0.008,0.081,11.0,-3,-37,43],["n","n",0.157,0.303,8.11,-6,-31,37],["n","n",0.555,0.314,7.09,-12,-46,34],["C",203,0.008,0.081,10.96,-42,-58,40],["n","n",0.476,0.303,7.21,-42,-58,31],["n","n",0.665,0.340,6.88,-48,-52,25],["D",468,0.232,0.303,7.78,-6,56,13],["n","n",0.324,0.303,7.51,-6,50,-5],["n","n",0.432,0.303,7.28,0,59,4],["E",85,0.240,0.303,7.76,21,-91,19],["n","n",0.880,0.354,6.16,6,-85,37],["n","n",0.975,0.458,5.58,18,-85,37],["F",41,0.673,0.340,6.85,60,-19,-8],["n","n",0.977,0.458,5.55,60,-25,-14],["n","n",1.000,0.869,4.31,60,-7,-8],["G",21,0.824,0.348,6.37,-12,38,46],["n","n",1.000,0.825,4.54,-15,35,34],["H",21,0.911,0.380,6.02,21,-40,40],["I",29,0.930,0.394,5.92,-24,32,46],["n","n",0.956,0.427,5.75,-33,20,49],["n","n",1.000,0.918,4.19,-30,29,40]],caption="Summary statistics for brain activation clusters in the contrast of strong emotion stimulus trials against a baseline of weak emotion stimulus trials. FWE = Family-Wise Error; FDR = False Discovery Rate; X, Y, and Z coordinates given in MNI space.",label="tab:r_pc_sw")}	
     
     \section{Pupil Dilation Regression}\label{sec:r_pdr}
+	In the subsequent analyses we threshold brain activation clusters at an uncorrected \textit{p}-value of 0.001 and a spatial extent threshold of \SI{0}{voxels}.
+	The decrease in the spatial extent threshold from the \SI{20}{voxels} of the previous section owes to our present use of a region of interest covering only a few dozen voxels.
+    
 	For a first analysis attempt, the per-participant pupil area time course was downsampled to the TR (as detailed under section~\ref{sec:m_fmri_dp}) - in order to be used as a regressor.
 	This regressor (\textbf{Regressor I.}) was introduced as a condition in the first level analysis of the fMRI data (independent of the afore detailed conditions of interest).
 	Subsequently the resulting per-participant contrasts were integrated to form population contrast in the second-level analysis.
