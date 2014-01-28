@@ -1,4 +1,4 @@
-A recently compiled version of this document can be downloaded `here <http://chymera.eu/docs/masterarbeit.pdf>`_.
+A compiled version of the latest revision of this document can be downloaded `here <http://chymera.eu/docs/masterarbeit.pdf>`_.
 
 :author: Horea Christian
 :Email: h.chr@mail.ru
