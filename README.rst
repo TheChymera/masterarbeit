@@ -42,11 +42,11 @@ und ob eventuelle Unstimmigkeiten dieser Messungen auf die Art der ausgeführten
 Zusätzlich benutzen wir einen sowohl auf Emotions- wie auch auf Mustererkennung basierenden Verhaltenstest, um zu ermitteln ob:
 (a) sich Emotionserkennung anders auf die Pupillenweitung auswirkt als äquivalente nicht-emotionale kognitive Auslastung;
 (b) die Wahrnehmung verschiedener Emotionen die Pupillenweitung unterschiedlich beeinflusst.
-Wir ergänzen die obigen Untersuchungen indem wir tests für die psychometrische und genetische Typisierung der Probanden durchführen, 
+Wir ergänzen die obigen Untersuchungen indem wir Tests für die psychometrische und genetische Typisierung der Probanden durchführen, 
 deren Auswertung dabei helfen könnte die Relevanz unserer Untersuchung sowohl für die Psychologie als auch für die Biologie zu stärken.
 Wir entdecken eine signifikante Korrelation von Pupillenweitung und Locus Coeruleus Aktivität, und vermuten dass diese den Weg für die Etablierung der Pupillometrie als ein unumständliches und kostengünstiges Verfahren zur Approximierung neuroadrenerger Aktivität bahnen kann. 
 Zusätzlich präsentieren wir neue Daten zum Zeitverlauf der Pupillenweitung in Verhaltenstests zur Gesichtserkennung.
-Diese Zeitverläufe werden laut unseren Ermitlungen sowohl durch die Schwierigkeit der Aufgabe, wie auch durch die emotionelle Valenz der Stimuli moduliert. 
+Diese Zeitverläufe werden laut unseren Ermittlungen sowohl durch die Schwierigkeit der Aufgabe, wie auch durch die emotionelle Valenz der Stimuli moduliert. 
 Wir bereichern den informativen Wert und die Transparenz unserer Arbeit durch die Anwendung neuester Open Science Konzepte und Technologien.
 
 .. ger>
