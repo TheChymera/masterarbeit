@@ -31,7 +31,7 @@
 	    For the fMRI trials we have employed fixed trial sequences to increase signal detection power.
 	    These trial sequences were calculated using the Optseq2 \citep{optseq} software package, from a list with permitted and counterbalanced stimulus compositions computed by our Pystim \citep{pystim} script.
 	    
-	    According to the stimulus compositions and trial sequences each condition (easy emotion matching, difficult emotion matching, easy pattern matching, difficult pattern matching) is represented by 32 trials - in which all pictures depicting a strong emotion are used as a template: 8 $\times$ \{male; female\} $\times$ \{happy; fearful\}.
+	    According to the stimulus compositions and trial sequences, each condition (easy emotion matching, difficult emotion matching, easy pattern matching, difficult pattern matching) is represented by 32 trials - in which all pictures depicting a strong emotion are used as a template: 8 $\times$ \{male; female\} $\times$ \{happy; fearful\}.
 	    Thereby within each condition every picture is repeated thrice - once as the template, once as the target, and once as the distractor.
 	    An exception from this is that in difficult emotion matching trials - where we use images with a lower emotional concentration (see section~\ref{sec:m_vs_ef}) - the templates are still images from the higher emotion concentration set.
 	\subsection{Visual Composition}	
@@ -46,7 +46,7 @@
 		\vspace{-1.0cm}
 	    \end{wrapfigure}
 	    
-	    In contrast to other formulations\citep{Hariri2000,Hariri2003} of the same paradigm (which keep all 3 stimuli equidistant),
+	    In contrast to other formulations \citep{Hariri2000,Hariri2003} of the same paradigm (which keep all 3 stimuli equidistant),
 	    we have decided to adapt the positions of stimulus images to what we believe is a better fit for the human field of view.
 	    Simply aligning the midpoints of stimulus images to the vertices of an equilateral triangle presents some issues:
 	    \begin{itemize}
@@ -63,7 +63,7 @@
 	    The static human field of view has a complex shape modulated amongst others by facial features (as seen in figure~\ref{fig:m_b_1}).
 	    If the outermost light paths fitting figure~\ref{fig:m_b_1} were to be circumscribed by a planar mask in the shape of the rectangle, its height would span approximately \SI{130}{\degree} and its width \SI{180}{\degree}.
 	    This gives the rectangular fit for the field of view a width-to-height ratio of 0.72(2).
-	    Given the data - and for numerical convenience - we have chosen to position the midpoints of our stimulus images as follows:
+	    Given this information - and for numerical convenience - we have chosen to position the midpoints of our stimulus images as follows:
 	    \begin{itemize}
 		\item The distance between the two lower image midpoints is \SI{2}{u}.
 		\item The vertical offset of the top image midpoint from the horizontal line connecting the bottom image midpoints is \SI{1}{u}
@@ -122,13 +122,14 @@
 	    Scrambling was done via Pyxrand \citep{pyxrand}, a Python script written for the purpose of this thesis and openly published on GitHub.
 	    The script provides both cluster-based and kernel-based scrambling:
 	    \subsubsection{Cluster-Based Scrambling}\label{sec:m_vs_si_cs}
-		The Cluster-Based Scrambling functionality recognises the face region of interest (ROI) by scanning for pixel lines with few unique values, and then divides the face ROI in square clusters of predefined sizes.
-		The clusters then get permuted and rewritten in-place on the image - this is done via the \colorbox{vlg}{\texttt{montage2d}} function (of the \colorbox{vlg}{\texttt{scikits\_image}} python package), which  was adapted for this purpose and contributed to the package for the benefit of the scientific community as part of this thesis.
+		The Cluster-Based Scrambling functionality recognises the face region of interest (ROI) by thresholding pixel lines by the number of unique values.
+		It then divides the face ROI in square clusters of predefined sizes.
+		The clusters then get permuted and rewritten in-place on the image - this is done via the \colorbox{vlg}{\texttt{montage2d}} function (of the \colorbox{vlg}{\texttt{scikits\_image}} python package), which  was adapted for this purpose as part of this thesis and contributed to the package for the benefit of the scientific community.
 		Finally, the script fills the image background (outside of the ROI) with homogeneous values.
 	    \subsubsection{Kernel-Based Scrambling}\label{sec:m_vs_si_ks}
-		The Kernel-Bases scrambling variant is performed by remapping every pixel of the image via the \colorbox{vlg}{\texttt{geometric\_transform}} function provided by the SciPy ecosystem \citep{scipy,Oliphant2007}.
+		The Kernel-Based scrambling variant is performed by remapping every pixel of the image via the \colorbox{vlg}{\texttt{geometric\_transform}} function provided by the SciPy ecosystem \citep{scipy,Oliphant2007}.
 		New positions are computed via a function which adds a random integer in the $[-K;K]$ ($K$ being the scrambling kernel integer) interval to both the X and Y coordinates of the said pixel.
-		Effectively, this redistributes each pixel in an area of $[-K;K]$ around its original position with a standard deviation ($\sigma$) of $\approx 0.96K$ (as calculated in figure~\ref{eq:lrgn}).
+		Effectively, this redistributes each pixel in an area of $[-K;K]$ along each axis around its original position with a standard deviation ($\sigma$) of $\approx 0.96K$ (as calculated in figure~\ref{eq:lrgn}).
     
     \section{Occulometry}\label{sec:m_om}
 	As part of our experiments we have measured occulometric parameters of our participants during behavioural trials performed inside the MRI scanner.
@@ -148,11 +149,11 @@
 	    \subsubsection{Data Acquisition}
 		From the data provided by the aforementioned hardware we are separately extracting the pupil diameter.
 		The pupil is identified by the firmware of our eye tracker via the contrast between pupil (dark) and iris (bright under infra-red light, regardless of eye color)
-		Pupil area is approximated by the firmware via an edge detection algorithm with a perimeter-to-area ratio constraint
+		Pupil area is approximated by the firmware via an edge detection algorithm with a perimeter-to-area ratio constraint.
 		(keeping the detected area as close as possible to a circular form).
 
 	    \subsubsection{Data Analysis}
-		Pupillometric data is analysed and plotted via specialized the faceOM script suite \citep{faceOM}.
+		Pupillometric data is analysed and plotted via the specialized faceOM script suite \citep{faceOM}.
 		
 		Our data is slightly distorted due to a number of factors: most prominently subjects' eyelids covering parts of the pupils; or dark make-up of some female participants being registered as pupil area.
 		These distortions are not critical for gaze point calculation (as long as they remain constant over the course of calibration and measurement); 
@@ -236,10 +237,10 @@
 	    To adapt the t-test to this constraint (where data points are no longer independent) we use the paired sample t-test (also known as a related sample t-tests).
 	    We implement this statistical method via the \colorbox{vlg}{\texttt{scipy.stats.mstats.ttest\_rel}} function of the SciPy ecosystem \citep{scipy,Oliphant2007}.
 	    
-	    Unless otherwise specified, in order to avoid inflating our significance we are testing per-participant means instead of raw data points.
+	    In order to avoid inflating our significance, we are testing per-participant means instead of raw data points - unless specified otherwise.
 	    This also affords the advantage of averting undocumented violations of the normal distribution assumption of the t-test -
 	    since means of even non-normally distributed populations tend to be normally distributed.
-	    Aditionally, unless otherwise specified we are conducting two-tailed t-tests, as we are trying to minimize a priori assumptions in the explorative context of our study. 
+	    Additionally, unless otherwise specified, we are conducting two-tailed t-tests, as we are trying to minimize a priori assumptions in the explorative context of our study. 
 	\subsection{Standard Error of the Mean}\label{sec:m_sa_se}
 	    Confusion around appropriate usage of the standard deviation (SD) and standard error of the mean (SEM) is a significant quality deficit and cause of imprecision in modern research \citep{Nagele2003}.
 	    SD is a measure of single data point variability and tends to be constant over increasing sample size, 
@@ -316,7 +317,7 @@
 	    \item \textbf{ERQ} - Translated by Brigit Abler and Henrik Kessler \citep{Abler2009}
 	    \item \textbf{SPQ} - Tranlsated by Klein, Andersen, and Jahn \citep{Klein1997}
 	\end{itemize}
-	The questionnaires were evaluated with questioPy\citep{questiopy}, a Python script written for the purpose of this thesis and openly published on GitHub\citep{github}.
+	The questionnaires were evaluated with questioPy \citep{questiopy}, a Python script written for the purpose of this thesis and openly published on GitHub \citep{github}.
     \section{Genetic Material Samples}\label{sec:m_gms}
 	We have harvested mouth epithelial cells from our participants for prospective genotyping.
 	The cells were obtained as a saliva sample collected via an Oragene\textsuperscript{\small\textregistered}-DNA “Self-Collection Kit OG-500” (DNA Genotek Inc. Ottawa, Ontario, Canada).

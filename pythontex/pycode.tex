@@ -16,7 +16,7 @@ pytex.add_dependencies('/home/chymera/src/faceRT/analysis/gen.cfg')
 import RTdistribution
 keep_scrambling=(0, 6, 22)
 data_pe_ss2 = RTdistribution.main(experiment='6px-4px-6steps', prepixelation=0, keep_scrambling=keep_scrambling, source='server', make_tight={"pad": 0}, print_title=False)
-fig_pe_ss2 = latex_figure(save_fig(fig_width=6.64, fig_height=3), caption='Histogram of reaction times for Hariri-style face matching. Scrambled images for simple visual recognition were preprocessed only with a scrambling cluster. Missed targets have not been counted. For this graphic we have only indexed the '+ ', '.join([str(i) for i in keep_scrambling]) +' pixel scrambling clusters.', label='r_pe_ss2')
+fig_pe_ss2 = latex_figure(save_fig(fig_width=6.64, fig_height=3), caption='Histogram of reaction times for Hariri-style face matching. Scrambled images for simple visual recognition were preprocessed only with a scrambling cluster. Missed targets have not been counted. For this graphic we have only indexed the '+ ', '.join([str(i) for i in keep_scrambling]) +' pixel scrambling cluster trials.', label='r_pe_ss2')
 \end{pycode}
 \begin{pycode}[pe_ss3]
 pytex.add_dependencies('/home/chymera/src/faceRT/analysis/signal_detection.py')
@@ -67,7 +67,7 @@ sys.path.append('/home/chymera/src/faceRT/analysis/')
 import RTdistribution
 keep_scrambling=(0, 11, 23)
 data_pe_cs4 = RTdistribution.main(experiment='11px-4px-5steps_narrow-angle', prepixelation=6, keep_scrambling=keep_scrambling, source='server', make_tight={"pad": 0}, print_title=False)
-fig_pe_cs4 = latex_figure(save_fig(fig_width=6.64, fig_height=3), caption='Histogram of reaction times for Hariri-style face matching. Scrambled images for simple visual recognition were preprocessed with a scrambling kernel of \SI{6}{\pixel} and with scrambling cluster. Missed targets have not been counted. For this graphic we have only indexed the '+ ', '.join([str(i) for i in keep_scrambling]) +' pixel scrambling clusters.', label='r_pe_cs4')
+fig_pe_cs4 = latex_figure(save_fig(fig_width=6.64, fig_height=3), caption='Histogram of reaction times for Hariri-style face matching. Scrambled images for simple visual recognition were preprocessed with a scrambling kernel of \SI{6}{\pixel} and with scrambling cluster. Missed targets have not been counted. For this graphic we have only indexed the '+ ', '.join([str(i) for i in keep_scrambling]) +' pixel scrambling cluster trials.', label='r_pe_cs4')
 \end{pycode}
 \begin{pycode}[pe_cs5]
 pytex.add_dependencies('/home/chymera/src/faceRT/analysis/signal_detection.py')

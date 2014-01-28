@@ -59,16 +59,16 @@
 	    \subsubsection{Simple Cluster-Based Scrambling}
 		In a first set of trials we have scrambled images with scrambling clusters of sizes starting at \SI{6}{\pixel} and progressing to \SI{26}{\pixel} in \SI{4}{\pixel} steps.
 	    \subsubsection{Composite Kernel-and-Cluster-Based Scrambling}\label{sec:pe_m_si_cs}
-		As the previous set-up of preliminary experiments proved unsatisfactory due to eye visibility (which is known to elicit fearful emotional reactions \citep{Whalen2004} that could well disrupt our brain imaging baseline), we decided to further obfuscate facial features.
+		As the previous set-up of preliminary experiments proved unsatisfactory due to ectopic eye visibility (which is known to elicit fearful emotional reactions \citep{Whalen2004} that could well disrupt our brain imaging baseline), we decided to further obfuscate facial features.
 		This was done by kernel-scrambling the images (as detailed in section~\ref{sec:m_vs_si_ks}) before applying the same cluster-based scrambling as in the experiments mentioned above.
-		Such a preparation of the images renders all features with a horizontal and/or vertical spatial frequency above $\frac{1}{\sigma_{K}}$ (where $\sigma_{K}$ is the pixel redistribution standard deviation demonstratively calculated in figure~\ref{eq:lrgn}) unrecognisable.
+		Such a preparation of the images renders all features with a horizontal and/or vertical spatial frequency above $\frac{1}{\sigma_{K}}$ (where $\sigma_{K}$ is the pixel redistribution standard deviation demonstratively calculated in figure~\ref{eq:lrgn}) arguably unrecognisable.
 		
 		The transition from the black of the pupil over the iris to the white of the cornea in our stimulus images averages around \SI{8}{\pixel} (based on manual analysis).
 		We therefore experimented with a series of kernel-based scrambling steps around that value.
 		
 		We found that for smaller scrambling kernels, the spatial frequency low-pass cut-off was too low (as seen in in figures \ref{fig:m_vs_pe_1_a} and \ref{fig:m_vs_pe_1_b} where the eyes are still visible).
-		We also found that for the \SI{8}{\pixel} scrambling kernel, the subsequent cluster-based scrambling includes very many clusters with predominantly background patches (as seen in figure~\ref{fig:m_vs_pe_1_d})
-		This happens because as the scrambling kernel becomes larger face-pixels diffuse further into the background forming a sparsely populated halo which still has to be included to preserve pixel consistency.
+		We also found that for the \SI{8}{\pixel} scrambling kernel, the subsequent cluster-based scrambling includes very many clusters with predominantly background patches (as seen in figure~\ref{fig:m_vs_pe_1_d}).
+		This happens because, as the scrambling kernel becomes larger, face-pixels diffuse further into the background forming a sparsely populated halo which still has to be included to preserve pixel consistency.
 		
 		For the \SI{6}{\pixel} kernel we found that the eyes were still recognisable in the picture which had not yet undergone cluster-based scrambling, but became unrecognisable after cluster-based scrambling.
 		The recognition of the eyes in the first image of figure~\ref{fig:m_vs_pe_1_c} relies on contextual information from other low-frequency features.
@@ -108,7 +108,7 @@
 		\end{figure}
 	\subsection{Data Post-Processing}
 	    Our data analysis script handles system flaws in reaction time recording (whereby negative reaction times are printed) by replacing the value with the median of the category of interest which the trial is part of.
-	    These categories are defined by the nature of the presented stimulus - “emotional easy”, “emotional hard”, and “scrambled X” with X being any of the scrambling cluster sizes tested in each run of the experiment.
+	    These categories are defined by the nature of the presented stimulus, and are: “emotional easy”, “emotional hard”, and “scrambled X” with X being any of the scrambling cluster sizes tested in each run of the experiment.
 	    It should be noted that such errors appear only very rarely (at most twice in a measurement), so this slight manipulation via the most outlier-resistant predictor should impact the data in no other way than assuring its viability for statistical methods requiring full datasets.  
     \section{Results}\label{sec:pe_r}
 	In the following experiments we examine reaction times and error rates for the recognition of progressively scrambled images in comparison to the recognition of our two emotional concentrations.
@@ -130,7 +130,7 @@
 		\item There is a negative progression among the first three factors, with all factor values lying outside of the confidence intervals of all others.
 		\item For the subsequent 4 factors there is no obvious trend, with all factor values lying within each other's confidence intervals. 
 	    \end{itemize}
-	    \py[pe_ss1]{lm(data=data_pe_ss1[(data_pe_ss1['scrambling'] != 0)], fixed='RT~CoI', random='ID', title='Mixed model fitted to the raw data depicted in figure~\\ref{fig:r_pe_ss1}. Our factors are the conditions of interest (CoI), excluding the emotion recognition trials. The mod el chooses the first factor (scrambling-06) as the base intercept. Note the downwards trend for the first 3 factors and that the last 4 factors\' values lie within each other\'s confidence intervals.', label='tab:r_pe_ss1')}
+	    \py[pe_ss1]{lm(data=data_pe_ss1[(data_pe_ss1['scrambling'] != 0)], fixed='RT~CoI', random='ID', title='Mixed model fitted to the raw data depicted in figure~\\ref{fig:r_pe_ss1}. Our factors are the conditions of interest (CoI), excluding the emotion recognition trials. The model chooses the first factor (scrambling-06) as the base intercept. Note the downwards trend for the first 3 factors and that the last 4 factors\' values lie within each other\'s confidence intervals.', label='tab:r_pe_ss1')}
 
 	    As we can see in table~\ref{tab:r_pe_ss2} pattern recognition of figures produced with a \SI{6}{\pixel} scrambling cluster recommends itself as the least unlikely (to keep with accurate terminology of the hypothesis testing we are performing) condition to share an equivalent baseline with difficult emotion recognition.
 	    Similarly, it is pattern recognition of images processed with a \SI{22}{\pixel} scrambling cluster which we choose as our best-guess reaction time equivalent for easy emotion recognition.
