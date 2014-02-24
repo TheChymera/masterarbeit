@@ -1,13 +1,13 @@
-A compiled version of the latest revision of this document can be downloaded **`here <http://chymera.eu/docs/masterarbeit.pdf>`_**.
+A compiled version of the latest revision of this document can be downloaded `here <http://chymera.eu/docs/masterarbeit.pdf>`_.
 
 To compile this document locally please note our **dependancies**:
 
-* **[TeX Live](http://en.wikipedia.org/wiki/Texlive)** - in `Portage <http://en.wikipedia.org/wiki/Portage_(software)>`_ as **app-text/texlive**.
-* **[Matplotlib](http://en.wikipedia.org/wiki/Matplotlib)** - in Portage as **dev-python/matplotlib**
-* **[PythonTeX](https://en.wikipedia.org/wiki/User:Chym%C3%A6ra/PythonTeX)** - in the Portage *science overlay* as **dev-tex/pythontex**
-* **[faceOM](https://github.com/TheChymera/faceOM)**
-* **[faceRT](https://github.com/TheChymera/facesRT)**
-* **[interstats](https://github.com/TheChymera/interstats)**
+* `TeX Live <http://en.wikipedia.org/wiki/Texlive>`_ - in `Portage <http://en.wikipedia.org/wiki/Portage_(software)>`_ as **app-text/texlive**.
+* `Matplotlib <http://en.wikipedia.org/wiki/Matplotlib>`_ - in Portage as **dev-python/matplotlib**
+* `PythonTeX <https://en.wikipedia.org/wiki/User:Chym%C3%A6ra/PythonTeX>`_ - in the Portage *science overlay* as **dev-tex/pythontex**
+* `faceOM <https://github.com/TheChymera/faceOM>`_
+* `faceRT <https://github.com/TheChymera/facesRT>`_
+* `interstats <https://github.com/TheChymera/interstats>`_
 
 :author: Horea Christian
 :Email: h.chr@mail.ru
