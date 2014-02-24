@@ -1,5 +1,13 @@
 A compiled version of the latest revision of this document can be downloaded `here <http://chymera.eu/docs/masterarbeit.pdf>`_.
 
+To compile this document locally please note our **dependancies**:
+* **[TeX Live](http://en.wikipedia.org/wiki/Texlive)** - for document rendering (available in [Portage](http://en.wikipedia.org/wiki/Portage_(software) as app-text/texlive)
+* **[Matplotlib](http://en.wikipedia.org/wiki/Matplotlib)** - for rendering figures (in Portage as dev-python/matplotlib)
+* **[PythonTeX](https://en.wikipedia.org/wiki/User:Chym%C3%A6ra/PythonTeXX)** - for integration of python data processing output (strings, figures) in LaTeX (in the Portage *science overlay* as)
+* **[faceOM](https://github.com/TheChymera/faceOM)** - data analysis for fMRI/pupillomtric/behavioural tests
+* **[faceRT](https://github.com/TheChymera/facesRT)** - data analysis for behavioural tests
+* **[interstats](https://github.com/TheChymera/interstats)** - a script suite for formatting R analysis results (numbers, tables) for LaTeX
+
 :author: Horea Christian
 :Email: h.chr@mail.ru
 :License: Creative Commons Attribution-ShareAlike 3.0 Unported
