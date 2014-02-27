@@ -54,6 +54,7 @@ Wir bereichern den informativen Wert und die Transparenz unserer Arbeit durch di
 Document Reproducibility
 -------
 
+We have written `an overview article <http://tutorials.chymera.eu/blog/2014/02/24/open-science-for-thesis/>`_ to give you a better idea of how this thesis was programmed and how to best reproduce our document. 
 To compile this document and reproduce our data analysis locally please note our dependencies:
 
 * `TeX Live <http://en.wikipedia.org/wiki/Texlive>`_ - in `Portage <http://en.wikipedia.org/wiki/Portage_(software)>`_ as **app-text/texlive**.
