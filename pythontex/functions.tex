@@ -41,7 +41,7 @@ def save_fig(name='', legend=False, fig=None, ext='.pgf', fig_width=1, fig_heigh
         global fig_count
         # Need underscores or other delimiters between `input_*` variables
         # to ensure uniqueness
-        name = 'auto_fig_{}_{}_{}-{}'.format(pytex.input_family, pytex.input_session, pytex.input_restart, fig_count)
+        name = 'auto_fig_{}-{}'.format(pytex.id, fig_count)
         fig_count += 1
     else:
         if len(name) > 4 and name[:-4] in ['.pgf', '.svg', '.png', '.jpg']:

@@ -59,5 +59,5 @@ To compile this document and reproduce our data analysis locally please note our
 
 * `TeX Live <http://en.wikipedia.org/wiki/Texlive>`_ - in `Portage <http://en.wikipedia.org/wiki/Portage_(software)>`_ as **app-text/texlive**.
 * `Matplotlib <http://en.wikipedia.org/wiki/Matplotlib>`_ - in Portage as **dev-python/matplotlib**
-* `PythonTeX <https://en.wikipedia.org/wiki/User:Chym%C3%A6ra/PythonTeX>`_ - in the Portage *science overlay* as **dev-tex/pythontex**
+* `PythonTeX <https://en.wikipedia.org/wiki/User:Chym%C3%A6ra/PythonTeX>`_ (>=0.13) - in the Portage *science overlay* as **dev-tex/pythontex**
 * Clone from GitHub: `faceOM <https://github.com/TheChymera/faceOM>`_, `faceRT <https://github.com/TheChymera/facesRT>`_, `interstats <https://github.com/TheChymera/interstats>`_
